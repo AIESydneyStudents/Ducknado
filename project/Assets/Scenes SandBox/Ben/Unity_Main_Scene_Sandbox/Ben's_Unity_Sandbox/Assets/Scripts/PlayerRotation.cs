@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerRotation : MonoBehaviour
 {
     // Update is called once per frame
     private Controls controls;
@@ -22,9 +22,9 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         RotatingCamera();
-        
+
     }
-    void RotatingCamera() 
+    void RotatingCamera()
     {
 
     }
