@@ -7,11 +7,11 @@ public class CameraScript : MonoBehaviour
 {
 
     [SerializeField] Transform m_player;
+    [SerializeField] Camera m_cam;
     [SerializeField] [Range(0.01f, 1.0f)] float m_smoothness = 0.5f;//How smooth or janky the player is moving
     [SerializeField] [Range(0.01f, 2.0f)] private float m_rotationSpeed = 1;//How fast it is going
-    [SerializeField] Camera m_cam;
-    [SerializeField] private bool m_isRotating = true;
-    [SerializeField] private bool m_lookAtPlayer = false;
+    private bool m_isRotating = true;
+    private bool m_lookAtPlayer = false;
 
 
     private Controls controls;
@@ -37,13 +37,13 @@ public class CameraScript : MonoBehaviour
         if (m_isRotating)
         {
             Quaternion angleToTurn = Quaternion.AngleAxis(camDir * m_rotationSpeed, Vector3.up);
-            offset = angleToTurn * offset;
+            offset = angleToTurn * offset;//Multiplys the angle turned with the original offset.
             m_player.Rotate(Vector3.up *(camDir * m_rotationSpeed));//Rotates the player and allows for the player to move in that direction.
         }
         Vector3 changePos = m_player.position + offset;//Depends on the offset and adds it to the players position
-        transform.position = Vector3.Slerp(transform.position, changePos, m_smoothness);
+        m_cam.transform.position = Vector3.Slerp(m_cam.transform.position, changePos, m_smoothness);
         if (m_lookAtPlayer || m_isRotating)//Allows for the camera to rotate and for the player to be looked at.
-            transform.LookAt(m_player);
+            m_cam.transform.LookAt(m_player);
 
     }
 }

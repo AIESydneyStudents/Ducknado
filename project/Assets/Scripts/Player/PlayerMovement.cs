@@ -7,11 +7,10 @@ public class PlayerMovement : MonoBehaviour
 {
 
     // Update is called once per frame
-    [SerializeField] private float playersMS;//The players movespeed is the addition of the global movespeed and the players movespeed.
+    [SerializeField] private Rigidbody m_playerRB;
     [SerializeField] [Range(-40, -1)] private float minVelocity;//Set this as the opposite negative. Range is between -40 and -1.
     [SerializeField] [Range(40, 1)] private float maxVelocity;//Set this as the opposite positive. Range is between 40 and 1.
-    [SerializeField] private Rigidbody m_playerRB;
-
+    [SerializeField] [Range(40, 1)] private float playersMS;//The players movespeed is the addition of the global movespeed and the players movespeed.
     private Controls controls;
     private bool tooFast = false;
     void Start()
