@@ -217,7 +217,7 @@ MonoBehaviour:
   playersMS: 10
   minVelocity: -20
   maxVelocity: 29
-  rb: {fileID: 0}
+  m_playerRB: {fileID: 0}
 --- !u!135 &1526941647
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ Transform:
   m_GameObject: {fileID: 1768463515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 1.8176817, y: 1, z: 2.3553138}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_player: {fileID: 1526941650}
-  m_smoothness: 0.133
+  m_smoothness: 1
   m_rotationSpeed: 0.38
   m_cam: {fileID: 2018617179}
   m_isRotating: 1
