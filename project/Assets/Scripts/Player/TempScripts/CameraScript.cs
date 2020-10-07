@@ -1,70 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraScript : MonoBehaviour
 {
+
+    [SerializeField] Transform m_player;
+    [SerializeField] [Range(0.01f, 1.0f)] float m_smoothness = 0.5f;
+    [SerializeField] [Range(0.01f, 2.0f)] private float m_rotationSpeed = 1;
+    [SerializeField] Camera m_cam;
+    [SerializeField] private bool m_isRotating = true;
+    [SerializeField] private bool m_lookAtPlayer = false;
+
+
+    private Controls controls;
+    private Vector3 offset;
     // Start is called before the first frame update
-    [SerializeField] Transform target;
-    [SerializeField] private float distance = 2.0f;
-    [SerializeField] private float xSpeed = 20.0f;
-    [SerializeField] private float ySpeed = 20.0f;
-    [SerializeField] private float yMinLimit = -90f;
-    [SerializeField] private float yMaxLimit = 90f;
-    [SerializeField] private float distanceMin = 10f;
-    [SerializeField] private float distanceMax = 10f;
-    [SerializeField] private float smoothTime = 2f;
-    private float rotationYAxis = 0.0f;
-    private float rotationXAxis = 0.0f;
-    private float velocityX = 0.0f;
-    private float velocityY = 0.0f;
-    // Use this for initialization
     void Start()
     {
-        Vector3 angles = transform.eulerAngles;
-        rotationYAxis = angles.y;
-        rotationXAxis = angles.x;
-        // Make the rigid body not change rotation
-        if (GetComponent<Rigidbody>())
-        {
-            GetComponent<Rigidbody>().freezeRotation = true;
-        }
+        controls = new Controls();
+        controls.Player.Enable();
+        controls.Player.Camera_Movement.performed += Camera_Movement_performed;
+        offset = m_cam.transform.position - m_player.transform.position;
     }
+
+    private void Camera_Movement_performed(InputAction.CallbackContext obj)
+    {
+        controls.Player.Camera_Movement.ReadValue<float>();
+    }
+
+    // Update is called once per frame
     void LateUpdate()
     {
-        if (target)
+        var camDir = controls.Player.Camera_Movement.ReadValue<float>();
+        if (m_isRotating)
         {
-            if (Input.GetMouseButton(0))
-            {
-                velocityX += xSpeed * Input.GetAxis("Mouse X") * distance * 0.02f;
-                velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.02f;
-            }
-            rotationYAxis += velocityX;
-            rotationXAxis -= velocityY;
-            rotationXAxis = ClampAngle(rotationXAxis, yMinLimit, yMaxLimit);
-            Quaternion fromRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
-            Quaternion toRotation = Quaternion.Euler(rotationXAxis, rotationYAxis, 0);
-            Quaternion rotation = toRotation;
-            distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
-            RaycastHit hit;
-            if (Physics.Linecast(target.position, transform.position, out hit))
-            {
-                distance -= hit.distance;
-            }
-            Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
-            Vector3 position = rotation * negDistance + target.position;
-            transform.rotation = rotation;
-            transform.position = position;
-            velocityX = Mathf.Lerp(velocityX, 0, Time.deltaTime * smoothTime);
-            velocityY = Mathf.Lerp(velocityY, 0, Time.deltaTime * smoothTime);
+            Quaternion angleToTurn = Quaternion.AngleAxis(camDir * m_rotationSpeed, Vector3.up);
+            offset = angleToTurn * offset;
         }
-    }
-    public static float ClampAngle(float angle, float min, float max)
-    {
-        if (angle < -180F)
-            angle += 180F;
-        if (angle > 180F)
-            angle -= 180F;
-        return Mathf.Clamp(angle, min, max);
+        Vector3 changePos = m_player.position + offset;//Depends on the offset and adds it to the players position
+        transform.position = Vector3.Slerp(transform.position, changePos, m_smoothness);
+        if (m_lookAtPlayer || m_isRotating)//Allows for the camera to rotate and for the player to be looked at.
+            transform.LookAt(m_player);
     }
 }
