@@ -11,9 +11,9 @@ public class Projectile_Projection : MonoBehaviour
     [SerializeField] [Range(0.1f, 2.0f)] private float cooldown = 1.0f;
     [SerializeField] GameObject teashot; //This is added when we got a prefab for the teacup
     [SerializeField] Rigidbody m_player;
+    [SerializeField] GameObject defaultPos;
+    [SerializeField][Range(100.0f, 1000.0f)] private float bullet_Distance = 300.0f;
 
-
-    private Vector3 defaultPos = new Vector3(0.02f, 0.35f, 1f);
     public static bool hitGround;
     private float checkCooldown;
     private bool startCooldown = false;
@@ -71,7 +71,7 @@ public class Projectile_Projection : MonoBehaviour
         {
             Rigidbody rb = teashot.AddComponent<Rigidbody>();
             rb.transform.parent = null;
-            rb.AddForce(m_player.transform.forward * 300);
+            rb.AddForce(m_player.transform.forward * bullet_Distance);
             Debug.Log("You are shooting.");
             startCooldown = true;
         }
@@ -80,8 +80,7 @@ public class Projectile_Projection : MonoBehaviour
         {
             Rigidbody rb = teashot.GetComponent<Rigidbody>();
             Destroy(rb);
-            teashot.transform.position = m_player.transform.position + defaultPos;
-            //teashot.transform.Rotate()
+            teashot.transform.position = new Vector3(m_player.position.x, 0, m_player.position.z) + defaultPos.transform.forward + new Vector3(0, defaultPos.transform.position.y, 0);
             teashot.transform.parent = m_player.transform;
             hitGround = false;
         }
