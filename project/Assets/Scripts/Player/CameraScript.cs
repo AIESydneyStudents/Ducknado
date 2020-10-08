@@ -19,6 +19,7 @@ public class CameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         controls = new Controls();
         controls.Player.Enable();
         controls.Player.Camera_Movement.performed += Camera_Movement_performed;
