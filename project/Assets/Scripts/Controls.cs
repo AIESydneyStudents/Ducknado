@@ -33,6 +33,30 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interaction"",
+                    ""type"": ""Button"",
+                    ""id"": ""ada6bbdc-350e-491f-8de5-9e99b02415e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Projectile_Swap"",
+                    ""type"": ""Button"",
+                    ""id"": ""140252a0-ea91-4f2a-a1e4-dce4a5583e50"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Projectile_Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""4993c443-a5c0-41d6-a3cd-be614aaceba0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -101,6 +125,39 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Camera_Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39df5eef-3709-4918-b71e-837dc602d480"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""941d2bdc-2fbd-4641-9598-ecd59710bc10"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Projectile_Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""878270fa-8115-4817-8725-c35ddd3e82d5"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Projectile_Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -111,6 +168,9 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Camera_Movement = m_Player.FindAction("Camera_Movement", throwIfNotFound: true);
+        m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
+        m_Player_Projectile_Swap = m_Player.FindAction("Projectile_Swap", throwIfNotFound: true);
+        m_Player_Projectile_Shoot = m_Player.FindAction("Projectile_Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -162,12 +222,18 @@ public class @Controls : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Camera_Movement;
+    private readonly InputAction m_Player_Interaction;
+    private readonly InputAction m_Player_Projectile_Swap;
+    private readonly InputAction m_Player_Projectile_Shoot;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Camera_Movement => m_Wrapper.m_Player_Camera_Movement;
+        public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
+        public InputAction @Projectile_Swap => m_Wrapper.m_Player_Projectile_Swap;
+        public InputAction @Projectile_Shoot => m_Wrapper.m_Player_Projectile_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -183,6 +249,15 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Camera_Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera_Movement;
                 @Camera_Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera_Movement;
                 @Camera_Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera_Movement;
+                @Interaction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteraction;
+                @Interaction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteraction;
+                @Interaction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteraction;
+                @Projectile_Swap.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectile_Swap;
+                @Projectile_Swap.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectile_Swap;
+                @Projectile_Swap.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectile_Swap;
+                @Projectile_Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectile_Shoot;
+                @Projectile_Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectile_Shoot;
+                @Projectile_Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectile_Shoot;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -193,6 +268,15 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Camera_Movement.started += instance.OnCamera_Movement;
                 @Camera_Movement.performed += instance.OnCamera_Movement;
                 @Camera_Movement.canceled += instance.OnCamera_Movement;
+                @Interaction.started += instance.OnInteraction;
+                @Interaction.performed += instance.OnInteraction;
+                @Interaction.canceled += instance.OnInteraction;
+                @Projectile_Swap.started += instance.OnProjectile_Swap;
+                @Projectile_Swap.performed += instance.OnProjectile_Swap;
+                @Projectile_Swap.canceled += instance.OnProjectile_Swap;
+                @Projectile_Shoot.started += instance.OnProjectile_Shoot;
+                @Projectile_Shoot.performed += instance.OnProjectile_Shoot;
+                @Projectile_Shoot.canceled += instance.OnProjectile_Shoot;
             }
         }
     }
@@ -201,5 +285,8 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnCamera_Movement(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
+        void OnProjectile_Swap(InputAction.CallbackContext context);
+        void OnProjectile_Shoot(InputAction.CallbackContext context);
     }
 }

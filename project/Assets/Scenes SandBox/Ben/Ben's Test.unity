@@ -130,6 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 991463365}
+  - component: {fileID: 991463366}
   m_Layer: 0
   m_Name: Holder GO
   m_TagString: Untagged
@@ -151,6 +152,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &991463366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991463364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e81ed1319abfdd4c87d34458e803821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasProjectile: 0
+  cooldown: 0.84
 --- !u!1 &1526941643
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +180,6 @@ GameObject:
   - component: {fileID: 1526941647}
   - component: {fileID: 1526941646}
   - component: {fileID: 1526941645}
-  - component: {fileID: 1526941644}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -173,19 +187,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1526941644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526941643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91239d608332be0468e92949779c7942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1526941643}
 --- !u!54 &1526941645
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,10 +215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1589f0d9ce88d41a4cfaf36c97c9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersMS: 10
+  m_playerRB: {fileID: 1526941645}
   minVelocity: -20
   maxVelocity: 29
-  m_playerRB: {fileID: 0}
+  playersMS: 10
 --- !u!135 &1526941647
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -505,7 +506,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018617176}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 6, z: -4.16}
+  m_LocalPosition: {x: 0, y: 15.75, z: -11.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -575,8 +576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_player: {fileID: 1526941650}
+  m_cam: {fileID: 2018617179}
   m_smoothness: 1
   m_rotationSpeed: 0.38
-  m_cam: {fileID: 2018617179}
-  m_isRotating: 1
-  m_lookAtPlayer: 0
