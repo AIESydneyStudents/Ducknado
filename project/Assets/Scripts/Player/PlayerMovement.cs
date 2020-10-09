@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     // Update is called once per frame
     [SerializeField] private Rigidbody m_playerRB;
     [SerializeField] [Range(-40.0f, -1.0f)] private float minVelocity = -1.0f;//Set this as the opposite negative. Range is between -40 and -1.
@@ -13,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Range(40.0f, 1.0f)] private float playersMS = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
     private Controls controls;
     private bool tooFast = false;
+    private bool interacted = false;
     void Start()
     {
         ParentClassUnits parent = new ParentClassUnits();
@@ -21,17 +21,27 @@ public class PlayerMovement : MonoBehaviour
         controls = new Controls();
         controls.Player.Enable();
         controls.Player.Movement.performed += Movement_performed;
+        controls.Player.Interaction.performed += Interaction_performed;
     }
 
     private void Movement_performed(InputAction.CallbackContext obj)
     {
         controls.Player.Movement.ReadValue<Vector2>();
     }
-    void Update()
+    private void Interaction_performed(InputAction.CallbackContext obj)
+    {
+        controls.Player.Interaction.ReadValue<float>();
+    }
+    void FixedUpdate()
     {
         ParentClassUnits parent = new ParentClassUnits();
         var dir = controls.Player.Movement.ReadValue<Vector2>();
-        if (dir.y != 0 || dir.x != 0)
+        var inter = controls.Player.Interaction.ReadValue<float>();
+        if (inter != 0)
+        {
+            interacted = true;
+        }
+            if (dir.y != 0 || dir.x != 0)
         {
             //This is for the movement of the player in the certain direction.
             if (m_playerRB.velocity.x >= maxVelocity || m_playerRB.velocity.x <= minVelocity || m_playerRB.velocity.z >= maxVelocity || m_playerRB.velocity.z <= minVelocity)
@@ -55,5 +65,15 @@ public class PlayerMovement : MonoBehaviour
         else if (dir.y == 0 && dir.x == 0)//To stop having the velocity 
             m_playerRB.velocity = Vector3.zero;
     }
-
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Placement")
+        {
+            if(interacted == true)
+            {
+                Debug.Log("You are interacting with the cube.");
+                interacted = false;
+            }
+        }
+    }
 }
