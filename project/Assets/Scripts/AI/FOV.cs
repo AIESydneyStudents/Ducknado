@@ -15,7 +15,6 @@ public class FOV : MonoBehaviour
 
     private void Update()
     {
-
         float fov = 90f;
         Vector3 origin = Vector3.zero;
         int rayCount = 50;
@@ -41,18 +40,15 @@ public class FOV : MonoBehaviour
             {
                 vertex = hit.point;
                 Debug.Log("Did Hit");
-
             }
             else
             {
                 vertex = origin + GetVectorFromAngle(angle) * viewDistance;
                 Debug.Log("Did not Hit");
-
             }
             vertices[vertexIndex] = vertex;
             if (i > 0)
             {
-
                 triangles[triangleIndex + 0] = 0;
                 triangles[triangleIndex + 1] = vertexIndex - 1;
                 triangles[triangleIndex + 2] = vertexIndex;
