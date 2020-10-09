@@ -56,7 +56,6 @@ public class Projectile_Projection : MonoBehaviour
             teashot.gameObject.SetActive(true);
             hasProjectile = true;
             startCooldown = true;
-            Debug.Log("You have swapped to a projectile.");
         }
         else if (swap != 0 && hasProjectile == true && startCooldown == false)
         {
@@ -64,7 +63,6 @@ public class Projectile_Projection : MonoBehaviour
             hasProjectile = false;
             startCooldown = true;
             cooldown = checkCooldown;
-            Debug.Log("You do not have the projectile anymore.");
         }
 
         if (hasProjectile == true && shot != 0 && startCooldown == false)
@@ -72,10 +70,8 @@ public class Projectile_Projection : MonoBehaviour
             Rigidbody rb = teashot.AddComponent<Rigidbody>();
             rb.transform.parent = null;
             rb.AddForce(m_player.transform.forward * bullet_Distance);
-            Debug.Log("You are shooting.");
             startCooldown = true;
         }
-
         if (hitGround == true)
         {
             Rigidbody rb = teashot.GetComponent<Rigidbody>();

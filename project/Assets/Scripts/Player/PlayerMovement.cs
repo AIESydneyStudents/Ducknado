@@ -10,13 +10,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Range(-40.0f, -1.0f)] private float minVelocity = -1.0f;//Set this as the opposite negative. Range is between -40 and -1.
     [SerializeField] [Range(40.0f, 1.0f)] private float maxVelocity = 1.0f;//Set this as the opposite positive. Range is between 40 and 1.
     [SerializeField] [Range(40.0f, 1.0f)] private float playersMS = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
+    [SerializeField] GameObject[] m_placementTables;
     private Controls controls;
     private bool tooFast = false;
     private bool interacted = false;
     void Start()
     {
         ParentClassUnits parent = new ParentClassUnits();
-        parent.globalMS += playersMS; 
+        parent.globalMS += playersMS;
         m_playerRB = GetComponent<Rigidbody>();
         controls = new Controls();
         controls.Player.Enable();
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         {
             interacted = true;
         }
-            if (dir.y != 0 || dir.x != 0)
+        if (dir.y != 0 || dir.x != 0)
         {
             //This is for the movement of the player in the certain direction.
             if (m_playerRB.velocity.x >= maxVelocity || m_playerRB.velocity.x <= minVelocity || m_playerRB.velocity.z >= maxVelocity || m_playerRB.velocity.z <= minVelocity)
@@ -53,12 +54,12 @@ public class PlayerMovement : MonoBehaviour
                 tooFast = false;
             if (dir.y != 0 && tooFast == false)
             {
-                m_playerRB.AddForce(m_playerRB.transform.forward * parent.globalMS * dir.y);
+                m_playerRB.AddForce(m_playerRB.transform.forward * parent.globalMS * dir.y * playersMS);
                 tooFast = false;
             }
             if (dir.x != 0 && tooFast == false)
             {
-                m_playerRB.AddForce(m_playerRB.transform.right * parent.globalMS * dir.x);
+                m_playerRB.AddForce(m_playerRB.transform.right * parent.globalMS * dir.x * playersMS);
                 tooFast = false;
             }
         }
@@ -69,9 +70,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Placement")
         {
-            if(interacted == true)
+            if (interacted == true)
             {
-                Debug.Log("You are interacting with the cube.");
+                for (int i = 0; i < m_placementTables.Length; i++)
+                {
+                    if (m_placementTables[i] == other.gameObject)
+                        m_placementTables[i].transform.GetChild(0).gameObject.SetActive(true);
+                }
                 interacted = false;
             }
         }
