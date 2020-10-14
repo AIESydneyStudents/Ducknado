@@ -25,20 +25,20 @@ public class FollowPath : MonoBehaviour
 
     void Start()
     {
-        _navMeshAgent = this.GetComponent<NavMeshAgent>();
+        _navMeshAgent = this.GetComponent<NavMeshAgent>(); // gets the navmesh component of the gameobject this script is attached to
 
-        if (_navMeshAgent == null)
+        if (_navMeshAgent == null) // if it returns null display message
         {
             Debug.LogError("The nav mesh agent component is not attached to " + gameObject.name);
         }
         else
         {
-            if (_patrolPoints != null && _patrolPoints.Count >= 2)
+            if (_patrolPoints != null && _patrolPoints.Count >= 2) // run if the list is not empty and the list count is greater than or equal to 2
             {
-                _curentPatrolIndex = 0;
+                _curentPatrolIndex = 0; // start at the beginning of the list
                 SetDestination();
             }
-            else
+            else //not enough patrol point available display this message
             {
                 Debug.Log("Insufficient patrol points for basic patrolling behaviour");
             }
@@ -79,7 +79,7 @@ public class FollowPath : MonoBehaviour
     {
         if (_patrolPoints != null)
         {
-            Vector3 targetVector = _patrolPoints[_curentPatrolIndex].transform.position;
+            Vector3 targetVector = _patrolPoints[_curentPatrolIndex].transform.position; // sets target vector as the lists current patrol points position
             _navMeshAgent.SetDestination(targetVector);
             _travelling = true;
         }
@@ -109,8 +109,5 @@ public class FollowPath : MonoBehaviour
             _curentPatrolIndex = (_curentPatrolIndex - 1);
 
         }
-
-
-
     }
 }
