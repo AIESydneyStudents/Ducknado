@@ -8,17 +8,18 @@ public class FieldOfView : MonoBehaviour
 	[Range(0, 360)]
 	public float viewAngle;
 
-	public LayerMask targetMask;
-	public LayerMask obstacleMask;
+	public LayerMask _targetMask;
+	public LayerMask _obstacleMask;
 
 	[HideInInspector]
-	public List<Transform> visibleTargets = new List<Transform>(); //List used to keep track on player or enemy when in the radius 
+	public List<Transform> _visibleTargets = new List<Transform>(); //List used to keep track on player or enemy when in the radius 
 
-	public float meshResolution;
-	public int edgeResolveIterations;
-	public float edgeDstThreshold;
+	public float _meshResolution;
+	public int _edgeResolveIterations;
+	public float _edgeDstThreshold;
+	FollowPath follow;
 
-	public float maskCutawayDst = .1f;
+	public float _maskCutawayDst = .1f;
 
 	public MeshFilter viewMeshFilter;
 	Mesh viewMesh;
@@ -49,8 +50,8 @@ public class FieldOfView : MonoBehaviour
 
 	void FindVisibleTargets()
 	{
-		visibleTargets.Clear();
-		Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+		_visibleTargets.Clear();
+		Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, _targetMask);
 
 		for (int i = 0; i < targetsInViewRadius.Length; i++)
 		{
@@ -59,9 +60,10 @@ public class FieldOfView : MonoBehaviour
 			if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
 			{
 				float dstToTarget = Vector3.Distance(transform.position, target.position);
-				if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+				if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, _obstacleMask))
 				{
-					visibleTargets.Add(target);
+					follow._targetVisible = true;
+					_visibleTargets.Add(target);
 				}
 			}
 		}
@@ -69,7 +71,7 @@ public class FieldOfView : MonoBehaviour
 
 	void DrawFieldOfView()
 	{
-		int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
+		int stepCount = Mathf.RoundToInt(viewAngle * _meshResolution);
 		float stepAngleSize = viewAngle / stepCount;
 		List<Vector3> viewPoints = new List<Vector3>();
 		ViewCastInfo oldViewCast = new ViewCastInfo();
@@ -80,7 +82,7 @@ public class FieldOfView : MonoBehaviour
 
 			if (i > 0)
 			{
-				bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > edgeDstThreshold;
+				bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > _edgeDstThreshold;
 				if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded))
 				{
 					EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
@@ -108,7 +110,7 @@ public class FieldOfView : MonoBehaviour
 		vertices[0] = Vector3.zero;
 		for (int i = 0; i < vertexCount - 1; i++)
 		{
-			vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]) + Vector3.forward * maskCutawayDst;
+			vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]) + Vector3.forward * _maskCutawayDst;
 
 			if (i < vertexCount - 2)
 			{
@@ -133,12 +135,12 @@ public class FieldOfView : MonoBehaviour
 		Vector3 minPoint = Vector3.zero;
 		Vector3 maxPoint = Vector3.zero;
 
-		for (int i = 0; i < edgeResolveIterations; i++)
+		for (int i = 0; i < _edgeResolveIterations; i++)
 		{
 			float angle = (minAngle + maxAngle) / 2;
 			ViewCastInfo newViewCast = ViewCast(angle);
 
-			bool edgeDstThresholdExceeded = Mathf.Abs(minViewCast.dst - newViewCast.dst) > edgeDstThreshold;
+			bool edgeDstThresholdExceeded = Mathf.Abs(minViewCast.dst - newViewCast.dst) > _edgeDstThreshold;
 			if (newViewCast.hit == minViewCast.hit && !edgeDstThresholdExceeded)
 			{
 				minAngle = angle;
@@ -160,7 +162,7 @@ public class FieldOfView : MonoBehaviour
 		Vector3 dir = DirFromAngle(globalAngle, true);
 		RaycastHit hit;
 
-		if (Physics.Raycast(transform.position, dir, out hit, viewRadius, obstacleMask))
+		if (Physics.Raycast(transform.position, dir, out hit, viewRadius, _obstacleMask))
 		{
 			return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
 		}

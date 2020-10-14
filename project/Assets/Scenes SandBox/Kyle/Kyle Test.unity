@@ -389,17 +389,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 4.98
   viewAngle: 87
-  targetMask:
+  _targetMask:
     serializedVersion: 2
     m_Bits: 256
-  obstacleMask:
+  _obstacleMask:
     serializedVersion: 2
     m_Bits: 512
-  visibleTargets: []
-  meshResolution: 2.32
-  edgeResolveIterations: 116
-  edgeDstThreshold: 2.23
-  maskCutawayDst: 0.1
+  _visibleTargets: []
+  _meshResolution: 1
+  _edgeResolveIterations: 0
+  _edgeDstThreshold: 0
+  _maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 412459728}
 --- !u!1 &302916388
 GameObject:
@@ -1241,6 +1241,11 @@ PrefabInstance:
       propertyPath: _patrolPoints.Array.data[7]
       value: 
       objectReference: {fileID: 1637904054}
+    - target: {fileID: 86635733728836975, guid: 842ef9c6c5b18a34195c0d09547939fd,
+        type: 3}
+      propertyPath: _patrolWaiting
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2342298832477263773, guid: 842ef9c6c5b18a34195c0d09547939fd,
         type: 3}
       propertyPath: m_Name
@@ -2080,17 +2085,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 6.91
   viewAngle: 94
-  targetMask:
+  _targetMask:
     serializedVersion: 2
-    m_Bits: 256
-  obstacleMask:
+    m_Bits: 0
+  _obstacleMask:
     serializedVersion: 2
-    m_Bits: 512
-  visibleTargets: []
-  meshResolution: 3.96
-  edgeResolveIterations: 119
-  edgeDstThreshold: 1.44
-  maskCutawayDst: 1.9
+    m_Bits: 0
+  _visibleTargets: []
+  _meshResolution: 0
+  _edgeResolveIterations: 0
+  _edgeDstThreshold: 0
+  _maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 315303053}
 --- !u!1001 &959046788
 PrefabInstance:
@@ -3793,17 +3798,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 5.25
   viewAngle: 54.58
-  targetMask:
+  _targetMask:
     serializedVersion: 2
-    m_Bits: 256
-  obstacleMask:
+    m_Bits: 0
+  _obstacleMask:
     serializedVersion: 2
-    m_Bits: 512
-  visibleTargets: []
-  meshResolution: 4.4
-  edgeResolveIterations: 20
-  edgeDstThreshold: 0.34
-  maskCutawayDst: 0.1
+    m_Bits: 0
+  _visibleTargets: []
+  _meshResolution: 0
+  _edgeResolveIterations: 0
+  _edgeDstThreshold: 0
+  _maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 1938581121}
 --- !u!4 &1973452087 stripped
 Transform:
