@@ -18,10 +18,4 @@ public class Interactions : MonoBehaviour
         controls.Player.Interaction.ReadValue<float>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 }

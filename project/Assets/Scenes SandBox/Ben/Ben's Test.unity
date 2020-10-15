@@ -1167,8 +1167,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5107676611186419913, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
+      propertyPath: pooledObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107676611186419913, guid: 0b9a04d12fa33db45a7f76e08083fe79,
+        type: 3}
       propertyPath: amountToPool
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5107676611186419913, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}

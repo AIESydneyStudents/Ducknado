@@ -44,8 +44,8 @@ public class Projectile_Projection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject teaBull = Bullet.sharedInstance.RetrievePooledObject();
         var shot = controls.Player.Projectile_Shoot.ReadValue<float>();//Shoot with spacebar
-        var swap = controls.Player.Projectile_Swap.ReadValue<float>();//This has been set to e
         if (startCooldown == true)
         {
             cooldown -= Time.deltaTime;
@@ -55,31 +55,17 @@ public class Projectile_Projection : MonoBehaviour
                 startCooldown = false;
             }
         }
-        //if (swap != 0 && hasProjectile == false && startCooldown == false)
-        //{
-        //    teashot.gameObject.SetActive(true);
-        //    hasProjectile = true;
-        //    startCooldown = true;
-        //}
-        //else if (swap != 0 && hasProjectile == true && startCooldown == false)
-        //{
-        //    teashot.gameObject.SetActive(false);
-        //    hasProjectile = false;
-        //    startCooldown = true;
-        //    cooldown = checkCooldown;
-        //}
         //This is for shooting
         if (shot != 0 && startCooldown == false)
         {
+
             teashot.gameObject.SetActive(true);
-            GameObject teaBull = Bullet.sharedInstance.RetrievePooledObject();
             MeshRenderer mesh = teaBull.GetComponent<MeshRenderer>();
             Rigidbody rb = teaBull.GetComponent<Rigidbody>();
             mesh.enabled = true;
             if (teaBull != null)
             {
                 teaBull.transform.position = new Vector3(m_player.position.x, 0, m_player.position.z) + defaultPos.transform.forward + new Vector3(0, defaultPos.transform.position.y, 0);
-                teaBull.transform.parent = null;
                 teaBull.SetActive(true);
                 rb.useGravity = true;
                 rb.AddForce(m_player.transform.forward * bullet_Distance);
@@ -88,10 +74,8 @@ public class Projectile_Projection : MonoBehaviour
         }
         if (hitGround == true)
         {
-            GameObject teaBull = Bullet.sharedInstance.RetrievePooledObject();
             teaBull.SetActive(false);
             teaBull.transform.position = new Vector3(m_player.position.x, 0, m_player.position.z) + defaultPos.transform.forward + new Vector3(0, defaultPos.transform.position.y, 0);
-            teashot.transform.parent = m_player.transform;
             hitGround = false;
         }
 

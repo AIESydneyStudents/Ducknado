@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Bullet : MonoBehaviour
 {
-    Rigidbody rb;
-    [SerializeField] GameObject m_player;
     [SerializeField] List<GameObject> pooledObjects;
     [SerializeField] GameObject objectToPool;
     [SerializeField] int amountToPool;
@@ -20,7 +18,6 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < amountToPool; i++)
         {
@@ -43,10 +40,6 @@ public class Bullet : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        //pro = GetComponent<Projectile_Projection>();
-        if (other.gameObject.tag == "Barrier")
-        {
-            Projectile_Projection.hitGround = true;
-        }
+        Projectile_Projection.hitGround = true;
     }
 }
