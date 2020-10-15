@@ -7,14 +7,13 @@ public class PlayerMovement : MonoBehaviour
 {
     // Update is called once per frame
     [SerializeField] private Rigidbody m_playerRB;
-    [SerializeField] [Range(-40.0f, -1.0f)] private float minVelocity = -1.0f;//Set this as the opposite negative. Range is between -40 and -1.
-    [SerializeField] [Range(40.0f, 1.0f)] private float maxVelocity = 1.0f;//Set this as the opposite positive. Range is between 40 and 1.
-    [SerializeField] [Range(40.0f, 1.0f)] private float playersMS = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
+    [SerializeField] [Range(1.0f, 10.0f)] private float acceleration = 1.0f;//Set this as the opposite positive. Range is between 40 and 1.
+    [SerializeField] [Range(1.0f, 2.0f)] private float playersMS = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
     [SerializeField] GameObject[] m_placementTables;
     private Controls controls;
     private bool tooFast = false;
     private bool interacted = false;
-    void Start()
+    void OnEnable()
     {
         ParentClassUnits parent = new ParentClassUnits();
         parent.globalMS += playersMS;
@@ -45,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (dir.y != 0 || dir.x != 0)
         {
             //This is for the movement of the player in the certain direction.
-            if (m_playerRB.velocity.x >= maxVelocity || m_playerRB.velocity.x <= minVelocity || m_playerRB.velocity.z >= maxVelocity || m_playerRB.velocity.z <= minVelocity)
+            if (m_playerRB.velocity.x >= acceleration || m_playerRB.velocity.x <= -acceleration || m_playerRB.velocity.z >= acceleration || m_playerRB.velocity.z <= -acceleration)
             {
                 m_playerRB.velocity = m_playerRB.velocity;
                 tooFast = true;
