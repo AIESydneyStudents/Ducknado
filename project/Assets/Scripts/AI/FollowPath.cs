@@ -13,14 +13,18 @@ public class FollowPath : MonoBehaviour
 
     [SerializeField]
     List<Waypoint> _patrolPoints;
+    public FieldOfView fov;
 
-    public bool _targetVisible;
+    bool _targetVisible = false;
     NavMeshAgent _navMeshAgent;
+    public GameObject player;
     int _curentPatrolIndex;
     bool _travelling;
     bool _waiting;
     float _waitTimer;
     bool _patrolForward;
+    Vector3 targetVector;
+
 
 
     void Start()
@@ -48,6 +52,7 @@ public class FollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //fov.FindVisibleTargets();
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f) // if the object is travelling and checks the distance is less than 1 unit
         {
             _travelling = false;
@@ -76,23 +81,20 @@ public class FollowPath : MonoBehaviour
         }
     }
 
-    private void SetDestination() // sets the destination for the object to move to
+    public void SetDestination() // sets the destination for the object to move to
     {
         if (_patrolPoints != null)
         {
-            Vector3 targetVector;
-
-            if (_targetVisible)
-            {
-                GameObject player = GameObject.FindGameObjectWithTag("Player");
+           
+            if (fov._targetFound)
+            {             
                 targetVector = player.transform.position;
             }
             else
             {
                 targetVector = _patrolPoints[_curentPatrolIndex].transform.position; // sets target vector as the lists current patrol points position
             }
-
-            _navMeshAgent.SetDestination(targetVector); //set target vector as objects detination
+          _navMeshAgent.SetDestination(targetVector); //set target vector as objects detination
             _travelling = true; // now has new destination, so set true
         }
     }
