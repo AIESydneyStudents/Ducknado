@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private Controls controls;
     private bool tooFast = false;
     private bool interacted = false;
+
+    public GunController gun;
     void OnEnable()
     {
         ParentClassUnits parent = new ParentClassUnits();
@@ -20,17 +22,11 @@ public class PlayerMovement : MonoBehaviour
         m_playerRB = GetComponent<Rigidbody>();
         controls = new Controls();
         controls.Player.Enable();
-        controls.Player.Movement.performed += Movement_performed;
-        controls.Player.Interaction.performed += Interaction_performed;
+        controls.Player.Projectile_Shoot.performed += Projectile_Shoot_performed;
     }
-
-    private void Movement_performed(InputAction.CallbackContext obj)
+    private void Projectile_Shoot_performed(InputAction.CallbackContext obj)
     {
-        controls.Player.Movement.ReadValue<Vector2>();
-    }
-    private void Interaction_performed(InputAction.CallbackContext obj)
-    {
-        controls.Player.Interaction.ReadValue<float>();
+        gun.isFiring = true;
     }
     void FixedUpdate()
     {
