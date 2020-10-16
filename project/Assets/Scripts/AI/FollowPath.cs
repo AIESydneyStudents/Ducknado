@@ -13,7 +13,7 @@ public class FollowPath : MonoBehaviour
 
     [SerializeField]
     List<Waypoint> _patrolPoints;
-    
+
     public FieldOfView fov;
     NavMeshAgent _navMeshAgent;
     public GameObject player;
@@ -24,8 +24,8 @@ public class FollowPath : MonoBehaviour
     bool _travelling;
     bool _waiting;
     bool _patrolForward;
-    bool seekingPlayer; //if seeking player true
-    Vector3 targetVector;
+    bool _seekingPlayer; //if seeking player true
+    Vector3 _targetVector;
 
 
 
@@ -55,59 +55,26 @@ public class FollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_travelling && _navMeshAgent.remainingDistance <= 1.0f && seekingPlayer == false) // if the object is travelling and checks the distance is less than 1 unit
+        if (fov._targetFound)
         {
-            _travelling = false;
+            _targetVector = player.transform.position;
 
-            if (_patrolWaiting ) //if true wait timer set to the 0
-            {
-                _waiting = true;
-                _waitTimer = 0f;
-            }
-            else
-            {
-                ChangePatrolPoint(); //changes current patrol point to next point
-                SetDestination(); // sets the new patrol point
-            }
+            _navMeshAgent.SetDestination(_targetVector);
+        }
+        else
+        {
+            PathFinding();
         }
 
-        if (seekingPlayer)
-        {
-            ChangePatrolPoint();
-            SetDestination(); // sets the new patrol point
-        }
-
-
-        if (_waiting) //object is waiting at destination with timer set to 0 this code will run
-        {
-            _waitTimer += Time.deltaTime;
-            if (_waitTimer >= _waitTime) // if the timer greater than the requested wait time, object is no longer waiting and new position is set
-            {
-                _waiting = false;
-                ChangePatrolPoint();
-                SetDestination();
-
-            }
-        }
-        
     }
 
     public void SetDestination() // sets the destination for the object to move to
     {
         if (_patrolPoints != null)
         {
-           
-            if (fov._targetFound)
-            {
-                seekingPlayer = true;
-                targetVector = player.transform.position;
-            }
-            else
-            {
-                seekingPlayer = false;
-                targetVector = _patrolPoints[_curentPatrolIndex].transform.position; // sets target vector as the lists current patrol points position
-            }
-          _navMeshAgent.SetDestination(targetVector); //set target vector as objects detination
+            _targetVector = _patrolPoints[_curentPatrolIndex].transform.position; // sets target vector as the lists current patrol points position
+
+            _navMeshAgent.SetDestination(_targetVector); //set target vector as objects detination
             _travelling = true; // now has new destination, so set true
         }
     }
@@ -124,12 +91,10 @@ public class FollowPath : MonoBehaviour
             _patrolForward = true;
         }
 
-
         if (_patrolForward == true) //if the player can move forward, the list is increased by 1
         {
             _curentPatrolIndex = (_curentPatrolIndex + 1);
         }
-
 
         if (_patrolForward == false) //if player can not move forward decrements it back to current position
         {
@@ -137,4 +102,39 @@ public class FollowPath : MonoBehaviour
 
         }
     }
+
+    private void PathFinding()
+    {
+        if (_travelling && _navMeshAgent.remainingDistance <= 1.0f) // if the object is travelling and checks the distance is less than 1 unit
+        {
+            _travelling = false;
+
+            if (_patrolWaiting) //if true wait timer set to the 0
+            {
+                _waiting = true;
+                _waitTimer = 0f;
+            }
+            else
+            {
+                ChangePatrolPoint(); //changes current patrol point to next point
+                SetDestination(); // sets the new patrol point
+            }
+        }
+
+        if (_waiting) //object is waiting at destination with timer set to 0 this code will run
+        {
+            _waitTimer += Time.deltaTime;
+            if (_waitTimer >= _waitTime) // if the timer greater than the requested wait time, object is no longer waiting and new position is set
+            {
+                _waiting = false;
+                ChangePatrolPoint();
+                SetDestination();
+            }
+        }
+    }
+
+//    private void SeekPlayer()
+//    {
+
+//    }
 }

@@ -1170,6 +1170,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5819495290717028907, guid: 842ef9c6c5b18a34195c0d09547939fd,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 234705113}
     - target: {fileID: 7600994408760084882, guid: 842ef9c6c5b18a34195c0d09547939fd,
         type: 3}
       propertyPath: m_Layer
@@ -1971,9 +1976,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 4.91
   viewAngle: 94
-  _targetMask:
-    serializedVersion: 2
-    m_Bits: 256
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 512
@@ -1981,7 +1983,7 @@ MonoBehaviour:
   _edgeResolveIterations: 0
   _edgeDstThreshold: 0
   _targetFound: 0
-  player: {fileID: 234705113}
+  player: {fileID: 0}
   _maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 163342887}
 --- !u!1001 &959046788
@@ -3627,9 +3629,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 5.25
   viewAngle: 54.58
-  _targetMask:
-    serializedVersion: 2
-    m_Bits: 256
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 512
@@ -3637,7 +3636,7 @@ MonoBehaviour:
   _edgeResolveIterations: 0
   _edgeDstThreshold: 0
   _targetFound: 0
-  player: {fileID: 234705113}
+  player: {fileID: 0}
   _maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 751834800}
 --- !u!4 &1973452087 stripped
