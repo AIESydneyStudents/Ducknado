@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Barrier
   - Placement
+  - Bullet
   layers:
   - Default
   - TransparentFX
