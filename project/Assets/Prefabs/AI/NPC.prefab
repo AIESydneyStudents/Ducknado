@@ -215,7 +215,8 @@ MonoBehaviour:
   _patrolWaiting: 0
   _waitTime: 3
   _patrolPoints: []
-  _targetVisible: 0
+  fov: {fileID: 5819495290717028907}
+  player: {fileID: 0}
 --- !u!114 &5819495290717028907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,10 +237,11 @@ MonoBehaviour:
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 512
-  _visibleTargets: []
   _meshResolution: 1
   _edgeResolveIterations: 0
   _edgeDstThreshold: 0
+  _targetFound: 0
+  player: {fileID: 0}
   _maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 6573918942662654194}
 --- !u!1 &7600994408760084882
