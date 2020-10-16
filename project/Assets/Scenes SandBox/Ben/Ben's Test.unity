@@ -1054,7 +1054,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 2025577359}
   m_cam: {fileID: 2018617179}
-  m_smoothness: 1
   m_rotationSpeed: 0.38
 --- !u!4 &2025577359 stripped
 Transform:

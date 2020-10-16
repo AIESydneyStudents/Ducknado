@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5107676610309586229}
   - component: {fileID: 5107676610309586226}
   - component: {fileID: 5107676610309586217}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,6 +131,7 @@ MonoBehaviour:
   acceleration: 1
   playersMS: 2
   m_placementTables: []
+  gun: {fileID: 0}
 --- !u!1 &5107676610701441126
 GameObject:
   m_ObjectHideFlags: 0
