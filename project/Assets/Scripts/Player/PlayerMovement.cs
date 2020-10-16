@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     [SerializeField] private Rigidbody m_playerRB;
     [SerializeField] [Range(1.0f, 10.0f)] private float acceleration = 1.0f;//Set this as the opposite positive. Range is between 40 and 1.
-    [SerializeField] [Range(1.0f, 2.0f)] private float playersMS = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
+    [SerializeField] [Range(1.0f, 10.0f)] private float playersMS = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
     [SerializeField] GameObject[] m_placementTables;
     private Controls controls;
     private bool tooFast = false;

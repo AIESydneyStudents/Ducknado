@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour
 
     [SerializeField] Transform m_player;
     [SerializeField] Camera m_cam;
-    [SerializeField] [Range(0.01f, 1.0f)] float m_smoothness = 1f;//How smooth or janky the player is moving
+    private float m_smoothness = 2f;//How smooth or janky the player is moving
     [SerializeField] [Range(0.01f, 2.0f)] private float m_rotationSpeed = 1;//How fast it is going
     private bool m_isRotating = true;
     private bool m_lookAtPlayer = false;
