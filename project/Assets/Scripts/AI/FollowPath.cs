@@ -55,11 +55,11 @@ public class FollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_travelling && _navMeshAgent.remainingDistance <= 1.0f ) // if the object is travelling and checks the distance is less than 1 unit
+        if (_travelling && _navMeshAgent.remainingDistance <= 1.0f && seekingPlayer == false) // if the object is travelling and checks the distance is less than 1 unit
         {
             _travelling = false;
 
-            if (_patrolWaiting && seekingPlayer == false) //if true wait timer set to the 0
+            if (_patrolWaiting ) //if true wait timer set to the 0
             {
                 _waiting = true;
                 _waitTimer = 0f;
@@ -70,6 +70,14 @@ public class FollowPath : MonoBehaviour
                 SetDestination(); // sets the new patrol point
             }
         }
+
+        if (seekingPlayer)
+        {
+            ChangePatrolPoint();
+            SetDestination(); // sets the new patrol point
+        }
+
+
         if (_waiting) //object is waiting at destination with timer set to 0 this code will run
         {
             _waitTimer += Time.deltaTime;
@@ -81,6 +89,7 @@ public class FollowPath : MonoBehaviour
 
             }
         }
+        
     }
 
     public void SetDestination() // sets the destination for the object to move to
