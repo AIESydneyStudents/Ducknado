@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
+    [SerializeField]
     public float viewRadius;
     [Range(0, 360)]
+
+    [SerializeField]
     public float viewAngle;
 
     LayerMask _targetMask;
-    public LayerMask _obstacleMask;
+    LayerMask _obstacleMask;
 
-    //[HideInInspector]
-    //public List<Transform> _visibleTargets = new List<Transform>(); //List used to keep track on player or enemy when in the radius 
+    float _meshResolution = 1;
+    int _edgeResolveIterations;
+    float _edgeDstThreshold;
 
-    public float _meshResolution;
-    public int _edgeResolveIterations;
-    public float _edgeDstThreshold;
+    [HideInInspector]
     public bool _targetFound;
 
     public GameObject player;
 
-    public float _maskCutawayDst = .1f;
+    float _maskCutawayDst = .1f;
 
     public MeshFilter viewMeshFilter;
     Mesh viewMesh;
@@ -33,8 +35,8 @@ public class FieldOfView : MonoBehaviour
         viewMeshFilter.mesh = viewMesh;
         _targetFound = false;
 
-        //player.layer = LayerMask.NameToLayer("Target");
         _targetMask = LayerMask.NameToLayer("Target");
+        _obstacleMask = LayerMask.NameToLayer("Obstacle");
 
         StartCoroutine("FindTargetsWithDelay", .2f);
     }
@@ -56,17 +58,12 @@ public class FieldOfView : MonoBehaviour
 
     public void FindVisibleTargets()
     {
-        //Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, _targetMask);
-
-        // for (int i = 0; i < targetsInViewRadius.Length; i++)
-        //{
-        //Transform target = targetsInViewRadius[i].transform;
             Vector3 dirToTarget = (player.transform.position - transform.position).normalized;
 
             if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
             {
                 float dstToTarget = Vector3.Distance(transform.position, player.transform.position);
-                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, _obstacleMask))
+                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, _obstacleMask) && dstToTarget <= viewRadius)
                 {
                     _targetFound = true;
                 }
@@ -74,8 +71,7 @@ public class FieldOfView : MonoBehaviour
                 {
                     _targetFound = false;
                 }
-            }
-        //}
+            }       
     }
     void DrawFieldOfView()
     {

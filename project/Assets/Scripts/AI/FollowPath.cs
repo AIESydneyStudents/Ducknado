@@ -12,6 +12,12 @@ public class FollowPath : MonoBehaviour
     float _waitTime = 3f;
 
     [SerializeField]
+    float _wanderRadius = 3f;
+
+    [SerializeField]
+    float _wanderTime = 3f;
+
+    [SerializeField]
     List<Waypoint> _patrolPoints;
 
     public FieldOfView fov;
@@ -21,6 +27,7 @@ public class FollowPath : MonoBehaviour
     int _curentPatrolIndex;
     float _waitTimer;
 
+    bool _pathFindingActive;
     bool _travelling;
     bool _waiting;
     bool _patrolForward;
@@ -55,17 +62,36 @@ public class FollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (fov._targetFound)
         {
+            _pathFindingActive = false;
+            _wanderTime = 0;
+
             _targetVector = player.transform.position;
 
             _navMeshAgent.SetDestination(_targetVector);
         }
         else
         {
-            PathFinding();
+            if (!_pathFindingActive)
+            {
+                while (_wanderTime > 0)
+                {
+                    _navMeshAgent.SetDestination(RandomNavSphere(this.transform.position, _wanderRadius, 2));
+                    _wanderTime--;
+                }
+                if (!fov._targetFound)
+                {
+                    _pathFindingActive = true;
+                }
+            }
+            else
+            {
+                _wanderTime = 0;
+                PathFinding();
+            }
         }
-
     }
 
     public void SetDestination() // sets the destination for the object to move to
@@ -133,8 +159,24 @@ public class FollowPath : MonoBehaviour
         }
     }
 
-//    private void SeekPlayer()
-//    {
+    private void Wandering()
+    {
+        if (!fov._targetFound)
+        {
 
-//    }
+        }
+    }
+
+    private static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    {
+        Vector3 randDirection = Random.insideUnitSphere * dist;
+
+        randDirection += origin;
+
+        NavMeshHit navHit;
+
+        NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
+
+        return navHit.position;
+    }
 }

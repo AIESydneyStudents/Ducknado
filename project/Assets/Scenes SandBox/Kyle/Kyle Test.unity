@@ -974,7 +974,7 @@ PrefabInstance:
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.68
+      value: 21.79
       objectReference: {fileID: 0}
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
@@ -984,7 +984,7 @@ PrefabInstance:
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.58
+      value: 6.27
       objectReference: {fileID: 0}
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
@@ -994,7 +994,7 @@ PrefabInstance:
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.49189174
+      value: 0.0017452955
       objectReference: {fileID: 0}
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
@@ -1004,7 +1004,7 @@ PrefabInstance:
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8706564
+      value: 0.9999985
       objectReference: {fileID: 0}
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
@@ -1019,7 +1019,7 @@ PrefabInstance:
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 58.93
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
@@ -1976,15 +1976,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 4.91
   viewAngle: 94
-  _obstacleMask:
-    serializedVersion: 2
-    m_Bits: 512
-  _meshResolution: 50
-  _edgeResolveIterations: 0
-  _edgeDstThreshold: 0
   _targetFound: 0
-  player: {fileID: 0}
-  _maskCutawayDst: 0.1
+  player: {fileID: 234705113}
   viewMeshFilter: {fileID: 163342887}
 --- !u!1001 &959046788
 PrefabInstance:
@@ -3629,15 +3622,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 5.25
   viewAngle: 54.58
-  _obstacleMask:
-    serializedVersion: 2
-    m_Bits: 512
-  _meshResolution: 1
-  _edgeResolveIterations: 0
-  _edgeDstThreshold: 0
   _targetFound: 0
-  player: {fileID: 0}
-  _maskCutawayDst: 0.1
+  player: {fileID: 234705113}
   viewMeshFilter: {fileID: 751834800}
 --- !u!4 &1973452087 stripped
 Transform:
