@@ -23,7 +23,14 @@ public class PlayerMovement : MonoBehaviour
         controls = new Controls();
         controls.Player.Enable();
         controls.Player.Projectile_Shoot.performed += Projectile_Shoot_performed;
+        controls.Player.Projectile_Swap.performed += Projectile_Swap_performed;
     }
+
+    private void Projectile_Swap_performed(InputAction.CallbackContext obj)
+    {
+        GunController.inHandWeapon += 1;
+    }
+
     private void Projectile_Shoot_performed(InputAction.CallbackContext obj)
     {
         gun.isFiring = true;
