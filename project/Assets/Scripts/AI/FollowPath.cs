@@ -31,7 +31,7 @@ public class FollowPath : MonoBehaviour
     bool _travelling;
     bool _waiting;
     bool _patrolForward;
-    bool _seekingPlayer; //if seeking player true
+    //bool _seekingPlayer; //if seeking player true
     Vector3 _targetVector;
 
 
@@ -74,7 +74,7 @@ public class FollowPath : MonoBehaviour
         }
         else
         {
-            if (!_pathFindingActive)
+            if (!_pathFindingActive )
             {
                 while (_wanderTime > 0)
                 {
