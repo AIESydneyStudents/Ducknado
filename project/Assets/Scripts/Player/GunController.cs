@@ -16,6 +16,19 @@ public class GunController : MonoBehaviour
     private int numOfWeapons = 2;
     void Update()
     {
+        //if (inHandWeapon == 1)
+        //{
+        //    Debug.Log("no weapon in hand");
+        //}
+        //else if (inHandWeapon == 1)
+        //{            
+        //    Debug.Log("first weapon in hand");
+        //}
+        //else if (inHandWeapon == 2)
+        //{
+        //    Debug.Log("second weapon in hand");
+        //}
+
         if (inHandWeapon > numOfWeapons)
         {
             inHandWeapon = 0;
@@ -30,6 +43,7 @@ public class GunController : MonoBehaviour
                 {
                     if (inHandWeapon == 1)
                     {
+                        firePoint.rotation = Quaternion.Euler(new Vector3(-33.0f, 0, 0));
                         GameObject bullet = objPooling.SharedInstance.GetPooledObject("Bullet");
                         shotCounter = timeBetweenShots;
                         bullet.transform.position = firePoint.position;
@@ -39,7 +53,8 @@ public class GunController : MonoBehaviour
                     }
                     else if (inHandWeapon == 2)
                     {
-                        GameObject bullet = objPooling.SharedInstance.GetPooledObject("Bullet");
+                        firePoint.rotation = Quaternion.Euler(Vector3.zero);
+                        GameObject bullet = objPooling.SharedInstance.GetPooledObject("FairyBull");
                         shotCounter = timeBetweenShots;
                         bullet.transform.position = firePoint.position;
                         bullet.transform.rotation = firePoint.transform.rotation;
