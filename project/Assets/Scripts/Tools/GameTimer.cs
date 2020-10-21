@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class GameTimer : MonoBehaviour
 {
     float currentTime = 0f;
+    float _finalTime;
+
    // public float gameTime = 120f;
     [SerializeField] TextMeshProUGUI timerText;
     public static bool timerFinished = false;

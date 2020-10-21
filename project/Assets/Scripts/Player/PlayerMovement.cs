@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] GameObject[] tables;
     // Update is called once per frame
     [SerializeField] private Rigidbody m_playerRB;
     [SerializeField] [Range(1.0f, 10.0f)] private float acceleration = 1.0f;//Set this as the opposite positive. Range is between 40 and 1.
     [SerializeField] [Range(1.0f, 10.0f)] private float playersMS = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
-    [SerializeField] GameObject[] m_placementTables;
-    [SerializeField] GameObject tea;
-    [SerializeField] [Range(0.5f, 3.0f)]private float heightofTea;
+
     private Controls controls;
     private bool tooFast = false;
     private bool interacted = false;
@@ -76,13 +76,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (interacted == true)
             {
-                for (int i = 0; i < m_placementTables.Length; i++)
+                for (int i = 0; i < tables.Length; i++)
                 {
-                    if (m_placementTables[i] == other.gameObject && m_placementTables[i].transform.childCount == 0)
+                    if (tables[i] == other.gameObject)
                     {
-                        GameObject current = (GameObject)Instantiate(tea as GameObject,
-                            m_placementTables[i].transform.position + new Vector3(0, heightofTea, 0), m_placementTables[i].transform.rotation);
-                        current.gameObject.transform.parent = m_placementTables[i].gameObject.transform;
+                        tables[i].transform.GetChild(0).gameObject.SetActive(true);
                     }
                 }
                 interacted = false;

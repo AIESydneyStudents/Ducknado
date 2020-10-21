@@ -129,7 +129,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""39df5eef-3709-4918-b71e-837dc602d480"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
