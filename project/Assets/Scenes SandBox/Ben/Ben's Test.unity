@@ -401,23 +401,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5107676610185209529}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1507696360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507696355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b8b7d44ab366e4dac51869bfad571e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsToPool:
-  - amountToPool: 4
-    objectToPool: {fileID: 4061512974801603654, guid: 247f739cf47000f4f9857f2566175101,
-      type: 3}
-    shouldExpand: 0
 --- !u!1 &1592176102
 GameObject:
   m_ObjectHideFlags: 0
