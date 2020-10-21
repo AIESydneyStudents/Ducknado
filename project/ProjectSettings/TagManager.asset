@@ -7,7 +7,11 @@ TagManager:
   - Barrier
   - Placement
   - Bullet
+<<<<<<< HEAD
   - FairyBull
+=======
+  - NPC
+>>>>>>> master
   layers:
   - Default
   - TransparentFX

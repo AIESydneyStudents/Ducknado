@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 5990906811604965449}
   - component: {fileID: 86635733728836975}
   - component: {fileID: 5819495290717028907}
+  - component: {fileID: 5866793368744526408}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -214,6 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _patrolWaiting: 0
   _waitTime: 3
+  _wanderRadius: 3
+  _wanderTime: 3
   _patrolPoints: []
   fov: {fileID: 5819495290717028907}
   player: {fileID: 0}
@@ -231,19 +234,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 8
   viewAngle: 68
-  _targetMask:
-    serializedVersion: 2
-    m_Bits: 256
-  _obstacleMask:
-    serializedVersion: 2
-    m_Bits: 512
-  _meshResolution: 1
-  _edgeResolveIterations: 0
-  _edgeDstThreshold: 0
   _targetFound: 0
   player: {fileID: 0}
-  _maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 6573918942662654194}
+--- !u!135 &5866793368744526408
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342298832477263773}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.24
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7600994408760084882
 GameObject:
   m_ObjectHideFlags: 0
