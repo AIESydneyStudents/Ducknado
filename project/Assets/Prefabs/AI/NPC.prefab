@@ -213,8 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d863019d2ccee4e4e9d6a04b80608de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _patrolWaiting: 0
-  _waitTime: 3
+  _patrolWaiting: 1
+  _waitTime: 2
   _wanderRadius: 3
   _wanderTime: 3
   _patrolPoints: []

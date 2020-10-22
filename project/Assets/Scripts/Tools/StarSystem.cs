@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class StarSystem : MonoBehaviour
 {
-    int _score = 100;
-    GameTimer _gameTimer;
-    NPCTracker _NPCTracker;
-
-    public int _finalScore;
+    public float _oneStarRating;
+    public float _twoStarRating;
+    public float _threeStarRating;
 
     private void StarRating()
     {
-        if (_finalScore >= 80 )
+        if (_threeStarRating <= GameTimer._finalTime)
         {
 
         }
 
-        if (_finalScore >= 50 && _finalScore < 80)
+        if (_twoStarRating <= GameTimer._finalTime && GameTimer._finalTime > _threeStarRating)
         {
 
         }
-        if (_finalScore < 50)
+
+        if (_oneStarRating >= GameTimer._finalTime && GameTimer._finalTime > _twoStarRating)
         {
 
         }

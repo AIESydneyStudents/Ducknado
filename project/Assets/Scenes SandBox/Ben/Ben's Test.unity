@@ -556,6 +556,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5107676610185209529}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1507696359 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5107676610309586226, guid: 0b9a04d12fa33db45a7f76e08083fe79,
+    type: 3}
+  m_PrefabInstance: {fileID: 5107676610185209529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1592176102
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +797,6 @@ GameObject:
   - component: {fileID: 2018617177}
   - component: {fileID: 2018617179}
   - component: {fileID: 2018617178}
-  - component: {fileID: 2018617180}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -864,21 +869,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &2018617180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018617176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa55ede0884f82845b9ee01a35d49a03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_player: {fileID: 2025577359}
-  m_cam: {fileID: 2018617179}
-  m_rotationSpeed: 0.38
 --- !u!4 &2025577359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
@@ -961,6 +951,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 307821361, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
+      propertyPath: m_player
+      value: 
+      objectReference: {fileID: 2025577359}
+    - target: {fileID: 307821361, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
+      propertyPath: m_cam
+      value: 
+      objectReference: {fileID: 2018617179}
     - target: {fileID: 895476680481725745, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: firePoint
@@ -1062,6 +1060,16 @@ PrefabInstance:
       propertyPath: tables.Array.data[1]
       value: 
       objectReference: {fileID: 302510741}
+    - target: {fileID: 5107676610309586217, guid: 0b9a04d12fa33db45a7f76e08083fe79,
+        type: 3}
+      propertyPath: m_playerRB
+      value: 
+      objectReference: {fileID: 1507696359}
+    - target: {fileID: 5107676610309586226, guid: 0b9a04d12fa33db45a7f76e08083fe79,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 5107676610309586227, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: m_Name
