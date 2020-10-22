@@ -12,14 +12,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Range(1.0f, 10.0f)] private float acceleration = 1.0f;//Set this as the opposite positive. Range is between 40 and 1.
     [SerializeField] [Range(1.0f, 10.0f)] private float playersMS = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
     private Controls controls;
-
     [HideInInspector] public static bool interacted = false;
-
     public GunController gun;
     void Start()
     {
-        ParentClassUnits parent = new ParentClassUnits();
-        parent.globalMS += playersMS;
+
         m_playerRB = GetComponent<Rigidbody>();
         controls = new Controls();
         controls.Player.Enable();
@@ -27,33 +24,22 @@ public class PlayerMovement : MonoBehaviour
 
 
         //This is for the shooting function of the shooting function.
-        //controls.Player.Projectile_Shoot.started += Projectile_Shoot_started;
         //controls.Player.Projectile_Shoot.performed += Projectile_Shoot_performed;
         //controls.Player.Projectile_Shoot.canceled += Projectile_Shoot_canceled;
     }
-    //private void Projectile_Shoot_started(InputAction.CallbackContext obj)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
     //private void Projectile_Shoot_performed(InputAction.CallbackContext obj)
     //{
-    //    throw new System.NotImplementedException();
+    //              BulletController.increasedSpeed += 1f;
     //}
+
     //private void Projectile_Shoot_canceled(InputAction.CallbackContext obj)
     //{
-    //    throw new System.NotImplementedException();
+    //    BulletController.keyIsReleased = true;
     //}
-
-
-
-
-
     private void Projectile_Swap_performed(InputAction.CallbackContext obj)
     {
         GunController.inHandWeapon += 1;
     }
-
-
     void FixedUpdate()
     {
         var dir = controls.Player.Movement.ReadValue<Vector2>();
@@ -63,10 +49,11 @@ public class PlayerMovement : MonoBehaviour
         {
             interacted = true;
         }
-        if (shooting != 0)
-            gun.isFiring = true;
-        else
+        if (shooting == 0)
             gun.isFiring = false;
+        else
+            gun.isFiring = true;
+
         if (dir.y != 0 || dir.x != 0)
         {
             //If the velocity is beyond the acceleration, clamp it to the acceleration.
@@ -83,4 +70,5 @@ public class PlayerMovement : MonoBehaviour
         else if (dir.y == 0 && dir.x == 0)//To stop having the velocity 
             m_playerRB.velocity = Vector3.zero;
     }
+    
 }

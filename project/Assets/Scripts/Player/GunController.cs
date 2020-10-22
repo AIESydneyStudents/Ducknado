@@ -26,7 +26,7 @@ public class GunController : MonoBehaviour
             shotCounter -= Time.deltaTime;
             if (shotCounter <= 0)
             {
-                if (gun.activeInHierarchy == true)
+                if (BulletController.keyIsReleased == false)//Change this back to true
                 {
                      if (inHandWeapon == 1)
                     {

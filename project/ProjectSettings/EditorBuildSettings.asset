@@ -21,6 +21,10 @@ EditorBuildSettings:
     path: Assets/Scenes Main Project/Levels/AI.unity
     guid: 265ee67e100d1c44d915014200fe7d49
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes Main Project/Other/Gallery.unity
+=======
+    path: Assets/Scenes SandBox/Other/Gallery.unity
+>>>>>>> master
     guid: 2a472217549e14948a1b310c73a5e864
   m_configObjects: {}
