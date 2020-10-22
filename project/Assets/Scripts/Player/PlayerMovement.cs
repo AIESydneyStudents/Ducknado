@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Controls controls;
     [HideInInspector] public static bool interacted = false;
     public GunController gun;
+    public float weight;
     void Start()
     {
 
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        m_playerRB.AddForce(Vector3.down * weight);
         var dir = controls.Player.Movement.ReadValue<Vector2>();
         var inter = controls.Player.Interaction.ReadValue<float>();
         var shooting = controls.Player.Projectile_Shoot.ReadValue<float>();
@@ -67,8 +69,8 @@ public class PlayerMovement : MonoBehaviour
             m_playerRB.AddForce(inputDir * playersMS * 10);//Adds velocity to the direction for the player
 
         }
-        else if (dir.y == 0 && dir.x == 0)//To stop having the velocity 
-            m_playerRB.velocity = Vector3.zero;
+        //else if (dir.y == 0 && dir.x == 0)//To stop having the velocity 
+        //    m_playerRB.velocity = Vector3.zero;
     }
     
 }
