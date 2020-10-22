@@ -18,7 +18,11 @@ EditorBuildSettings:
     path: Assets/Scenes Main Project/Main Project/Menu.unity
     guid: 01f142fd038e811488144c4a07fcd9fb
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes Main Project/Levels/Intro level.unity
+=======
+    path: Assets/Scenes Main Project/Levels/Movement Tea Placing.unity
+>>>>>>> Stashed changes
     guid: e64c074fa39080340aee339177ed50cb
   - enabled: 1
     path: Assets/Scenes Main Project/Other/Gallery.unity
