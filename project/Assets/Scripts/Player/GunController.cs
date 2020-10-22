@@ -26,9 +26,9 @@ public class GunController : MonoBehaviour
             shotCounter -= Time.deltaTime;
             if (shotCounter <= 0)
             {
-                if (gun.activeInHierarchy == true)
+                if (BulletController.keyIsReleased == false)//Change this back to true
                 {
-                    if (inHandWeapon == 1)
+                     if (inHandWeapon == 1)
                     {
                         GameObject bullet = objPooling.SharedInstance.GetPooledObject("Bullet");
                         shotCounter = timeBetweenShots;

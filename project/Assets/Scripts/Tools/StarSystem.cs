@@ -8,21 +8,37 @@ public class StarSystem : MonoBehaviour
     public float _twoStarRating;
     public float _threeStarRating;
 
-    private void StarRating()
+    TeaPlacement _teaPlacement;
+    Canvas _victory;
+
+    public void Update()
     {
-        if (_threeStarRating <= GameTimer._finalTime)
+        if (_teaPlacement.AllTeaPlacedCheck() == true)
         {
 
+            _victory.gameObject.tag = "Finish";
+            _victory.gameObject.SetActive(true);
+
+            if (_threeStarRating <= GameTimer._finalTime)
+            {
+
+            }
+
+            if (_twoStarRating <= GameTimer._finalTime && GameTimer._finalTime > _threeStarRating)
+            {
+
+            }
+
+            if (_oneStarRating >= GameTimer._finalTime && GameTimer._finalTime > _twoStarRating)
+            {
+
+            }
+
         }
+    }
 
-        if (_twoStarRating <= GameTimer._finalTime && GameTimer._finalTime > _threeStarRating)
-        {
+    private void DisplayCanvas()
+    {
 
-        }
-
-        if (_oneStarRating >= GameTimer._finalTime && GameTimer._finalTime > _twoStarRating)
-        {
-
-        }
     }
 }

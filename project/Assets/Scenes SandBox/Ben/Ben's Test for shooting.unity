@@ -226,6 +226,33 @@ PrefabInstance:
       propertyPath: m_cam
       value: 
       objectReference: {fileID: 1739774326}
+    - target: {fileID: 798207392, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
+      propertyPath: itemsToPool.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 798207392, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
+      propertyPath: itemsToPool.Array.data[0].amountToPool
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 798207392, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
+      propertyPath: itemsToPool.Array.data[0].objectToPool
+      value: 
+      objectReference: {fileID: 4061512974801603654, guid: 247f739cf47000f4f9857f2566175101,
+        type: 3}
+    - target: {fileID: 798207392, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
+      propertyPath: itemsToPool.Array.data[1].amountToPool
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 798207392, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
+      propertyPath: itemsToPool.Array.data[1].objectToPool
+      value: 
+      objectReference: {fileID: 4061512974801603654, guid: e9c2d9c4195e6254ca6bd23ff572905b,
+        type: 3}
+    - target: {fileID: 895476680481725745, guid: 0b9a04d12fa33db45a7f76e08083fe79,
+        type: 3}
+      propertyPath: timeBetweenShots
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5107676610309586217, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: gun
