@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
 
-    [SerializeField] [Range(0.01f, 10.0f)] float speed;
+    [SerializeField] [Range(0.01f, 10.0f)] float speed = 5.0f;
     // Update is called once per frame
     void Update()
     {
