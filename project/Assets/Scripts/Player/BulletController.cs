@@ -6,24 +6,22 @@ public class BulletController : MonoBehaviour
 {
 
     [SerializeField] [Range(0.01f, 10.0f)] float speed = 5.0f;
-    [SerializeField] [Range(0.01f, 2.0f)] float increasedSpeed = 0.1f;
-    private bool keyIsPressed = false;
+    [HideInInspector]public static float increasedSpeed = 0.1f;
+    public static bool keyIsReleased = false;
+    public GunController gun;
     // Update is called once per frame
     void Update()
     {
-        
 
+        //speed += increasedSpeed;
 
-        //if (Input.GetKey(KeyCode.Space) && keyIsPressed == false)
-        //{
-        //    speed += increasedSpeed;
-        //    keyIsPressed = true;
-        //}
-        //if (Input.GetKeyUp(KeyCode.Space) && keyIsPressed == true)
+        //if (keyIsReleased == true)
         //{
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        //    keyIsPressed = false;
+        //    keyIsReleased = false;
+        //    gun.isFiring = true;
         //}
+
 
     }
     private void OnCollisionEnter(Collision collision)
