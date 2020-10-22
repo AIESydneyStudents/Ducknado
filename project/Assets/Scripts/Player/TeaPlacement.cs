@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TeaPlacement : MonoBehaviour
 {
-    private GameObject[] tables;
-
-
+    [HideInInspector]
+    public GameObject[] _tables;
+    ColorChange _colorChange;
     private void Start()
     {
-        tables = GameObject.FindGameObjectsWithTag("Placement");
+        _tables = GameObject.FindGameObjectsWithTag("Placement");
     }
 
     private void OnTriggerStay(Collider other)
@@ -18,15 +18,36 @@ public class TeaPlacement : MonoBehaviour
         {
             if (PlayerMovement.interacted == true)
             {
-                for (int i = 0; i < tables.Length; i++)
+                for (int i = 0; i < _tables.Length; i++)
                 {
-                    if (tables[i] == other.gameObject)
+                    if (_tables[i] == other.gameObject)
                     {
-                        tables[i].transform.GetChild(0).gameObject.SetActive(true);
+                        _tables[i].transform.GetChild(0).gameObject.SetActive(true);                       
+                        _colorChange.ChangeColorOfArea(_tables[i].transform.position);
                     }
                 }
                 PlayerMovement.interacted = false;
+                AllTeaPlacedCheck();
+            }
+       }
+    }
+
+    public bool AllTeaPlacedCheck()
+    {
+        for (int i = 0; i < _tables.Length; i++)
+        {
+            if (_tables[i].transform.GetChild(0).gameObject.activeSelf) //if the item has been set to true, continue and check next one
+            {
+                continue;
+            }
+            else
+            {
+                return false;
             }
         }
+        return true;
     }
+
+
+
 }

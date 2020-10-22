@@ -8,8 +8,14 @@ public class StarSystem : MonoBehaviour
     public float _twoStarRating;
     public float _threeStarRating;
 
-    private void StarRating()
+    TeaPlacement _teaPlacement;
+    Canvas _victory;
+
+    public void StarRating()
     {
+        _victory.gameObject.tag = "Finish";
+        _victory.gameObject.SetActive(true);
+
         if (_threeStarRating <= GameTimer._finalTime)
         {
 
@@ -24,5 +30,11 @@ public class StarSystem : MonoBehaviour
         {
 
         }
+
+    }
+
+    private void DisplayCanvas()
+    {
+       
     }
 }
