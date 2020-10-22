@@ -11,30 +11,34 @@ public class StarSystem : MonoBehaviour
     TeaPlacement _teaPlacement;
     Canvas _victory;
 
-    public void StarRating()
+    public void Update()
     {
-        _victory.gameObject.tag = "Finish";
-        _victory.gameObject.SetActive(true);
-
-        if (_threeStarRating <= GameTimer._finalTime)
+        if (_teaPlacement.AllTeaPlacedCheck() == true)
         {
 
+            _victory.gameObject.tag = "Finish";
+            _victory.gameObject.SetActive(true);
+
+            if (_threeStarRating <= GameTimer._finalTime)
+            {
+
+            }
+
+            if (_twoStarRating <= GameTimer._finalTime && GameTimer._finalTime > _threeStarRating)
+            {
+
+            }
+
+            if (_oneStarRating >= GameTimer._finalTime && GameTimer._finalTime > _twoStarRating)
+            {
+
+            }
+
         }
-
-        if (_twoStarRating <= GameTimer._finalTime && GameTimer._finalTime > _threeStarRating)
-        {
-
-        }
-
-        if (_oneStarRating >= GameTimer._finalTime && GameTimer._finalTime > _twoStarRating)
-        {
-
-        }
-
     }
 
     private void DisplayCanvas()
     {
-       
+
     }
 }
