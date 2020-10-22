@@ -6,10 +6,21 @@ public class TeaPlacement : MonoBehaviour
 {
     [HideInInspector]
     public GameObject[] _tables;
-    ColorChange _colorChange;
+
+    public GameObject _victory;
+
+    //ColorChange _colorChange;
+    StarSystem _starSystem;
     private void Start()
     {
         _tables = GameObject.FindGameObjectsWithTag("Placement");
+    }
+    private void Update()
+    {
+        if (AllTeaPlacedCheck())
+        {
+            _victory.gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -22,14 +33,18 @@ public class TeaPlacement : MonoBehaviour
                 {
                     if (_tables[i] == other.gameObject)
                     {
-                        _tables[i].transform.GetChild(0).gameObject.SetActive(true);                       
-                        _colorChange.ChangeColorOfArea(_tables[i].transform.position);
+                        _tables[i].transform.GetChild(0).gameObject.SetActive(true);
+                        //_colorChange.ChangeColorOfArea(_tables[i].transform.position);
                     }
                 }
-                PlayerMovement.interacted = false;
                 AllTeaPlacedCheck();
+                PlayerMovement.interacted = false;
+                //if (AllTeaPlacedCheck())
+                //{
+                //    _starSystem.StarRating();
+                //}
             }
-       }
+        }
     }
 
     public bool AllTeaPlacedCheck()
