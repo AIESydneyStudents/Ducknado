@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Placement
   - Bullet
+  - FairyBull
   layers:
   - Default
   - TransparentFX
@@ -38,7 +38,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - fireworx
   m_SortingLayers:
   - name: Default
     uniqueID: 0
