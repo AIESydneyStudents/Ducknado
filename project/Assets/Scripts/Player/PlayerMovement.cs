@@ -23,27 +23,21 @@ public class PlayerMovement : MonoBehaviour
         m_playerRB = GetComponent<Rigidbody>();
         controls = new Controls();
         controls.Player.Enable();
-        controls.Player.Projectile_Shoot.performed += Projectile_Shoot_performed;
-        controls.Player.Projectile_Swap.performed += Projectile_Swap_performed;
     }
 
-    private void Projectile_Swap_performed(InputAction.CallbackContext obj)
-    {
-        GunController.inHandWeapon += 1;
-    }
-
-    private void Projectile_Shoot_performed(InputAction.CallbackContext obj)
-    {
-        gun.isFiring = true;
-    }
     void FixedUpdate()
     {
         var dir = controls.Player.Movement.ReadValue<Vector2>();
         var inter = controls.Player.Interaction.ReadValue<float>();
+        var shoot = controls.Player.Projectile_Shoot.ReadValue<float>();
+        var swap = controls.Player.Projectile_Swap.ReadValue<float>();
         if (inter != 0)
-        {
             interacted = true;
-        }
+        if(swap != 0)
+            GunController.inHandWeapon += 1;
+        if (shoot != 0)
+            gun.isFiring = true;
+
         if (dir.y != 0 || dir.x != 0)
         {
             //If the velocity is beyond the acceleration, clamp it to the acceleration.

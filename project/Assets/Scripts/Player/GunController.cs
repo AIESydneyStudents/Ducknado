@@ -16,19 +16,6 @@ public class GunController : MonoBehaviour
     private int numOfWeapons = 2;
     void Update()
     {
-        //if (inHandWeapon == 1)
-        //{
-        //    Debug.Log("no weapon in hand");
-        //}
-        //else if (inHandWeapon == 1)
-        //{            
-        //    Debug.Log("first weapon in hand");
-        //}
-        //else if (inHandWeapon == 2)
-        //{
-        //    Debug.Log("second weapon in hand");
-        //}
-
         if (inHandWeapon > numOfWeapons)
         {
             inHandWeapon = 0;
