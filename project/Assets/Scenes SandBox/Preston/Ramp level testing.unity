@@ -1123,6 +1123,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 93781527, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
+      propertyPath: itemsToPool.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 93781527, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
+      propertyPath: itemsToPool.Array.data[1].amountToPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 93781527, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
+      propertyPath: itemsToPool.Array.data[1].objectToPool
+      value: 
+      objectReference: {fileID: 4061512974801603654, guid: b8295765f45a1214b8e434d299fd6d23,
+        type: 3}
     - target: {fileID: 307821361, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_cam
       value: 
