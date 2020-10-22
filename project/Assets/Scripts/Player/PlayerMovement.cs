@@ -23,21 +23,50 @@ public class PlayerMovement : MonoBehaviour
         m_playerRB = GetComponent<Rigidbody>();
         controls = new Controls();
         controls.Player.Enable();
+        controls.Player.Projectile_Swap.performed += Projectile_Swap_performed;
+
+
+        //This is for the shooting function of the shooting function.
+        //controls.Player.Projectile_Shoot.started += Projectile_Shoot_started;
+        //controls.Player.Projectile_Shoot.performed += Projectile_Shoot_performed;
+        //controls.Player.Projectile_Shoot.canceled += Projectile_Shoot_canceled;
     }
+    //private void Projectile_Shoot_started(InputAction.CallbackContext obj)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+    //private void Projectile_Shoot_performed(InputAction.CallbackContext obj)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+    //private void Projectile_Shoot_canceled(InputAction.CallbackContext obj)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+
+
+
+
+    private void Projectile_Swap_performed(InputAction.CallbackContext obj)
+    {
+        GunController.inHandWeapon += 1;
+    }
+
 
     void FixedUpdate()
     {
         var dir = controls.Player.Movement.ReadValue<Vector2>();
         var inter = controls.Player.Interaction.ReadValue<float>();
-        var shoot = controls.Player.Projectile_Shoot.ReadValue<float>();
-        var swap = controls.Player.Projectile_Swap.ReadValue<float>();
+        var shooting = controls.Player.Projectile_Shoot.ReadValue<float>();
         if (inter != 0)
+        {
             interacted = true;
-        if(swap != 0)
-            GunController.inHandWeapon += 1;
-        if (shoot != 0)
+        }
+        if (shooting != 0)
             gun.isFiring = true;
-
+        else
+            gun.isFiring = false;
         if (dir.y != 0 || dir.x != 0)
         {
             //If the velocity is beyond the acceleration, clamp it to the acceleration.
