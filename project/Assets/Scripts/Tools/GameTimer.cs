@@ -7,15 +7,15 @@ using UnityEngine.UI;
 public class GameTimer : MonoBehaviour
 {
     float currentTime = 0f;
-    float _finalTime;
 
-   // public float gameTime = 120f;
+    [HideInInspector]
+    public static float _finalTime;
+
     [SerializeField] TextMeshProUGUI timerText;
     public static bool timerFinished = false;
     // Start is called before the first frame update
     void Start()
     {
-        //currentTime = gameTime;
     }
 
     // Update is called once per frame
@@ -23,6 +23,7 @@ public class GameTimer : MonoBehaviour
     {
         currentTime += 1 * Time.deltaTime;
         DisplayTime(currentTime);
+        _finalTime = currentTime;
     }
 
     void DisplayTime(float timeToDisplay)

@@ -6,18 +6,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] GameObject[] tables;
+
     // Update is called once per frame
     [SerializeField] private Rigidbody m_playerRB;
     [SerializeField] [Range(1.0f, 10.0f)] private float acceleration = 1.0f;//Set this as the opposite positive. Range is between 40 and 1.
     [SerializeField] [Range(1.0f, 10.0f)] private float playersMS = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
-
     private Controls controls;
-    private bool tooFast = false;
-    private bool interacted = false;
+
+    [HideInInspector] public static bool interacted = false;
 
     public GunController gun;
-    void OnEnable()
+    void Start()
     {
         ParentClassUnits parent = new ParentClassUnits();
         parent.globalMS += playersMS;
@@ -39,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        ParentClassUnits parent = new ParentClassUnits();
         var dir = controls.Player.Movement.ReadValue<Vector2>();
         var inter = controls.Player.Interaction.ReadValue<float>();
         if (inter != 0)
@@ -48,43 +46,17 @@ public class PlayerMovement : MonoBehaviour
         }
         if (dir.y != 0 || dir.x != 0)
         {
+            if (m_playerRB.velocity.magnitude > acceleration)
+            {
+                m_playerRB.velocity = Vector3.ClampMagnitude(m_playerRB.velocity, acceleration);
+            }
             //This is for the movement of the player in the certain direction.
-            if (m_playerRB.velocity.x >= acceleration || m_playerRB.velocity.x <= -acceleration || m_playerRB.velocity.z >= acceleration || m_playerRB.velocity.z <= -acceleration)
-            {
-                m_playerRB.velocity = m_playerRB.velocity;
-                tooFast = true;
-            }
-            else
-                tooFast = false;
-            if (dir.y != 0 && tooFast == false)
-            {
-                m_playerRB.AddForce(m_playerRB.transform.forward * parent.globalMS * dir.y * playersMS);
-                tooFast = false;
-            }
-            if (dir.x != 0 && tooFast == false)
-            {
-                m_playerRB.AddForce(m_playerRB.transform.right * parent.globalMS * dir.x * playersMS);
-                tooFast = false;
-            }
+            Vector3 input = transform.right * dir.x + transform.forward * dir.y;
+            Vector3 inputDir = input.normalized;//Normalises it
+            m_playerRB.AddForce(inputDir * playersMS * 10);//Adds velocity to the direction for the player
+
         }
         else if (dir.y == 0 && dir.x == 0)//To stop having the velocity 
             m_playerRB.velocity = Vector3.zero;
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Placement")
-        {
-            if (interacted == true)
-            {
-                for (int i = 0; i < tables.Length; i++)
-                {
-                    if (tables[i] == other.gameObject)
-                    {
-                        tables[i].transform.GetChild(0).gameObject.SetActive(true);
-                    }
-                }
-                interacted = false;
-            }
-        }
     }
 }
