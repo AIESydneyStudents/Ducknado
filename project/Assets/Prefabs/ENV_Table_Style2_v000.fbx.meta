@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: ed80109dfbc626b42ac16f38b35a8ff0
-=======
-guid: da40c2becc7b3e44f8e6006df323f230
->>>>>>> Stashed changes
+guid: b14da88b82394b54a8750e2efd0657be
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
   externalObjects: {}
   materials:
     materialImportMode: 1

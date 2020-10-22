@@ -388,6 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tables: []
+  _victory: {fileID: 0}
 --- !u!114 &234705120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,6 +1072,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5107676610309586229, guid: 0b9a04d12fa33db45a7f76e08083fe79,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1289,6 +1295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866793368744526408, guid: 842ef9c6c5b18a34195c0d09547939fd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7600994408760084882, guid: 842ef9c6c5b18a34195c0d09547939fd,
         type: 3}
@@ -1581,6 +1592,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298927222244907863, guid: 842ef9c6c5b18a34195c0d09547939fd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5819495290717028907, guid: 842ef9c6c5b18a34195c0d09547939fd,
         type: 3}
@@ -2653,6 +2669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298927222244907863, guid: 842ef9c6c5b18a34195c0d09547939fd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5819495290717028907, guid: 842ef9c6c5b18a34195c0d09547939fd,
         type: 3}
