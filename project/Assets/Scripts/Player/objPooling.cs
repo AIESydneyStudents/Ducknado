@@ -18,6 +18,7 @@ public class objPooling : MonoBehaviour
     private void Awake()
     {
         SharedInstance = this;
+
     }
 
     // Start is called before the first frame update
@@ -28,7 +29,7 @@ public class objPooling : MonoBehaviour
         {
             for (int i = 0; i < item.amountToPool; i++)
             {
-                GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                GameObject obj = Instantiate(item.objectToPool);
                 obj.SetActive(false);
                 pooledObjects.Add(obj);
             }
@@ -43,19 +44,19 @@ public class objPooling : MonoBehaviour
                 return pooledObjects[i];
             }
         }
-        foreach (ObjectPoolItem item in itemsToPool)
-        {
-            if (item.objectToPool.tag == tag)
-            {
-                if (item.shouldExpand)
-                {
-                    GameObject obj = (GameObject)Instantiate(item.objectToPool);
-                    obj.SetActive(false);
-                    pooledObjects.Add(obj);
-                    return obj;
-                }
-            }
-        }
+        //foreach (ObjectPoolItem item in itemsToPool)
+        //{
+        //    if (item.objectToPool.tag == tag)
+        //    {
+        //        if (item.shouldExpand)
+        //        {
+        //            GameObject obj = (GameObject)Instantiate(item.objectToPool);
+        //            obj.SetActive(false);
+        //            pooledObjects.Add(obj);
+        //            return obj;
+        //        }
+        //    }
+        //}
         return null;
     }
 }

@@ -43,22 +43,26 @@ public class GunController : MonoBehaviour
                 {
                     if (inHandWeapon == 1)
                     {
-                        firePoint.rotation = Quaternion.Euler(new Vector3(-33.0f, 0, 0));
                         GameObject bullet = objPooling.SharedInstance.GetPooledObject("Bullet");
                         shotCounter = timeBetweenShots;
-                        bullet.transform.position = firePoint.position;
-                        bullet.transform.rotation = firePoint.transform.rotation;
-                        bullet.SetActive(true);
+                        if (bullet != null)
+                        {
+                            bullet.transform.position = firePoint.transform.position;
+                            bullet.transform.rotation = firePoint.transform.rotation;
+                            bullet.SetActive(true);
+                        }
                         isFiring = false;
                     }
                     else if (inHandWeapon == 2)
                     {
-                        firePoint.rotation = Quaternion.Euler(Vector3.zero);
                         GameObject bullet = objPooling.SharedInstance.GetPooledObject("FairyBull");
                         shotCounter = timeBetweenShots;
-                        bullet.transform.position = firePoint.position;
-                        bullet.transform.rotation = firePoint.transform.rotation;
-                        bullet.SetActive(true);
+                        if (bullet != null)
+                        {
+                            bullet.transform.position = firePoint.position;
+                            bullet.transform.rotation = firePoint.transform.rotation;
+                            bullet.SetActive(true);
+                        }
                         isFiring = false;
                     }
 

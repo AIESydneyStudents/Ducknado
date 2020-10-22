@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (dir.y != 0 || dir.x != 0)
         {
+            //If the velocity is beyond the acceleration, clamp it to the acceleration.
             if (m_playerRB.velocity.magnitude > acceleration)
             {
                 m_playerRB.velocity = Vector3.ClampMagnitude(m_playerRB.velocity, acceleration);

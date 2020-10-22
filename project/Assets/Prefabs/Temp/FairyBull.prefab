@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7896094153903550040}
   m_Layer: 0
   m_Name: FairyBull
-  m_TagString: Bullet
+  m_TagString: FairyBull
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac4aa1cc68065442b59651f9cc112fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7.72
+  speed: 4.89
 --- !u!54 &7896094153903550040
 Rigidbody:
   m_ObjectHideFlags: 0

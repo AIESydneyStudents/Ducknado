@@ -1,70 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &93781525
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 93781526}
-  - component: {fileID: 93781528}
-  - component: {fileID: 93781527}
-  m_Layer: 0
-  m_Name: whatever
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &93781526
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93781525}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5107676610309586230}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &93781528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93781525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca4e4da4b09dec846a20cbbb7cc7faba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFiring: 0
-  timeBetweenShots: 0
-  gun: {fileID: 93781525}
-  firePoint: {fileID: 5107676610701441113}
---- !u!114 &93781527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93781525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b8b7d44ab366e4dac51869bfad571e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsToPool:
-  - amountToPool: 5
-    objectToPool: {fileID: 4061512974801603654, guid: 247f739cf47000f4f9857f2566175101,
-      type: 3}
-    shouldExpand: 0
 --- !u!1 &2479590714240064691
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4259673642307727587}
   - component: {fileID: 895476680481725745}
+  - component: {fileID: 798207392}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -94,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5107676610309586230}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &895476680481725745
 MonoBehaviour:
@@ -112,6 +48,27 @@ MonoBehaviour:
   timeBetweenShots: 0.5
   gun: {fileID: 2479590714240064691}
   firePoint: {fileID: 5107676610701441113}
+--- !u!114 &798207392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479590714240064691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b8b7d44ab366e4dac51869bfad571e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToPool:
+  - amountToPool: 3
+    objectToPool: {fileID: 4061512974801603654, guid: 247f739cf47000f4f9857f2566175101,
+      type: 3}
+    shouldExpand: 0
+  - amountToPool: 3
+    objectToPool: {fileID: 4061512974801603654, guid: b8295765f45a1214b8e434d299fd6d23,
+      type: 3}
+    shouldExpand: 0
 --- !u!1 &5107676610309586227
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +83,6 @@ GameObject:
   - component: {fileID: 5107676610309586229}
   - component: {fileID: 5107676610309586226}
   - component: {fileID: 5107676610309586217}
-  - component: {fileID: 1350666368774449775}
   - component: {fileID: 307821361}
   m_Layer: 8
   m_Name: Player
@@ -149,7 +105,6 @@ Transform:
   - {fileID: 3499182492828087064}
   - {fileID: 5107676610985304739}
   - {fileID: 5107676610701441113}
-  - {fileID: 93781526}
   - {fileID: 4259673642307727587}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -246,28 +201,7 @@ MonoBehaviour:
   m_playerRB: {fileID: 5107676610309586226}
   acceleration: 5.2
   playersMS: 4.8
-  m_placementTables:
-  - {fileID: 362190613626276365, guid: d1ba49423cc35d34888c4cab8a761b18, type: 3}
-  tea: {fileID: 4102068159479937463, guid: a171effb947c57e4dbe34ec369cca8df, type: 3}
-  heightofTea: 1.38
-  gun: {fileID: 93781528}
---- !u!114 &1350666368774449775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5107676610309586227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b8b7d44ab366e4dac51869bfad571e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsToPool:
-  - amountToPool: 4
-    objectToPool: {fileID: 4061512974801603654, guid: 247f739cf47000f4f9857f2566175101,
-      type: 3}
-    shouldExpand: 0
+  gun: {fileID: 895476680481725745}
 --- !u!114 &307821361
 MonoBehaviour:
   m_ObjectHideFlags: 0
