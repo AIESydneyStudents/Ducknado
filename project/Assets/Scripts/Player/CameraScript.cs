@@ -39,7 +39,7 @@ public class CameraScript : MonoBehaviour
         {
             Quaternion angleToTurn = Quaternion.AngleAxis(camDir * m_rotationSpeed, Vector3.up);
             offset = angleToTurn * offset;//Multiplys the angle turned with the original offset.
-            m_player.Rotate(Vector3.up *(camDir * m_rotationSpeed));//Rotates the player and allows for the player to move in that direction.
+            //m_player.Rotate(Vector3.up *(camDir * m_rotationSpeed));//Rotates the player and allows for the player to move in that direction.
         }
         Vector3 changePos = m_player.position + offset;//Depends on the offset and adds it to the players position
         m_cam.transform.position = Vector3.Slerp(m_cam.transform.position, changePos, m_smoothness);
