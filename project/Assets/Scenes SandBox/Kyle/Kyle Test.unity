@@ -1035,22 +1035,27 @@ PrefabInstance:
     - target: {fileID: -3279014708601951688, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: _radius
-      value: 5.67
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: -3279014708601951688, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: _softness
-      value: 4.77
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: -3279014708601951688, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: _smoothSpeed
-      value: 20.24
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: -3279014708601951688, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: _scaleFactor
-      value: 5.43
+      value: 15.93
+      objectReference: {fileID: 0}
+    - target: {fileID: -3279014708601951688, guid: 0b9a04d12fa33db45a7f76e08083fe79,
+        type: 3}
+      propertyPath: _expand
+      value: 4.85
       objectReference: {fileID: 0}
     - target: {fileID: 307821361, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_cam
@@ -1134,6 +1139,11 @@ PrefabInstance:
     - target: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817380991143069101, guid: 0b9a04d12fa33db45a7f76e08083fe79,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3792,7 +3802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tables: []
   _victory: {fileID: 0}
-  _radius: 3.81
+  _radius: 14.52
+  _expand: 0
   _softness: 3.52
   _smoothSpeed: 3.78
   _scaleFactor: 7.26
