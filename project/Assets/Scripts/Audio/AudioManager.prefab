@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7906939156705251589}
   - component: {fileID: 4051633863406305238}
+  - component: {fileID: -8358149056440105451}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -46,7 +47,7 @@ MonoBehaviour:
   sounds:
   - name: music1
     clip: {fileID: 8300000, guid: 4a04bd34bdc941a4298fb2f753948c79, type: 3}
-    volume: 0
+    volume: 0.98
     pitch: 0
     loop: 1
     source: {fileID: 0}
@@ -55,12 +56,6 @@ MonoBehaviour:
     volume: 0
     pitch: 0
     loop: 1
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 8300000, guid: a03c85f80710f7b4bb8924eba22aa2a6, type: 3}
-    volume: 0
-    pitch: 0
-    loop: 0
     source: {fileID: 0}
   - name: buttonselect
     clip: {fileID: 8300000, guid: a03c85f80710f7b4bb8924eba22aa2a6, type: 3}
@@ -92,3 +87,11 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     source: {fileID: 0}
+--- !u!81 &-8358149056440105451
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148970639516087098}
+  m_Enabled: 1
