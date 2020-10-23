@@ -69,13 +69,22 @@ public class PlayerMovement : MonoBehaviour
                 m_playerRB.velocity = Vector3.ClampMagnitude(m_playerRB.velocity, acceleration);
             }
             //This is for the movement of the player in the certain direction.
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Camera.main.transform.localEulerAngles.y, transform.localEulerAngles.z);
-            Vector3 input = transform.right * dir.x + transform.forward * dir.y;
-            Vector3 inputDir = input.normalized;//Normalises it
-            m_playerRB.AddForce(inputDir * playersMS * 10);//Adds velocity to the direction for the player
-            m_playerRB.transform.rotation = Quaternion.Slerp(m_playerRB.rotation, Quaternion.LookRotation(m_playerRB.transform.forward), 0.15f);
 
+            Vector3 input = transform.right * dir.x + transform.forward * dir.y;
+            Vector3 inputDir = input.normalized; //Normalises it
+            m_playerRB.AddForce(inputDir * playersMS * 10);//Adds velocity to the direction for the player
+
+            //float angle = Mathf.Atan2(dir.x, -dir.x) * Mathf.Rad2Deg;
+            //Vector3 rotate = new Vector3(0, angle, 0);
+
+
+            m_playerRB.transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Camera.main.transform.localEulerAngles.y, transform.localEulerAngles.z);
+
+
+            //gameObject.transform.Rotate(rotate);
         }
+
     }
+    
     
 }
