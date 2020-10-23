@@ -6,7 +6,7 @@ public class RaycastCamShoot : MonoBehaviour
 {
     [SerializeField] private GameObject m_player;
     [SerializeField] private GameObject shotPoint;
-    [SerializeField] [Range(10.0f, 100.0f)] private float fairyDisToView = 10.0f;//The range can be changed at any time.
+    [SerializeField] [Range(1.0f, 10.0f)] private float fairyDisToView = 10.0f;//The range can be changed at any time.
 
     [SerializeField] private Camera holderCam;
     //private LineRenderer lineDirTea;

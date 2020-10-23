@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (dir.y != 0 || dir.x != 0)
         {
+
             //If the velocity is beyond the acceleration, clamp it to the acceleration.
             if (m_playerRB.velocity.magnitude > acceleration)
             {
@@ -69,20 +70,10 @@ public class PlayerMovement : MonoBehaviour
             }
             //This is for the movement of the player in the certain direction.
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Camera.main.transform.localEulerAngles.y, transform.localEulerAngles.z);
-
-            //if (dir.x != 0)
-            //{
-            //    Vector3 lookingSide = transform.right * dir.x;
-            //    Vector3 lookingSideNorm = lookingSide.normalized;
-            //    m_playerRB.MoveRotation();
-            //}
-
-            
-
-
             Vector3 input = transform.right * dir.x + transform.forward * dir.y;
             Vector3 inputDir = input.normalized;//Normalises it
             m_playerRB.AddForce(inputDir * playersMS * 10);//Adds velocity to the direction for the player
+            m_playerRB.transform.rotation = Quaternion.Slerp(m_playerRB.rotation, Quaternion.LookRotation(m_playerRB.transform.forward), 0.15f);
 
         }
     }
