@@ -69,17 +69,6 @@ public class PlayerMovement : MonoBehaviour
             }
             //This is for the movement of the player in the certain direction.
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Camera.main.transform.localEulerAngles.y, transform.localEulerAngles.z);
-
-            //if (dir.x != 0)
-            //{
-            //    Vector3 lookingSide = transform.right * dir.x;
-            //    Vector3 lookingSideNorm = lookingSide.normalized;
-            //    m_playerRB.MoveRotation();
-            //}
-
-            
-
-
             Vector3 input = transform.right * dir.x + transform.forward * dir.y;
             Vector3 inputDir = input.normalized;//Normalises it
             m_playerRB.AddForce(inputDir * playersMS * 10);//Adds velocity to the direction for the player
