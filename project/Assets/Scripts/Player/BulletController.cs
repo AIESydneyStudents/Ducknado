@@ -9,7 +9,9 @@ public class BulletController : MonoBehaviour
     [HideInInspector]public static float increasedSpeed = 0.1f;
     public static bool keyIsReleased = false;
     public GunController gun;
+    public GameObject collisionEffect;
     // Update is called once per frame
+
     void Update()
     {
 
@@ -26,6 +28,8 @@ public class BulletController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        
         gameObject.SetActive(false);
+        Instantiate(collisionEffect).transform.position = gameObject.transform.position;
     }
 }
