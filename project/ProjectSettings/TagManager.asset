@@ -7,6 +7,8 @@ TagManager:
   - Bullet
   - FairyBull
   - Placement
+  - NPC
+  - Star
   layers:
   - Default
   - TransparentFX

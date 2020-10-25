@@ -9,20 +9,24 @@ public class TeaPlacement : MonoBehaviour
 
     public GameObject _victory;
     Vector3 _location;
-
-
     public float _radius,_expand, _softness, _smoothSpeed, _scaleFactor;
+    public float _oneStarRating;
+    public float _twoStarRating;
+    public float _threeStarRating;
+
 
     private void Start()
     {
         _tables = GameObject.FindGameObjectsWithTag("Placement");
+        _victory.gameObject.SetActive(false);
     }
     private void Update()
     {
         if (AllTeaPlacedCheck())
-        {            
+        {
+
+            DisplayCanvas();
             ChangeColor(_location, _radius += _expand * Time.deltaTime);
-            _victory.gameObject.SetActive(true);
         }
     }
 
@@ -81,6 +85,29 @@ public class TeaPlacement : MonoBehaviour
         _location = location;
     }
 
+    public void DisplayCanvas()
+    {
+        _victory.gameObject.tag = "Finish";
+        _victory.gameObject.SetActive(true);
 
+        if (GameTimer._finalTime <=_threeStarRating)
+        {
+            _victory.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+
+        }
+
+        if (_twoStarRating <= GameTimer._finalTime && GameTimer._finalTime > _threeStarRating)
+        {
+            _victory.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        }
+
+        if (_oneStarRating >= GameTimer._finalTime && GameTimer._finalTime > _twoStarRating)
+        {
+            _victory.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        }
+    }
 
 }
