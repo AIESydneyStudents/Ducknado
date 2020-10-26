@@ -9,6 +9,7 @@ public class RaycastCamShoot : MonoBehaviour
     [SerializeField] [Range(1.0f, 10.0f)] private float fairyDisToView = 10.0f;//The range can be changed at any time.
 
     [SerializeField] private Camera holderCam;
+    [SerializeField] private GameObject m_cam;
     //private LineRenderer lineDirTea;
     [SerializeField] private LineRenderer lineDirFairy;
     public GunController gun;
@@ -33,6 +34,7 @@ public class RaycastCamShoot : MonoBehaviour
                 break;
             case 2:
                 lineDirFairy.enabled = true;
+                m_cam.SetActive(true);
                 lineDirFairy.SetPosition(1, rayOrigin + (m_player.transform.forward * fairyDisToView));
                 if (gun.isFiring && BulletController.keyIsReleased == false)
                 {
@@ -41,6 +43,7 @@ public class RaycastCamShoot : MonoBehaviour
                 break;
             default:
                 lineDirFairy.enabled = false;
+                m_cam.SetActive(false);
                 break;
         }
         
