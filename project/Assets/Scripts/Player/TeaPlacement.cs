@@ -24,7 +24,6 @@ public class TeaPlacement : MonoBehaviour
     {
         if (AllTeaPlacedCheck())
         {
-
             DisplayCanvas();
             ChangeColor(_location, _radius += _expand * Time.deltaTime);
         }
@@ -92,21 +91,21 @@ public class TeaPlacement : MonoBehaviour
 
         if (GameTimer._finalTime <=_threeStarRating)
         {
-            _victory.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-            _victory.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
             _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
 
         }
 
-        if (_twoStarRating <= GameTimer._finalTime && GameTimer._finalTime > _threeStarRating)
+        else if (GameTimer._finalTime <= _twoStarRating  && GameTimer._finalTime > _threeStarRating)
         {
-            _victory.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-            _victory.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
         }
 
-        if (_oneStarRating >= GameTimer._finalTime && GameTimer._finalTime > _twoStarRating)
+        else
         {
-            _victory.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
         }
     }
 

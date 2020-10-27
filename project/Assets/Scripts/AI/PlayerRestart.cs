@@ -4,30 +4,22 @@ using UnityEngine;
 
 public class PlayerRestart : MonoBehaviour
 {
-    GameObject _NPC;
-    GameObject _player;
+    GameObject player;
+    Vector3 _startPos;
 
-    CapsuleCollider sphereCollider;
-
-    Vector3 _playerPos;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _NPC = GameObject.FindGameObjectWithTag("NPC");
-
-        sphereCollider = _NPC.GetComponent<CapsuleCollider>();
-        _player = this.gameObject;
-
-        _playerPos = _player.transform.position;
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        _startPos = player.transform.position;
     }
-    private void OnTriggerEnter(Collider other)
+
+    void OnTriggerEnter(Collider collision)
     {
-        if (sphereCollider == other)
+
+        if (collision.gameObject.tag == "NPC")
         {
-            Debug.Log("Collision!");
-            this.transform.position = _playerPos;
+            this.transform.position = _startPos;
         }
     }
+
 }
