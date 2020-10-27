@@ -31,6 +31,7 @@ public class RaycastCamShoot : MonoBehaviour
         {
             case 1:
                 //lineDirTea.enabled = true;
+                
                 break;
             case 2:
                 lineDirFairy.enabled = true;
