@@ -11,7 +11,7 @@ public class CameraPan : MonoBehaviour
 
     Vector3 startPos;
     Vector3 endPos;
-    float lerpTime = 5;
+    public float lerpTime = 5;
     float currentLerpTime = 0;
 
     // Start is called before the first frame update
