@@ -25,6 +25,8 @@ public class TeaPlacement : MonoBehaviour
     {
         if (AllTeaPlacedCheck()) // if all tea has been placed run this code
         {
+            FindObjectOfType<AudioManager>().Stop("Start Tune");
+            FindObjectOfType<AudioManager>().Play("Win Tune");
             DisplayCanvas(); //Display the Final canvas
             ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
         }
@@ -41,17 +43,13 @@ public class TeaPlacement : MonoBehaviour
                     if (_tables[i] == other.gameObject)
                     {
                         _tables[i].transform.GetChild(0).gameObject.SetActive(true);
+                        FindObjectOfType<AudioManager>().Play("Pouring");
                         SetLocation(_tables[i].transform.position);
                     }
 
                 }
                 AllTeaPlacedCheck(); // checks if all objectives have been completed
                 PlayerMovement.interacted = false;
-                if (AllTeaPlacedCheck())
-                {
-                    FindObjectOfType<AudioManager>().Stop("Start Tune");
-                    FindObjectOfType<AudioManager>().Play("Win Tune");
-                }
             }
         }
     }
