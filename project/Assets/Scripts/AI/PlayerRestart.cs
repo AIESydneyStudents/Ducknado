@@ -9,16 +9,16 @@ public class PlayerRestart : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        _startPos = player.transform.position;
+        player = GameObject.FindGameObjectWithTag("Player"); //get the player by it's tag
+        _startPos = player.transform.position; //store the position as a vector
     }
 
     void OnTriggerEnter(Collider collision)
     {
 
-        if (collision.gameObject.tag == "NPC")
+        if (collision.gameObject.tag == "NPC") // if collision found with this tag and player
         {
-            this.transform.position = _startPos;
+            this.transform.position = _startPos; // set the stored position as players new position
         }
     }
 

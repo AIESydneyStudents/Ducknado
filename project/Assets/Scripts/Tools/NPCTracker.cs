@@ -14,9 +14,9 @@ public class NPCTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _NPCTracker = GameObject.FindGameObjectsWithTag("NPC");
-        _NPCCount = _NPCTracker.Length;
+        _NPCTracker = GameObject.FindGameObjectsWithTag("NPC"); //find NPC by tag
+        _NPCCount = _NPCTracker.Length; // store the npc in array as int
 
-        counterText.text = _NPCCount.ToString();
+        counterText.text = _NPCCount.ToString(); // convert int to string
     }
 }
