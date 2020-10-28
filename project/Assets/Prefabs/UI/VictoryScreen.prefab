@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6040218440012087205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.65, y: 101.23, z: 3.45}
+  m_LocalPosition: {x: 9.65, y: 101.23, z: 0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6040218440126949520}
@@ -78,7 +78,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6040218440126949520
 Transform:
   m_ObjectHideFlags: 0
@@ -113,7 +113,8 @@ MonoBehaviour:
   cam: {fileID: 6040218439865934243}
   waypoint1: {fileID: 6040218440884539439}
   waypoint2: {fileID: 6040218440012087205}
-  speed: 0.5
+  speed: 1.03
+  lerpTime: 30
 --- !u!1 &6040218440224570157
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +430,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6040218440126949520}
     m_Modifications:
+    - target: {fileID: 623841731176080899, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 623841731176080899, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 623841731176080899, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 623841731176080899, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607593700109369244, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607593700109369244, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607593700109369244, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607593700109369244, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4637463356107477385, guid: 8b25fa60000d44841896985b42ce19b4,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -522,22 +563,22 @@ PrefabInstance:
     - target: {fileID: 4637463357027514020, guid: 8b25fa60000d44841896985b42ce19b4,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4637463357027514020, guid: 8b25fa60000d44841896985b42ce19b4,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4637463357027514020, guid: 8b25fa60000d44841896985b42ce19b4,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4637463357027514020, guid: 8b25fa60000d44841896985b42ce19b4,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4637463357301346554, guid: 8b25fa60000d44841896985b42ce19b4,
         type: 3}
@@ -648,6 +689,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Victory Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067366099746758099, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067366099746758099, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067366099746758099, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067366099746758099, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b25fa60000d44841896985b42ce19b4, type: 3}

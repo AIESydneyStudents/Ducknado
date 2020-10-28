@@ -8,6 +8,7 @@ public class TeaPlacement : MonoBehaviour
     public GameObject[] _tables;
 
     public GameObject _victory;
+    public GameObject _audioManager;
     Vector3 _location;
     public float _radius,_expand, _softness, _smoothSpeed, _scaleFactor;
     public float _oneStarRating;
@@ -46,6 +47,11 @@ public class TeaPlacement : MonoBehaviour
                 }
                 AllTeaPlacedCheck();
                 PlayerMovement.interacted = false;
+                if (AllTeaPlacedCheck())
+                {
+                    FindObjectOfType<AudioManager>().Stop("Start Tune");
+                    FindObjectOfType<AudioManager>().Play("Win Tune");
+                }
             }
         }
     }
