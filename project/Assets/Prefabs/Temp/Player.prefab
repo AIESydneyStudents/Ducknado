@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30341309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.915188, z: -4.6981106}
+  m_LocalPosition: {x: 0, y: 4.915186, z: -4.6981106}
   m_LocalScale: {x: 1.2179229, y: 1.2179229, z: 1.2179229}
   m_Children:
   - {fileID: 1761291766}
@@ -408,7 +408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211361071}
-  m_LocalRotation: {x: 0.34280762, y: -0.00000001616703, z: 0.0000000058996665, w: 0.9394057}
+  m_LocalRotation: {x: 0.3428075, y: -0, z: -0, w: 0.9394057}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -736,8 +736,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739774325}
-  m_LocalRotation: {x: 0.38509324, y: 0.000000034307824, z: -0.000000014315777, w: 0.92287767}
-  m_LocalPosition: {x: 0, y: 4.915188, z: -4.6981106}
+  m_LocalRotation: {x: 0.38509315, y: 0.000000009901403, z: -0.0000000041316013, w: 0.9228777}
+  m_LocalPosition: {x: 0, y: 4.915186, z: -4.6981106}
   m_LocalScale: {x: 1.2179229, y: 1.2179228, z: 1.2179228}
   m_Children: []
   m_Father: {fileID: 5107676610309586230}
@@ -852,7 +852,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761291764}
-  m_LocalRotation: {x: 0.39308807, y: 0.000000022374666, z: -0.0000000095652055, w: 0.9195008}
+  m_LocalRotation: {x: 0.39308798, y: 0.000000027403264, z: -0.000000011714936, w: 0.9195009}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -926,7 +926,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131957079}
-  m_LocalRotation: {x: 0.36800864, y: 0.000000015998875, z: -0.0000000063320944, w: 0.9298224}
+  m_LocalRotation: {x: 0.36800858, y: -0, z: -0, w: 0.92982244}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1136,9 +1136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 895476680481725745}
   m_playerRB: {fileID: 5107676610309586226}
-  acceleration: 6.1
-  playersMS: 5.5
-  gravity: 5.38
+  m_acceleration: 1
+  m_playersMS: 1
+  m_gravity: 2
   m_cam: {fileID: 1739774326}
   m_smoothTurnSpeed: 0.1
 --- !u!114 &-3279014708601951688
@@ -1155,6 +1155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tables: []
   _victory: {fileID: 0}
+  _audioManager: {fileID: 0}
   _radius: 0
   _expand: 0
   _softness: 0
@@ -1189,11 +1190,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 5107676610309586227}
   shotPoint: {fileID: 5107676610701441126}
-  fairyDisToView: 5.91
   holderCam: {fileID: 3280422616282162893}
   m_cam: {fileID: 6817380991143069101}
-  lineDirFairy: {fileID: 1628696186}
+  m_lineDirection: {fileID: 1628696186}
   gun: {fileID: 895476680481725745}
+  playerBullet: {fileID: -7630473538254667495, guid: 247f739cf47000f4f9857f2566175101,
+    type: 3}
 --- !u!114 &276461040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,7 +1526,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.05
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:
