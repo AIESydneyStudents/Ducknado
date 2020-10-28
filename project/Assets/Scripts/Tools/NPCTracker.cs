@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class NPCTracker : MonoBehaviour
 {
-    GameObject[] _NPCTracker;
     int _NPCCount;
     [SerializeField] TextMeshProUGUI counterText;
 
@@ -14,9 +13,7 @@ public class NPCTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _NPCTracker = GameObject.FindGameObjectsWithTag("NPC"); //find NPC by tag
-        _NPCCount = _NPCTracker.Length; // store the npc in array as int
-
+        _NPCCount = GameObject.FindGameObjectsWithTag("NPC").Length;
         counterText.text = _NPCCount.ToString(); // convert int to string
     }
 }
