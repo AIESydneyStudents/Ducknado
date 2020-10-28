@@ -33,7 +33,7 @@ public class RaycastCamShoot : MonoBehaviour
         switch (GunController.inHandWeapon)
         {
             case 1:
-                CheckPath();
+                //CurvedRaycast(20, shotPoint.transform.position, holderCam, playerBullet.speed);
                 //lineDirTea.enabled = true;
                 //holderCam.gameObject.SetActive(true);
                 //m_lineDirection.enabled = true;
@@ -54,60 +54,53 @@ public class RaycastCamShoot : MonoBehaviour
                 break;
         }
     }
-    void CheckPath() 
-    {
 
-        void curvedRaycast(int iterations, Vector3 startPos, Ray ray, int velocity)
+
+    void CurvedRaycast(int iterations, Vector3 startPos, Ray ray, float velocity)
+    {
+        RaycastHit hit;
+        Vector3 pos = startPos;
+        var slicedGravity = Physics.gravity.y / iterations / velocity;
+        Ray ray2 = new Ray(ray.origin, ray.direction);
+        print(slicedGravity);
+        for (int i = 0; i < iterations; i++)
         {
-            RaycastHit hit;
-            Vector3 pos = startPos;
-            var slicedGravity = Physics.gravity.y / iterations / velocity;
-            Ray ray2 = new Ray(ray.origin, ray.direction);
-            print(slicedGravity);
-            for (int i = 0; i < iterations; i++)
+            if (Physics.Raycast(pos, ray2.direction * velocity, out hit, velocity))
             {
-                if (Physics.Raycast(pos, ray2.direction * velocity, out hit, velocity))
+                Debug.DrawRay(pos, ray2.direction * hit.distance, Color.green);
+                if (hit.transform.tag == "Permeable")
                 {
-                    Debug.DrawRay(pos, ray2.direction * hit.distance, Color.green);
-                    if (hit.transform.tag == "Permeable")
+                    Debug.DrawRay(pos, ray2.direction * velocity, Color.green);
+                    pos += ray2.direction * velocity;
+                    ray2 = new Ray(ray2.origin, ray2.direction + new Vector3(0, slicedGravity, 0));
+                    for (int x = 0; x < iterations; x++)
                     {
-                        Debug.DrawRay(pos, ray2.direction * velocity, Color.green);
+                        if (Physics.Raycast(pos, ray2.direction * velocity, out hit, velocity))
+                        {
+                            Debug.DrawRay(pos, ray2.direction * hit.distance, Color.yellow);
+                            return;
+                        }
+                        Debug.DrawRay(pos, ray2.direction * velocity, Color.magenta);
                         pos += ray2.direction * velocity;
                         ray2 = new Ray(ray2.origin, ray2.direction + new Vector3(0, slicedGravity, 0));
-                        for (int x = 0; x < iterations; x++)
-                        {
-                            if (Physics.Raycast(pos, ray2.direction * velocity, out hit, velocity))
-                            {
-                                Debug.DrawRay(pos, ray2.direction * hit.distance, Color.yellow);
-                                return;
-                            }
-                            Debug.DrawRay(pos, ray2.direction * velocity, Color.magenta);
-                            pos += ray2.direction * velocity;
-                            ray2 = new Ray(ray2.origin, ray2.direction + new Vector3(0, slicedGravity, 0));
-                        }
-                    }
-                    else
-                    {
-                        return;
                     }
                 }
-                Debug.DrawRay(pos, ray2.direction * velocity, Color.cyan);
-                pos += ray2.direction * velocity;
-                ray2 = new Ray(ray2.origin, ray2.direction + new Vector3(0, slicedGravity, 0));
+                else
+                {
+                    return;
+                }
             }
-            Debug.DrawRay(startPos, pos, Color.red);
-            /*for (int i = 0; i < iterations; i++)
-            {
-                Debug.DrawRay(pos, ray2.direction * velocity, Color.red);
-                pos += ray2.direction * velocity;
-                ray2 = new Ray(ray2.origin, ray2.direction + new Vector3(0, slicedGravity, 0));
-            }*/
+            Debug.DrawRay(pos, ray2.direction * velocity, Color.cyan);
+            pos += ray2.direction * velocity;
+            ray2 = new Ray(ray2.origin, ray2.direction + new Vector3(0, slicedGravity, 0));
         }
-
-
-
-
-        //http://www.theappguruz.com/blog/display-projectile-trajectory-path-in-unity check this out for the projectile arc.
+        Debug.DrawRay(startPos, pos, Color.red);
+        /*for (int i = 0; i < iterations; i++)
+        {
+            Debug.DrawRay(pos, ray2.direction * velocity, Color.red);
+            pos += ray2.direction * velocity;
+            ray2 = new Ray(ray2.origin, ray2.direction + new Vector3(0, slicedGravity, 0));
+        }*/
     }
 }
 
