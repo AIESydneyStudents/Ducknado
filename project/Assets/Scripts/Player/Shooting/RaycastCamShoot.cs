@@ -55,6 +55,12 @@ public class RaycastCamShoot : MonoBehaviour
     }
     void CheckPath() 
     {
+
+
+
+
+
+
         //http://www.theappguruz.com/blog/display-projectile-trajectory-path-in-unity check this out for the projectile arc.
     }
 }
