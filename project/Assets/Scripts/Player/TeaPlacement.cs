@@ -5,12 +5,17 @@ using UnityEngine;
 public class TeaPlacement : MonoBehaviour
 {
     [HideInInspector]
-    public GameObject[] _tables;
+    public GameObject[] _tables; // list of all objectives
 
     public GameObject _victory;
+<<<<<<< HEAD
+    Vector3 _location; // stores the location of the last table for the color change effect
+=======
     public GameObject _audioManager;
     Vector3 _location;
+>>>>>>> 21bf803777b68925fd8b48ba103ee5e653b1c138
     public float _radius,_expand, _softness, _smoothSpeed, _scaleFactor;
+
     public float _oneStarRating;
     public float _twoStarRating;
     public float _threeStarRating;
@@ -18,34 +23,34 @@ public class TeaPlacement : MonoBehaviour
 
     private void Start()
     {
-        _tables = GameObject.FindGameObjectsWithTag("Placement");
+        _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
         _victory.gameObject.SetActive(false);
     }
     private void Update()
     {
-        if (AllTeaPlacedCheck())
+        if (AllTeaPlacedCheck()) // if all tea has been placed run this code
         {
-            DisplayCanvas();
-            ChangeColor(_location, _radius += _expand * Time.deltaTime);
+            DisplayCanvas(); //Display the Final canvas
+            ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other) // used to check if player is near a placement table
     {
-        if (other.gameObject.tag == "Placement")
+        if (other.gameObject.tag == "Placement") // check the placement tag is the collision
         {
-            if (PlayerMovement.interacted == true)
+            if (PlayerMovement.interacted == true) // if the player has used the interaction buttin within the collider
             {
-                for (int i = 0; i < _tables.Length; i++)
+                for (int i = 0; i < _tables.Length; i++) // check the tables in the level
                 {
                     if (_tables[i] == other.gameObject)
                     {
                         _tables[i].transform.GetChild(0).gameObject.SetActive(true);
-                        GetLocation(_tables[i].transform.position);
+                        SetLocation(_tables[i].transform.position);
                     }
 
                 }
-                AllTeaPlacedCheck();
+                AllTeaPlacedCheck(); // checks if all objectives have been completed
                 PlayerMovement.interacted = false;
                 if (AllTeaPlacedCheck())
                 {
@@ -56,7 +61,7 @@ public class TeaPlacement : MonoBehaviour
         }
     }
 
-    public bool AllTeaPlacedCheck()
+    public bool AllTeaPlacedCheck() // checks if all tea has been placed in the level and returns then true
     {
         for (int i = 0; i < _tables.Length; i++)
         {
@@ -72,7 +77,7 @@ public class TeaPlacement : MonoBehaviour
         return true;
     }
 
-    public void ChangeColor(Vector3 location, float radius)
+    public void ChangeColor(Vector3 location, float radius) // changes the shaders based off a location that is given and a radius
     {
 
         //_smoothPoint = Vector3.MoveTowards(_smoothPoint, location, _smoothSpeed * Time.deltaTime);
@@ -85,25 +90,25 @@ public class TeaPlacement : MonoBehaviour
         Mathf.Clamp(_radius, 0, 100);
         Mathf.Clamp(_softness, 0, 100);
     }
-    private void GetLocation(Vector3 location)
+    private void SetLocation(Vector3 location) // getter for location of table
     {
         _location = location;
     }
 
-    public void DisplayCanvas()
+    public void DisplayCanvas() // Displays the stars at the end of the level based off the final time of the game
     {
         _victory.gameObject.tag = "Finish";
         _victory.gameObject.SetActive(true);
 
-        if (GameTimer._finalTime <=_threeStarRating)
+        if (GameTimer._finalTime <=_threeStarRating) //finish time was less than the given three star rating.
         {
-            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);// sets the image of the star which is a child of the canvas, position is hard coded based off prefab
             _victory.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
             _victory.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
 
         }
 
-        else if (GameTimer._finalTime <= _twoStarRating  && GameTimer._finalTime > _threeStarRating)
+        else if (GameTimer._finalTime <= _twoStarRating  && GameTimer._finalTime > _threeStarRating) //finish time was greater than the given three star rating and less than the second star rating.
         {
             _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
             _victory.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
@@ -111,7 +116,7 @@ public class TeaPlacement : MonoBehaviour
 
         else
         {
-            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true); //finish time was greater than the given one star rating.
         }
     }
 

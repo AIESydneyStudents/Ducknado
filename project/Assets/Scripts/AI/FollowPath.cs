@@ -9,16 +9,16 @@ public class FollowPath : MonoBehaviour
     bool _patrolWaiting; //used to change the object between waiting at points for set time or no waiting if false
 
     [SerializeField]
-    float _waitTime = 3f;
+    float _waitTime = 3f; // controls the wait time at each waypoint
 
     [SerializeField]
-    float _wanderRadius = 3f;
+    float _wanderRadius = 3f; // used as a radius in which the Ai will pick from    
 
     [SerializeField]
-    float _wanderTime = 3f;
+    float _wanderTime = 3f; //Used as the time in which the AI will wander after player leaves sight
 
     [SerializeField]
-    List<Waypoint> _patrolPoints;
+    List<Waypoint> _patrolPoints; //stores the waypoints added into this list
 
     public FieldOfView fov;
     NavMeshAgent _navMeshAgent;
@@ -27,7 +27,7 @@ public class FollowPath : MonoBehaviour
     int _curentPatrolIndex;
     float _waitTimer;
 
-    bool _pathFindingActive;
+    bool _pathFindingActive = true;
     bool _travelling;
     bool _waiting;
     bool _patrolForward;
@@ -62,36 +62,42 @@ public class FollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (fov._targetFound)
-        {
-            _pathFindingActive = false;
-            _wanderTime = 0;
 
-            _targetVector = player.transform.position;
-
-            _navMeshAgent.SetDestination(_targetVector);
-        }
-        else
+        if (fov._targetFound) //if the player has been caught in NPC LOS
         {
-            if (!_pathFindingActive )
+            _pathFindingActive = false; //set PathFinding to active
+            _wanderTime = 0; //Wander time is set to 0
+
+            _targetVector = player.transform.position; //target is changed from previous function to player
+
+            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
+            
+            if (!fov._targetFound && _pathFindingActive == false)
             {
                 while (_wanderTime > 0)
                 {
-                    _navMeshAgent.SetDestination(RandomNavSphere(this.transform.position, _wanderRadius, 2));
+                    _navMeshAgent.SetDestination(RandomNavSphere(_targetVector, _wanderRadius, 2));
                     _wanderTime--;
-                }
-                if (!fov._targetFound)
-                {
-                    _pathFindingActive = true;
+
                 }
             }
-            else
+
+            if (!fov._targetFound)
+            {
+                _pathFindingActive = true;
+            }
+            if (!fov._targetFound && _pathFindingActive == true)
             {
                 _wanderTime = 0;
                 PathFinding();
             }
         }
+        else
+        {
+            PathFinding();
+
+        }
+
     }
 
     public void SetDestination() // sets the destination for the object to move to
