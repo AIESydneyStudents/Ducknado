@@ -15,6 +15,10 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(level);
+        if (level == "Menu")
+        {
+            FindObjectOfType<AudioManager>().Stop("Win Tune");
+        }
     }
     public void QuitScene()
     {
