@@ -28,31 +28,31 @@ public class GunController : MonoBehaviour
             {
                 if (BulletController.keyIsReleased == false)//Change this back to true
                 {
-                     if (inHandWeapon == 1)
+                    switch (inHandWeapon) 
                     {
-                        GameObject bullet = objPooling.SharedInstance.GetPooledObject("Bullet");
-                        shotCounter = timeBetweenShots;
-                        if (bullet != null)
-                        {
-                            bullet.transform.position = firePoint.transform.position;
-                            bullet.transform.rotation = firePoint.transform.rotation;
-                            bullet.SetActive(true);
-                        }
-                        isFiring = false;
+                        case 1:
+                            GameObject bullet = objPooling.SharedInstance.GetPooledObject("Bullet");
+                            shotCounter = timeBetweenShots;
+                            if (bullet != null)
+                            {
+                                bullet.transform.position = firePoint.transform.position;
+                                bullet.transform.rotation = firePoint.transform.rotation;
+                                bullet.SetActive(true);
+                            }
+                            isFiring = false;
+                            break;
+                        case 2:
+                            GameObject fairyBullet = objPooling.SharedInstance.GetPooledObject("FairyBull");
+                            shotCounter = timeBetweenShots;
+                            if (fairyBullet != null)
+                            {
+                                fairyBullet.transform.position = firePoint.position;
+                                fairyBullet.transform.rotation = firePoint.transform.rotation;
+                                fairyBullet.SetActive(true);
+                            }
+                            isFiring = false;
+                            break;
                     }
-                    else if (inHandWeapon == 2)
-                    {
-                        GameObject bullet = objPooling.SharedInstance.GetPooledObject("FairyBull");
-                        shotCounter = timeBetweenShots;
-                        if (bullet != null)
-                        {
-                            bullet.transform.position = firePoint.position;
-                            bullet.transform.rotation = firePoint.transform.rotation;
-                            bullet.SetActive(true);
-                        }
-                        isFiring = false;
-                    }
-
                 }
             }
         }

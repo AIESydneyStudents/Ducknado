@@ -11,10 +11,6 @@ public class BulletController : MonoBehaviour
     public GunController gun;
     public GameObject collisionEffect;
     // Update is called once per frame
-
-
-    
-    
     void Update()
     {
 
@@ -52,6 +48,5 @@ public class BulletController : MonoBehaviour
             gameObject.SetActive(false);
             Instantiate(collisionEffect).transform.position = gameObject.transform.position;
         }
-
     }
 }

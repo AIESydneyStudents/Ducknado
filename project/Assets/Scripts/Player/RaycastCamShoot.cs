@@ -17,7 +17,7 @@ public class RaycastCamShoot : MonoBehaviour
 
     void Start()
     {
-        holderCam.enabled = false;    
+        holderCam.enabled = false;  
     }
 
     // Update is called once per frame
