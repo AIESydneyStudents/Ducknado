@@ -107,7 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac4aa1cc68065442b59651f9cc112fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_player: {fileID: 5107676610309586227, guid: 0b9a04d12fa33db45a7f76e08083fe79,
+    type: 3}
   speed: 3.79
+  gun: {fileID: 0}
+  collisionEffect: {fileID: 0}
 --- !u!54 &7896094153903550040
 Rigidbody:
   m_ObjectHideFlags: 0

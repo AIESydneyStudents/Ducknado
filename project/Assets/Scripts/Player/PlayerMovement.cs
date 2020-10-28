@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
             //This is for the movement of the player in the certain direction.
             Vector3 input = new Vector3(dir.x, 0f, dir.y).normalized;
 
+            Debug.Log(m_playerRB.transform.position);
 
             if (input.magnitude >= 0.1f)
             {
