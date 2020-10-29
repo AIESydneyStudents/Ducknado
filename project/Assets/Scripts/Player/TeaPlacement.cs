@@ -15,8 +15,9 @@ public class TeaPlacement : MonoBehaviour
     public AudioClip startMusic;
     public AudioClip midMusic;
     public AudioClip endMusic;
+    bool _firstPlacement;
 
-    public float _radius,_expand, _softness, _smoothSpeed, _scaleFactor;
+    public float _radius,_expand, _softness;
 
     public float _oneStarRating;
     public float _twoStarRating;
@@ -25,16 +26,22 @@ public class TeaPlacement : MonoBehaviour
 
     private void Start()
     {
+        Shader.SetGlobalFloat("GLOBALmask_Radius", 0);
+        Shader.SetGlobalFloat("GLOBALmask_Softness", 0);
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
         _victory.gameObject.SetActive(false);
     }
     private void Update()
     {
+        if (_firstPlacement)
+        {
+            ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
+
+        }
         if (AllTeaPlacedCheck()) // if all tea has been placed run this code
         {
-
             DisplayCanvas(); //Display the Final canvas
-            ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
+            //ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
         }
     }
 
@@ -54,6 +61,7 @@ public class TeaPlacement : MonoBehaviour
 
                         if (_tables[0])
                         {
+                            _firstPlacement = true;
                             gameObject.GetComponent<AudioSource>().clip = midMusic;
                             gameObject.GetComponent<AudioSource>().Play();
                         }
