@@ -13,7 +13,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //var array = RaycastCamShoot.ray.pointList;
+        //var array = RaycastCamShoot.ray.shootingPoints;
         //if (array != null)
         //{
         //    for (int i = 0; i < array.Count; i++)
@@ -25,8 +25,8 @@ public class BulletController : MonoBehaviour
 
         //if (keyIsReleased == true)
         //{
-        //transform.Translate(Vector3.forward * speed * Time.deltaTime);//Do some adjusting with making the same variable as the velocity in raycastcamshoot.
-        //    transform.Translate(Vector3.down * ballGravity * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);//Do some adjusting with making the same variable as the velocity in raycastcamshoot.
+        transform.Translate(Vector3.down * ballGravity * Time.deltaTime);
         //    keyIsReleased = false;
         //    gun.isFiring = true;
         //}
