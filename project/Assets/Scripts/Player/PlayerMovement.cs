@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float m_smoothTurnSpeed = 1f;
     [HideInInspector] public static bool interacted = false;
 
-
     private Controls m_controls;
     private float m_smoothVel;
     void Start()
@@ -37,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         var dir = m_controls.Player.Movement.ReadValue<Vector2>();
         var inter = m_controls.Player.Interaction.ReadValue<float>();
         var shooting = m_controls.Player.Projectile_Shoot.ReadValue<float>();
+        var swap = m_controls.Player.Projectile_Swap.ReadValue<float>();
         if (inter != 0)//If the player has interacted.
         {
             interacted = true;
@@ -45,6 +45,13 @@ public class PlayerMovement : MonoBehaviour
             gun.isFiring = false;
         else
             gun.isFiring = true;
+
+        if (swap != 0)
+        {
+            if (GunController.inHandWeapon != 0 && GunController.inHandWeapon != 3)
+                RaycastCamShoot.bulletJustActive = true;
+        }
+
 
         if (dir.y != 0 || dir.x != 0)
         {
