@@ -10,6 +10,12 @@ public class TeaPlacement : MonoBehaviour
     Vector3 _location; // stores the location of the last table for the color change effect
     public GameObject _audioManager;
     public GameObject _inputPrompt; //the UI pop-up to prompt input
+
+    //messy audio stuff
+    public AudioClip startMusic;
+    public AudioClip midMusic;
+    public AudioClip endMusic;
+
     public float _radius,_expand, _softness, _smoothSpeed, _scaleFactor;
 
     public float _oneStarRating;
@@ -26,8 +32,7 @@ public class TeaPlacement : MonoBehaviour
     {
         if (AllTeaPlacedCheck()) // if all tea has been placed run this code
         {
-            FindObjectOfType<AudioManager>().Stop("Start Tune");
-            FindObjectOfType<AudioManager>().Play("Win Tune");
+
             DisplayCanvas(); //Display the Final canvas
             ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
         }
@@ -46,6 +51,12 @@ public class TeaPlacement : MonoBehaviour
                         _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                         FindObjectOfType<AudioManager>().Play("Pouring");
                         SetLocation(_tables[i].transform.position);
+
+                        if (_tables[0])
+                        {
+                            gameObject.GetComponent<AudioSource>().clip = midMusic;
+                            gameObject.GetComponent<AudioSource>().Play();
+                        }
                     }
 
                 }
@@ -83,6 +94,7 @@ public class TeaPlacement : MonoBehaviour
             }
         }
         return true;
+
     }
 
     public void ChangeColor(Vector3 location, float radius) // changes the shaders based off a location that is given and a radius
@@ -105,8 +117,13 @@ public class TeaPlacement : MonoBehaviour
 
     public void DisplayCanvas() // Displays the stars at the end of the level based off the final time of the game
     {
+
+        gameObject.GetComponent<AudioSource>().clip = endMusic;
+        gameObject.GetComponent<AudioSource>().Play();
         _victory.gameObject.tag = "Finish";
         _victory.gameObject.SetActive(true);
+
+
 
         if (GameTimer._finalTime <=_threeStarRating) //finish time was less than the given three star rating.
         {

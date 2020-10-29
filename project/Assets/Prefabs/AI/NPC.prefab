@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5866793368744526408}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,12 +214,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patrolWaiting: 1
-  _waitTime: 2
+  _waitTime: 1
   _wanderRadius: 3
   _wanderTime: 3
-  _patrolPoints: []
+  _patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fov: {fileID: 5819495290717028907}
-  player: {fileID: -927199367670048503, guid: aeb9b3133ab0b2040895be6ce035cf17, type: 3}
+  player: {fileID: 0}
 --- !u!114 &5819495290717028907
 MonoBehaviour:
   m_ObjectHideFlags: 0
