@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
-{
+{ 
     [SerializeField] public GameObject m_player;
     [SerializeField] [Range(0.01f, 10.0f)] public float speed = 5.0f;
-    [HideInInspector]public static float increasedSpeed = 0.1f;
     public static bool keyIsReleased = false;
     public GunController gun;
     public GameObject collisionEffect;
@@ -14,11 +13,11 @@ public class BulletController : MonoBehaviour
     void Update()
     {
 
-        //speed += increasedSpeed;
+
 
         //if (keyIsReleased == true)
         //{
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);//Do some adjusting with making the same variable as the velocity in raycastcamshoot.
         //    keyIsReleased = false;
         //    gun.isFiring = true;
         //}

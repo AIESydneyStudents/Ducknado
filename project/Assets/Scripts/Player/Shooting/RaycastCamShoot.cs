@@ -15,18 +15,17 @@ public class RaycastCamShoot : MonoBehaviour
     [SerializeField] private LineRenderer m_lineDirBullet;//Line renderer of sight.
     [SerializeField] private LineRenderer m_lineDirFairy;
 
-    [SerializeField] private int iterations;
+    [SerializeField] public int iterations = 100;
     [SerializeField] public float velocity = 0.9f;
 
     public GunController gun;
     public BulletController playerBullet;
 
     public static RaycastCamShoot ray;
-
-    public static bool bulletJustActive = false;
     void Start()
     {
         m_lineDirBullet.positionCount = 2;
+        m_lineDirFairy.positionCount = 2;
         bulletCam.gameObject.SetActive(false);
         bulletCam.enabled = false;
     }
@@ -42,7 +41,6 @@ public class RaycastCamShoot : MonoBehaviour
         {
             case 1:
                 fairyCam.gameObject.SetActive(false);
-                bulletJustActive = false;
                 bulletCam.gameObject.SetActive(true);
                 m_lineDirBullet.enabled = true;
                 m_lineDirBullet.SetPosition(0, bulletCam.transform.position);
@@ -69,7 +67,7 @@ public class RaycastCamShoot : MonoBehaviour
         RaycastHit hit;
         Vector3 pos = startPos;
         var slicedGravity = Physics.gravity.y / iterations / velocity;
-        Ray ray2 = new Ray(m_lineDirBullet.GetPosition(1), m_player.transform.forward);
+        Ray ray2 = new Ray(m_lineDirBullet.GetPosition(0), m_player.transform.forward);
         m_lineDirBullet.SetPosition(0, startPos);
         var pointList = new List<Vector3>();
         for (int i = 0; i < iterations; i++)
