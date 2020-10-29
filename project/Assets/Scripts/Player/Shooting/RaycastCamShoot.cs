@@ -18,7 +18,7 @@ public class RaycastCamShoot : MonoBehaviour
     [SerializeField] public int iterations = 100;
     [SerializeField] public float velocity = 0.9f;
 
-    [HideInInspector] 
+    [HideInInspector] public List<Vector3> shootingPoints = new List<Vector3>();
 
     public GunController gun;
     public BulletController playerBullet;
@@ -101,18 +101,22 @@ public class RaycastCamShoot : MonoBehaviour
                 pointList.Add(m_lineDirBullet.GetPosition(1));
                 m_lineDirBullet.positionCount = pointList.Count;
                 m_lineDirBullet.SetPositions(pointList.ToArray());
+                if (pointList != null)
+                {
+                    for (int j = 0; j < pointList.Count; j++)
+                    {
+                        shootingPoints.Add(pointList[j]);
+                    }
+                }
                 return;
             }
             m_lineDirBullet.SetPosition(1, pos + (ray2.direction * hit.distance));
-            //m_lineDirection.SetPosition(1, pos + (ray2.direction * velocity));
-            Debug.DrawRay(pos, ray2.direction * velocity, Color.cyan);
             pos += ray2.direction * velocity;
             ray2 = new Ray(ray2.origin, ray2.direction + new Vector3(0, slicedGravity, 0));
             pointList.Add(m_lineDirBullet.GetPosition(1));
         }
 
         m_lineDirBullet.SetPositions(pointList.ToArray());
-        //m_lineDirection.SetPosition(2, pos + (ray2.direction * velocity));
     }
 
 }
