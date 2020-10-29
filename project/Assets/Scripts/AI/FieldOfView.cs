@@ -15,13 +15,18 @@ public class FieldOfView : MonoBehaviour
     LayerMask _obstacleMask;
 
     float _meshResolution = 1;
-    int _edgeResolveIterations;
-    float _edgeDstThreshold;
+    int _edgeResolveIterations = 1;
+    float _edgeDstThreshold = 1;
 
     [HideInInspector]
-    public bool _targetFound;
+    public  bool _targetFound;
+
+    [HideInInspector]
+    public static bool _distractionFound;
 
     public GameObject player;
+    GameObject _teacupDistraction;
+    GameObject _butterflyDistraction;
 
     float _maskCutawayDst = .1f;
 
@@ -34,6 +39,10 @@ public class FieldOfView : MonoBehaviour
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
         _targetFound = false;
+
+        _teacupDistraction = objPooling.SharedInstance.GetPooledObject("Bullet");
+        _butterflyDistraction = objPooling.SharedInstance.GetPooledObject("FairyBull");
+
 
         _targetMask = LayerMask.NameToLayer("Target");
         _obstacleMask = LayerMask.NameToLayer("Obstacle");
@@ -48,6 +57,7 @@ public class FieldOfView : MonoBehaviour
         {
             yield return new WaitForSeconds(delay);
             FindVisibleTargets();
+            DistractionInRange();
         }
     }
 
@@ -58,20 +68,44 @@ public class FieldOfView : MonoBehaviour
 
     public void FindVisibleTargets()
     {
-            Vector3 dirToTarget = (player.transform.position - transform.position).normalized;
+        Vector3 dirToPlayer = (player.transform.position - transform.position).normalized;
 
-            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+        if (Vector3.Angle(transform.forward, dirToPlayer) < viewAngle / 2)
+        {
+            float dstToTarget = Vector3.Distance(transform.position, player.transform.position);
+            if (!Physics.Raycast(transform.position, dirToPlayer, dstToTarget, _obstacleMask) && dstToTarget <= viewRadius)
             {
-                float dstToTarget = Vector3.Distance(transform.position, player.transform.position);
-                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, _obstacleMask) && dstToTarget <= viewRadius)
-                {
-                    _targetFound = true;
-                }
-                else
-                {
-                    _targetFound = false;
-                }
-            }       
+                _targetFound = true;
+            }
+            else
+            {
+                _targetFound = false;
+            }
+        }
+    }
+
+    public void DistractionInRange()
+    {
+        Vector3 dirToTeacup = (_teacupDistraction.transform.position - transform.position);
+        Vector3 dirToButterfly = (_butterflyDistraction.transform.position - transform.position);
+
+        if (Vector3.Distance(transform.forward, dirToTeacup) <= viewRadius)
+        {
+          _distractionFound = true;
+        }
+        else
+        {
+            _distractionFound = false;
+        }
+
+        if (Vector3.Distance(transform.forward, dirToButterfly) <= viewRadius)
+        {
+            _distractionFound = true;
+        }
+        else
+        {
+            _distractionFound = false;
+        }
     }
     void DrawFieldOfView()
     {
