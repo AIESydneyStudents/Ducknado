@@ -59,5 +59,16 @@ public class objPooling : MonoBehaviour
         }
         return null;
     }
+    public GameObject CheckPooledObject(string tag)
+    {
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
+            {
+                return pooledObjects[i];
+            }
+        }
+        return null;
+    }
 }
 

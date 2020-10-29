@@ -18,6 +18,8 @@ public class RaycastCamShoot : MonoBehaviour
     [SerializeField] public int iterations = 100;
     [SerializeField] public float velocity = 0.9f;
 
+    [HideInInspector] 
+
     public GunController gun;
     public BulletController playerBullet;
 
@@ -39,19 +41,39 @@ public class RaycastCamShoot : MonoBehaviour
         //Determines what gun is accessed.
         switch (GunController.inHandWeapon)
         {
-            case 1:
-                fairyCam.gameObject.SetActive(false);
-                bulletCam.gameObject.SetActive(true);
-                m_lineDirBullet.enabled = true;
-                m_lineDirBullet.SetPosition(0, bulletCam.transform.position);
-                CurvedRaycast(iterations, shotPoint.transform.position, velocity);
+            case 1://The arc gun
+                GameObject bullet = objPooling.SharedInstance.CheckPooledObject("Bullet");//Checks if a bullet is in use
+                if (bullet != null)
+                {
+                    fairyCam.gameObject.SetActive(false);
+                    bulletCam.gameObject.SetActive(false);
+
+                }
+                else //If there is not a bullet in use.
+                {
+                    fairyCam.gameObject.SetActive(false);
+                    bulletCam.gameObject.SetActive(true);
+                    m_lineDirBullet.enabled = true;
+                    m_lineDirBullet.SetPosition(0, bulletCam.transform.position);
+                    CurvedRaycast(iterations, shotPoint.transform.position, velocity);
+                }
+
                 break;
             case 2:
-                bulletCam.gameObject.SetActive(false);
-                m_lineDirFairy.enabled = true;
-                fairyCam.gameObject.SetActive(true);
-                m_lineDirFairy.SetPosition(0, shotPoint.transform.position);
-                m_lineDirFairy.SetPosition(1, rayOrigin + (m_player.transform.forward * fairyDisToView));
+                GameObject fairyBullet = objPooling.SharedInstance.CheckPooledObject("FairyBull");//Checks if a bullet is in use
+                if (fairyBullet != null)
+                {
+                    fairyCam.gameObject.SetActive(false);
+                    bulletCam.gameObject.SetActive(false);
+                }
+                else//If there is not a bullet in use.
+                {
+                    bulletCam.gameObject.SetActive(false);
+                    m_lineDirFairy.enabled = true;
+                    fairyCam.gameObject.SetActive(true);
+                    m_lineDirFairy.SetPosition(0, shotPoint.transform.position);
+                    m_lineDirFairy.SetPosition(1, rayOrigin + (m_player.transform.forward * fairyDisToView));
+                }
                 break;
             default:
                 m_lineDirBullet.enabled = false;
@@ -91,7 +113,6 @@ public class RaycastCamShoot : MonoBehaviour
 
         m_lineDirBullet.SetPositions(pointList.ToArray());
         //m_lineDirection.SetPosition(2, pos + (ray2.direction * velocity));
-        Debug.DrawRay(startPos, pos, Color.red);
     }
 
 }
