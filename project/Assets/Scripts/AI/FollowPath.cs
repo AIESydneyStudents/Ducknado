@@ -31,14 +31,11 @@ public class FollowPath : MonoBehaviour
     bool _travelling;
     bool _waiting;
     bool _patrolForward;
-    //bool _seekingPlayer; //if seeking player true
     Vector3 _targetVector;
-
-
-
 
     void Start()
     {
+
         _navMeshAgent = this.GetComponent<NavMeshAgent>(); // gets the navmesh component of the gameobject this script is attached to
 
         if (_navMeshAgent == null) // if it returns null display message
@@ -184,5 +181,10 @@ public class FollowPath : MonoBehaviour
         NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
 
         return navHit.position;
+    }
+
+    private void DistractionInRange()
+    {
+
     }
 }
