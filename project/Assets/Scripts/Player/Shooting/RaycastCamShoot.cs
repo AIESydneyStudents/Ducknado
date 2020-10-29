@@ -39,7 +39,6 @@ public class RaycastCamShoot : MonoBehaviour
                 holderCam.gameObject.SetActive(true);
                 m_lineDirection.enabled = true;
                 CurvedRaycast(iterations, holderCam.transform.position, holderCam.ViewportPointToRay(holderCam.transform.position), velocity);
-
                 break;
             case 2:
                 m_lineDirection.enabled = true;
@@ -53,6 +52,7 @@ public class RaycastCamShoot : MonoBehaviour
             default:
                 m_lineDirection.enabled = false;
                 m_cam.SetActive(false);
+                m_lineDirection.positionCount = 0;
                 break;
         }
     }
@@ -72,6 +72,7 @@ public class RaycastCamShoot : MonoBehaviour
             if (Physics.Raycast(pos, ray2.direction * velocity, out hit, velocity))
             {
                 m_lineDirection.SetPosition(1, pos + (ray2.direction * hit.distance));
+                pointList.Add(m_lineDirection.GetPosition(1));
                 m_lineDirection.positionCount = pointList.Count;
                 m_lineDirection.SetPositions(pointList.ToArray());
                 return;
@@ -87,6 +88,10 @@ public class RaycastCamShoot : MonoBehaviour
         m_lineDirection.SetPositions(pointList.ToArray());
         //m_lineDirection.SetPosition(2, pos + (ray2.direction * velocity));
         Debug.DrawRay(startPos, pos, Color.red);
+    }
+    void ResetPoints()
+    {
+       
     }
 }
 
