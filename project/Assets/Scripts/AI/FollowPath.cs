@@ -83,11 +83,30 @@ public class FollowPath : MonoBehaviour
             {
                 _pathFindingActive = true;
             }
-            if (!fov._targetFound && _pathFindingActive == true)
+            if (!fov._targetFound && !fov._distractionFound && _pathFindingActive == true)
             {
                 _wanderTime = 0;
                 PathFinding();
             }
+        }
+        if (fov._butterflyDistraction.activeSelf && fov._distractionFound)
+        {
+            _pathFindingActive = false; //set PathFinding to active
+            _wanderTime = 0; //Wander time is set to 0
+            _targetVector = fov._butterflyDistraction.transform.position;
+
+            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
+
+
+        }
+        if (fov._teacupDistraction.activeSelf && fov._distractionFound)
+        {
+            _pathFindingActive = false; //set PathFinding to active
+            _wanderTime = 0; //Wander time is set to 0
+            _targetVector = fov._teacupDistraction.transform.position;
+
+            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
+
         }
         else
         {

@@ -22,11 +22,13 @@ public class FieldOfView : MonoBehaviour
     public  bool _targetFound;
 
     [HideInInspector]
-    public static bool _distractionFound;
+    public bool _distractionFound;
 
     public GameObject player;
-    GameObject _teacupDistraction;
-    GameObject _butterflyDistraction;
+    [HideInInspector]
+    public GameObject _teacupDistraction;
+    [HideInInspector]
+    public GameObject _butterflyDistraction;
 
     float _maskCutawayDst = .1f;
 
