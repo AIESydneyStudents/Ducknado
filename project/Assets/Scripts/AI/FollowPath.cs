@@ -35,7 +35,6 @@ public class FollowPath : MonoBehaviour
 
     void Start()
     {
-
         _navMeshAgent = this.GetComponent<NavMeshAgent>(); // gets the navmesh component of the gameobject this script is attached to
 
         if (_navMeshAgent == null) // if it returns null display message
@@ -68,7 +67,7 @@ public class FollowPath : MonoBehaviour
             _targetVector = player.transform.position; //target is changed from previous function to player
 
             _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
-            
+
             if (!fov._targetFound && _pathFindingActive == false)
             {
                 while (_wanderTime > 0)
@@ -96,17 +95,15 @@ public class FollowPath : MonoBehaviour
             _targetVector = fov._butterflyDistraction.transform.position;
 
             _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
-
-
         }
-        if (fov._teacupDistraction.activeSelf && fov._distractionFound)
+        if (fov._teacupFound)
         {
             _pathFindingActive = false; //set PathFinding to active
             _wanderTime = 0; //Wander time is set to 0
             _targetVector = fov._teacupDistraction.transform.position;
 
-            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
-
+                _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
+            _pathFindingActive = true;
         }
         else
         {

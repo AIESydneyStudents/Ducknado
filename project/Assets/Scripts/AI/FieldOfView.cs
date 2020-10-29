@@ -23,6 +23,9 @@ public class FieldOfView : MonoBehaviour
 
     [HideInInspector]
     public bool _distractionFound;
+    [HideInInspector]
+    public bool _teacupFound;
+
 
     public GameObject player;
     [HideInInspector]
@@ -91,16 +94,16 @@ public class FieldOfView : MonoBehaviour
         Vector3 dirToTeacup = (_teacupDistraction.transform.position - transform.position);
         Vector3 dirToButterfly = (_butterflyDistraction.transform.position - transform.position);
 
-        if (Vector3.Distance(transform.forward, dirToTeacup) <= viewRadius)
+        if (Vector3.Distance(transform.forward, dirToTeacup) <= viewRadius && _teacupDistraction.activeSelf)
         {
-          _distractionFound = true;
+          _teacupFound = true;
         }
         else
         {
-            _distractionFound = false;
+            _teacupFound = false;
         }
 
-        if (Vector3.Distance(transform.forward, dirToButterfly) <= viewRadius)
+        if (Vector3.Distance(transform.forward, dirToButterfly) <= viewRadius && _butterflyDistraction.activeSelf)
         {
             _distractionFound = true;
         }
