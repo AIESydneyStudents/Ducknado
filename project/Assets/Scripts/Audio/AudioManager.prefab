@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7906939156705251589}
   - component: {fileID: 4051633863406305238}
-  - component: {fileID: -8358149056440105451}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -47,51 +46,121 @@ MonoBehaviour:
   sounds:
   - name: music1
     clip: {fileID: 8300000, guid: 4a04bd34bdc941a4298fb2f753948c79, type: 3}
-    volume: 0.98
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: music2
     clip: {fileID: 8300000, guid: bc6cb22d8a920f74f961d25bcbc2b7b3, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: buttonselect
     clip: {fileID: 8300000, guid: a03c85f80710f7b4bb8924eba22aa2a6, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: buttonclick
     clip: {fileID: 8300000, guid: 5575800ab6696f54582b1b4c35fbcae6, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: butterfly
     clip: {fileID: 8300000, guid: aed03478199bed14988c22f149f2b7f8, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: cupsmash
     clip: {fileID: 8300000, guid: fe98d7891b9ffa04f99b622666c50b8c, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: pouring
-    clip: {fileID: 8300000, guid: 36fb36f97d08a42418b84bb9067e599e, type: 3}
-    volume: 0
+    clip: {fileID: 8300000, guid: 06b12f1ae3259bb42973d9f13a9100c2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Win Tune
+    clip: {fileID: 8300000, guid: e2f9aa0da7a472847a0b165a7a082270, type: 3}
+    volume: 0.88
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Start Tune
+    clip: {fileID: 8300000, guid: 87d83e37ed1049e4c9dde874c78530cc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
---- !u!81 &-8358149056440105451
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2148970639516087098}
-  m_Enabled: 1
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}

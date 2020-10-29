@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public GunController gun;
 
     [SerializeField] private Rigidbody m_playerRB;
-    [SerializeField] [Range(1.0f, 10.0f)] private float m_acceleration = 1.0f;//Set this as the opposite positive. Range is between 40 and 1.
-    [SerializeField] [Range(1.0f, 10.0f)] private float m_playersMS = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
+    [SerializeField] [Range(1.0f, 10.0f)] private float m_playerMovementSpeed = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
+    [SerializeField] [Range(1.0f, 10.0f)] private float m_acceleration = 1.0f;//Acceleration of the player over time.
     [SerializeField] [Range(1.0f, 10.0f)] private float m_gravity = 2;
     [SerializeField] private Camera m_cam;
     [SerializeField] private float m_smoothTurnSpeed = 1f;
@@ -49,9 +49,9 @@ public class PlayerMovement : MonoBehaviour
         if (dir.y != 0 || dir.x != 0)
         {
             //If the velocity is beyond the acceleration, clamp it to the acceleration.
-            if (m_playerRB.velocity.magnitude > m_acceleration)
+            if (m_playerRB.velocity.magnitude > m_playerMovementSpeed)
             {
-                m_playerRB.velocity = Vector3.ClampMagnitude(m_playerRB.velocity, m_acceleration);
+                m_playerRB.velocity = Vector3.ClampMagnitude(m_playerRB.velocity, m_playerMovementSpeed);
             }
             //This is for the movement of the player in the certain direction.
             Vector3 input = new Vector3(dir.x, 0f, dir.y).normalized;
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
                 Vector3 moveNewDir = Quaternion.Euler(0f, tarAngle, 0f) * Vector3.forward;//Moves in the direction dependant of the targent angle.
 
-                m_playerRB.AddForce(moveNewDir.normalized * m_playersMS * 10);//Adds velocity to the direction for the player
+                m_playerRB.AddForce(moveNewDir.normalized * m_acceleration * 10);//Adds velocity to the direction for the player
             }
         }
 

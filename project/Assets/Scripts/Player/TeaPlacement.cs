@@ -9,6 +9,7 @@ public class TeaPlacement : MonoBehaviour
     public GameObject _victory;
     Vector3 _location; // stores the location of the last table for the color change effect
     public GameObject _audioManager;
+    public GameObject _inputPrompt; //the UI pop-up to prompt input
     public float _radius,_expand, _softness, _smoothSpeed, _scaleFactor;
 
     public float _oneStarRating;
@@ -51,6 +52,20 @@ public class TeaPlacement : MonoBehaviour
                 AllTeaPlacedCheck(); // checks if all objectives have been completed
                 PlayerMovement.interacted = false;
             }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Placement")
+        {
+            _inputPrompt.SetActive(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Placement")
+        {
+            _inputPrompt.SetActive(false);
         }
     }
 
