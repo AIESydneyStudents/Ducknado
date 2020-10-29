@@ -16,7 +16,7 @@ public class RaycastCamShoot : MonoBehaviour
     [SerializeField] private LineRenderer m_lineDirFairy;
 
     [SerializeField] private int iterations;
-    [SerializeField] private float velocity;
+    [SerializeField] public float velocity = 0.9f;
 
     public GunController gun;
     public BulletController playerBullet;
@@ -24,7 +24,6 @@ public class RaycastCamShoot : MonoBehaviour
     public static RaycastCamShoot ray;
 
     public static bool bulletJustActive = false;
-    //int lenOfRender = 100;
     void Start()
     {
         m_lineDirBullet.positionCount = 2;
@@ -47,8 +46,7 @@ public class RaycastCamShoot : MonoBehaviour
                 bulletCam.gameObject.SetActive(true);
                 m_lineDirBullet.enabled = true;
                 m_lineDirBullet.SetPosition(0, bulletCam.transform.position);
-
-                CurvedRaycast(iterations, bulletCam.transform.position, velocity);
+                CurvedRaycast(iterations, shotPoint.transform.position, velocity);
                 break;
             case 2:
                 bulletCam.gameObject.SetActive(false);
