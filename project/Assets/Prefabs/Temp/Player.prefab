@@ -917,7 +917,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739774325}
-  m_LocalRotation: {x: 0.2576645, y: 0.00049398735, z: -0.000131731, w: 0.9662343}
+  m_LocalRotation: {x: 0.2576645, y: 0.0004940108, z: -0.00013173725, w: 0.9662343}
   m_LocalPosition: {x: 0, y: 4.4005947, z: -6.345465}
   m_LocalScale: {x: 1.2179229, y: 1.2179228, z: 1.2179228}
   m_Children: []
@@ -1107,7 +1107,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131957079}
-  m_LocalRotation: {x: 0.27256185, y: -0.000000023412193, z: 0.000000006632385, w: 0.9621383}
+  m_LocalRotation: {x: 0.27256185, y: 0.000000023412182, z: -0.0000000066323818, w: 0.9621383}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1320,8 +1320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 895476680481725745}
   m_playerRB: {fileID: 5107676610309586226}
-  m_playerMovementSpeed: 1
-  m_acceleration: 1
+  m_playerMovementSpeed: 3.5
+  m_acceleration: 3
   m_gravity: 2
   m_cam: {fileID: 1739774326}
   m_smoothTurnSpeed: 0.1
@@ -1332,7 +1332,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5107676610309586227}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10891b70a88f88d41a44d1c8ad6f3ce5, type: 3}
   m_Name: 
@@ -1341,9 +1341,9 @@ MonoBehaviour:
   _victory: {fileID: 0}
   _audioManager: {fileID: 0}
   _inputPrompt: {fileID: 0}
-  startMusic: {fileID: 0}
-  midMusic: {fileID: 0}
-  endMusic: {fileID: 0}
+  startMusic: {fileID: 8300000, guid: 87d83e37ed1049e4c9dde874c78530cc, type: 3}
+  midMusic: {fileID: 8300000, guid: 1f4154fe94782524db719606aa80f30f, type: 3}
+  endMusic: {fileID: 8300000, guid: e2f9aa0da7a472847a0b165a7a082270, type: 3}
   _radius: 0
   _expand: 0
   _softness: 0
