@@ -9,6 +9,7 @@ public class BulletController : MonoBehaviour
     public static bool keyIsReleased = false;
     public GunController gun;
     public GameObject collisionEffect;
+    [SerializeField] public float ballGravity = 2; 
     // Update is called once per frame
     void Update()
     {
@@ -18,6 +19,7 @@ public class BulletController : MonoBehaviour
         //if (keyIsReleased == true)
         //{
             transform.Translate(Vector3.forward * speed * Time.deltaTime);//Do some adjusting with making the same variable as the velocity in raycastcamshoot.
+            transform.Translate(Vector3.down * ballGravity * Time.deltaTime);
         //    keyIsReleased = false;
         //    gun.isFiring = true;
         //}
@@ -46,6 +48,7 @@ public class BulletController : MonoBehaviour
         {
             gameObject.SetActive(false);
             Instantiate(collisionEffect).transform.position = gameObject.transform.position;
+
         }
     }
 }
