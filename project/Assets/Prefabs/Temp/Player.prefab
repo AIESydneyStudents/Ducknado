@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30341309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.915188, z: -4.6981106}
+  m_LocalPosition: {x: 0, y: 4.4005947, z: -6.345465}
   m_LocalScale: {x: 1.2179229, y: 1.2179229, z: 1.2179229}
   m_Children:
   - {fileID: 1761291766}
@@ -408,7 +408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211361071}
-  m_LocalRotation: {x: 0.3428075, y: -0, z: -0, w: 0.9394057}
+  m_LocalRotation: {x: 0.24652429, y: -0.000000016675337, z: 0.000000004241791, w: 0.96913666}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -917,8 +917,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739774325}
-  m_LocalRotation: {x: 0.38509318, y: 0.0000000099014015, z: -0.000000004131601, w: 0.9228777}
-  m_LocalPosition: {x: 0, y: 4.915186, z: -4.6981106}
+  m_LocalRotation: {x: 0.2576645, y: 0.00049398735, z: -0.000131731, w: 0.9662343}
+  m_LocalPosition: {x: 0, y: 4.4005947, z: -6.345465}
   m_LocalScale: {x: 1.2179229, y: 1.2179228, z: 1.2179228}
   m_Children: []
   m_Father: {fileID: 5107676610309586230}
@@ -1033,7 +1033,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761291764}
-  m_LocalRotation: {x: 0.393088, y: 2.859903e-16, z: 5.0835063e-16, w: 0.9195009}
+  m_LocalRotation: {x: 0.2427056, y: 0.0009919506, z: -0.00024817247, w: 0.97009945}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1107,7 +1107,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131957079}
-  m_LocalRotation: {x: 0.36800858, y: -0, z: -0, w: 0.92982244}
+  m_LocalRotation: {x: 0.27256185, y: -0.000000023412193, z: 0.000000006632385, w: 0.9621383}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1320,8 +1320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 895476680481725745}
   m_playerRB: {fileID: 5107676610309586226}
+  m_playerMovementSpeed: 1
   m_acceleration: 1
-  m_playersMS: 1
   m_gravity: 2
   m_cam: {fileID: 1739774326}
   m_smoothTurnSpeed: 0.1
@@ -1340,6 +1340,10 @@ MonoBehaviour:
   _tables: []
   _victory: {fileID: 0}
   _audioManager: {fileID: 0}
+  _inputPrompt: {fileID: 0}
+  startMusic: {fileID: 0}
+  midMusic: {fileID: 0}
+  endMusic: {fileID: 0}
   _radius: 0
   _expand: 0
   _softness: 0
@@ -1374,9 +1378,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 5107676610309586227}
   shotPoint: {fileID: 5107676610701441126}
-  holderCam: {fileID: 3280422616282162893}
-  m_cam: {fileID: 6817380991143069101}
-  m_lineDirection: {fileID: 1628696186}
+  bulletCam: {fileID: 3280422616282162893}
+  fairyCam: {fileID: 1700500773}
+  m_lineDirBullet: {fileID: 1628696186}
+  m_lineDirFairy: {fileID: 1700500774}
+  iterations: 100
+  velocity: 0.9
   gun: {fileID: 895476680481725745}
   playerBullet: {fileID: -7630473538254667495, guid: 247f739cf47000f4f9857f2566175101,
     type: 3}
@@ -1392,8 +1399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09637f9adc0f5f4c9dcce9d4b305a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yAxisAdjustment: 1
-  distanceAdjustment: 60
+  yAxisAdjustment: 0.901
+  distanceAdjustment: 87.9
   camRotationSpeed: 600
   cam: {fileID: 30341310}
 --- !u!114 &307821355
