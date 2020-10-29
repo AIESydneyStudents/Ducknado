@@ -44,19 +44,19 @@ public class objPooling : MonoBehaviour
                 return pooledObjects[i];
             }
         }
-        foreach (ObjectPoolItem item in itemsToPool)
-        {
-            if (item.objectToPool.tag == tag)
-            {
-                if (item.shouldExpand)
-                {
-                    GameObject obj = (GameObject)Instantiate(item.objectToPool);
-                    obj.SetActive(false);
-                    pooledObjects.Add(obj);
-                    return obj;
-                }
-            }
-        }
+        //foreach (ObjectPoolItem item in itemsToPool)
+        //{
+        //    if (item.objectToPool.tag == tag)
+        //    {
+        //        if (item.shouldExpand)
+        //        {
+        //            GameObject obj = (GameObject)Instantiate(item.objectToPool);
+        //            obj.SetActive(false);
+        //            pooledObjects.Add(obj);
+        //            return obj;
+        //        }
+        //    }
+        //}
         return null;
     }
     public GameObject CheckPooledObject(string tag)
