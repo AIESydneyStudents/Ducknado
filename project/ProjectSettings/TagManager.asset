@@ -9,6 +9,7 @@ TagManager:
   - Placement
   - NPC
   - Star
+  - Fade Out
   layers:
   - Default
   - TransparentFX

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30341309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2537482, y: 4.4005947, z: -5.93174}
+  m_LocalPosition: {x: 2.2744393, y: 4.4005947, z: -5.9238377}
   m_LocalScale: {x: 1.2179229, y: 1.2179229, z: 1.2179229}
   m_Children:
   - {fileID: 1761291766}
@@ -408,7 +408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211361071}
-  m_LocalRotation: {x: 0.24247266, y: -0.1749822, z: 0.04451113, w: 0.9532088}
+  m_LocalRotation: {x: 0.24239461, y: -0.17664556, z: 0.044934243, w: 0.95290196}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -917,8 +917,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739774325}
-  m_LocalRotation: {x: 0.2534654, y: -0.17372908, z: 0.046328116, w: 0.9504879}
-  m_LocalPosition: {x: 1.7839617, y: 5.7305946, z: -4.3535867}
+  m_LocalRotation: {x: 0.253373, y: -0.17561455, z: 0.046830915, w: 0.9501414}
+  m_LocalPosition: {x: 2.2744393, y: 4.4005947, z: -5.9238377}
   m_LocalScale: {x: 1.2179229, y: 1.2179228, z: 1.2179228}
   m_Children: []
   m_Father: {fileID: 5107676610309586230}
@@ -1033,7 +1033,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761291764}
-  m_LocalRotation: {x: 0.2387838, y: -0.17369193, z: 0.04345534, w: 0.95442396}
+  m_LocalRotation: {x: 0.23868662, y: -0.17581303, z: 0.043986015, w: 0.9540355}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1107,7 +1107,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131957079}
-  m_LocalRotation: {x: 0.26808232, y: -0.17371866, z: 0.049212355, w: 0.9463255}
+  m_LocalRotation: {x: 0.267996, y: -0.17536996, z: 0.04968014, w: 0.94602084}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1221,11 +1221,9 @@ MonoBehaviour:
   - amountToPool: 2
     objectToPool: {fileID: 4061512974801603654, guid: 173839b447d236d4da8114a857d05058,
       type: 3}
-    shouldExpand: 0
   - amountToPool: 2
     objectToPool: {fileID: 4061512974801603654, guid: f2f251ef522a5cb41b93dbd980cf552b,
       type: 3}
-    shouldExpand: 0
 --- !u!1 &5107676610309586227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1242,7 @@ GameObject:
   - component: {fileID: 276461040}
   - component: {fileID: 307821355}
   - component: {fileID: 1576991727967998385}
-  m_Layer: 30
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1320,8 +1318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 895476680481725745}
   m_playerRB: {fileID: 5107676610309586226}
-  m_playerMovementSpeed: 3.5
-  m_acceleration: 3
+  m_playerMovementSpeed: 3.8
+  m_acceleration: 5.65
   m_gravity: 2
   m_cam: {fileID: 1739774326}
   m_smoothTurnSpeed: 0.1
@@ -1344,12 +1342,10 @@ MonoBehaviour:
   startMusic: {fileID: 8300000, guid: 87d83e37ed1049e4c9dde874c78530cc, type: 3}
   midMusic: {fileID: 8300000, guid: 1f4154fe94782524db719606aa80f30f, type: 3}
   endMusic: {fileID: 8300000, guid: e2f9aa0da7a472847a0b165a7a082270, type: 3}
-  _radius: 0
-  _expand: 0
-  _softness: 0
-  _oneStarRating: 0
-  _twoStarRating: 0
-  _threeStarRating: 0
+  _expand: 8.92
+  _oneStarRating: 15
+  _twoStarRating: 10
+  _threeStarRating: 5
 --- !u!114 &307821363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,7 +1378,6 @@ MonoBehaviour:
   m_lineDirFairy: {fileID: 1700500774}
   iterations: 100
   velocity: 0.9
-  shootingPoints: []
   gun: {fileID: 895476680481725745}
   playerBullet: {fileID: -7630473538254667495, guid: 173839b447d236d4da8114a857d05058,
     type: 3}
@@ -1398,7 +1393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09637f9adc0f5f4c9dcce9d4b305a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yAxisAdjustment: 0.901
+  yAxisAdjustment: 0.772
   distanceAdjustment: 87.9
   camRotationSpeed: 600
   cam: {fileID: 30341310}
