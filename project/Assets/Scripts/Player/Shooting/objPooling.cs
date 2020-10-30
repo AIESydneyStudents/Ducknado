@@ -14,7 +14,7 @@ public class objPooling : MonoBehaviour
     public static objPooling SharedInstance;
     private List<GameObject> pooledObjects;
     public List<ObjectPoolItem> itemsToPool;
-
+    private int bulletsInHand;
     private void Awake()
     {
         SharedInstance = this;
@@ -69,6 +69,18 @@ public class objPooling : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public int CheckValueInHand(string tag)
+    {
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
+            {
+                bulletsInHand += 1;
+            }
+        }
+        return bulletsInHand;
     }
 }
 

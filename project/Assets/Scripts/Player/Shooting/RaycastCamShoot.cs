@@ -26,10 +26,13 @@ public class RaycastCamShoot : MonoBehaviour
     public static RaycastCamShoot ray;
     void Start()
     {
-        m_lineDirBullet.positionCount = 2;
-        m_lineDirFairy.positionCount = 2;
+        m_lineDirBullet.positionCount = 2;//Defaulted at 2
+        //m_lineDirBullet.material.color = Color.red;//Change this for later when you have a colour material for the fairy and bullet
+        m_lineDirFairy.positionCount = 2;//Defaulted at 2
+        //m_lineDirFairy.material.color = Color.red;//Change this for later when you have a colour material for the fairy and bullet
         bulletCam.gameObject.SetActive(false);
         bulletCam.enabled = false;
+
     }
 
     // Update is called once per frame
