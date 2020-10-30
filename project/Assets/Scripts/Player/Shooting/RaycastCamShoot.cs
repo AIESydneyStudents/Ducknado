@@ -18,7 +18,7 @@ public class RaycastCamShoot : MonoBehaviour
     [SerializeField] public int iterations = 100;
     [SerializeField] public float velocity = 0.9f;
 
-    [HideInInspector] public List<Vector3> shootingPoints = new List<Vector3>();
+    [HideInInspector] public static List<Vector3> shootingPoints = new List<Vector3>();
 
     public GunController gun;
     public BulletController playerBullet;
@@ -26,10 +26,13 @@ public class RaycastCamShoot : MonoBehaviour
     public static RaycastCamShoot ray;
     void Start()
     {
-        m_lineDirBullet.positionCount = 2;
-        m_lineDirFairy.positionCount = 2;
+        m_lineDirBullet.positionCount = 2;//Defaulted at 2
+        //m_lineDirBullet.material.color = Color.red;//Change this for later when you have a colour material for the fairy and bullet
+        m_lineDirFairy.positionCount = 2;//Defaulted at 2
+        //m_lineDirFairy.material.color = Color.red;//Change this for later when you have a colour material for the fairy and bullet
         bulletCam.gameObject.SetActive(false);
         bulletCam.enabled = false;
+
     }
 
     // Update is called once per frame
@@ -86,32 +89,31 @@ public class RaycastCamShoot : MonoBehaviour
 
     void CurvedRaycast(int iterations, Vector3 startPos, float velocity)
     {
-        RaycastHit hit;
+        RaycastHit hit;//Checks if the raycast has it the object.
         Vector3 pos = startPos;
-        var slicedGravity = Physics.gravity.y / iterations / velocity;
-        Ray ray2 = new Ray(m_lineDirBullet.GetPosition(0), m_player.transform.forward);
-        m_lineDirBullet.SetPosition(0, startPos);
-        var pointList = new List<Vector3>();
-        for (int i = 0; i < iterations; i++)
+        var slicedGravity = Physics.gravity.y / iterations / velocity;//This gravity is division of the gravity to a rb, the amount of iterations and the velocity.
+        Ray ray2 = new Ray(m_lineDirBullet.GetPosition(0), m_player.transform.forward);//The ray location will be from the point of the line renderer all the way in front of the player.
+        m_lineDirBullet.SetPosition(0, startPos);//Sets the position of the bullet to the starting location, the shotpoint.
+        var pointList = new List<Vector3>();//The list of locations on the arc.
+        for (int i = 0; i < iterations; i++)//Goes through every iteration
         {
-
-            if (Physics.Raycast(pos, ray2.direction * velocity, out hit, velocity))
+            if (Physics.Raycast(pos, ray2.direction * velocity, out hit, velocity))//If it hits an object through the raycast.
             {
-                m_lineDirBullet.SetPosition(1, pos + (ray2.direction * hit.distance));
-                pointList.Add(m_lineDirBullet.GetPosition(1));
-                m_lineDirBullet.positionCount = pointList.Count;
-                m_lineDirBullet.SetPositions(pointList.ToArray());
-                if (pointList != null)
+                m_lineDirBullet.SetPosition(1, pos + (ray2.direction * hit.distance));//The position of the bullet is set through the direction that it is heading in.
+                pointList.Add(m_lineDirBullet.GetPosition(1));//Adds it to the list of positions.
+                m_lineDirBullet.positionCount = pointList.Count;//Checks the amount on the amount on the list.
+                m_lineDirBullet.SetPositions(pointList.ToArray());//Adds all positions of the locatiosn on the list.
+                if (pointList != null)//This will be used for adding the points for the ball to follow. 
                 {
                     for (int j = 0; j < pointList.Count; j++)
                     {
-                        shootingPoints.Add(pointList[j]);
+                        shootingPoints.Add(pointList[j]);//Adds it to a global list
                     }
                 }
                 return;
             }
-            m_lineDirBullet.SetPosition(1, pos + (ray2.direction * hit.distance));
-            pos += ray2.direction * velocity;
+            m_lineDirBullet.SetPosition(1, pos + (ray2.direction * hit.distance));//sets the position.
+            pos += ray2.direction * velocity;//The new position depends on the player.forward and the velocity.
             ray2 = new Ray(ray2.origin, ray2.direction + new Vector3(0, slicedGravity, 0));
             pointList.Add(m_lineDirBullet.GetPosition(1));
         }
@@ -119,6 +121,10 @@ public class RaycastCamShoot : MonoBehaviour
         m_lineDirBullet.SetPositions(pointList.ToArray());
     }
 
+    //public List<Vector3> ListOfCoords(int length, int value) 
+    //{
+    //    return shootingPoints;
+    //}
 }
 
 
