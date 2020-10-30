@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes SandBox/Other/Gallery.unity
     guid: 2a472217549e14948a1b310c73a5e864
+  - enabled: 1
+    path: Assets/Scenes Main Project/Levels/Showcase_Placement.unity
+    guid: e64c074fa39080340aee339177ed50cb
+  - enabled: 1
+    path: Assets/Scenes Main Project/Levels/Showcase_Throwing.unity
+    guid: 8975a41e0034c28438cdfc9dc4d5c377
+  - enabled: 1
+    path: Assets/Scenes Main Project/Levels/Showcase_AI.unity
+    guid: 265ee67e100d1c44d915014200fe7d49
   m_configObjects: {}
