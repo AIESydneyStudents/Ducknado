@@ -5,7 +5,7 @@ using UnityEngine;
 public class ControlsPromptOff : MonoBehaviour
 {
     public GameObject uiMousePrompt, uiWasdPrompt, startArea, distractPromptArea, uiSwitchPrompt, uiThrowPrompt;
-    float delay = 5;
+    float delay = 7;
     // Start is called before the first frame update
     void Start()
     {
