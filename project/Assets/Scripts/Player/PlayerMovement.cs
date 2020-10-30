@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (input.magnitude >= 0.1f)
             {
-                float tarAngle = (float)Math.Atan2(input.x, input.z) * Mathf.Rad2Deg + m_cam.transform.eulerAngles.y;
+                float tarAngle = (float)Math.Atan2(input.x, input.z) * Mathf.Rad2Deg + m_cam.transform.eulerAngles.y;//Finds the targtet angle thats neede for the movement in reltation to the cameras direction.
                 float angle = Mathf.SmoothDampAngle(m_playerRB.transform.eulerAngles.y, tarAngle, ref m_smoothVel, m_smoothTurnSpeed);//Rotates at a certain rate.
                 m_playerRB.transform.rotation = Quaternion.Euler(0f, angle, 0f);//Rotates to the directuon of the angle.
 

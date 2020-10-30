@@ -13,6 +13,8 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //This is for allowqing for the bullet to follow coordinates of the shooting of the raycast.
         //var array = RaycastCamShoot.ray.ListOfCoords();
         //if (array != null)
         //{
@@ -26,7 +28,7 @@ public class BulletController : MonoBehaviour
         //if (keyIsReleased == true)
         //{
         transform.Translate(Vector3.forward * speed * Time.deltaTime);//Do some adjusting with making the same variable as the velocity in raycastcamshoot.
-        transform.Translate(Vector3.down * ballGravity * Time.deltaTime);
+        transform.Translate(Vector3.down * ballGravity * Time.deltaTime);//Adding gravity to the bullet.
         //    keyIsReleased = false;
         //    gun.isFiring = true;
         //}
@@ -51,7 +53,7 @@ public class BulletController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)//This is for the bullet arc for if it hits an object that isnt a player.
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("Player"))//If the bullet isnt colliding with the player.
         {
             gameObject.SetActive(false);
             Instantiate(collisionEffect).transform.position = gameObject.transform.position;

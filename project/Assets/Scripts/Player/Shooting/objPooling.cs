@@ -9,7 +9,6 @@ public class objPooling : MonoBehaviour
     {
         public int amountToPool;
         public GameObject objectToPool;
-        public bool shouldExpand = true;
     }
     public static objPooling SharedInstance;
     private List<GameObject> pooledObjects;
@@ -35,6 +34,7 @@ public class objPooling : MonoBehaviour
             }
         }
     }
+    //Finding the first object that is not active in the hierarchy.
     public GameObject GetPooledObject(string tag)
     {
         for (int i = 0; i < pooledObjects.Count; i++)
@@ -44,21 +44,9 @@ public class objPooling : MonoBehaviour
                 return pooledObjects[i];
             }
         }
-        //foreach (ObjectPoolItem item in itemsToPool)
-        //{
-        //    if (item.objectToPool.tag == tag)
-        //    {
-        //        if (item.shouldExpand)
-        //        {
-        //            GameObject obj = (GameObject)Instantiate(item.objectToPool);
-        //            obj.SetActive(false);
-        //            pooledObjects.Add(obj);
-        //            return obj;
-        //        }
-        //    }
-        //}
         return null;
     }
+    //Checks if any are active in the hierarchy. Finds the first one.
     public GameObject CheckPooledObject(string tag)
     {
         for (int i = 0; i < pooledObjects.Count; i++)
@@ -70,7 +58,7 @@ public class objPooling : MonoBehaviour
         }
         return null;
     }
-
+    //Checks how many bullets are in hand.
     public int CheckValueInHand(string tag)
     {
         for (int i = 0; i < pooledObjects.Count; i++)
@@ -82,5 +70,19 @@ public class objPooling : MonoBehaviour
         }
         return bulletsInHand;
     }
+    //This will be used for pickup. When an object is picked up, a new instantiated object is added.
+    public void AddNewObject(int ammoAdded) 
+    {
+        foreach(ObjectPoolItem item in itemsToPool)
+        {
+            for (int i = 0; i < ammoAdded; i++)
+            {
+                GameObject obj = Instantiate(item.objectToPool);
+                obj.SetActive(false);
+                pooledObjects.Add(obj);
+            }
+        }
+    }
+    
 }
 
