@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TeaPlacement : MonoBehaviour
 {
     [HideInInspector]
     public GameObject[] _tables; // list of all objectives
     public GameObject _victory;
+    GameObject _fadeOut;
+    Image _black;
+
     Vector3 _location; // stores the location of the last table for the color change effect
     public GameObject _audioManager;
     public GameObject _inputPrompt; //the UI pop-up to prompt input
@@ -16,8 +20,11 @@ public class TeaPlacement : MonoBehaviour
     public AudioClip midMusic;
     public AudioClip endMusic;
     bool _firstPlacement;
+    float _radius, _softness, _alpha;
 
-    public float _radius,_expand, _softness;
+
+    [SerializeField]
+    private float _expand;
 
     public float _oneStarRating;
     public float _twoStarRating;
@@ -26,6 +33,9 @@ public class TeaPlacement : MonoBehaviour
 
     private void Start()
     {
+        _fadeOut = GameObject.FindGameObjectWithTag("Fade Out");
+        _black = _fadeOut.GetComponentInChildren<Image>();
+        //_changeAlpha = _black.color;
         Shader.SetGlobalFloat("GLOBALmask_Radius", 0);
         Shader.SetGlobalFloat("GLOBALmask_Softness", 0);
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
@@ -39,11 +49,20 @@ public class TeaPlacement : MonoBehaviour
         }
         if (AllTeaPlacedCheck()) // if all tea has been placed run this code
         {
-            DisplayCanvas(); //Display the Final canvas
-            //ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
+            StartCoroutine("FadeOutScreen", _alpha);
+           //ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
         }
     }
 
+    IEnumerator FadeOutScreen()
+    {
+        _black.color = new Color(0, 0, 0, _alpha += 0.5f * Time.deltaTime);
+        yield return new WaitForSeconds(2f);
+
+        _black.color = new Color(0, 0, 0, _alpha -= 0.5f * Time.deltaTime);
+        DisplayCanvas(); //Display the Final canvas
+
+    }
     private void OnTriggerStay(Collider other) // used to check if player is near a placement table
     {
         if (other.gameObject.tag == "Placement") // check the placement tag is the collision
@@ -65,7 +84,6 @@ public class TeaPlacement : MonoBehaviour
                             gameObject.GetComponent<AudioSource>().Play();
                         }
                     }
-
                 }
                 AllTeaPlacedCheck(); // checks if all objectives have been completed
                 PlayerMovement.interacted = false;
@@ -74,7 +92,7 @@ public class TeaPlacement : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Placement")
+        if (other.gameObject.tag == "Placement")
         {
             _inputPrompt.SetActive(true);
         }
@@ -124,7 +142,6 @@ public class TeaPlacement : MonoBehaviour
 
     public void DisplayCanvas() // Displays the stars at the end of the level based off the final time of the game
     {
-
         gameObject.GetComponent<AudioSource>().clip = endMusic;
         gameObject.GetComponent<AudioSource>().Play();
         _victory.gameObject.tag = "Finish";
@@ -132,7 +149,7 @@ public class TeaPlacement : MonoBehaviour
 
 
 
-        if (GameTimer._finalTime <=_threeStarRating) //finish time was less than the given three star rating.
+        if (GameTimer._finalTime <= _threeStarRating) //finish time was less than the given three star rating.
         {
             _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);// sets the image of the star which is a child of the canvas, position is hard coded based off prefab
             _victory.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
@@ -140,7 +157,7 @@ public class TeaPlacement : MonoBehaviour
 
         }
 
-        else if (GameTimer._finalTime <= _twoStarRating  && GameTimer._finalTime > _threeStarRating) //finish time was greater than the given three star rating and less than the second star rating.
+        else if (GameTimer._finalTime <= _twoStarRating && GameTimer._finalTime > _threeStarRating) //finish time was greater than the given three star rating and less than the second star rating.
         {
             _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
             _victory.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
