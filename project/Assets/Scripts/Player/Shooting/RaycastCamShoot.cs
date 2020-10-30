@@ -18,7 +18,7 @@ public class RaycastCamShoot : MonoBehaviour
     [SerializeField] public int iterations = 100;
     [SerializeField] public float velocity = 0.9f;
 
-    [HideInInspector] public List<Vector3> shootingPoints = new List<Vector3>();
+    [HideInInspector] public static List<Vector3> shootingPoints = new List<Vector3>();
 
     public GunController gun;
     public BulletController playerBullet;
@@ -122,6 +122,10 @@ public class RaycastCamShoot : MonoBehaviour
         m_lineDirBullet.SetPositions(pointList.ToArray());
     }
 
+    //public List<Vector3> ListOfCoords(int length, int value) 
+    //{
+    //    return shootingPoints;
+    //}
 }
 
 

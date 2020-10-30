@@ -13,7 +13,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //var array = RaycastCamShoot.ray.shootingPoints;
+        //var array = RaycastCamShoot.ray.ListOfCoords();
         //if (array != null)
         //{
         //    for (int i = 0; i < array.Count; i++)
