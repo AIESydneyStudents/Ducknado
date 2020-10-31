@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
-{ 
+{
     [SerializeField] public GameObject m_player;
     [SerializeField] [Range(0.01f, 10.0f)] public float speed = 5.0f;
     public static bool keyIsReleased = false;//When the key is released.
@@ -11,32 +11,50 @@ public class BulletController : MonoBehaviour
     public GameObject collisionEffect;
     [SerializeField] public float ballGravity = 2;
     private Vector3 locOfPlayer;//Gets the position of the player when it fires the bullet.
+    public static bool bulletIsFiring = false;
+
+    Coroutine timer;
+
+    private void Start()
+    {
+    }
     // Update is called once per frame
     void Update()
     {
 
         //This is for allowqing for the bullet to follow coordinates of the shooting of the raycast.
-        //var array = RaycastCamShoot.ray.ListOfCoords();
+        //var array = RaycastCamShoot.shootingPoints;
         //if (array != null)
         //{
         //    for (int i = 0; i < array.Count; i++)
         //    {
-        //        transform.Translate(array[i] * speed * Time.deltaTime);
-        //    }
+        //        transform.Translate(array[i] * Time.deltaTime);
 
+        //    }
+        //    RaycastCamShoot.shootingPoints.Clear();
         //}
+
 
         //All the key released is for when the player releases the spacebar.
         //if (keyIsReleased == true)
         //{
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);//Do some adjusting with making the same variable as the velocity in raycastcamshoot.
-        transform.Translate(Vector3.down * ballGravity * Time.deltaTime);//Adding gravity to the bullet.
+
+
         //    keyIsReleased = false;
         //    gun.isFiring = true;
         //}
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);//Do some adjusting with making the same variable as the velocity in raycastcamshoot.
+        transform.Translate(Vector3.down * ballGravity * Time.deltaTime);//Adding gravity to the bullet.
+        //switch (GunController.inHandWeapon)
+        //{
+        //    case 1:
+        //        //if(bulletIsFiring == false)
+        //        //    StartCoroutine(MoveObject());
+        //        break;
+        //    case 2:
 
-
-
+        //        break;
+        //}
     }
     void FixedUpdate()
     {
@@ -66,5 +84,35 @@ public class BulletController : MonoBehaviour
     {
         m_player = GameObject.Find("Player");
         locOfPlayer = m_player.transform.position;
+    }
+
+    IEnumerator MoveObject()
+    {
+        bulletIsFiring = true;
+        var points = RaycastCamShoot.shootingPoints;
+        for (int i = 0; i < RaycastCamShoot.shootingPoints.Count; i++)
+        {
+
+            timer = StartCoroutine(Moving(i, points));
+            if (i >= RaycastCamShoot.shootingPoints.Count - 1)
+            {
+                RaycastCamShoot.shootingPoints.Clear();//Deletes the previous positions of the bullet
+                bulletIsFiring = false;
+            }
+            yield return timer;
+
+        }
+        bulletIsFiring = false;
+
+    }
+
+    IEnumerator Moving(int currentPosition, List<Vector3> points)
+    {
+        while (transform.position != points[currentPosition])
+        {
+            Vector3 dir = transform.forward - points[currentPosition];
+            transform.position = Vector3.MoveTowards(transform.position, points[currentPosition], speed * Time.deltaTime);
+            yield return null;
+        }
     }
 }
