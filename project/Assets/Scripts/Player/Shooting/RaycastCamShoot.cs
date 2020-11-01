@@ -46,20 +46,20 @@ public class RaycastCamShoot : MonoBehaviour
         {
             case 1://The arc gun
                 GameObject bullet = objPooling.SharedInstance.CheckPooledObject("Bullet");//Checks if a bullet is in use
-                if (bullet != null)
-                {
-                    fairyCam.gameObject.SetActive(false);
-                    bulletCam.gameObject.SetActive(false);
+                //if (bullet != null)
+                //{
+                    //fairyCam.gameObject.SetActive(false);
+                    //bulletCam.gameObject.SetActive(false);
 
-                }
-                else //If there is not a bullet in use.
-                {
+                //}
+                //else //If there is not a bullet in use.
+                //{
                     fairyCam.gameObject.SetActive(false);
                     bulletCam.gameObject.SetActive(true);
                     m_lineDirBullet.enabled = true;
                     m_lineDirBullet.SetPosition(0, bulletCam.transform.position);
                     CurvedRaycast(iterations, shotPoint.transform.position, velocity);
-                }
+                //}
 
                 break;
             case 2:
@@ -103,11 +103,12 @@ public class RaycastCamShoot : MonoBehaviour
                 pointList.Add(m_lineDirBullet.GetPosition(1));//Adds it to the list of positions.
                 m_lineDirBullet.positionCount = pointList.Count;//Checks the amount on the amount on the list.
                 m_lineDirBullet.SetPositions(pointList.ToArray());//Adds all positions of the locatiosn on the list.
-                if (pointList != null)//This will be used for adding the points for the ball to follow. 
+                if (pointList != null && BulletController.bulletIsFiring == false)//This will be used for adding the points for the ball to follow. 
                 {
+                    RaycastCamShoot.shootingPoints.Clear();//Deletes the previous positions of the bullet
                     for (int j = 0; j < pointList.Count; j++)
                     {
-                        shootingPoints.Add(pointList[j]);//Adds it to a global list
+                        shootingPoints.Add(pointList[j]);//Adds new position to a global list
                     }
                 }
                 return;
@@ -120,11 +121,6 @@ public class RaycastCamShoot : MonoBehaviour
 
         m_lineDirBullet.SetPositions(pointList.ToArray());
     }
-
-    //public List<Vector3> ListOfCoords(int length, int value) 
-    //{
-    //    return shootingPoints;
-    //}
 }
 
 

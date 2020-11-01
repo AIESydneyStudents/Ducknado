@@ -34,7 +34,7 @@ public class TeaPlacement : MonoBehaviour
     private void Start()
     {
         _fadeOut = GameObject.FindGameObjectWithTag("Fade Out");
-        _black = _fadeOut.GetComponentInChildren<Image>();
+        //_black = _fadeOut.GetComponentInChildren<Image>();
         //_changeAlpha = _black.color;
         Shader.SetGlobalFloat("GLOBALmask_Radius", 0);
         Shader.SetGlobalFloat("GLOBALmask_Softness", 0);
