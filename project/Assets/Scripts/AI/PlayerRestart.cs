@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerRestart : MonoBehaviour
 {
     GameObject player;
-    Vector3 _startPos;
+    static Vector3 _startPos;
+
+    [HideInInspector]
+    public bool _playerPosrestart = false;
 
     private void Start()
     {
@@ -15,9 +18,9 @@ public class PlayerRestart : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-
         if (collision.gameObject.tag == "NPC") // if collision found with this tag and player
         {
+            _playerPosrestart = true;
             this.transform.position = _startPos; // set the stored position as players new position
         }
     }

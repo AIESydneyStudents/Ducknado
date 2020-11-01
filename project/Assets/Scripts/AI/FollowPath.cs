@@ -11,23 +11,21 @@ public class FollowPath : MonoBehaviour
     [SerializeField]
     float _waitTime = 3f; // controls the wait time at each waypoint
 
-    [SerializeField]
     float _wanderRadius = 3f; // used as a radius in which the Ai will pick from    
 
-    [SerializeField]
     float _wanderTime = 3f; //Used as the time in which the AI will wander after player leaves sight
 
     [SerializeField]
     List<Waypoint> _patrolPoints; //stores the waypoints added into this list
 
     public FieldOfView fov;
+    PlayerRestart restart;
     NavMeshAgent _navMeshAgent;
     public GameObject player;
 
     int _curentPatrolIndex;
     float _waitTimer;
 
-    bool _pathFindingActive = true;
     bool _travelling;
     bool _waiting;
     bool _patrolForward;
@@ -35,6 +33,7 @@ public class FollowPath : MonoBehaviour
 
     void Start()
     {
+        restart = player.GetComponent<PlayerRestart>();
         _navMeshAgent = this.GetComponent<NavMeshAgent>(); // gets the navmesh component of the gameobject this script is attached to
 
         if (_navMeshAgent == null) // if it returns null display message
@@ -58,57 +57,22 @@ public class FollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (fov._targetFound) //if the player has been caught in NPC LOS
+        if (fov._targetFound && !restart._playerPosrestart) //if the player has been caught in NPC LOS
         {
-            _pathFindingActive = false; //set PathFinding to active
-            _wanderTime = 0; //Wander time is set to 0
+            SeekingPlayer();
 
-            _targetVector = player.transform.position; //target is changed from previous function to player
-
-            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
-
-            if (!fov._targetFound && _pathFindingActive == false)
+            if (restart._playerPosrestart)
             {
-                while (_wanderTime > 0)
-                {
-                    _navMeshAgent.SetDestination(RandomNavSphere(_targetVector, _wanderRadius, 2));
-                    _wanderTime--;
-
-                }
-            }
-
-            if (!fov._targetFound)
-            {
-                _pathFindingActive = true;
-            }
-            if (!fov._targetFound && !fov._distractionFound && _pathFindingActive == true)
-            {
-                _wanderTime = 0;
                 PathFinding();
             }
         }
-        if (fov._butterflyDistraction.activeSelf && fov._distractionFound)
-        {
-            _pathFindingActive = false; //set PathFinding to active
-            _wanderTime = 0; //Wander time is set to 0
-            _targetVector = fov._butterflyDistraction.transform.position;
-
-            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
-        }
-        if (fov._teacupFound)
-        {
-            _pathFindingActive = false; //set PathFinding to active
-            _wanderTime = 0; //Wander time is set to 0
-            _targetVector = fov._teacupDistraction.transform.position;
-
-                _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
-            _pathFindingActive = true;
-        }
-        else
+        if(!fov._targetFound || restart._playerPosrestart)
         {
             PathFinding();
-
+        }
+        if (fov._distractionFound || fov._teacupFound)
+        {
+            DistractionDetected();
         }
 
     }
@@ -178,14 +142,29 @@ public class FollowPath : MonoBehaviour
         }
     }
 
-    private void Wandering()
+    private void SeekingPlayer()
     {
-        if (!fov._targetFound)
+        if (restart._playerPosrestart)
         {
-
+            PathFinding();
         }
+        else
+        {
+            _targetVector = player.transform.position; //target is changed from previous function to player
+
+            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target    
+        }
+
     }
 
+    private void Wandering()
+    {
+        while (_wanderTime > 0) // if the timer greater than the requested wait time, object is no longer waiting and new position is set
+        {
+            _navMeshAgent.SetDestination(RandomNavSphere(this.transform.position, _wanderRadius, 2));
+            _wanderTime -= Time.deltaTime;
+        }
+    }
     private static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
         Vector3 randDirection = Random.insideUnitSphere * dist;
@@ -199,8 +178,19 @@ public class FollowPath : MonoBehaviour
         return navHit.position;
     }
 
-    private void DistractionInRange()
+    private void DistractionDetected()
     {
+        if (fov._butterflyDistraction.activeSelf && fov._distractionFound)
+        {
+            _targetVector = fov._butterflyDistraction.transform.position;
 
+            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
+        }
+        if (fov._teacupFound)
+        {
+            _targetVector = fov._teacupDistraction.transform.position;
+
+            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
+        }
     }
 }

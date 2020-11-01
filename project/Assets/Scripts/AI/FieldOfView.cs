@@ -33,6 +33,8 @@ public class FieldOfView : MonoBehaviour
     [HideInInspector]
     public GameObject _butterflyDistraction;
 
+    PlayerRestart restart;
+
     float _maskCutawayDst = .1f;
 
     public MeshFilter viewMeshFilter;
@@ -44,6 +46,8 @@ public class FieldOfView : MonoBehaviour
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
         _targetFound = false;
+
+        restart = player.GetComponent<PlayerRestart>();
 
         _teacupDistraction = objPooling.SharedInstance.GetPooledObject("Bullet");
         _butterflyDistraction = objPooling.SharedInstance.GetPooledObject("FairyBull");
@@ -84,6 +88,7 @@ public class FieldOfView : MonoBehaviour
             }
             else
             {
+                restart._playerPosrestart = false;
                 _targetFound = false;
             }
         }
