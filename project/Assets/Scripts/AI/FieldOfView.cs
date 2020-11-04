@@ -11,6 +11,12 @@ public class FieldOfView : MonoBehaviour
     [SerializeField]
     public float viewAngle;
 
+    [SerializeField]
+    private Color32 _undetectedColor;
+
+    [SerializeField]     
+    private Color32 _detectedColor;
+
     LayerMask _targetMask;
     LayerMask _obstacleMask;
 
@@ -19,7 +25,7 @@ public class FieldOfView : MonoBehaviour
     float _edgeDstThreshold = 1;
 
     [HideInInspector]
-    public  bool _targetFound;
+    public bool _targetFound;
 
     [HideInInspector]
     public bool _distractionFound;
@@ -38,6 +44,7 @@ public class FieldOfView : MonoBehaviour
     float _maskCutawayDst = .1f;
 
     public MeshFilter viewMeshFilter;
+    public MeshRenderer _viewMeshRenderer;
     Mesh viewMesh;
 
     void Start()
@@ -145,8 +152,6 @@ public class FieldOfView : MonoBehaviour
                 }
 
             }
-
-
             viewPoints.Add(newViewCast.point);
             oldViewCast = newViewCast;
         }
@@ -168,9 +173,18 @@ public class FieldOfView : MonoBehaviour
             }
         }
 
+        if (_targetFound)
+        {
+            _viewMeshRenderer.material.color = _detectedColor;
+        }
+        else
+        {
+            _viewMeshRenderer.material.color = _undetectedColor ;
+
+        }
         viewMesh.Clear();
 
-
+       
         viewMesh.vertices = vertices;
         viewMesh.triangles = triangles;
         viewMesh.RecalculateNormals();
