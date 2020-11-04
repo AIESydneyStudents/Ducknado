@@ -4002,7 +4002,7 @@ PrefabInstance:
     - target: {fileID: 8365820675741758943, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level 1
+      value: Tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 9213030834235484464, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
@@ -4716,7 +4716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2726705683674337462
 RectTransform:
   m_ObjectHideFlags: 0
