@@ -63,10 +63,11 @@ public class objPooling : MonoBehaviour
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
-            {
+
+            if (pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
+                bulletsInHand -= 1;
+            else if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
                 bulletsInHand += 1;
-            }
         }
         return bulletsInHand;
     }
