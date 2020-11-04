@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 362190613626276358}
   - component: {fileID: 362190613626276362}
   m_Layer: 0
-  m_Name: Table
+  m_Name: Placement Area
   m_TagString: Placement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
