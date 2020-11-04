@@ -12,22 +12,9 @@ public class BulletController : MonoBehaviour
     [SerializeField] public float ballGravity = 2;
     private Vector3 locOfPlayer;//Gets the position of the player when it fires the bullet.
     public static bool bulletIsFiring = false;
-    //[SerializeField] private Transform shotPosition;
-
-    //Coroutine timer;
-
-    private void Start()
-    {
-        //shotPosition.position = m_player.transform.GetChild(3).gameObject.transform.position;
-
-    }
     // Update is called once per frame
     void Update()
     {
-        //var position = RaycastCamShoot.shootingPoints[RaycastCamShoot.shootingPoints.Count - 1];
-        //RaycastCamShoot script = m_player.GetComponent<RaycastCamShoot>();
-        //transform.position = Vector3.MoveTowards(shotPosition.position, position + new Vector3(0, script.targetHeight, 0), speed);
-        //transform.Translate(RaycastCamShoot.shootingPoints[RaycastCamShoot.shootingPoints.Count - 1] * Time.deltaTime);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);//Do some adjusting with making the same variable as the velocity in raycastcamshoot.
         transform.Translate(Vector3.down * ballGravity * Time.deltaTime);//Adding gravity to the bullet.
     }
@@ -64,33 +51,3 @@ public class BulletController : MonoBehaviour
     }
 }
 
-//    IEnumerator MoveObject()
-//    {
-//        bulletIsFiring = true;
-//        var points = RaycastCamShoot.shootingPoints;
-//        for (int i = 0; i < RaycastCamShoot.shootingPoints.Count; i++)
-//        {
-
-//            timer = StartCoroutine(Moving(i, points));
-//            if (i >= RaycastCamShoot.shootingPoints.Count - 1)
-//            {
-//                RaycastCamShoot.shootingPoints.Clear();//Deletes the previous positions of the bullet
-//                bulletIsFiring = false;
-//            }
-//            yield return timer;
-
-//        }
-//        bulletIsFiring = false;
-
-//    }
-
-//    IEnumerator Moving(int currentPosition, List<Vector3> points)
-//    {
-//        while (transform.position != points[currentPosition])
-//        {
-//            Vector3 dir = transform.forward - points[currentPosition];
-//            transform.position = Vector3.MoveTowards(transform.position, points[currentPosition], speed * Time.deltaTime);
-//            yield return null;
-//        }
-//    }
-//

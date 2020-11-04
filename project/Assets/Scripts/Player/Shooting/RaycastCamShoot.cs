@@ -19,8 +19,8 @@ public class RaycastCamShoot : MonoBehaviour
     [SerializeField] public int iterations = 100;
     [SerializeField] private float velocity = 1f;
     [SerializeField] private float maxHeight = 1;
-    [SerializeField] [Range(-0.1f, -1.0f)]private float gravity = -0.1f;
-    [SerializeField] [Range(0.1f, 1.0f)]public float targetHeight;
+    [SerializeField] [Range(-0.1f, -1.0f)] private float gravity = -0.1f;
+    [SerializeField] [Range(0.1f, 1.0f)] public float targetHeight;
     private float holdingHeight;
 
 
@@ -34,9 +34,9 @@ public class RaycastCamShoot : MonoBehaviour
     void Start()
     {
         m_lineDirBullet.positionCount = 2;//Defaulted at 2
-        //m_lineDirBullet.material.color = Color.red;//Change this for later when you have a colour material for the fairy and bullet
+        m_lineDirBullet.material.color = Color.red;//Change this for later when you have a colour material for the fairy and bullet
         m_lineDirFairy.positionCount = 2;//Defaulted at 2
-        //m_lineDirFairy.material.color = Color.red;//Change this for later when you have a colour material for the fairy and bullet
+        m_lineDirFairy.material.color = Color.red;//Change this for later when you have a colour material for the fairy and bullet
         bulletCam.gameObject.SetActive(false);
         bulletCam.enabled = false;
         holdingHeight = maxHeight;
@@ -51,22 +51,11 @@ public class RaycastCamShoot : MonoBehaviour
         //Determines what gun is accessed.
         switch (GunController.inHandWeapon)
         {
-            case 1://The arc gun
-                GameObject bullet = objPooling.SharedInstance.CheckPooledObject("Bullet");//Checks if a bullet is in use
-                //if (bullet != null)
-                //{
-                    //fairyCam.gameObject.SetActive(false);
-                    //bulletCam.gameObject.SetActive(false);
-
-                //}
-                //else //If there is not a bullet in use.
-                //{
-                    fairyCam.gameObject.SetActive(false);
-                    bulletCam.gameObject.SetActive(true);
-                    //m_lineDirBullet.enabled = true;
-                    m_lineDirBullet.SetPosition(0, bulletCam.transform.position);
-                    CurvedRaycast(iterations, shotPoint.transform.position, velocity);
-                //}
+            case 1:
+                fairyCam.gameObject.SetActive(false);
+                bulletCam.gameObject.SetActive(true);
+                m_lineDirBullet.SetPosition(0, bulletCam.transform.position);
+                CurvedRaycast(iterations, shotPoint.transform.position, velocity);
 
                 break;
             case 2:
