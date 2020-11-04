@@ -104,7 +104,7 @@ public class RaycastCamShoot : MonoBehaviour
         var pointList = new List<Vector3>();//The list of locations on the arc.
         for (int i = 0; i < iterations; i++)//Goes through every iteration
         {
-            if (Physics.Raycast(pos, ray2.direction * velocity, out hit, velocity))//If it hits an object through the raycast.
+            if (Physics.Raycast(pos, ray2.direction * velocity, out hit, velocity) && !hit.collider.gameObject.CompareTag("Bullet"))//If it hits an object through the raycast.
             {
                 m_lineDirBullet.SetPosition(1, pos + (ray2.direction * hit.distance));//The position of the bullet is set through the direction that it is heading in.
                 pointList.Add(pos + (ray2.direction * hit.distance));//Adds it to the list of positions.
@@ -120,7 +120,6 @@ public class RaycastCamShoot : MonoBehaviour
                     }
 
                 }
-                //if()//Add a check to see if the raycast is hitting the bullet.
                 targPos.transform.position = pointList[pointList.Count - 1] + new Vector3(0, targetHeight, 0);
                 return;
             }
