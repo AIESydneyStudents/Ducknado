@@ -9,7 +9,7 @@ public class BulletController : MonoBehaviour
     public static bool keyIsReleased = false;//When the key is released.
     public GunController gun;//Gun Project.
     public GameObject collisionEffect;
-    [SerializeField] public float ballGravity = 2;
+    [SerializeField] public float ballGravity = 0;
     private Vector3 locOfPlayer;//Gets the position of the player when it fires the bullet.
     public static bool bulletIsFiring = false;
     // Update is called once per frame
