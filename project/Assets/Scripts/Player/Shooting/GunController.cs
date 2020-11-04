@@ -44,7 +44,7 @@ public class GunController : MonoBehaviour
                         case 2:
                             GameObject fairyBullet = objPooling.SharedInstance.GetPooledObject("FairyBull");
                             shotCounter = timeBetweenShots;
-                            if (fairyBullet != null)
+                             if (fairyBullet != null)
                             {
                                 fairyBullet.transform.position = firePoint.position;
                                 fairyBullet.transform.rotation = firePoint.transform.rotation;
