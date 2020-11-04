@@ -41,7 +41,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1574144407963022594}
   serializedVersion: 6
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 0.8
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -864,8 +864,8 @@ ParticleSystem:
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 2
+      minMaxState: 1
+      scalar: 6
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -873,15 +873,15 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 1
-          inSlope: 0
-          outSlope: 0
+          inSlope: -1.6730781
+          outSlope: -1.6730781
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0.11981445
         - serializedVersion: 3
-          time: 1
-          value: 1
+          time: 0.9977112
+          value: 0.07692337
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -981,8 +981,8 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.011363983
-          value: 0
+          time: 0
+          value: 0.076919556
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1319,7 +1319,7 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
+        atime0: 15998
         atime1: 65535
         atime2: 0
         atime3: 0
@@ -4709,7 +4709,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 66cd4c032e4f7db42b72cd363113d8ce, type: 2}
+  - {fileID: 2100000, guid: d4052df9718fc1749886d9cd6494ac85, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
