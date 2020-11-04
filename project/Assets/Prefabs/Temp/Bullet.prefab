@@ -111,11 +111,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 5107676610309586227, guid: 0b9a04d12fa33db45a7f76e08083fe79,
     type: 3}
-  speed: 10
+  speed: 5.38
   gun: {fileID: 0}
   collisionEffect: {fileID: 3587378176429279568, guid: 71591cdf48473ba468c9ffded0f025e1,
     type: 3}
   ballGravity: 2
+  shotPosition: {fileID: 5107676610309586230, guid: 0b9a04d12fa33db45a7f76e08083fe79,
+    type: 3}
 --- !u!54 &7896094153903550040
 Rigidbody:
   m_ObjectHideFlags: 0

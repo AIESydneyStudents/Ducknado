@@ -1257,7 +1257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5107676610309586227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.07, z: -3.64}
+  m_LocalPosition: {x: -0.38572767, y: 3.1571598, z: -1.7932874}
   m_LocalScale: {x: 0.82107, y: 0.82107, z: 0.82107}
   m_Children:
   - {fileID: 7205484384596010109}
@@ -1358,6 +1358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce4173bc73189e40809c63db65bc731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerPosrestart: 0
 --- !u!114 &1647448150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,12 +1373,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 5107676610309586227}
   shotPoint: {fileID: 5107676610701441126}
+  targPos: {fileID: 0}
   bulletCam: {fileID: 3280422616282162893}
   fairyCam: {fileID: 1700500773}
   m_lineDirBullet: {fileID: 1628696186}
   m_lineDirFairy: {fileID: 1700500774}
   iterations: 100
   velocity: 0.9
+  maxHeight: 5
+  gravity: 1
+  targetHeight: 0
   gun: {fileID: 895476680481725745}
   playerBullet: {fileID: -7630473538254667495, guid: 173839b447d236d4da8114a857d05058,
     type: 3}
