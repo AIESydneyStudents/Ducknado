@@ -134,36 +134,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1801225253042336494, guid: a745fec231169734fa3a778b37c62b66,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -524.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801225253042336494, guid: a745fec231169734fa3a778b37c62b66,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 158.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801225253554651520, guid: a745fec231169734fa3a778b37c62b66,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -524.2001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801225253554651520, guid: a745fec231169734fa3a778b37c62b66,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 158.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801225253554651551, guid: a745fec231169734fa3a778b37c62b66,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801225254538781825, guid: a745fec231169734fa3a778b37c62b66,
-        type: 3}
-      propertyPath: ammo
-      value: 
-      objectReference: {fileID: 2064387301}
     - target: {fileID: 1801225254538781825, guid: a745fec231169734fa3a778b37c62b66,
         type: 3}
       propertyPath: fairyBullet
@@ -174,16 +144,6 @@ PrefabInstance:
       propertyPath: teaBullet
       value: 
       objectReference: {fileID: 145158582}
-    - target: {fileID: 1801225254538781825, guid: a745fec231169734fa3a778b37c62b66,
-        type: 3}
-      propertyPath: ammoTea
-      value: 
-      objectReference: {fileID: 2064387301}
-    - target: {fileID: 1801225254538781825, guid: a745fec231169734fa3a778b37c62b66,
-        type: 3}
-      propertyPath: ammoFairy
-      value: 
-      objectReference: {fileID: 264115391}
     - target: {fileID: 1801225254538781852, guid: a745fec231169734fa3a778b37c62b66,
         type: 3}
       propertyPath: m_Name
@@ -296,12 +256,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a745fec231169734fa3a778b37c62b66, type: 3}
---- !u!224 &167452963 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1801225254538781853, guid: a745fec231169734fa3a778b37c62b66,
-    type: 3}
-  m_PrefabInstance: {fileID: 167452962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &168744312
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,83 +350,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &264115390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 264115393}
-  - component: {fileID: 264115392}
-  - component: {fileID: 264115391}
-  m_Layer: 5
-  m_Name: FairyAmmo.Txt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &264115391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264115390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "Ammo: \n"
---- !u!222 &264115392
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264115390}
-  m_CullTransparentMesh: 0
---- !u!224 &264115393
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264115390}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.3442254}
-  m_LocalScale: {x: 0.82107, y: 0.82107, z: 0.82107}
-  m_Children: []
-  m_Father: {fileID: 167452963}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -355.1, y: 237.69997}
-  m_SizeDelta: {x: 536.3, y: 48.24}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &311242133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -482,31 +359,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.17498223
+      value: -0.1749822
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.044511136
-      objectReference: {fileID: 0}
-    - target: {fileID: 479638957, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 479638961, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
-      propertyPath: ammo
-      value: 
-      objectReference: {fileID: 2064387301}
-    - target: {fileID: 1530859695, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530859696, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -525.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530859696, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 142.61
+      value: 0.04451113
       objectReference: {fileID: 0}
     - target: {fileID: 1739774328, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.y
@@ -516,14 +373,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.04634916
       objectReference: {fileID: 0}
-    - target: {fileID: 1739774328, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.4005947
-      objectReference: {fileID: 0}
-    - target: {fileID: 1739774328, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.9317403
-      objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0.17385043
@@ -531,14 +380,6 @@ PrefabInstance:
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.043494996
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973724126, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 142.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973724126, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -526
       objectReference: {fileID: 0}
     - target: {fileID: 5107676610309586227, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
@@ -793,83 +634,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 311242133}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2064387299
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2064387300}
-  - component: {fileID: 2064387302}
-  - component: {fileID: 2064387301}
-  m_Layer: 5
-  m_Name: TeaAmmo.Txt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &2064387300
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064387299}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.3442254}
-  m_LocalScale: {x: 0.82107, y: 0.82107, z: 0.82107}
-  m_Children: []
-  m_Father: {fileID: 167452963}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -355.1, y: 237.69997}
-  m_SizeDelta: {x: 536.3, y: 48.24}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2064387301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064387299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "Ammo: \n"
---- !u!222 &2064387302
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064387299}
-  m_CullTransparentMesh: 0
 --- !u!1 &2121226448
 GameObject:
   m_ObjectHideFlags: 0
