@@ -47,20 +47,26 @@ public class TeaPlacement : MonoBehaviour
         {
             ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
         }
-        if (AllTeaPlacedCheck()) // if all tea has been placed run this code
+        if (_black != null)
         {
-            StartCoroutine("FadeOutScreen", _alpha);
-           //ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
+            if (AllTeaPlacedCheck()) // if all tea has been placed run this code
+            {
+                StartCoroutine("FadeOutScreen", _alpha);
+                //ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
+            }
         }
     }
 
     IEnumerator FadeOutScreen()
     {
-        _black.color = new Color(0, 0, 0, _alpha += 0.5f * Time.deltaTime);
-        yield return new WaitForSeconds(2f);
 
-        _black.color = new Color(0, 0, 0, _alpha -= 0.5f * Time.deltaTime);
-        DisplayCanvas(); //Display the Final canvas
+            _black.color = new Color(0, 0, 0, _alpha += 0.5f * Time.deltaTime);
+            yield return new WaitForSeconds(2f);
+
+            _black.color = new Color(0, 0, 0, _alpha -= 0.5f * Time.deltaTime);
+            DisplayCanvas(); //Display the Final canvas
+        
+
 
     }
     private void OnTriggerStay(Collider other) // used to check if player is near a placement table
