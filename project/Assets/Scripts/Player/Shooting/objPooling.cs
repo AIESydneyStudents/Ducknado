@@ -13,7 +13,8 @@ public class objPooling : MonoBehaviour
     public static objPooling SharedInstance;
     private List<GameObject> pooledObjects;
     public List<ObjectPoolItem> itemsToPool;
-    public int bulletsInHand;
+    [HideInInspector]public List<GameObject> itemsToStore;//In this, you can have extra ammo to pickup.
+    private int bulletsInHand;
     private void Awake()
     {
         SharedInstance = this;
@@ -72,18 +73,39 @@ public class objPooling : MonoBehaviour
         return bulletsInHand;
     }
     //This will be used for pickup. When an object is picked up, a new instantiated object is added.
-    public void AddNewObject(int ammoAdded)
+    public void AddNewObject(GameObject bullet)
     {
-        foreach (ObjectPoolItem item in itemsToPool)
+        pooledObjects.Add(bullet);
+
+        for (int i = 0; i < itemsToStore.Count; i++) 
         {
-            for (int i = 0; i < ammoAdded; i++)
-            {
-                GameObject obj = Instantiate(item.objectToPool);
-                obj.SetActive(false);
-                pooledObjects.Add(obj);
-            }
+            if (itemsToStore[i] == bullet)
+                itemsToStore.RemoveAt(i);
         }
     }
+    public void RemoveObjects(GameObject bullet) 
+    {
+        itemsToStore.Add(bullet);
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (pooledObjects[i] == bullet)
+                pooledObjects.RemoveAt(i);
+        }
+        bullet.SetActive(false);
+    }
 
+    public GameObject GetOneStoredObject() 
+    {
+        GameObject obj;
+        if (itemsToStore != null)
+        {
+            for (int i = 0; i < itemsToStore.Count; i++)
+            {
+                obj = itemsToStore[i];
+                return obj;
+            }
+        }
+        return null;
+    }
 }
 

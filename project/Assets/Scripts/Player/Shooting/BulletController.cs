@@ -11,7 +11,6 @@ public class BulletController : MonoBehaviour
     public GameObject collisionEffect;
     [SerializeField] public float ballGravity = 0;
     private Vector3 locOfPlayer;//Gets the position of the player when it fires the bullet.
-    public static bool bulletIsFiring = false;
     // Update is called once per frame
     void Update()
     {
@@ -38,9 +37,8 @@ public class BulletController : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player"))//If the bullet isnt colliding with the player.
         {
-
-            gameObject.SetActive(false);
             Instantiate(collisionEffect).transform.position = gameObject.transform.position;
+            objPooling.SharedInstance.RemoveObjects(gameObject);
         }
     }
     private void OnEnable()//When the script is enabled, the bullet position will equal the first position of the player.

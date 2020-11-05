@@ -82,7 +82,7 @@ public class RaycastCamShoot : MonoBehaviour
                 pointList.Add(pos + (ray2.direction * hit.distance));//Adds it to the list of positions.
                 m_lineDirBullet.positionCount = pointList.Count;//Checks the amount on the amount on the list.
                 m_lineDirBullet.SetPositions(pointList.ToArray());//Adds all positions of the locatiosn on the list.
-                if (pointList != null && BulletController.bulletIsFiring == false)//This will be used for adding the points for the ball to follow. 
+                if (pointList != null)//This will be used for adding the points for the ball to follow. 
                 {
                     RaycastCamShoot.shootingPoints.Clear();//Deletes the previous positions of the bullet
                     for (int j = 0; j < pointList.Count; j++)
