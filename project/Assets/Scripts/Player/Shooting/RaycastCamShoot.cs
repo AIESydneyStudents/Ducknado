@@ -56,23 +56,6 @@ public class RaycastCamShoot : MonoBehaviour
                 bulletCam.gameObject.SetActive(true);
                 m_lineDirBullet.SetPosition(0, bulletCam.transform.position);
                 CurvedRaycast(iterations, shotPoint.transform.position, velocity);
-
-                break;
-            case 2:
-                GameObject fairyBullet = objPooling.SharedInstance.CheckPooledObject("FairyBull");//Checks if a bullet is in use
-                if (fairyBullet != null)
-                {
-                    fairyCam.gameObject.SetActive(false);
-                    bulletCam.gameObject.SetActive(false);
-                }
-                else//If there is not a bullet in use.
-                {
-                    bulletCam.gameObject.SetActive(false);
-                    m_lineDirFairy.enabled = true;
-                    fairyCam.gameObject.SetActive(true);
-                    m_lineDirFairy.SetPosition(0, shotPoint.transform.position);
-                    m_lineDirFairy.SetPosition(1, rayOrigin + (m_player.transform.forward * fairyDisToView));
-                }
                 break;
             default:
                 m_lineDirBullet.enabled = false;

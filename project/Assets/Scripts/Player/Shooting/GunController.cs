@@ -14,7 +14,6 @@ public class GunController : MonoBehaviour
     public Transform firePoint;
     public static int inHandWeapon = 0;
     private int numOfWeapons = 2;
-    public bool bulletExists = false;
     void Update()
     {
         if (inHandWeapon > numOfWeapons)
@@ -36,7 +35,6 @@ public class GunController : MonoBehaviour
                             shotCounter = timeBetweenShots;
                             if (bullet != null)
                             {
-                                bulletExists = true;
                                 bullet.transform.position = firePoint.transform.position;
                                 bullet.transform.rotation = firePoint.transform.rotation;
                                 bullet.SetActive(true);

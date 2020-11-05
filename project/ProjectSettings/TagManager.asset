@@ -11,6 +11,7 @@ TagManager:
   - Star
   - Fade Out
   - Target
+  - Hiding Area
   layers:
   - Default
   - TransparentFX

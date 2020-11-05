@@ -13,7 +13,7 @@ public class objPooling : MonoBehaviour
     public static objPooling SharedInstance;
     private List<GameObject> pooledObjects;
     public List<ObjectPoolItem> itemsToPool;
-    private int bulletsInHand;
+    public int bulletsInHand;
     private void Awake()
     {
         SharedInstance = this;
@@ -61,20 +61,20 @@ public class objPooling : MonoBehaviour
     //Checks how many bullets are in hand.
     public int CheckValueInHand(string tag)
     {
+        bulletsInHand = 0;
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-
+            if(pooledObjects[i].tag == tag)
+                bulletsInHand += 1;
             if (pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
                 bulletsInHand -= 1;
-            else if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
-                bulletsInHand += 1;
         }
         return bulletsInHand;
     }
     //This will be used for pickup. When an object is picked up, a new instantiated object is added.
-    public void AddNewObject(int ammoAdded) 
+    public void AddNewObject(int ammoAdded)
     {
-        foreach(ObjectPoolItem item in itemsToPool)
+        foreach (ObjectPoolItem item in itemsToPool)
         {
             for (int i = 0; i < ammoAdded; i++)
             {
@@ -84,6 +84,6 @@ public class objPooling : MonoBehaviour
             }
         }
     }
-    
+
 }
 
