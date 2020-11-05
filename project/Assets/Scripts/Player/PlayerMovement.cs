@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Controls m_controls;
     private float m_smoothVel;
+    private void Awake()
+    {
+        Cursor.visible = false;
+    }
     void Start()
     {
         m_playerRB = GetComponent<Rigidbody>();
