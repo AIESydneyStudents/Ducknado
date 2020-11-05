@@ -22,7 +22,6 @@ public class WeaponChange : MonoBehaviour
     }
     void FixedUpdate()
     {//Visualisation of what is on hand.
-
         switch (GunController.inHandWeapon)
         {
             case 1:
@@ -43,7 +42,6 @@ public class WeaponChange : MonoBehaviour
                 teaCupImage.gameObject.SetActive(false);
                 teaBullet.gameObject.SetActive(false);
                 ButterflyInHand();
-
                 weapon.text = "Weapon: Fairy".ToString();
                 break;
             default:
