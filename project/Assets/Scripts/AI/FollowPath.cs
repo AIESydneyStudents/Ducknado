@@ -72,6 +72,7 @@ public class FollowPath : MonoBehaviour
         }
         if (fov._distractionFound || fov._teacupFound)
         {
+            fov._targetFound = false;
             DistractionDetected();
         }
 

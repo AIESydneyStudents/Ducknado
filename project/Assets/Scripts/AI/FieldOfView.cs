@@ -32,7 +32,7 @@ public class FieldOfView : MonoBehaviour
     [HideInInspector]
     public bool _teacupFound;
 
-
+    [HideInInspector]
     public GameObject player;
     [HideInInspector]
     public GameObject _teacupDistraction;
@@ -49,16 +49,18 @@ public class FieldOfView : MonoBehaviour
 
     void Start()
     {
-        viewMesh = new Mesh(); //Creates Mesh on start
-        viewMesh.name = "View Mesh";
-        viewMeshFilter.mesh = viewMesh;
-        _targetFound = false;
-
-        restart = player.GetComponent<PlayerRestart>();
-
         _teacupDistraction = objPooling.SharedInstance.GetPooledObject("Bullet");
         _butterflyDistraction = objPooling.SharedInstance.GetPooledObject("FairyBull");
 
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        viewMesh = new Mesh(); //Creates Mesh on start
+        viewMesh.name = "View Mesh";
+        viewMeshFilter.mesh = viewMesh;
+
+        _targetFound = false;
+
+        restart = player.GetComponent<PlayerRestart>();
 
         _targetMask = LayerMask.NameToLayer("Target");
         //_obstacleMask = LayerMask.NameToLayer("Obstacle");
