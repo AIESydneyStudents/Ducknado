@@ -34,11 +34,13 @@ public class TeaPlacement : MonoBehaviour
     private void Start()
     {
         _fadeOut = GameObject.FindGameObjectWithTag("Fade Out");
-        //_black = _fadeOut.GetComponentInChildren<Image>();
-        //_changeAlpha = _black.color;
+        _black = _fadeOut.GetComponentInChildren<Image>();
+
         Shader.SetGlobalFloat("GLOBALmask_Radius", 0);
         Shader.SetGlobalFloat("GLOBALmask_Softness", 0);
+
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
+
         _victory.gameObject.SetActive(false);
     }
     private void Update()
@@ -47,12 +49,13 @@ public class TeaPlacement : MonoBehaviour
         {
             ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
         }
+
         if (_black != null)
         {
             if (AllTeaPlacedCheck()) // if all tea has been placed run this code
             {
                 StartCoroutine("FadeOutScreen", _alpha);
-                //ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
+                ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
             }
         }
     }
@@ -60,12 +63,12 @@ public class TeaPlacement : MonoBehaviour
     IEnumerator FadeOutScreen()
     {
 
-            _black.color = new Color(0, 0, 0, _alpha += 0.5f * Time.deltaTime);
-            yield return new WaitForSeconds(2f);
+        _black.color = new Color(0, 0, 0, _alpha += 0.5f * Time.deltaTime);
+        yield return new WaitForSeconds(2f);
 
-            _black.color = new Color(0, 0, 0, _alpha -= 0.5f * Time.deltaTime);
-            DisplayCanvas(); //Display the Final canvas
-        
+        _black.color = new Color(0, 0, 0, _alpha -= 0.5f * Time.deltaTime);
+        DisplayCanvas(); //Display the Final canvas
+
 
 
     }
@@ -81,10 +84,10 @@ public class TeaPlacement : MonoBehaviour
                     {
                         _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                         FindObjectOfType<AudioManager>().Play("Pouring");
-                        SetLocation(_tables[i].transform.position);
 
-                        if (_tables[0])
+                        if (_tables[0] && _firstPlacement == false)
                         {
+                            SetLocation(_tables[i].transform.position);
                             _firstPlacement = true;
                             gameObject.GetComponent<AudioSource>().clip = midMusic;
                             gameObject.GetComponent<AudioSource>().Play();

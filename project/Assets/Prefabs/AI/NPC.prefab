@@ -243,6 +243,9 @@ MonoBehaviour:
   _detectedColor:
     serializedVersion: 2
     rgba: 2432696575
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1
   _targetFound: 0
   _distractionFound: 0
   _teacupFound: 0

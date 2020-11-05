@@ -18,7 +18,7 @@ public class FieldOfView : MonoBehaviour
     private Color32 _detectedColor;
 
     LayerMask _targetMask;
-    LayerMask _obstacleMask;
+    public LayerMask _obstacleMask;
 
     float _meshResolution = 1;
     int _edgeResolveIterations = 1;
@@ -61,7 +61,7 @@ public class FieldOfView : MonoBehaviour
 
 
         _targetMask = LayerMask.NameToLayer("Target");
-        _obstacleMask = LayerMask.NameToLayer("Obstacle");
+        //_obstacleMask = LayerMask.NameToLayer("Obstacle");
 
         StartCoroutine("FindTargetsWithDelay", .2f);
     }
