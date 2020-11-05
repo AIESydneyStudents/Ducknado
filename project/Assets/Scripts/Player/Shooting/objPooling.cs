@@ -19,11 +19,6 @@ public class objPooling : MonoBehaviour
     {
         SharedInstance = this;
 
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         pooledObjects = new List<GameObject>();
         foreach (ObjectPoolItem item in itemsToPool)
         {
@@ -35,6 +30,7 @@ public class objPooling : MonoBehaviour
             }
         }
     }
+
     //Finding the first object that is not active in the hierarchy.
     public GameObject GetPooledObject(string tag)
     {
