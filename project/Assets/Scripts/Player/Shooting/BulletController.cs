@@ -38,7 +38,9 @@ public class BulletController : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player"))//If the bullet isnt colliding with the player.
         {
-            Instantiate(collisionEffect).transform.position = gameObject.transform.position;
+            if(collisionEffect != null)
+                Instantiate(collisionEffect).transform.position = gameObject.transform.position;
+
             objPooling.SharedInstance.RemoveObjects(gameObject);
         }
     }
