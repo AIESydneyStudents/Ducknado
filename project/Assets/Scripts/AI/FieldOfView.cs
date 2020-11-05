@@ -18,7 +18,7 @@ public class FieldOfView : MonoBehaviour
     private Color32 _detectedColor;
 
     LayerMask _targetMask;
-    LayerMask _obstacleMask;
+    public LayerMask _obstacleMask;
 
     float _meshResolution = 1;
     int _edgeResolveIterations = 1;
@@ -32,7 +32,7 @@ public class FieldOfView : MonoBehaviour
     [HideInInspector]
     public bool _teacupFound;
 
-
+    [HideInInspector]
     public GameObject player;
     [HideInInspector]
     public GameObject _teacupDistraction;
@@ -49,19 +49,21 @@ public class FieldOfView : MonoBehaviour
 
     void Start()
     {
+        _teacupDistraction = objPooling.SharedInstance.GetPooledObject("Bullet");
+        _butterflyDistraction = objPooling.SharedInstance.GetPooledObject("FairyBull");
+
+        player = GameObject.FindGameObjectWithTag("Player");
+
         viewMesh = new Mesh(); //Creates Mesh on start
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
+
         _targetFound = false;
 
         restart = player.GetComponent<PlayerRestart>();
 
-        _teacupDistraction = objPooling.SharedInstance.GetPooledObject("Bullet");
-        _butterflyDistraction = objPooling.SharedInstance.GetPooledObject("FairyBull");
-
-
         _targetMask = LayerMask.NameToLayer("Target");
-        _obstacleMask = LayerMask.NameToLayer("Obstacle");
+        //_obstacleMask = LayerMask.NameToLayer("Obstacle");
 
         StartCoroutine("FindTargetsWithDelay", .2f);
     }
