@@ -4,26 +4,46 @@ using UnityEngine;
 
 public class CameraClipping : MonoBehaviour
 {
-    public float _transparency;
-    GameObject _obstruction;
-    Collider _collider;
-    private Material currentMat;
+    private List<GameObject> listobj;
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.collider == _collider)
-        {
-            _collider = _obstruction.GetComponent<Collider>();
-            currentMat = _obstruction.GetComponent<Renderer>().material;
-            ChangeAlpha(_transparency);
-        }
+        RayCastSeeThrough();
     }
 
-    void ChangeAlpha(float alphaVal)
+    void RayCastSeeThrough() 
     {
-        Color oldColor = currentMat.color;
-        Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, alphaVal);
-        currentMat.SetColor("_Color", newColor);
+        RaycastHit hit;
+        GameObject obj;
+        if (Physics.Raycast(Camera.main.gameObject.transform.position,
+            Camera.main.gameObject.transform.forward, out hit) &&
+            !hit.collider.gameObject.CompareTag("Player"))
+        {//Have it so that instead of the player being checked, have the object see if its being hit.
+            //Saves memory space as there will be less variables to check through a list.
+            MeshRenderer objectMesh = hit.transform.gameObject.GetComponent<MeshRenderer>();
+            objectMesh.enabled = false;
+            obj = objectMesh.GetComponent<GameObject>();
+            AddToList(obj);
+        }
+        else if(Physics.Raycast(Camera.main.gameObject.transform.position,
+            Camera.main.gameObject.transform.forward, out hit) &&
+            hit.collider.gameObject.CompareTag("Player"))
+        {
+            SetBack();
+        }
 
+
+    }
+    void SetBack() 
+    {
+        for (int i = 0; i < listobj.Count; i++)
+        {
+            var value = listobj[i].GetComponent<MeshRenderer>();
+            value.enabled = true;
+        }
+    }
+    void AddToList(GameObject obj)
+    {
+        listobj.Add(obj);
     }
 }
