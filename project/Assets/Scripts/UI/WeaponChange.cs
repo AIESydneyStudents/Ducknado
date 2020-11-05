@@ -6,17 +6,16 @@ using UnityEngine.UI;
 public class WeaponChange : MonoBehaviour
 {
     [SerializeField] private Text weapon;
-    //[SerializeField] private Text ammoFairy;
-    //[SerializeField] private Text ammoTea;
+    [SerializeField] private Text ammoFairy;
+    [SerializeField] private Text ammoTea;
     [SerializeField] private Image teaCupImage;
     [SerializeField] private Image fairyImage;
     [SerializeField] private GameObject fairyBullet;
     [SerializeField] private GameObject teaBullet;
+    public GunController gun;
+    private bool firstPassBullet = false;
+    private bool firstPassButterfly = false;
 
-    //private int bulletInHand = objPooling.SharedInstance.CheckValueInHand("Bullet");
-    //private int butterflyInHand = objPooling.SharedInstance.CheckValueInHand("FairyBull");
-
-    //public GunController gun;
     void Start()
     {
         //ammoFairy.text = "Ammo: " + butterflyInHand.ToString();
@@ -27,36 +26,29 @@ public class WeaponChange : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {//Visualisation of what is on hand.
+
         switch (GunController.inHandWeapon)
         {
             case 1:
-                //ammoFairy.gameObject.SetActive(true);
+                ammoFairy.gameObject.SetActive(false);
+                ammoTea.gameObject.SetActive(true);
                 teaBullet.gameObject.SetActive(true);
                 teaCupImage.gameObject.SetActive(true);
                 fairyBullet.gameObject.SetActive(false);
                 fairyImage.gameObject.SetActive(false);
-                //if (gun.isFiring == true && gun.bulletExists == true)
-                //{
-                //    bulletInHand -= 1;
-                //    if (bulletInHand <= 0)
-                //        bulletInHand = 0;
-                //    ammoTea.text = "Ammo: " + bulletInHand.ToString();
-                //}
-
+                BulletInHand();
                 weapon.text = "Weapon: TeaCup".ToString();
                 break;
             case 2:
+                ammoFairy.gameObject.SetActive(true);
+                ammoTea.gameObject.SetActive(false);
                 fairyImage.gameObject.SetActive(true);
                 fairyBullet.gameObject.SetActive(true);
                 teaCupImage.gameObject.SetActive(false);
                 teaBullet.gameObject.SetActive(false);
-                //if (gun.isFiring == true && gun.bulletExists == true)
-                //{
-                //    butterflyInHand -= 1;
-                //    if (butterflyInHand <= 0)
-                //        butterflyInHand = 0;
-                //    ammoFairy.text = "Ammo: " + butterflyInHand.ToString();
-                //}
+                ButterflyInHand();
+                firstPassButterfly = true;
+
                 weapon.text = "Weapon: Fairy".ToString();
                 break;
             default:
@@ -64,9 +56,21 @@ public class WeaponChange : MonoBehaviour
                 teaCupImage.gameObject.SetActive(false);
                 fairyImage.gameObject.SetActive(false);
                 fairyBullet.gameObject.SetActive(false);
-                //ammoFairy.gameObject.SetActive(false);
+                ammoFairy.gameObject.SetActive(false);
+                ammoTea.gameObject.SetActive(false);
                 weapon.text = "Weapon: None".ToString();
                 break;
         }
+    }
+
+    void BulletInHand()
+    {
+        int bulletInHand = objPooling.SharedInstance.CheckValueInHand("Bullet");
+        ammoTea.text = "Ammo: " + bulletInHand.ToString();
+    }
+    void ButterflyInHand()
+    {
+        int butterflyInHand = objPooling.SharedInstance.CheckValueInHand("FairyBull");
+        ammoFairy.text = "Ammo: " + butterflyInHand.ToString();
     }
 }

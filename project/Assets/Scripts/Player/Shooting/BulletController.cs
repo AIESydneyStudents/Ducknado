@@ -41,7 +41,6 @@ public class BulletController : MonoBehaviour
 
             gameObject.SetActive(false);
             Instantiate(collisionEffect).transform.position = gameObject.transform.position;
-
         }
     }
     private void OnEnable()//When the script is enabled, the bullet position will equal the first position of the player.

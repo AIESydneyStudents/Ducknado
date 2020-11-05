@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -355.1, y: 237.69997}
-  m_SizeDelta: {x: 536.3, y: 48.24}
+  m_AnchoredPosition: {x: -355.1, y: 223.74}
+  m_SizeDelta: {x: 536.3, y: 82.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &264115392
 CanvasRenderer:
@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -355.1, y: 237.69997}
-  m_SizeDelta: {x: 536.3, y: 48.24}
+  m_AnchoredPosition: {x: -355.1, y: 223.74}
+  m_SizeDelta: {x: 536.3, y: 82.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2064387302
 CanvasRenderer:
@@ -494,7 +494,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 1801225253506066651}
+  ammoFairy: {fileID: 264115391}
+  ammoTea: {fileID: 2064387301}
   teaCupImage: {fileID: 1801225253042336495}
   fairyImage: {fileID: 1801225253554651521}
   fairyBullet: {fileID: 0}
   teaBullet: {fileID: 0}
+  gun: {fileID: 0}
