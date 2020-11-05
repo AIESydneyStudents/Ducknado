@@ -11,6 +11,7 @@ public class BulletController : MonoBehaviour
     public GameObject collisionEffect;
     [SerializeField] public float ballGravity = 0;
     private Vector3 locOfPlayer;//Gets the position of the player when it fires the bullet.
+
     // Update is called once per frame
     void Update()
     {
@@ -46,5 +47,6 @@ public class BulletController : MonoBehaviour
         m_player = GameObject.Find("Player");
         locOfPlayer = m_player.transform.position;
     }
+
 }
 

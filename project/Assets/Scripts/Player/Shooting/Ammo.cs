@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    //private void OnCollisionEnter(Collision collision)//This is for the bullet arc for if it hits an object that isnt a player.
-    //{
-
-    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))//If the bullet isnt colliding with the player.
@@ -20,8 +16,10 @@ public class Ammo : MonoBehaviour
             }
             else
             {
+                //WeaponChange.newWeapon.TooMuchAmmo();
                 //Use this to say that you are full on ammo. Or that you cant collect anymore ammo.
             }
         }
     }
+
 }

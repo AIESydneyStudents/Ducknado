@@ -12,17 +12,9 @@ public class WeaponChange : MonoBehaviour
     [SerializeField] private Image fairyImage;
     [SerializeField] private GameObject fairyBullet;
     [SerializeField] private GameObject teaBullet;
-    public GunController gun;
-    private bool firstPassBullet = false;
-    private bool firstPassButterfly = false;
-
-    void Start()
-    {
-        //ammoFairy.text = "Ammo: " + butterflyInHand.ToString();
-        //ammoTea.text = "Ammo: " + bulletInHand.ToString();
-    }
-
-
+    [SerializeField] private Text tooMuchAmmo;
+    [SerializeField] private int timeBetweenText = 3;
+    public static WeaponChange newWeapon;
     // Update is called once per frame
     void FixedUpdate()
     {//Visualisation of what is on hand.
@@ -47,7 +39,6 @@ public class WeaponChange : MonoBehaviour
                 teaCupImage.gameObject.SetActive(false);
                 teaBullet.gameObject.SetActive(false);
                 ButterflyInHand();
-                firstPassButterfly = true;
 
                 weapon.text = "Weapon: Fairy".ToString();
                 break;
@@ -72,5 +63,15 @@ public class WeaponChange : MonoBehaviour
     {
         int butterflyInHand = objPooling.SharedInstance.CheckValueInHand("FairyBull");
         ammoFairy.text = "Ammo: " + butterflyInHand.ToString();
+    }
+    public void TooMuchAmmo()
+    {
+        StartCoroutine(Timer());//Have to add the text to the ammo everytime.
+    }
+    IEnumerator Timer()
+    {
+        tooMuchAmmo.gameObject.SetActive(true);
+        yield return new WaitForSeconds(timeBetweenText);
+        tooMuchAmmo.gameObject.SetActive(false);
     }
 }
