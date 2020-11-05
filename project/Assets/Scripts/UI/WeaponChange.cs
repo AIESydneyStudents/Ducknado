@@ -35,12 +35,12 @@ public class WeaponChange : MonoBehaviour
                 weapon.text = "Weapon: TeaCup".ToString();
                 break;
             case 2:
-                ammoFairy.gameObject.SetActive(true);
-                ammoTea.gameObject.SetActive(false);
-                fairyImage.gameObject.SetActive(true);
-                fairyBullet.gameObject.SetActive(true);
-                teaCupImage.gameObject.SetActive(false);
-                teaBullet.gameObject.SetActive(false);
+                ammoFairy.gameObject.SetActive(true);//Text Fairy
+                ammoTea.gameObject.SetActive(false);////Text TeaCup
+                fairyImage.gameObject.SetActive(true);//Image Fairy
+                fairyBullet.gameObject.SetActive(true);//displaying the fairy
+                teaCupImage.gameObject.SetActive(false);//Image TeaCup
+                teaBullet.gameObject.SetActive(false);//TeaCup displaying
                 ButterflyInHand();
                 weapon.text = "Weapon: Fairy".ToString();
                 break;

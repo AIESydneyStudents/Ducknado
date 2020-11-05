@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraClipping : MonoBehaviour
 {
-    private List<GameObject> listobj;
+    [HideInInspector]public List<MeshRenderer> listobj;
 
     private void Update()
     {
@@ -14,16 +14,17 @@ public class CameraClipping : MonoBehaviour
     void RayCastSeeThrough() 
     {
         RaycastHit hit;
-        GameObject obj;
         if (Physics.Raycast(Camera.main.gameObject.transform.position,
-            Camera.main.gameObject.transform.forward, out hit) &&
+            Camera.main.gameObject.transform.forward, out hit, 6) &&//Needs to be adjustable not have 6 as its parameter.
             !hit.collider.gameObject.CompareTag("Player"))
         {//Have it so that instead of the player being checked, have the object see if its being hit.
             //Saves memory space as there will be less variables to check through a list.
             MeshRenderer objectMesh = hit.transform.gameObject.GetComponent<MeshRenderer>();
-            objectMesh.enabled = false;
-            obj = objectMesh.GetComponent<GameObject>();
-            AddToList(obj);
+            if (objectMesh.enabled == true)
+            {
+                AddToList(objectMesh);
+            }
+
         }
         else if(Physics.Raycast(Camera.main.gameObject.transform.position,
             Camera.main.gameObject.transform.forward, out hit) &&
@@ -31,7 +32,6 @@ public class CameraClipping : MonoBehaviour
         {
             SetBack();
         }
-
 
     }
     void SetBack() 
@@ -42,8 +42,9 @@ public class CameraClipping : MonoBehaviour
             value.enabled = true;
         }
     }
-    void AddToList(GameObject obj)
+    void AddToList(MeshRenderer obj)
     {
+        obj.enabled = false;
         listobj.Add(obj);
     }
 }
