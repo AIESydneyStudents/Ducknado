@@ -22,6 +22,7 @@ public class HidingCheck : MonoBehaviour
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
             gameObject.transform.GetChild(2).gameObject.SetActive(false);
             collisionRadius = .15f;
+            gameObject.tag = "Untagged";
         }
     }
     private void OnTriggerExit(Collider other)
@@ -32,6 +33,7 @@ public class HidingCheck : MonoBehaviour
             gameObject.transform.GetChild(1).gameObject.SetActive(false);
             gameObject.transform.GetChild(2).gameObject.SetActive(true);
             collisionRadius = .5f;
+            gameObject.tag = "Player";
         }
     }
 }
