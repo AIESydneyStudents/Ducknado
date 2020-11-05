@@ -156,6 +156,8 @@ public class TeaPlacement : MonoBehaviour
         _victory.gameObject.tag = "Finish";
         _victory.gameObject.SetActive(true);
 
+        Cursor.visible = true;
+
 
 
         if (GameTimer._finalTime <= _threeStarRating) //finish time was less than the given three star rating.
