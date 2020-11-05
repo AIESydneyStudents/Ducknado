@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1575082430
 RectTransform:
   m_ObjectHideFlags: 0
@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 1801225254538781855}
   - component: {fileID: 1801225254538781854}
   - component: {fileID: 1801225254538781825}
+  - component: {fileID: 1585465010}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -578,4 +579,17 @@ MonoBehaviour:
   fairyImage: {fileID: 1801225253554651521}
   fairyBullet: {fileID: 0}
   teaBullet: {fileID: 0}
-  gun: {fileID: 0}
+  tooMuchAmmo: {fileID: 1575082431}
+  timeBetweenText: 1
+--- !u!114 &1585465010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801225254538781852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7e51d74831fd74986ee7a1d8acdb82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

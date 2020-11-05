@@ -16,6 +16,10 @@ public class WeaponChange : MonoBehaviour
     [SerializeField] private int timeBetweenText = 3;
     public static WeaponChange newWeapon;
     // Update is called once per frame
+    private void Awake()
+    {
+        newWeapon = this;
+    }
     void FixedUpdate()
     {//Visualisation of what is on hand.
 
@@ -66,7 +70,7 @@ public class WeaponChange : MonoBehaviour
     }
     public void TooMuchAmmo()
     {
-        StartCoroutine(Timer());//Have to add the text to the ammo everytime.
+        StartCoroutine(Timer());
     }
     IEnumerator Timer()
     {

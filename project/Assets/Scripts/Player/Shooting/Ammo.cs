@@ -16,7 +16,7 @@ public class Ammo : MonoBehaviour
             }
             else
             {
-                //WeaponChange.newWeapon.TooMuchAmmo();
+                WeaponChange.newWeapon.TooMuchAmmo();
                 //Use this to say that you are full on ammo. Or that you cant collect anymore ammo.
             }
         }
