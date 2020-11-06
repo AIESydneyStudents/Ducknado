@@ -27,8 +27,8 @@ public class RaycastCamShoot : MonoBehaviour
 
     [HideInInspector] public static List<Vector3> shootingPoints = new List<Vector3>();
 
-    public GunController gun;
-    public BulletController playerBullet;
+    public FairyHolderController gun;
+    public ProjectileController playerBullet;
 
     public static RaycastCamShoot ray;
     void Start()
@@ -45,17 +45,18 @@ public class RaycastCamShoot : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 rayOrigin = bulletCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
-
-
         //Determines what gun is accessed.
-        switch (GunController.inHandWeapon)
+        switch (FairyHolderController.inHandProjectile)
         {
             case 1:
                 fairyCam.gameObject.SetActive(false);
                 bulletCam.gameObject.SetActive(true);
                 m_lineDirBullet.SetPosition(0, bulletCam.transform.position);
                 CurvedRaycast(iterations, shotPoint.transform.position, velocity);
+                break;
+            case 2:
+                fairyCam.gameObject.SetActive(true);
+                bulletCam.gameObject.SetActive(false);
                 break;
             default:
                 m_lineDirBullet.enabled = false;

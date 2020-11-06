@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] public GameObject setActiveText;
+    public Dialogue dialogue;
+    private bool hasBeenPlayed = false;
+    public void TriggerDialogue()
     {
-        
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Player") && hasBeenPlayed == false)
+        {
+            setActiveText.SetActive(true);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            hasBeenPlayed = true;
+        }
+
     }
 }

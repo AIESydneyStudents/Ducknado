@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30341309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4252185, y: 4.4005947, z: 6.1833386}
+  m_LocalPosition: {x: -0.27899814, y: 4.4005947, z: -6.339329}
   m_LocalScale: {x: 1.2179229, y: 1.2179229, z: 1.2179229}
   m_Children:
   - {fileID: 1761291766}
@@ -95,7 +95,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 167.02039
+    Value: 2.52
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -150,17 +150,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4294967295
   m_IgnoreTag: Player
   m_TransparentLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_MinimumDistanceFromTarget: 0.1
   m_AvoidObstacles: 1
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
   m_CameraRadius: 0.1
-  m_Strategy: 1
+  m_Strategy: 2
   m_MaximumEffort: 4
   m_SmoothingTime: 0
   m_Damping: 0.6
@@ -336,7 +336,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 167.02039
+    Value: 2.52
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -408,7 +408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211361071}
-  m_LocalRotation: {x: 0.027863761, y: 0.9629264, z: -0.24494459, w: 0.10953803}
+  m_LocalRotation: {x: 0.24646467, y: 0.021310734, z: -0.0054209214, w: 0.9689023}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -756,7 +756,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 167.02039
+    Value: 2.52
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -882,7 +882,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 167.02039
+    Value: 2.52
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -943,7 +943,7 @@ GameObject:
   - component: {fileID: 1700500772}
   - component: {fileID: 1700500774}
   m_Layer: 30
-  m_Name: FairyBulletCam
+  m_Name: FairyCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1123,6 +1123,7 @@ GameObject:
   - component: {fileID: 1739774326}
   - component: {fileID: 1739774327}
   - component: {fileID: 1739774329}
+  - component: {fileID: 1077287108}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1137,8 +1138,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739774325}
-  m_LocalRotation: {x: 0.028910656, y: 0.96013296, z: -0.2560376, w: 0.10841407}
-  m_LocalPosition: {x: 33.58486, y: 50.201614, z: 74.89037}
+  m_LocalRotation: {x: 0.2575981, y: 0.021943329, z: -0.0058516, w: 0.96598524}
+  m_LocalPosition: {x: -0.27899814, y: 4.4005947, z: -6.339329}
   m_LocalScale: {x: 1.2179229, y: 1.2179228, z: 1.2179228}
   m_Children: []
   m_Father: {fileID: 5107676610309586230}
@@ -1229,6 +1230,21 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1077287108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739774325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6902633b148318e4ba252fb72c0759e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listobj: []
+  objectMaterials: []
+  alphaMat: {fileID: 2100000, guid: 1f16d9da46d9bde4bad375b04b600f9a, type: 2}
 --- !u!1 &1761291764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1269,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761291764}
-  m_LocalRotation: {x: 0.02703229, y: 0.96406406, z: -0.24119562, w: 0.10804864}
+  m_LocalRotation: {x: 0.24263906, y: 0.02273032, z: -0.005686814, w: 0.9698337}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1359,7 +1375,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131957079}
-  m_LocalRotation: {x: 0.030806694, y: 0.9559729, z: -0.27081528, w: 0.10874705}
+  m_LocalRotation: {x: 0.27249596, y: 0.021156818, z: -0.0059934645, w: 0.96190566}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1440,7 +1456,7 @@ GameObject:
   - component: {fileID: 895476680481725745}
   - component: {fileID: 798207392}
   m_Layer: 30
-  m_Name: Gun
+  m_Name: FairyHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1472,10 +1488,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4e4da4b09dec846a20cbbb7cc7faba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFiring: 0
+  projectileHolder: {fileID: 0}
+  projectilePoint: {fileID: 0}
+  isFloating: 0
   timeBetweenShots: 0.2
-  gun: {fileID: 2479590714240064691}
-  firePoint: {fileID: 5107676610701441113}
 --- !u!114 &798207392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1559,10 +1575,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: e738ce3f9b1f85f4fb51cb1cfd5fb536, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.2594446
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.062313046}
 --- !u!54 &5107676610309586226
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1675,7 +1691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yAxisAdjustment: 0.772
   distanceAdjustment: 73.3
-  camRotationSpeed: 600
+  camRotationSpeed: 396
   cam: {fileID: 30341310}
 --- !u!114 &307821355
 MonoBehaviour:
@@ -1909,7 +1925,7 @@ GameObject:
   - component: {fileID: 576015880776318922}
   - component: {fileID: 1628696186}
   m_Layer: 0
-  m_Name: ArcBulletCam
+  m_Name: ArcProjectileCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2158,7 +2174,7 @@ PrefabInstance:
     - target: {fileID: 4061512974801603654, guid: f2f251ef522a5cb41b93dbd980cf552b,
         type: 3}
       propertyPath: m_Name
-      value: TFBDisplay
+      value: FairyDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 4061512974801603654, guid: f2f251ef522a5cb41b93dbd980cf552b,
         type: 3}
@@ -2259,7 +2275,7 @@ PrefabInstance:
     - target: {fileID: 4061512974801603654, guid: 95cf814b9c0d4034a98b1c07fdb7fb62,
         type: 3}
       propertyPath: m_Name
-      value: BulletDisplay
+      value: TeaCupDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 4061512974801603654, guid: 95cf814b9c0d4034a98b1c07fdb7fb62,
         type: 3}
@@ -2299,7 +2315,7 @@ PrefabInstance:
     - target: {fileID: 8867272822699340275, guid: 1bb1a8776c5527447a25e73e815c1f0c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9
+      value: 0.638
       objectReference: {fileID: 0}
     - target: {fileID: 8867272822699340275, guid: 1bb1a8776c5527447a25e73e815c1f0c,
         type: 3}
@@ -2484,7 +2500,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 66a4a6c882ca23e4fa906dda9ad98f83,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.476
+      value: 0.394
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 66a4a6c882ca23e4fa906dda9ad98f83,
         type: 3}

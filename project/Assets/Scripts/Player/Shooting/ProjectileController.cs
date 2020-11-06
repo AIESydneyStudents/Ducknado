@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class ProjectileController : MonoBehaviour
 {
     [SerializeField] public GameObject m_player;
     [SerializeField] [Range(0.01f, 10.0f)] public float speed = 5.0f;
     public static bool keyIsReleased = false;//When the key is released.
-    public GunController gun;//Gun Project.
+    public FairyHolderController gun;//Gun Project.
     public GameObject collisionEffect;
     [SerializeField] public float ballGravity = 0;
     private Vector3 locOfPlayer;//Gets the position of the player when it fires the bullet.
@@ -24,7 +24,7 @@ public class BulletController : MonoBehaviour
         //This is for the fairy travelling in a straight line
 
         float dis = Vector3.Distance(locOfPlayer, transform.position);
-        if (GunController.inHandWeapon == 2)
+        if (FairyHolderController.inHandProjectile == 2)
         {
             if (dis >= RaycastCamShoot.fairyDisToView)//Checks the distance from the player to the end of the raycast.
             {
@@ -38,7 +38,9 @@ public class BulletController : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player"))//If the bullet isnt colliding with the player.
         {
-            Instantiate(collisionEffect).transform.position = gameObject.transform.position;
+            if(collisionEffect != null)
+                Instantiate(collisionEffect).transform.position = gameObject.transform.position;
+
             objPooling.SharedInstance.RemoveObjects(gameObject);
         }
     }

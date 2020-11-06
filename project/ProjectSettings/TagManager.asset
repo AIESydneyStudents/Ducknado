@@ -12,6 +12,7 @@ TagManager:
   - Fade Out
   - Target
   - Hiding Area
+  - Wall
   layers:
   - Default
   - TransparentFX

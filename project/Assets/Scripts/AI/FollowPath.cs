@@ -63,11 +63,13 @@ public class FollowPath : MonoBehaviour
 
             if (restart._playerPosrestart)
             {
+                fov._targetFound = false;
                 PathFinding();
             }
         }
-        if(!fov._targetFound || restart._playerPosrestart)
+        if (!fov._targetFound || restart._playerPosrestart)
         {
+            fov._targetFound = false;
             PathFinding();
         }
         if (fov._distractionFound || fov._teacupFound)
@@ -80,6 +82,7 @@ public class FollowPath : MonoBehaviour
 
     public void SetDestination() // sets the destination for the object to move to
     {
+
         if (_patrolPoints != null)
         {
             _targetVector = _patrolPoints[_curentPatrolIndex].transform.position; // sets target vector as the lists current patrol points position
@@ -115,6 +118,8 @@ public class FollowPath : MonoBehaviour
 
     private void PathFinding()
     {
+        fov._targetFound = false;
+
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f) // if the object is travelling and checks the distance is less than 1 unit
         {
             _travelling = false;
