@@ -12,25 +12,24 @@ public class FieldOfView : MonoBehaviour
     public float viewAngle;
 
     [SerializeField]
-    private Color32 _undetectedColor;
+    private Color32 _undetectedColor; // color of the fov cone when player is not in sight
 
     [SerializeField]     
-    private Color32 _detectedColor;
+    private Color32 _detectedColor; // color of the fov cone when player is in sight
 
     LayerMask _targetMask;
     public LayerMask _obstacleMask;
 
-    float _meshResolution = 1;
-    int _edgeResolveIterations = 1;
-    float _edgeDstThreshold = 1;
+    float _meshResolution = 10;
+    int _edgeResolveIterations = 10;
+    float _edgeDstThreshold = 10;
 
     [HideInInspector]
-    public bool _targetFound;
-
+    public bool _targetFound; // Has player been found
     [HideInInspector]
-    public bool _distractionFound;
+    public bool _distractionFound; // Has butterfly been detected
     [HideInInspector]
-    public bool _teacupFound;
+    public bool _teacupFound; //is teacup in range of npc
 
     [HideInInspector]
     public GameObject player;
@@ -45,12 +44,13 @@ public class FieldOfView : MonoBehaviour
 
     public MeshFilter viewMeshFilter;
     public MeshRenderer _viewMeshRenderer;
-    Mesh viewMesh;
+
+    Mesh viewMesh; //The mesh that is created for th npc
 
     void Start()
     {
-        _teacupDistraction = objPooling.SharedInstance.GetPooledObject("Bullet");
-        _butterflyDistraction = objPooling.SharedInstance.GetPooledObject("FairyBull");
+        _teacupDistraction = objPooling.SharedInstance.GetPooledObject("Bullet"); //Stores the info on the teacup distraction game object
+        _butterflyDistraction = objPooling.SharedInstance.GetPooledObject("FairyBull"); //Stores the info on the butterfly distraction game object
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -63,8 +63,6 @@ public class FieldOfView : MonoBehaviour
         restart = player.GetComponent<PlayerRestart>();
 
         _targetMask = LayerMask.NameToLayer("Target");
-        //_obstacleMask = LayerMask.NameToLayer("Obstacle");
-
         StartCoroutine("FindTargetsWithDelay", .2f);
     }
 
@@ -103,7 +101,7 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    public void DistractionInRange()
+    public void DistractionInRange() //Checks if there is any distractions in the fov and will set bools for each distraction that is found to true
     {
         Vector3 dirToTeacup = (_teacupDistraction.transform.position - transform.position);
         Vector3 dirToButterfly = (_butterflyDistraction.transform.position - transform.position);
@@ -175,18 +173,17 @@ public class FieldOfView : MonoBehaviour
             }
         }
 
-        if (_targetFound)
+        if (_targetFound) //if the target is found inside fov chnage the color to detected
         {
             _viewMeshRenderer.material.color = _detectedColor;
         }
         else
         {
             _viewMeshRenderer.material.color = _undetectedColor ;
-
         }
         viewMesh.Clear();
 
-       
+      
         viewMesh.vertices = vertices;
         viewMesh.triangles = triangles;
         viewMesh.RecalculateNormals();
