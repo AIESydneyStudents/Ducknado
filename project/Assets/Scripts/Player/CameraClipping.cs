@@ -24,7 +24,6 @@ public class CameraClipping : MonoBehaviour
             {
                 AddToList(objectMesh);
             }
-
         }
         else if (Physics.Raycast(Camera.main.gameObject.transform.position,
             Camera.main.gameObject.transform.forward, out hit) &&
@@ -32,7 +31,6 @@ public class CameraClipping : MonoBehaviour
         {
             SetBack();
         }
-
     }
     void SetBack()//Setting the meshRenderer back to active
     {
