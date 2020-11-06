@@ -29,7 +29,8 @@ public class ProjectileController : MonoBehaviour
             if (dis >= RaycastCamShoot.fairyDisToView)//Checks the distance from the player to the end of the raycast.
             {
                 gameObject.SetActive(false);
-                Instantiate(collisionEffect).transform.position = gameObject.transform.position;
+                if(collisionEffect != null)
+                    Instantiate(collisionEffect).transform.position = gameObject.transform.position;
             }
             //Side note, i have seen issues where the shooting sometimes does not go on the trail of the line renderer. 
         }

@@ -32,7 +32,7 @@ public class ProjectileChange : MonoBehaviour
                 fairy.gameObject.SetActive(false);
                 fairyImage.gameObject.SetActive(false);
                 BulletInHand();
-                projectile.text = "Weapon: TeaCup".ToString();
+                projectile.text = "In Hand: TeaCup".ToString();
                 break;
             case 2:
                 textFairy.gameObject.SetActive(true);//Text Fairy
@@ -42,7 +42,7 @@ public class ProjectileChange : MonoBehaviour
                 teaCupImage.gameObject.SetActive(false);//Image TeaCup
                 teaCup.gameObject.SetActive(false);//TeaCup displaying
                 ButterflyInHand();
-                projectile.text = "Weapon: Fairy".ToString();
+                projectile.text = "In Hand: Fairy".ToString();
                 break;
             default:
                 teaCup.gameObject.SetActive(false);
@@ -51,7 +51,7 @@ public class ProjectileChange : MonoBehaviour
                 fairy.gameObject.SetActive(false);
                 textFairy.gameObject.SetActive(false);
                 textTea.gameObject.SetActive(false);
-                projectile.text = "Weapon: None".ToString();
+                projectile.text = "In Hand: None".ToString();
                 break;
         }
     }
