@@ -55,7 +55,7 @@ public class TeaPlacement : MonoBehaviour
             if (AllTeaPlacedCheck()) // if all tea has been placed run this code
             {
                 StartCoroutine("FadeOutScreen", _alpha);
-                ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
+                //ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
             }
         }
     }
