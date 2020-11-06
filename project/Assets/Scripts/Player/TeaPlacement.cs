@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class TeaPlacement : MonoBehaviour
 {
     [HideInInspector]
     public GameObject[] _tables; // list of all objectives
     public GameObject _victory;
-    GameObject _fadeOut;
-    Image _black;
+
 
     Vector3 _location; // stores the location of the last table for the color change effect
     public GameObject _audioManager;
@@ -20,7 +19,7 @@ public class TeaPlacement : MonoBehaviour
     public AudioClip midMusic;
     public AudioClip endMusic;
     bool _firstPlacement;
-    float _radius, _softness, _alpha;
+    float _radius, _softness;
 
 
     [SerializeField]
@@ -33,9 +32,6 @@ public class TeaPlacement : MonoBehaviour
 
     private void Start()
     {
-        _fadeOut = GameObject.FindGameObjectWithTag("Fade Out");
-        _black = _fadeOut.GetComponentInChildren<Image>();
-
         Shader.SetGlobalFloat("GLOBALmask_Radius", 0);
         Shader.SetGlobalFloat("GLOBALmask_Softness", 0);
 
@@ -49,29 +45,14 @@ public class TeaPlacement : MonoBehaviour
         {
             ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
         }
-
-        if (_black != null)
+        if (AllTeaPlacedCheck()) // if all tea has been placed run this code
         {
-            if (AllTeaPlacedCheck()) // if all tea has been placed run this code
-            {
-                StartCoroutine("FadeOutScreen", _alpha);
-                //ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
-            }
+            DisplayCanvas();
+            //ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
         }
     }
 
-    IEnumerator FadeOutScreen()
-    {
 
-        _black.color = new Color(0, 0, 0, _alpha += 0.5f * Time.deltaTime);
-        yield return new WaitForSeconds(2f);
-
-        _black.color = new Color(0, 0, 0, _alpha -= 0.5f * Time.deltaTime);
-        DisplayCanvas(); //Display the Final canvas
-
-
-
-    }
     private void OnTriggerStay(Collider other) // used to check if player is near a placement table
     {
         if (other.gameObject.tag == "Placement") // check the placement tag is the collision
