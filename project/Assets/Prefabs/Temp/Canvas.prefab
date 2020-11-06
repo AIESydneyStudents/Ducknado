@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 264115392}
   - component: {fileID: 264115391}
   m_Layer: 5
-  m_Name: FairyAmmo.Txt
+  m_Name: FairyAmount.Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 1575082432}
   - component: {fileID: 1575082431}
   m_Layer: 5
-  m_Name: TooMuchAmmo
+  m_Name: TooManyProjectiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 2064387302}
   - component: {fileID: 2064387301}
   m_Layer: 5
-  m_Name: TeaAmmo.Txt
+  m_Name: TeaAmount.Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 1801225253042336464}
   - component: {fileID: 1801225253042336495}
   m_Layer: 5
-  m_Name: WeaponImageTeaCup
+  m_Name: TeaCupImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,7 +1036,7 @@ GameObject:
   - component: {fileID: 1801225253506066652}
   - component: {fileID: 1801225253506066651}
   m_Layer: 5
-  m_Name: Weapon.Txt
+  m_Name: Projectile.Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1100,7 +1100,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Weapon:'
+  m_Text: 'In Hand:'
 --- !u!1 &1801225253554651551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1113,7 @@ GameObject:
   - component: {fileID: 1801225253554651522}
   - component: {fileID: 1801225253554651521}
   m_Layer: 5
-  m_Name: WeaponImageFairy
+  m_Name: Fairy Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1289,14 +1289,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fc8bec3236af24190fe55538bac3a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 1801225253506066651}
-  ammoFairy: {fileID: 264115391}
-  ammoTea: {fileID: 2064387301}
+  projectile: {fileID: 0}
+  textFairy: {fileID: 0}
+  textTea: {fileID: 0}
   teaCupImage: {fileID: 1801225253042336495}
   fairyImage: {fileID: 1801225253554651521}
-  fairyBullet: {fileID: 0}
-  teaBullet: {fileID: 0}
-  tooMuchAmmo: {fileID: 1575082431}
+  fairy: {fileID: 0}
+  teaCup: {fileID: 0}
+  tooManyProjectiles: {fileID: 0}
   timeBetweenText: 1
 --- !u!114 &1127703419
 MonoBehaviour:
