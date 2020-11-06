@@ -27,7 +27,7 @@ public class CameraClipping : MonoBehaviour
             //Saves memory space as there will be less variables to check through a list.
             MeshRenderer objectMesh = hit.transform.gameObject.GetComponent<MeshRenderer>();
             objectMesh.GetComponent<Material>();
-            if (objectMesh.material.color.a != alphaMat.color.a)//Because this is being called in update, it is always being called.
+            if (objectMesh.material.color.a != alphaMat.color.a && objectMesh.gameObject.CompareTag("Wall"))//Because this is being called in update, it is always being called.
             {
                 AddToList(objectMesh);
             }
