@@ -1289,14 +1289,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fc8bec3236af24190fe55538bac3a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  textFairy: {fileID: 0}
-  textTea: {fileID: 0}
+  projectile: {fileID: 1801225253506066651}
+  textFairy: {fileID: 264115391}
+  textTea: {fileID: 2064387301}
   teaCupImage: {fileID: 1801225253042336495}
   fairyImage: {fileID: 1801225253554651521}
   fairy: {fileID: 0}
   teaCup: {fileID: 0}
-  tooManyProjectiles: {fileID: 0}
+  tooManyProjectiles: {fileID: 1575082431}
   timeBetweenText: 1
 --- !u!114 &1127703419
 MonoBehaviour:
