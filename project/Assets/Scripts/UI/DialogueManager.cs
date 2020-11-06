@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
-    public Animator animator;
-
+    public TMP_Text nameText;
+    public TMP_Text dialogueText;
+    [Tooltip("Adjust the speed that the text will be displaying at.")]
+    public float timeBetweenWords = 0.1f;
+    public GameObject trigger;
     Queue<string> _sentences = new Queue<string>();
 
     // Start is called before the first frame update
@@ -19,7 +21,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        //animator.SetBool("IsOpen", true);
+        Cursor.visible = true;
         nameText.text = dialogue.name;
 
         _sentences.Clear();
@@ -50,14 +52,15 @@ public class DialogueManager : MonoBehaviour
 
         foreach (char letter in sentence.ToCharArray())
         {
+            
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(timeBetweenWords);
         }
     }
 
     void EndDialogue()
     {
-        //animator.SetBool("IsOpen", true);
-
+        trigger.SetActive(false);
+        Cursor.visible = false;
     }
 }

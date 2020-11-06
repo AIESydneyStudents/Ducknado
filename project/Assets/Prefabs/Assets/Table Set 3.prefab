@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &5229445699206447520
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4301874695093867889}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.46, y: 1.33, z: 0.44}
-  m_Center: {x: 0, y: 0.66, z: 0.00000020861626}
 --- !u!65 &5229445700703901369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -75,7 +62,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4113229986905129149}
   m_Layer: 0
-  m_Name: Round table and chairs
+  m_Name: Table Set 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +77,7 @@ Transform:
   m_GameObject: {fileID: 4907762488086394723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 33.003113, y: 55.400116, z: 112.90419}
-  m_LocalScale: {x: 0.83242, y: 1, z: 0.79474}
+  m_LocalScale: {x: 0.5671773, y: 0.6813595, z: 0.54150367}
   m_Children:
   - {fileID: 1002066200827621349}
   - {fileID: 1002066201852585826}
@@ -568,12 +555,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d93de401df5941c4abef15eb774498c9, type: 3}
---- !u!1 &4301874695093867889 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d93de401df5941c4abef15eb774498c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 5229445699908701304}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1002066201852585826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d93de401df5941c4abef15eb774498c9,

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ammo : MonoBehaviour
+public class Pickup : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
@@ -16,7 +16,7 @@ public class Ammo : MonoBehaviour
             }
             else
             {
-                WeaponChange.newWeapon.TooMuchAmmo();
+                ProjectileChange.newProjectiles.TooMuchAmmo();
                 //Use this to say that you are full on ammo. Or that you cant collect anymore ammo.
             }
         }

@@ -5,6 +5,10 @@ using UnityEngine;
 public class CameraClipping : MonoBehaviour
 {
     [HideInInspector] public List<MeshRenderer> listobj;
+    [HideInInspector] public List<Material> objectMaterials;
+    [SerializeField] public Material alphaMat;
+    
+
 
     private void Update()
     {
@@ -14,13 +18,16 @@ public class CameraClipping : MonoBehaviour
     void RayCastSeeThrough()
     {
         RaycastHit hit;
+
+
         if (Physics.Raycast(Camera.main.gameObject.transform.position,
             Camera.main.gameObject.transform.forward, out hit, 6) &&//Needs to be adjustable not have 6 as its parameter.
             !hit.collider.gameObject.CompareTag("Player"))
         {
             //Saves memory space as there will be less variables to check through a list.
             MeshRenderer objectMesh = hit.transform.gameObject.GetComponent<MeshRenderer>();
-            if (objectMesh.enabled == true)//Because this is being called in update, it is always being called.
+            objectMesh.GetComponent<Material>();
+            if (objectMesh.material.color.a != alphaMat.color.a)//Because this is being called in update, it is always being called.
             {
                 AddToList(objectMesh);
             }
@@ -36,13 +43,14 @@ public class CameraClipping : MonoBehaviour
     {
         for (int i = 0; i < listobj.Count; i++)
         {
-            var value = listobj[i].GetComponent<MeshRenderer>();
-            value.enabled = true;
+            var value = listobj[i];
+            value.material = objectMaterials[i];
         }
     }
     void AddToList(MeshRenderer obj)//Setting the mesh renderer back to inactive.
     {
-        obj.enabled = false;
+        objectMaterials.Add(obj.material);
+        obj.material = alphaMat;
         listobj.Add(obj);
     }
 }

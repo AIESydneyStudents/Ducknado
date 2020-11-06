@@ -150,11 +150,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_IgnoreTag: Player
   m_TransparentLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_MinimumDistanceFromTarget: 0.1
   m_AvoidObstacles: 1
   m_DistanceLimit: 0
@@ -943,7 +943,7 @@ GameObject:
   - component: {fileID: 1700500772}
   - component: {fileID: 1700500774}
   m_Layer: 30
-  m_Name: FairyBulletCam
+  m_Name: FairyCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1138,8 +1138,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739774325}
-  m_LocalRotation: {x: 0.21268363, y: -0.68416727, z: 0.21977088, w: 0.66210395}
-  m_LocalPosition: {x: 36.87491, y: 50.501755, z: 72.10639}
+  m_LocalRotation: {x: 0.2575981, y: 0.021943329, z: -0.0058516003, w: 0.96598524}
+  m_LocalPosition: {x: -0.27899814, y: 4.4005947, z: -6.339329}
   m_LocalScale: {x: 1.2179229, y: 1.2179228, z: 1.2179228}
   m_Children: []
   m_Father: {fileID: 5107676610309586230}
@@ -1243,6 +1243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listobj: []
+  objectMaterials: []
+  alphaMat: {fileID: 2100000, guid: 1f16d9da46d9bde4bad375b04b600f9a, type: 2}
 --- !u!1 &1761291764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,7 +1269,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761291764}
-  m_LocalRotation: {x: 0.2426421, y: 0.022208808, z: -0.0055563394, w: 0.9698457}
+  m_LocalRotation: {x: 0.24263906, y: 0.022730323, z: -0.005686815, w: 0.9698337}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1454,7 +1456,7 @@ GameObject:
   - component: {fileID: 895476680481725745}
   - component: {fileID: 798207392}
   m_Layer: 30
-  m_Name: Gun
+  m_Name: FairyHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1486,9 +1488,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4e4da4b09dec846a20cbbb7cc7faba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 2479590714240064691}
-  firePoint: {fileID: 5107676610701441113}
-  isFiring: 0
+  projectileHolder: {fileID: 0}
+  projectilePoint: {fileID: 0}
+  isFloating: 0
   timeBetweenShots: 0.2
 --- !u!114 &798207392
 MonoBehaviour:
@@ -1923,7 +1925,7 @@ GameObject:
   - component: {fileID: 576015880776318922}
   - component: {fileID: 1628696186}
   m_Layer: 0
-  m_Name: ArcBulletCam
+  m_Name: ArcProjectileCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2172,7 +2174,7 @@ PrefabInstance:
     - target: {fileID: 4061512974801603654, guid: f2f251ef522a5cb41b93dbd980cf552b,
         type: 3}
       propertyPath: m_Name
-      value: TFBDisplay
+      value: FairyDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 4061512974801603654, guid: f2f251ef522a5cb41b93dbd980cf552b,
         type: 3}
@@ -2273,7 +2275,7 @@ PrefabInstance:
     - target: {fileID: 4061512974801603654, guid: 95cf814b9c0d4034a98b1c07fdb7fb62,
         type: 3}
       propertyPath: m_Name
-      value: BulletDisplay
+      value: TeaCupDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 4061512974801603654, guid: 95cf814b9c0d4034a98b1c07fdb7fb62,
         type: 3}
@@ -2313,7 +2315,7 @@ PrefabInstance:
     - target: {fileID: 8867272822699340275, guid: 1bb1a8776c5527447a25e73e815c1f0c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9
+      value: 0.638
       objectReference: {fileID: 0}
     - target: {fileID: 8867272822699340275, guid: 1bb1a8776c5527447a25e73e815c1f0c,
         type: 3}
@@ -2498,7 +2500,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 66a4a6c882ca23e4fa906dda9ad98f83,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.476
+      value: 0.394
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 66a4a6c882ca23e4fa906dda9ad98f83,
         type: 3}

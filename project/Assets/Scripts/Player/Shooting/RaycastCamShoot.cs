@@ -27,8 +27,8 @@ public class RaycastCamShoot : MonoBehaviour
 
     [HideInInspector] public static List<Vector3> shootingPoints = new List<Vector3>();
 
-    public GunController gun;
-    public BulletController playerBullet;
+    public FairyHolderController gun;
+    public ProjectileController playerBullet;
 
     public static RaycastCamShoot ray;
     void Start()
@@ -46,7 +46,7 @@ public class RaycastCamShoot : MonoBehaviour
     void FixedUpdate()
     {
         //Determines what gun is accessed.
-        switch (GunController.inHandWeapon)
+        switch (FairyHolderController.inHandProjectile)
         {
             case 1:
                 fairyCam.gameObject.SetActive(false);

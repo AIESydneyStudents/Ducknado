@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GunController gun;
+    public FairyHolderController gun;
 
     [SerializeField] private Rigidbody m_playerRB;
     [SerializeField] [Range(1.0f, 10.0f)] private float m_playerMovementSpeed = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Projectile_Swap_performed(InputAction.CallbackContext obj)
     {
-        GunController.inHandWeapon += 1;
+        FairyHolderController.inHandProjectile += 1;
     }
     void FixedUpdate()
     {
@@ -45,9 +45,9 @@ public class PlayerMovement : MonoBehaviour
             interacted = true;
         }
         if (shooting == 0)//If the player has shot.
-            gun.isFiring = false;
+            gun.isFloating = false;
         else
-            gun.isFiring = true;
+            gun.isFloating = true;
 
 
         if (dir.y != 0 || dir.x != 0)
