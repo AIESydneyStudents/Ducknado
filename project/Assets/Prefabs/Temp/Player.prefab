@@ -408,7 +408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211361071}
-  m_LocalRotation: {x: 0.24646467, y: 0.021310734, z: -0.0054209214, w: 0.9689023}
+  m_LocalRotation: {x: 0.24646468, y: 0.02131069, z: -0.005420911, w: 0.9689023}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1488,8 +1488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4e4da4b09dec846a20cbbb7cc7faba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileHolder: {fileID: 0}
-  projectilePoint: {fileID: 0}
+  projectileHolder: {fileID: 2479590714240064691}
+  projectilePoint: {fileID: 5107676610701441113}
   isFloating: 0
   timeBetweenShots: 0.2
 --- !u!114 &798207392
@@ -1531,6 +1531,7 @@ GameObject:
   - component: {fileID: 307821355}
   - component: {fileID: 1576991727967998385}
   - component: {fileID: 307821365}
+  - component: {fileID: 1664851272}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1663,20 +1664,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_player: {fileID: 5107676610309586227}
-  shotPoint: {fileID: 5107676610701441126}
+  projectilePoint: {fileID: 5107676610701441126}
   targPos: {fileID: 387724060}
-  bulletCam: {fileID: 3280422616282162893}
+  TeaCupCam: {fileID: 3280422616282162893}
   fairyCam: {fileID: 1700500773}
-  m_lineDirBullet: {fileID: 1628696186}
+  m_lineDirTeaCup: {fileID: 1628696186}
   m_lineDirFairy: {fileID: 1700500774}
   iterations: 1521
   velocity: 0.63
   maxHeight: 0.3
   gravity: -0.1
   targetHeight: 0.138
-  gun: {fileID: 895476680481725745}
-  playerBullet: {fileID: -7630473538254667495, guid: 173839b447d236d4da8114a857d05058,
-    type: 3}
 --- !u!114 &276461040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1819,6 +1817,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046b9dfe047fba04aa34f070c2620f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &1664851272
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107676610309586227}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &5107676610701441126
 GameObject:
   m_ObjectHideFlags: 0
