@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-
-    public bool isFiring;
-    // public BulletController bullet;
-    // public float bulletSpeed;
-    public float timeBetweenShots;
-    private float shotCounter;
-    public GameObject gun;
-    public Transform firePoint;
+    [SerializeField] public GameObject gun;
+    [SerializeField] public Transform firePoint;
+    [SerializeField]public bool isFiring;
+    [SerializeField]public float timeBetweenShots;
     public static int inHandWeapon = 0;
     private int numOfWeapons = 2;
+    private float shotCounter;
     void Update()
     {
         if (inHandWeapon > numOfWeapons)
@@ -21,18 +18,18 @@ public class GunController : MonoBehaviour
             inHandWeapon = 0;
         }
         
-        if (isFiring)
+        if (isFiring)//If the bullet is firing.
         {
-            shotCounter -= Time.deltaTime;
+            shotCounter -= Time.deltaTime;//Firerate
             if (shotCounter <= 0)
             {
                 if (BulletController.keyIsReleased == false)//Change this back to true
                 {
-                    switch (inHandWeapon) 
+                    switch (inHandWeapon) //Checks what gun is in hand.
                     {
                         case 1:
-                            GameObject bullet = objPooling.SharedInstance.GetPooledObject("Bullet");
-                            shotCounter = timeBetweenShots;
+                            GameObject bullet = objPooling.SharedInstance.GetPooledObject("Bullet");//Gets a TeaCup that is not active
+                            shotCounter = timeBetweenShots;//Firerate is dependant of the global variable of firerate.
                             if (bullet != null)
                             {
                                 bullet.transform.position = firePoint.transform.position;
@@ -42,9 +39,9 @@ public class GunController : MonoBehaviour
                             isFiring = false;
                             break;
                         case 2:
-                            GameObject fairyBullet = objPooling.SharedInstance.GetPooledObject("FairyBull");
-                            shotCounter = timeBetweenShots;
-                             if (fairyBullet != null)
+                            GameObject fairyBullet = objPooling.SharedInstance.GetPooledObject("FairyBull");// Gets a Fairy that is not active
+                            shotCounter = timeBetweenShots;//Firerate is dependant of the global variable of firerate.
+                            if (fairyBullet != null)
                             {
                                 fairyBullet.transform.position = firePoint.position;
                                 fairyBullet.transform.rotation = firePoint.transform.rotation;
