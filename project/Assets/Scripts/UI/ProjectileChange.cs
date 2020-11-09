@@ -7,11 +7,8 @@ public class ProjectileChange : MonoBehaviour
 {
     [SerializeField] private Text projectile;
     [SerializeField] private Text textFairy;
-    [SerializeField] private Text textTea;
-    [SerializeField] private Image teaCupImage;
     [SerializeField] private Image fairyImage;
     [SerializeField] private GameObject fairy;
-    [SerializeField] private GameObject teaCup;
     [SerializeField] private Text tooManyProjectiles;
     [SerializeField] private int timeBetweenText = 3;
     public static ProjectileChange newProjectiles;
@@ -25,41 +22,19 @@ public class ProjectileChange : MonoBehaviour
         switch (FairyHolderController.inHandProjectile)
         {
             case 1:
-                textFairy.gameObject.SetActive(false);
-                textTea.gameObject.SetActive(true);
-                teaCup.gameObject.SetActive(true);
-                teaCupImage.gameObject.SetActive(true);
-                fairy.gameObject.SetActive(false);
-                fairyImage.gameObject.SetActive(false);
-                BulletInHand();
-                projectile.text = "In Hand: TeaCup".ToString();
-                break;
-            case 2:
                 textFairy.gameObject.SetActive(true);//Text Fairy
-                textTea.gameObject.SetActive(false);////Text TeaCup
                 fairyImage.gameObject.SetActive(true);//Image Fairy
                 fairy.gameObject.SetActive(true);//displaying the fairy
-                teaCupImage.gameObject.SetActive(false);//Image TeaCup
-                teaCup.gameObject.SetActive(false);//TeaCup displaying
                 ButterflyInHand();
                 projectile.text = "In Hand: Fairy".ToString();
                 break;
             default:
-                teaCup.gameObject.SetActive(false);
-                teaCupImage.gameObject.SetActive(false);
                 fairyImage.gameObject.SetActive(false);
                 fairy.gameObject.SetActive(false);
                 textFairy.gameObject.SetActive(false);
-                textTea.gameObject.SetActive(false);
                 projectile.text = "In Hand: None".ToString();
                 break;
         }
-    }
-
-    void BulletInHand()
-    {
-        int bulletInHand = objPooling.SharedInstance.CheckValueInHand("Bullet");
-        textTea.text = "Ammo: " + bulletInHand.ToString();
     }
     void ButterflyInHand()
     {
