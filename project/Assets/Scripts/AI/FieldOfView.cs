@@ -28,13 +28,10 @@ public class FieldOfView : MonoBehaviour
     public bool _targetFound; // Has player been found
     [HideInInspector]
     public bool _distractionFound; // Has butterfly been detected
-    [HideInInspector]
-    public bool _teacupFound; //is teacup in range of npc
 
     [HideInInspector]
     public GameObject player;
-    [HideInInspector]
-    public GameObject _teacupDistraction;
+
     [HideInInspector]
     public GameObject _butterflyDistraction;
 
@@ -49,7 +46,6 @@ public class FieldOfView : MonoBehaviour
 
     void Start()
     {
-        _teacupDistraction = objPooling.SharedInstance.GetPooledObject("Bullet"); //Stores the info on the teacup distraction game object
         _butterflyDistraction = objPooling.SharedInstance.GetPooledObject("FairyBull"); //Stores the info on the butterfly distraction game object
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -103,17 +99,7 @@ public class FieldOfView : MonoBehaviour
 
     public void DistractionInRange() //Checks if there is any distractions in the fov and will set bools for each distraction that is found to true
     {
-        Vector3 dirToTeacup = (_teacupDistraction.transform.position - transform.position);
         Vector3 dirToButterfly = (_butterflyDistraction.transform.position - transform.position);
-
-        if (Vector3.Distance(transform.forward, dirToTeacup) <= viewRadius && _teacupDistraction.activeSelf)
-        {
-          _teacupFound = true;
-        }
-        else
-        {
-            _teacupFound = false;
-        }
 
         if (Vector3.Distance(transform.forward, dirToButterfly) <= viewRadius && _butterflyDistraction.activeSelf)
         {

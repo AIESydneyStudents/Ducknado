@@ -11,6 +11,9 @@ public class TeaPlacement : MonoBehaviour
 
 
     Vector3 _location; // stores the location of the last table for the color change effect
+    Vector4[] _locations;
+    public Material colorChange;
+
     public GameObject _audioManager;
     public GameObject _inputPrompt; //the UI pop-up to prompt input
 
@@ -28,19 +31,25 @@ public class TeaPlacement : MonoBehaviour
     public float _oneStarRating;
     public float _twoStarRating;
     public float _threeStarRating;
-
-
     private void Start()
     {
-        Shader.SetGlobalFloat("GLOBALmask_Radius", 0);
+        Shader.SetGlobalFloat("GLOBALmask_Radius", 10);
         Shader.SetGlobalFloat("GLOBALmask_Softness", 0);
-
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
+        _locations = new Vector4[_tables.Length];
+
 
         _victory.gameObject.SetActive(false);
     }
     private void Update()
     {
+        for (int i = 0; i < _tables.Length; i++)
+        {
+            _locations[i] = new Vector4(_tables[i].transform.position.x, _tables[i].transform.position.y, _tables[i].transform.position.z, 0);
+            Shader.SetGlobalVectorArray("GLOBALmask_Position", _locations);
+
+        }
+
         if (_firstPlacement)
         {
             ChangeColor(_location, _radius += _expand * Time.deltaTime); //Chnage the color from this location and expand the radius by a given amount over time
@@ -137,8 +146,6 @@ public class TeaPlacement : MonoBehaviour
         _victory.gameObject.SetActive(true);
 
         Cursor.visible = true;
-
-
 
         if (GameTimer._finalTime <= _threeStarRating) //finish time was less than the given three star rating.
         {

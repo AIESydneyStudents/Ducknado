@@ -72,7 +72,7 @@ public class FollowPath : MonoBehaviour
             fov._targetFound = false;
             PathFinding();
         }
-        if (fov._distractionFound || fov._teacupFound)
+        if (fov._distractionFound)
         {
             fov._targetFound = false;
             DistractionDetected();
@@ -189,12 +189,6 @@ public class FollowPath : MonoBehaviour
         if (fov._butterflyDistraction.activeSelf && fov._distractionFound)
         {
             _targetVector = fov._butterflyDistraction.transform.position;
-
-            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
-        }
-        if (fov._teacupFound)
-        {
-            _targetVector = fov._teacupDistraction.transform.position;
 
             _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
         }
