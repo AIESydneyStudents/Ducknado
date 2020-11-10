@@ -237,10 +237,10 @@ MonoBehaviour:
   viewAngle: 68
   _undetectedColor:
     serializedVersion: 2
-    rgba: 2449437952
+    rgba: 1174369536
   _detectedColor:
     serializedVersion: 2
-    rgba: 2432696575
+    rgba: 1157628159
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 1
