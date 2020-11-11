@@ -1,19 +1,12 @@
-﻿Shader "Custom/SphericalMask"
+﻿Shader "Custom/TestShader"
 {
     Properties
     {
-        _Color ("Color", Color) = (1,1,1,1)
+        _Color("Color", Color) = (1,1,1,1)
+        _PointColor("Point Color (RGB)", Color) = (1,0,0,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _ColorStrength("Color Strength", Range(1,4)) = 1
-        _EmissionColor("Emission Color", Color) = (1,1,1,1)
-        _EmissionTex("Emission (RGB)", 2D) = "white" {}
-        _EmissionStrength("Emission Strength", Range(1,4)) = 1
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
-        _Position ("World Position", Vector) = (0,0,0,0)
-        //_Radius ("Sphere Radius", Range(0,100)) = 0
-        //_Softness("Sphere Softness", Range(0,100)) = 0
-
     }
     SubShader
     {
@@ -27,25 +20,25 @@
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
 
-        sampler2D _MainTex, _EmissionTex;
+        sampler2D _MainTex;
 
         struct Input
         {
-            float2 uv_MainTex;
-            float2 uv_EmissionTex;
             float3 worldPos;
+            float2 uv_MainTex;
         };
 
+
+        half _ColorStrength;
         half _Glossiness;
         half _Metallic;
-        fixed4 _Color, _EmissionColor;
-        half _ColorStrength, _EmissionStrength;
+        fixed4 _Color;
 
-        //Spherical Mask
-        uniform half GLOBALmask_Radius;
-        uniform half GLOBALmask_Softness;
-        fixed4 GLOBALmask_Position[10];
+        int _PointsSize;
+        fixed4 _Points[4];
 
+        half _Radius;
+        half _Softness;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -57,25 +50,19 @@
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
             //Greyscale
             half grayscale = (c.r + c.g + c.b) * 0.333;
-            fixed3 c_g = fixed3(grayscale,grayscale,grayscale);
-            //Emission
-            //fixed4 e = tex2D(_EmissionTex, IN.uv_EmissionTex) * _EmissionColor * _EmissionStrength;
-            for (int i = 0; i < 10; i++)
+            fixed3 c_g = fixed3(grayscale, grayscale, grayscale);
+
+            for (int i = 0; i < _PointsSize; i++)
             {
-                half d = distance(GLOBALmask_Position[1], IN.worldPos);
-                half sum = saturate((d - GLOBALmask_Radius) / -GLOBALmask_Softness);
+                half d = distance(_Points[i], IN.worldPos);
+                half sum = saturate((d - _Radius) / -_Softness);
                 fixed4 lerpColor = lerp(fixed4(c_g, 1), c * _ColorStrength, sum);
                 o.Albedo = lerpColor.rgb;
             }
-
-            //fixed4 lerpEmission = lerp(fixed4(0, 0, 0, 0), e, sum);
-
-            // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
-            //o.Emission = lerpEmission.rgb;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
         }

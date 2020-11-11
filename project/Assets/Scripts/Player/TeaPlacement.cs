@@ -46,8 +46,7 @@ public class TeaPlacement : MonoBehaviour
         for (int i = 0; i < _tables.Length; i++)
         {
             _locations[i] = new Vector4(_tables[i].transform.position.x, _tables[i].transform.position.y, _tables[i].transform.position.z, 0);
-            Shader.SetGlobalVectorArray("GLOBALmask_Position", _locations);
-
+            Shader.SetGlobalVectorArray("GLOBALmask_Position", _locations);            
         }
 
         if (_firstPlacement)
