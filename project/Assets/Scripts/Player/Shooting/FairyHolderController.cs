@@ -6,18 +6,12 @@ public class FairyHolderController : MonoBehaviour
 {
     [SerializeField] public GameObject projectileHolder;
     [SerializeField] public Transform projectilePoint;
-    [SerializeField]public bool isFloating;
-    [SerializeField]public float timeBetweenShots;
+    [SerializeField] public bool isFloating;
+    [SerializeField] public float timeBetweenShots;
     public static int inHandProjectile = 0;
-    private int numOfProjectiles = 1;
     private float projectileCounter;
     void Update()
     {
-        if (inHandProjectile > numOfProjectiles)
-        {
-            inHandProjectile = 0;
-        }
-        
         if (isFloating)//If the bullet is firing.
         {
             projectileCounter -= Time.deltaTime;//Firerate
@@ -25,20 +19,16 @@ public class FairyHolderController : MonoBehaviour
             {
                 if (ProjectileController.keyIsReleased == false)//Change this back to true
                 {
-                    switch (inHandProjectile) //Checks what gun is in hand.
+                    GameObject fairyBullet = objPooling.SharedInstance.GetPooledObject("FairyBull");// Gets a Fairy that is not active
+                    projectileCounter = timeBetweenShots;//Firerate is dependant of the global variable of firerate.
+                    if (fairyBullet != null)
                     {
-                        case 1:
-                            GameObject fairyBullet = objPooling.SharedInstance.GetPooledObject("FairyBull");// Gets a Fairy that is not active
-                            projectileCounter = timeBetweenShots;//Firerate is dependant of the global variable of firerate.
-                            if (fairyBullet != null)
-                            {
-                                fairyBullet.transform.position = projectilePoint.position;
-                                fairyBullet.transform.rotation = projectilePoint.transform.rotation;
-                                fairyBullet.SetActive(true);
-                            }
-                            isFloating = false;
-                            break;
+                        fairyBullet.transform.position = projectilePoint.position;
+                        fairyBullet.transform.rotation = projectilePoint.transform.rotation;
+                        fairyBullet.SetActive(true);
                     }
+                    isFloating = false;
+
                 }
             }
         }

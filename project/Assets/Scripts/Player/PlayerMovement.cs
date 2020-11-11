@@ -28,12 +28,8 @@ public class PlayerMovement : MonoBehaviour
         m_playerRB = GetComponent<Rigidbody>();
         m_controls = new Controls();
         m_controls.Player.Enable();
-        m_controls.Player.Projectile_Swap.performed += Projectile_Swap_performed;
     }
-    private void Projectile_Swap_performed(InputAction.CallbackContext obj)
-    {
-        FairyHolderController.inHandProjectile += 1;
-    }
+
     void FixedUpdate()
     {
         m_playerRB.AddForce(Vector3.down * m_gravity);
