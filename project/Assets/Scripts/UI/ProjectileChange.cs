@@ -18,7 +18,7 @@ public class ProjectileChange : MonoBehaviour
         text = textButterfly.GetComponent<Text>().text;
         newProjectiles = this;
     }
-    void FixedUpdate()
+    private void FixedUpdate()
     {//Visualisation of what is on hand.
         switch (FairyHolderController.inHandProjectile)
         {

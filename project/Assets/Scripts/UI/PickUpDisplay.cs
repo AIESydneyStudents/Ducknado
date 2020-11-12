@@ -10,21 +10,19 @@ public class PickUpDisplay : MonoBehaviour
     private string newLeafTxt;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         newTeaTxt = teaText.GetComponent<Text>().text;
         newLeafTxt = leafText.GetComponent<Text>().text;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         int teaItem = ItemsInGame.SharedItems.CheckValueInHand("TeaCup");
-        int teaType = ItemsInGame.SharedItems.FindAllItemType("TeaCup");
-        teaText.text = newTeaTxt + teaItem + "/" + teaType;
+        teaText.text = newTeaTxt + teaItem;
 
         int leafItem = ItemsInGame.SharedItems.CheckValueInHand("Leaf");
-        int leafType = ItemsInGame.SharedItems.FindAllItemType("Leaf");
-        leafText.text = newLeafTxt + leafItem + "/" + leafType;
+        leafText.text = newLeafTxt + leafItem;
     }
 }

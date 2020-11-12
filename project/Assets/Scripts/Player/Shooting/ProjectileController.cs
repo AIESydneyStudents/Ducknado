@@ -28,7 +28,7 @@ public class ProjectileController : MonoBehaviour
             gameObject.SetActive(false);
             if (collisionEffect != null)
                 Instantiate(collisionEffect).transform.position = gameObject.transform.position;
-            objPooling.SharedInstance.RemoveObjects(gameObject);
+            objPooling.SharedInstance.recharge = false;
         }
         //Side note, i have seen issues where the shooting sometimes does not go on the trail of the line renderer. 
 
@@ -39,8 +39,7 @@ public class ProjectileController : MonoBehaviour
         {
             if (collisionEffect != null)
                 Instantiate(collisionEffect).transform.position = gameObject.transform.position;
-
-            objPooling.SharedInstance.RemoveObjects(gameObject);
+            objPooling.SharedInstance.recharge = false;
         }
     }
     private void OnEnable()//When the script is enabled, the bullet position will equal the first position of the player.
