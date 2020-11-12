@@ -3267,7 +3267,17 @@ PrefabInstance:
     - target: {fileID: 8365820675741758943, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LevelSelect
+      value: ChangeScenes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365820675741758943, guid: ac8ffff40fb087c41b30506b089faac9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365820675741758943, guid: ac8ffff40fb087c41b30506b089faac9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: level selector
       objectReference: {fileID: 0}
     - target: {fileID: 9213030834235484464, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
