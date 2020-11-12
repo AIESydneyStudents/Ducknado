@@ -46,7 +46,7 @@ public class TeaPlacement : MonoBehaviour
         for (int i = 0; i < _tables.Length; i++)
         {
             _locations[i] = new Vector4(_tables[i].transform.position.x, _tables[i].transform.position.y, _tables[i].transform.position.z, 0);
-            Shader.SetGlobalVectorArray("GLOBALmask_Position", _locations);            
+            Shader.SetGlobalVectorArray("GLOBALmask_Position", _locations);
         }
 
         if (_firstPlacement)
@@ -62,9 +62,9 @@ public class TeaPlacement : MonoBehaviour
 
     private void OnTriggerStay(Collider other) // used to check if player is near a placement table
     {
-        if (other.gameObject.tag == "Placement") // check the placement tag is the collision
+        if (other.gameObject.tag == "Placement" && PlayerMovement.interacted == true) // check the placement tag is the collision. If the player has used the interaction buttin within the collider
         {
-            if (PlayerMovement.interacted == true) // if the player has used the interaction buttin within the collider
+            if (ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0 && ItemsInGame.SharedItems.CheckValueInHand("Leaf") > 0)//CHecking if the player has picked up at least 1 of the teacups and leaves.
             {
                 for (int i = 0; i < _tables.Length; i++) // check the tables in the level
                 {
@@ -80,11 +80,12 @@ public class TeaPlacement : MonoBehaviour
                             gameObject.GetComponent<AudioSource>().clip = midMusic;
                             gameObject.GetComponent<AudioSource>().Play();
                         }
+                        ItemsInGame.SharedItems.teaPlaced += 1;
                     }
                 }
-                AllTeaPlacedCheck(); // checks if all objectives have been completed
-                PlayerMovement.interacted = false;
             }
+            AllTeaPlacedCheck(); // checks if all objectives have been completed
+            PlayerMovement.interacted = false;
         }
     }
     private void OnTriggerEnter(Collider other)

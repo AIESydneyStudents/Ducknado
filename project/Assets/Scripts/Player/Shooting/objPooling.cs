@@ -92,7 +92,7 @@ public class objPooling : MonoBehaviour
 
     public GameObject GetOneStoredObject() 
     {
-        GameObject obj;
+        GameObject obj = new GameObject();
         if (itemsToStore != null)
         {
             for (int i = 0; i < itemsToStore.Count; i++)
