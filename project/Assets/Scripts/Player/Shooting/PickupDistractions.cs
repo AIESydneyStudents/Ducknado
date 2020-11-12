@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class PickupDistractions : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
