@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fxSource: {fileID: 6781801844317022038}
-  hoverFx: {fileID: 8300000, guid: a03c85f80710f7b4bb8924eba22aa2a6, type: 3}
+  hoverFx: {fileID: 8300000, guid: 12c3e6c4b24feb942939473064e32234, type: 3}
   clickFx: {fileID: 8300000, guid: 5575800ab6696f54582b1b4c35fbcae6, type: 3}
 --- !u!114 &-7622545979007698733
 MonoBehaviour:
