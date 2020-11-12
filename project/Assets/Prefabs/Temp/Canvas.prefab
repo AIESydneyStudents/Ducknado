@@ -76,7 +76,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Amount: \n"
+  m_Text: "Ammo: \n"
 --- !u!1 &491955943
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +658,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Too Many Distractions!!!
+  m_Text: Too much Ammo!!!
 --- !u!1 &1656027278
 GameObject:
   m_ObjectHideFlags: 0

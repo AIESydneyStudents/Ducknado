@@ -237,7 +237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000015660667
+      value: -0.00000117455
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.x
@@ -790,14 +790,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 264115391, guid: 02dbed44b33cb3c4dad4cef6d57d6c58, type: 3}
-      propertyPath: m_Text
-      value: "Amount: \n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575082431, guid: 02dbed44b33cb3c4dad4cef6d57d6c58, type: 3}
-      propertyPath: m_Text
-      value: Too Many Distractions!!!
-      objectReference: {fileID: 0}
     - target: {fileID: 1801225254538781825, guid: 02dbed44b33cb3c4dad4cef6d57d6c58,
         type: 3}
       propertyPath: fairy

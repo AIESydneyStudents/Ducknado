@@ -46,7 +46,7 @@ public class TeaPlacement : MonoBehaviour
         for (int i = 0; i < _tables.Length; i++)
         {
             _locations[i] = new Vector4(_tables[i].transform.position.x, _tables[i].transform.position.y, _tables[i].transform.position.z, 0);
-            Shader.SetGlobalVectorArray("GLOBALmask_Position", _locations);
+            Shader.SetGlobalVectorArray("GLOBALmask_Position", _locations);            
         }
 
         if (_firstPlacement)
@@ -62,9 +62,9 @@ public class TeaPlacement : MonoBehaviour
 
     private void OnTriggerStay(Collider other) // used to check if player is near a placement table
     {
-        if (other.gameObject.tag == "Placement" && PlayerMovement.interacted == true) // check the placement tag is the collision. If the player has used the interaction buttin within the collider
+        if (other.gameObject.tag == "Placement") // check the placement tag is the collision
         {
-            if (ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0 && ItemsInGame.SharedItems.CheckValueInHand("Leaf") > 0)//CHecking if the player has picked up at least 1 of the teacups and leaves.
+            if (PlayerMovement.interacted == true) // if the player has used the interaction buttin within the collider
             {
                 for (int i = 0; i < _tables.Length; i++) // check the tables in the level
                 {
@@ -79,14 +79,12 @@ public class TeaPlacement : MonoBehaviour
                             _firstPlacement = true;
                             gameObject.GetComponent<AudioSource>().clip = midMusic;
                             gameObject.GetComponent<AudioSource>().Play();
-                            FindObjectOfType<AudioManager>().Play("Whistle1");
                         }
-                        ItemsInGame.SharedItems.teaPlaced += 1;
                     }
                 }
+                AllTeaPlacedCheck(); // checks if all objectives have been completed
+                PlayerMovement.interacted = false;
             }
-            AllTeaPlacedCheck(); // checks if all objectives have been completed
-            PlayerMovement.interacted = false;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -141,6 +139,8 @@ public class TeaPlacement : MonoBehaviour
 
     public void DisplayCanvas() // Displays the stars at the end of the level based off the final time of the game
     {
+        gameObject.GetComponent<AudioSource>().clip = endMusic;
+        gameObject.GetComponent<AudioSource>().Play();
         _victory.gameObject.tag = "Finish";
         _victory.gameObject.SetActive(true);
 
@@ -151,20 +151,18 @@ public class TeaPlacement : MonoBehaviour
             _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);// sets the image of the star which is a child of the canvas, position is hard coded based off prefab
             _victory.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
             _victory.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
-            FindObjectOfType<AudioManager>().Play("End Music");
+
         }
 
         else if (GameTimer._finalTime <= _twoStarRating && GameTimer._finalTime > _threeStarRating) //finish time was greater than the given three star rating and less than the second star rating.
         {
             _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
             _victory.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
-            FindObjectOfType<AudioManager>().Play("End Music");
         }
 
         else
         {
             _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true); //finish time was greater than the given one star rating.
-            FindObjectOfType<AudioManager>().Play("End Music");
         }
     }
 

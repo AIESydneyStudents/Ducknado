@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameMenu;
     private bool isPaused = false;
+    private bool buttonPressed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-    public void PauseGame() //Pauses the game with disabling the gamemenu and turning the timescale to 0.
+    public void PauseGame() 
     {
         pauseMenu.SetActive(true);
         gameMenu.SetActive(false);
@@ -34,7 +35,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
     }
 
-    public void ResumeGame() //Resumes the game with disabling the pausemenu and turning the timescale to 1.
+    public void ResumeGame() 
     {
         Cursor.visible = false;
         pauseMenu.SetActive(false);
