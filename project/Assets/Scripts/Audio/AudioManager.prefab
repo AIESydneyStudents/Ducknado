@@ -80,15 +80,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Pouring
+  - name: pouring
     clip: {fileID: 8300000, guid: 06b12f1ae3259bb42973d9f13a9100c2, type: 3}
-    volume: 0.066
-    pitch: 0.9
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: woosh
     clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
-    volume: 0.55
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -102,16 +102,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 87d83e37ed1049e4c9dde874c78530cc, type: 3}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
-  - name: Whistle1
-    clip: {fileID: 8300000, guid: 87e6741067c6d4e41a918a14c22a1c46, type: 3}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Whistle2
-    clip: {fileID: 8300000, guid: 437ab407e301544409cc6c91001572b4, type: 3}
+  - name: woosh
+    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
     volume: 1
     pitch: 1
     loop: 0

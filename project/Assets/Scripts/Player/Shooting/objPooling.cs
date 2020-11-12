@@ -15,7 +15,6 @@ public class objPooling : MonoBehaviour
     public List<ObjectPoolItem> itemsToPool;
     [HideInInspector]public List<GameObject> itemsToStore;//In this, you can have extra ammo to pickup.
     private int bulletsInHand;
-    [HideInInspector]public  bool recharge = false;
     private void Awake()
     {
         SharedInstance = this;
@@ -64,7 +63,7 @@ public class objPooling : MonoBehaviour
         {
             if(pooledObjects[i].tag == tag)
                 bulletsInHand += 1;
-            if (pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag && recharge == false)
+            if (pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
                 bulletsInHand -= 1;
         }
         return bulletsInHand;
@@ -77,10 +76,7 @@ public class objPooling : MonoBehaviour
         for (int i = 0; i < itemsToStore.Count; i++) 
         {
             if (itemsToStore[i] == bullet)
-            {
                 itemsToStore.RemoveAt(i);
-                recharge = true;
-            }
         }
     }
     public void RemoveObjects(GameObject bullet) 
@@ -91,11 +87,12 @@ public class objPooling : MonoBehaviour
             if (pooledObjects[i] == bullet)
                 pooledObjects.RemoveAt(i);
         }
+        bullet.SetActive(false);
     }
 
     public GameObject GetOneStoredObject() 
     {
-        GameObject obj;
+        GameObject obj = new GameObject();
         if (itemsToStore != null)
         {
             for (int i = 0; i < itemsToStore.Count; i++)
