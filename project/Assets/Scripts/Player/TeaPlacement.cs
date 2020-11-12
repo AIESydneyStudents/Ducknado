@@ -78,7 +78,9 @@ public class TeaPlacement : MonoBehaviour
                             SetLocation(_tables[i].transform.position);
                             _firstPlacement = true;
                             gameObject.GetComponent<AudioSource>().clip = midMusic;
+                            gameObject.GetComponent<AudioSource>().volume = .7f;
                             gameObject.GetComponent<AudioSource>().Play();
+                            FindObjectOfType<AudioManager>().Play("Whistle1");
                         }
                     }
                 }
