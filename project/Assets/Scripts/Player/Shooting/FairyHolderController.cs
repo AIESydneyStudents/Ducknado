@@ -26,6 +26,7 @@ public class FairyHolderController : MonoBehaviour
                         fairyBullet.transform.position = projectilePoint.position;
                         fairyBullet.transform.rotation = projectilePoint.transform.rotation;
                         fairyBullet.SetActive(true);
+                        objPooling.SharedInstance.RemoveObjects(fairyBullet);
                     }
                     isFloating = false;
 
