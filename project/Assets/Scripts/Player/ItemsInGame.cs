@@ -12,7 +12,10 @@ public class ItemsInGame : MonoBehaviour
     }
     [Tooltip("How many different items are you using.")]
     public List<itemsToGame> itemsAvailable;
+    
     private List<GameObject> itemsInList;
+    private List<GameObject> itemsToHold;
+    [HideInInspector] public int teaPlaced = 0;
     [HideInInspector] public int objectsInGame;
     [HideInInspector] public static ItemsInGame SharedItems;
 
@@ -36,6 +39,7 @@ public class ItemsInGame : MonoBehaviour
             if (!itemsInList[i].activeInHierarchy && itemsInList[i].tag == tag)
                 objectsInGame += 1;
         }
+        objectsInGame -= teaPlaced;
         return objectsInGame;
     }
     public int FindAllItemType(string tag)
@@ -47,5 +51,15 @@ public class ItemsInGame : MonoBehaviour
                 objectsInGame += 1;
         }
         return objectsInGame;
+    }
+    public void RemoveObjects(GameObject bullet)
+    {
+        itemsToHold.Add(bullet);
+        for (int i = 0; i < itemsInList.Count; i++)
+        {
+            if (itemsInList[i] == bullet)
+                itemsInList.RemoveAt(i);
+        }
+        bullet.SetActive(false);
     }
 }
