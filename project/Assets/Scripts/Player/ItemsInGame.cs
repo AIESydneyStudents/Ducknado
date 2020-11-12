@@ -4,36 +4,48 @@ using UnityEngine;
 
 public class ItemsInGame : MonoBehaviour
 {
+    [System.Serializable]
     public class itemsToGame
     {
+        [Tooltip("How many of the same item are you using. When done, put all of them on the list.")]
         public List<GameObject> itemInGame;
     }
-    [SerializeField] public List<itemsToGame> itemsAvailable;
+    [Tooltip("How many different items are you using.")]
+    public List<itemsToGame> itemsAvailable;
     private List<GameObject> itemsInList;
     [HideInInspector] public int objectsInGame;
-    // Start is called before the first frame update
-    void Awake()
+    [HideInInspector] public static ItemsInGame SharedItems;
+
+    private void Awake()
     {
-        objectsInGame = itemsAvailable.Count;
+        itemsInList = new List<GameObject>();
+        SharedItems = this;
         foreach (itemsToGame item in itemsAvailable)
         {
             for (int i = 0; i < item.itemInGame.Count; i++)
             {
-
+                itemsInList.Add(item.itemInGame[i]);
             }
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    public int CheckValueInHand(string tag)
     {
-        
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        objectsInGame = 0;
+        for (int i = 0; i < itemsInList.Count; i++)
         {
-
+            if (!itemsInList[i].activeInHierarchy && itemsInList[i].tag == tag)
+                objectsInGame += 1;
         }
+        return objectsInGame;
+    }
+    public int FindAllItemType(string tag)
+    {
+        objectsInGame = 0;
+        for (int i = 0; i < itemsInList.Count; i++)
+        {
+            if (itemsInList[i].tag == tag)
+                objectsInGame += 1;
+        }
+        return objectsInGame;
     }
 }

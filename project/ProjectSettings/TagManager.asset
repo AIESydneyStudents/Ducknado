@@ -13,6 +13,8 @@ TagManager:
   - Target
   - Hiding Area
   - Wall
+  - TeaCup
+  - Leaf
   layers:
   - Default
   - TransparentFX
