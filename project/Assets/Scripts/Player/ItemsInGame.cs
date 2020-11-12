@@ -5,25 +5,24 @@ using UnityEngine;
 public class ItemsInGame : MonoBehaviour
 {
     [System.Serializable]
-    public class itemsToGame
+    public class ItemsToGame
     {
         [Tooltip("How many of the same item are you using. When done, put all of them on the list.")]
-        public List<GameObject> itemInGame;
+        public List<GameObject> itemInGame;//Creates a list of items that are all the gameobjects in the game.
     }
     [Tooltip("How many different items are you using.")]
-    public List<itemsToGame> itemsAvailable;
-    
-    private List<GameObject> itemsInList;
-    private List<GameObject> itemsToHold;
-    [HideInInspector] public int teaPlaced = 0;
-    [HideInInspector] public int objectsInGame;
+    public List<ItemsToGame> itemsAvailable;//This is the list of gameobjects that are needed for the project.
+    private List<GameObject> itemsInList;//This is the list of items that are available.
+
+    [HideInInspector] public int teaPlaced = 0;//This is checking how many teacups have been placed in the level.
+    [HideInInspector] public int objectsInGame;//Checks how many objects the player has picked up.
     [HideInInspector] public static ItemsInGame SharedItems;
 
     private void Awake()
     {
-        itemsInList = new List<GameObject>();
+        itemsInList = new List<GameObject>();//Creates a new instanced of the list.
         SharedItems = this;
-        foreach (itemsToGame item in itemsAvailable)
+        foreach (ItemsToGame item in itemsAvailable)//Goes through each item type.
         {
             for (int i = 0; i < item.itemInGame.Count; i++)
             {
@@ -31,7 +30,7 @@ public class ItemsInGame : MonoBehaviour
             }
         }
     }
-    public int CheckValueInHand(string tag)
+    public int CheckValueInHand(string tag)//This checks how many of the value type is collected.
     {
         objectsInGame = 0;
         for (int i = 0; i < itemsInList.Count; i++)
@@ -42,7 +41,7 @@ public class ItemsInGame : MonoBehaviour
         objectsInGame -= teaPlaced;
         return objectsInGame;
     }
-    public int FindAllItemType(string tag)
+    public int FindAllItemType(string tag)//This finds all items that are in the level to be used.
     {
         objectsInGame = 0;
         for (int i = 0; i < itemsInList.Count; i++)
@@ -51,15 +50,5 @@ public class ItemsInGame : MonoBehaviour
                 objectsInGame += 1;
         }
         return objectsInGame;
-    }
-    public void RemoveObjects(GameObject bullet)
-    {
-        itemsToHold.Add(bullet);
-        for (int i = 0; i < itemsInList.Count; i++)
-        {
-            if (itemsInList[i] == bullet)
-                itemsInList.RemoveAt(i);
-        }
-        bullet.SetActive(false);
     }
 }
