@@ -13,8 +13,10 @@ public class ItemsInGame : MonoBehaviour
     [Tooltip("How many different items are you using.")]
     public List<itemsToGame> itemsAvailable;
     private List<GameObject> itemsInList;
-    [HideInInspector] public int objectsInGame;
+    [HideInInspector] public int teaPlaced = 0;
     [HideInInspector] public static ItemsInGame SharedItems;
+    private int objectsInGame;
+
 
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class ItemsInGame : MonoBehaviour
             if (!itemsInList[i].activeInHierarchy && itemsInList[i].tag == tag)
                 objectsInGame += 1;
         }
+        objectsInGame -= teaPlaced;
         return objectsInGame;
     }
     public int FindAllItemType(string tag)
