@@ -7,11 +7,12 @@ public class CameraClipping : MonoBehaviour
     [HideInInspector] public List<MeshRenderer> listobj;
     [HideInInspector] public List<Material> objectMaterials;
     [SerializeField] public Material alphaMat;
+    [SerializeField][Range(3.0f, 7.0f)] public float rayCastRange = 5.5f;
     private void FixedUpdate()
     {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.gameObject.transform.position,
-            Camera.main.gameObject.transform.forward, out hit, 5.5f) &&//Needs to be adjustable not have 6 as its parameter.
+            Camera.main.gameObject.transform.forward, out hit, rayCastRange) &&//Needs to be adjustable not have 6 as its parameter.
             !hit.collider.gameObject.CompareTag("Player"))
         {
             //Saves memory space as there will be less variables to check through a list.
