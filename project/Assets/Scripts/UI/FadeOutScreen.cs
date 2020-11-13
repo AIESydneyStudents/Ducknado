@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class FadeOutScreen : MonoBehaviour
 {
+    //public static FadeOutScreen SharedInstance;
     GameObject _fadeOutScreen;
     Image _black;
 
-    bool _fadeIn; //allows to check whether to fade in
-    bool _fadeOut; //allows to check whether to fade in
+    public bool _fadeIn; //allows to check whether to fade in
+    public bool _fadeOut; //allows to check whether to fade in
     float _alpha;
     // Start is called before the first frame update
     void Start()

@@ -62,6 +62,8 @@ public class DialogueManager : MonoBehaviour
     {
         m_trigger.SetActive(false);
         Cursor.visible = false;
-
+        FadeOutScreen fading = GetComponent<FadeOutScreen>();
+        fading._fadeIn = true;
+        fading._fadeOut = false;
     }
 }
