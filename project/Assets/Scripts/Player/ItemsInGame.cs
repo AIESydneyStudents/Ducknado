@@ -15,6 +15,7 @@ public class ItemsInGame : MonoBehaviour
     private List<GameObject> itemsInList;
     [HideInInspector] public int teaPlaced = 0;
     [HideInInspector] public static ItemsInGame SharedItems;
+
     private int objectsInGame;
 
 
