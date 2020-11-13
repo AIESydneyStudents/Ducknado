@@ -6,11 +6,11 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public TMP_Text nameText;
-    public TMP_Text dialogueText;
+    [SerializeField] public TMP_Text m_nameText;
+    [SerializeField] public TMP_Text m_dialogueText;
     [Tooltip("Adjust the speed that the text will be displaying at.")]
-    public float timeBetweenWords = 0.1f;
-    public GameObject trigger;
+    [SerializeField] public float m_timeBetweenWords = 0.1f;
+    [SerializeField] public GameObject m_trigger;
     Queue<string> _sentences = new Queue<string>();
 
     // Start is called before the first frame update
@@ -22,11 +22,11 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         Cursor.visible = true;
-        nameText.text = dialogue.name;
+        m_nameText.text = dialogue.m_name;
 
         _sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        foreach (string sentence in dialogue.m_sentences)
         {
             _sentences.Enqueue(sentence);
         }
@@ -41,26 +41,27 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = _sentences.Dequeue();
-        dialogueText.text = sentence;
+        m_dialogueText.text = sentence;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
 
     IEnumerator TypeSentence(string sentence)
     {
-        dialogueText.text = "";
+        m_dialogueText.text = "";
 
         foreach (char letter in sentence.ToCharArray())
         {
             
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(timeBetweenWords);
+            m_dialogueText.text += letter;
+            yield return new WaitForSeconds(m_timeBetweenWords);
         }
     }
 
     void EndDialogue()
     {
-        trigger.SetActive(false);
+        m_trigger.SetActive(false);
         Cursor.visible = false;
+
     }
 }
