@@ -23,8 +23,6 @@ public class ProjectileChange : MonoBehaviour
         {
             case 0:
                 textButterfly.gameObject.SetActive(true);//Text Fairy
-                if(objPooling.SharedInstance.CheckValueInHand("FairyBull") != 0)
-                    fairy.gameObject.SetActive(true);//displaying the fairy
                 ButterflyInHand();
                 break;
         }
@@ -40,6 +38,10 @@ public class ProjectileChange : MonoBehaviour
         {
             teaImgs[i].SetActive(true);
         }
+        if (butterflyInHand > 0)
+            fairy.gameObject.SetActive(true);//displaying the fairy
+        else
+            fairy.gameObject.SetActive(false);
     }
     public void TooMuchAmmo()
     {
