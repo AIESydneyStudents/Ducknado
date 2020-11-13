@@ -82,7 +82,7 @@ public class TeaPlacement : MonoBehaviour
     private void OnTriggerStay(Collider other) // used to check if player is near a placement table
     {
         if (other.gameObject.tag == "Placement" && PlayerMovement.interacted == true &&
-            ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0 && ItemsInGame.SharedItems.CheckValueInHand("Leaf") > 0) // check the placement tag is the collision. If the player has used the interaction buttin within the collider
+            ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0) // check the placement tag is the collision. If the player has used the interaction buttin within the collider
         {
             for (int i = 0; i < _tables.Length; i++) // check the tables in the level
             {
