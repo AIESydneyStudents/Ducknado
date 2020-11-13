@@ -9,7 +9,7 @@ BoxCollider:
   m_GameObject: {fileID: 620712761671987180}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 123.99676, y: 256.95306, z: 121.561905}
   m_Center: {x: 0, y: 4.641067, z: 3.7616842}
@@ -22,7 +22,7 @@ BoxCollider:
   m_GameObject: {fileID: 864994098868776676}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 123.99676, y: 256.95306, z: 121.561905}
   m_Center: {x: 0, y: 4.641067, z: 3.7626607}
@@ -35,7 +35,7 @@ BoxCollider:
   m_GameObject: {fileID: 1223993132853123624}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 123.99676, y: 256.95306, z: 121.561905}
   m_Center: {x: 0, y: 4.641067, z: 3.7616842}
@@ -49,11 +49,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4073707019228129901}
   m_Layer: 0
-  m_Name: Rectangle table
+  m_Name: Table Set 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4073707019228129901
 Transform:
@@ -101,7 +101,7 @@ BoxCollider:
   m_GameObject: {fileID: 4750243185590785134}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 123.99676, y: 256.95306, z: 121.561905}
   m_Center: {x: 0, y: 4.641067, z: 3.7616842}
@@ -114,7 +114,7 @@ BoxCollider:
   m_GameObject: {fileID: 5114262258809014638}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 123.99676, y: 256.95306, z: 121.561905}
   m_Center: {x: 0, y: 4.641067, z: 3.7621725}
@@ -127,7 +127,7 @@ BoxCollider:
   m_GameObject: {fileID: 5818999637124322521}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 123.99676, y: 256.95306, z: 121.561905}
   m_Center: {x: 0.000030517578, y: 4.641067, z: 3.7616842}
@@ -140,7 +140,7 @@ BoxCollider:
   m_GameObject: {fileID: 7210561896001545212}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 123.99676, y: 256.95306, z: 121.561905}
   m_Center: {x: 0, y: 4.641067, z: 3.7621725}
@@ -153,7 +153,7 @@ BoxCollider:
   m_GameObject: {fileID: 7605401891531195336}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 123.99676, y: 256.95306, z: 121.561905}
   m_Center: {x: 0, y: 4.641067, z: 3.7621725}
@@ -238,6 +238,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ENV_Table_Style2_v000 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b14da88b82394b54a8750e2efd0657be,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b14da88b82394b54a8750e2efd0657be, type: 3}
@@ -328,6 +333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ENV_Chair_Style2_v000 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ce2e182f3c33f924ca4933a3eecfe723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2e182f3c33f924ca4933a3eecfe723, type: 3}
@@ -425,6 +435,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENV_Chair_Style2_v000 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ce2e182f3c33f924ca4933a3eecfe723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2e182f3c33f924ca4933a3eecfe723, type: 3}
 --- !u!4 &6904169279694565851 stripped
@@ -520,6 +535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ENV_Chair_Style2_v000
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ce2e182f3c33f924ca4933a3eecfe723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2e182f3c33f924ca4933a3eecfe723, type: 3}
@@ -617,6 +637,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENV_Chair_Style2_v000 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ce2e182f3c33f924ca4933a3eecfe723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2e182f3c33f924ca4933a3eecfe723, type: 3}
 --- !u!1 &4750243185590785134 stripped
@@ -712,6 +737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ENV_Chair_Style2_v000 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ce2e182f3c33f924ca4933a3eecfe723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2e182f3c33f924ca4933a3eecfe723, type: 3}
@@ -809,6 +839,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENV_Table_Style2_v000
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b14da88b82394b54a8750e2efd0657be,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b14da88b82394b54a8750e2efd0657be, type: 3}
 --- !u!1 &4302681322553723530 stripped
@@ -904,6 +939,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ENV_Chair_Style2_v000 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ce2e182f3c33f924ca4933a3eecfe723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2e182f3c33f924ca4933a3eecfe723, type: 3}
@@ -1001,6 +1041,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENV_Chair_Style2_v000 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ce2e182f3c33f924ca4933a3eecfe723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2e182f3c33f924ca4933a3eecfe723, type: 3}
 --- !u!1 &620712761671987180 stripped
@@ -1096,6 +1141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ENV_Chair_Style2_v000 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ce2e182f3c33f924ca4933a3eecfe723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2e182f3c33f924ca4933a3eecfe723, type: 3}
