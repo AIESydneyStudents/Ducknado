@@ -249,19 +249,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000015660667
+      value: -0.00000117455
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21937457
+      value: 0.21937454
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6822233
+      value: -0.6822234
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.226931
+      value: 0.22693105
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.w
@@ -305,15 +305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.22496016
+      value: 0.22496012
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.66071445
+      value: 0.6607145
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21787952
+      value: 0.21787955
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1042,11 +1042,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeaCup
       objectReference: {fileID: 0}
-    - target: {fileID: 5129061778464998841, guid: 4cdd9641ac635a4499ca215c0cea156b,
-        type: 3}
-      propertyPath: m_TagString
-      value: TeaCup
-      objectReference: {fileID: 0}
     - target: {fileID: 7265542546912249524, guid: 4cdd9641ac635a4499ca215c0cea156b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1102,11 +1097,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9029023429976667459, guid: 4cdd9641ac635a4499ca215c0cea156b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d4915f8239941ee4d94315949788b14c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cdd9641ac635a4499ca215c0cea156b, type: 3}
 --- !u!1001 &4031689653191595893
@@ -1299,11 +1289,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Leaves
-      objectReference: {fileID: 0}
-    - target: {fileID: 7924984187747208094, guid: 37b541e893277b345b95d87b31bdad11,
-        type: 3}
-      propertyPath: m_TagString
-      value: Leaf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b541e893277b345b95d87b31bdad11, type: 3}
