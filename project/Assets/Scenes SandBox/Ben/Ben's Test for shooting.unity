@@ -241,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21937455
+      value: 0.21937457
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.y
@@ -249,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.22693099
+      value: 0.226931
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.w
@@ -401,14 +401,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1244233804, guid: 3ed24b2957541bd4c94d4b60c81b25be, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244233804, guid: 3ed24b2957541bd4c94d4b60c81b25be, type: 3}
-      propertyPath: m_Name
-      value: TeaCup.Img
-      objectReference: {fileID: 0}
     - target: {fileID: 532218222444237825, guid: 3ed24b2957541bd4c94d4b60c81b25be,
         type: 3}
       propertyPath: fairy
@@ -1134,12 +1126,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29eb8d107e4e6ba458638c6252630cc6, type: 3}
---- !u!1 &1721642857 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7924984187747208094, guid: 37b541e893277b345b95d87b31bdad11,
-    type: 3}
-  m_PrefabInstance: {fileID: 5901385014228867642}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2121226448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,24 +1427,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8831948864953586536, guid: aef286975cc15094f81212562c936aab,
         type: 3}
-      propertyPath: itemsAvailable.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831948864953586536, guid: aef286975cc15094f81212562c936aab,
-        type: 3}
-      propertyPath: itemsAvailable.Array.data[0].itemInGame.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831948864953586536, guid: aef286975cc15094f81212562c936aab,
-        type: 3}
       propertyPath: itemsAvailable.Array.data[0].itemInGame.Array.data[0]
       value: 
       objectReference: {fileID: 852520486}
-    - target: {fileID: 8831948864953586536, guid: aef286975cc15094f81212562c936aab,
-        type: 3}
-      propertyPath: itemsAvailable.Array.data[1].itemInGame.Array.data[0]
-      value: 
-      objectReference: {fileID: 1721642857}
     - target: {fileID: 8831948864953586536, guid: aef286975cc15094f81212562c936aab,
         type: 3}
       propertyPath: itemsAvailable.Array.data[0].itemInGame.Array.data[1]
@@ -1528,16 +1499,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831948864953586539, guid: aef286975cc15094f81212562c936aab,
-        type: 3}
-      propertyPath: teaText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831948864953586539, guid: aef286975cc15094f81212562c936aab,
-        type: 3}
-      propertyPath: leafText
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8831948864953586539, guid: aef286975cc15094f81212562c936aab,
         type: 3}
