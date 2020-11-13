@@ -32,7 +32,6 @@
         struct Input
         {
             float2 uv_MainTex;
-            float2 uv_EmissionTex;
             float3 worldPos;
         };
 
@@ -42,8 +41,10 @@
         half _ColorStrength, _EmissionStrength;
 
         //Spherical Mask
+        uniform half GLOBALmask_arrLength;
         uniform half GLOBALmask_Radius;
         uniform half GLOBALmask_Softness;
+
         fixed4 GLOBALmask_Position[10];
 
 
@@ -63,12 +64,16 @@
             fixed3 c_g = fixed3(grayscale,grayscale,grayscale);
             //Emission
             //fixed4 e = tex2D(_EmissionTex, IN.uv_EmissionTex) * _EmissionColor * _EmissionStrength;
-            for (int i = 0; i < 10; i++)
+            o.Albedo = c_g.rgb;
+
+            for (int i = 0; i < GLOBALmask_arrLength; i++)
             {
-                half d = distance(GLOBALmask_Position[1], IN.worldPos);
+                half d = distance(GLOBALmask_Position[i], IN.worldPos);
                 half sum = saturate((d - GLOBALmask_Radius) / -GLOBALmask_Softness);
                 fixed4 lerpColor = lerp(fixed4(c_g, 1), c * _ColorStrength, sum);
-                o.Albedo = lerpColor.rgb;
+                
+                if (d < GLOBALmask_Radius)
+                    o.Albedo = lerpColor.rgb;
             }
 
             //fixed4 lerpEmission = lerp(fixed4(0, 0, 0, 0), e, sum);

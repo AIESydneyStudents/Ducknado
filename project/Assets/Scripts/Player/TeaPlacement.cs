@@ -1,6 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
+
+[Serializable]
+public class ColorBoundries
+{
+    public Vector3 position;
+    public float radius;
+    public float softness;
+}
 
 
 public class TeaPlacement : MonoBehaviour
@@ -31,6 +42,9 @@ public class TeaPlacement : MonoBehaviour
     public float _oneStarRating;
     public float _twoStarRating;
     public float _threeStarRating;
+
+    public List<ColorBoundries> colorBoundries = new List<ColorBoundries>();
+
     private void Start()
     {
         Shader.SetGlobalFloat("GLOBALmask_Radius", 10);
@@ -43,11 +57,16 @@ public class TeaPlacement : MonoBehaviour
     }
     private void Update()
     {
-        for (int i = 0; i < _tables.Length; i++)
-        {
-            _locations[i] = new Vector4(_tables[i].transform.position.x, _tables[i].transform.position.y, _tables[i].transform.position.z, 0);
-            Shader.SetGlobalVectorArray("GLOBALmask_Position", _locations);
-        }
+        //for (int i = 0; i < _tables.Length; i++)
+        //{
+        //    _locations[i] = new Vector4(_tables[i].transform.position.x, _tables[i].transform.position.y, _tables[i].transform.position.z, 0);
+        //}
+
+        _locations = colorBoundries.Select(z => new Vector4(z.position.x, z.position.y, z.position.z, 0)).ToArray();
+
+
+        Shader.SetGlobalVectorArray("GLOBALmask_Position", _locations);
+        Shader.SetGlobalFloat("GLOBALmask_arrLength", _tables.Length);
 
         if (_firstPlacement)
         {
