@@ -1766,8 +1766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3318494b07e7c5b48b0e1765e0f52ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player: {fileID: 0}
-  projectilePoint: {fileID: 0}
   fairyCam: {fileID: 1700500773}
 --- !u!114 &276461040
 MonoBehaviour:
@@ -1783,7 +1781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yAxisAdjustment: 0.772
   distanceAdjustment: 73.3
-  camRotationSpeed: 396
+  camRotationSpeed: 300
   cam: {fileID: 30341310}
 --- !u!114 &307821355
 MonoBehaviour:
