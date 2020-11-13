@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerRestart : MonoBehaviour
 {
     GameObject player;
+    FadeOutScreen _fadeOut;
     static Vector3 _startPos;
 
     [HideInInspector]
@@ -20,6 +21,7 @@ public class PlayerRestart : MonoBehaviour
     {
         if (collision.gameObject.tag == "NPC") // if collision found with this tag and player
         {
+            
             _playerPosrestart = true;
             this.transform.position = _startPos; // set the stored position as players new position
         }
