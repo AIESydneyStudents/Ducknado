@@ -5,31 +5,30 @@ using UnityEngine.UI;
 
 public class FadeOutScreen : MonoBehaviour
 {
-    GameObject _fadeOut;
+    GameObject _fadeOutScreen;
     Image _black;
 
-    bool _fadeInOrOut; //allows to check whether to fade in or out
+    bool _fadeIn; //allows to check whether to fade in
+    bool _fadeOut; //allows to check whether to fade in
     float _alpha;
     // Start is called before the first frame update
     void Start()
     {
-        _fadeOut = GameObject.FindGameObjectWithTag("Fade Out");
-        _black = _fadeOut.GetComponentInChildren<Image>();
+        _fadeOutScreen = GameObject.FindGameObjectWithTag("Fade Out");
+        _black = _fadeOutScreen.GetComponentInChildren<Image>();
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-
-        if (_fadeInOrOut == true) //fade in the screen
+        if (_fadeOut == true) //fade in the screen
         {
             _black.color = new Color(0, 0, 0, _alpha += 0.5f * Time.deltaTime);
         }
-        else //Fade out the screen
+        if (_fadeIn == true) //fade in the screen
         {
             _black.color = new Color(0, 0, 0, _alpha -= 0.5f * Time.deltaTime);
         }
-
     }
 
 }
