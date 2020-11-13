@@ -98,9 +98,9 @@ public class TeaPlacement : MonoBehaviour
                     gameObject.GetComponent<AudioSource>().Play();
                     FindObjectOfType<AudioManager>().Play("Whistle1");
 
-                    // ItemsInGame.SharedItems.teaPlaced += 1;
+                    ItemsInGame.SharedItems.teaPlaced += 1;
                 }
-                if (_tables[i].transform.GetChild(0).gameObject.activeSelf == true)
+                if (_tables[i].transform.GetChild(0).gameObject.activeSelf == true && AllTeaPlacedCheck() == false)
                 {
                     ChangeColor(_tables[i].transform.position, 5); //Chnage the color from this location and expand the radius by a given amount over time
 
