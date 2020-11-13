@@ -6,9 +6,9 @@ public class PickupItems : MonoBehaviour
 {
     // Start is called before the first frame update
     // Update is called once per frame
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             this.gameObject.SetActive(false);
         }
