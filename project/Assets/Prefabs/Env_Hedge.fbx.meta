@@ -3,7 +3,12 @@ guid: 7d1e30b01e93f5247868f75df808a3d8
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Hedge
+    second: {fileID: 2100000, guid: 88bce034fff5c4446bd0210147aa7cc5, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

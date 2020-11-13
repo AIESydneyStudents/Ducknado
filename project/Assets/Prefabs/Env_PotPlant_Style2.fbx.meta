@@ -2,8 +2,16 @@ fileFormatVersion: 2
 guid: 08aa60d6507756c46b7c76a44bf171ec
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_PotPlant_Style2
+    second: {fileID: 2100000, guid: da6b2f11caafc744eb032d7d0af5bcca, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
