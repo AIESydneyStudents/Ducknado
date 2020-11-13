@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
         {
             interacted = true;
         }
+        else
+            interacted = false;
         if (shooting == 0)//If the player has shot.
             gun.isFloating = false;
         else

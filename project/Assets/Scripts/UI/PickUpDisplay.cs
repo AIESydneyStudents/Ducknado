@@ -4,25 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PickUpDisplay : MonoBehaviour
 {
-    [SerializeField] public Text teaText;
-    [SerializeField] public Text leafText;
-    private string newTeaTxt;
-    private string newLeafTxt;
-
+    [SerializeField] public GameObject imgTea;
+    public static PickUpDisplay item;
     // Start is called before the first frame update
     void Start()
     {
-        newTeaTxt = teaText.GetComponent<Text>().text;
-        newLeafTxt = leafText.GetComponent<Text>().text;
+        imgTea.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         int teaItem = ItemsInGame.SharedItems.CheckValueInHand("TeaCup");;
-        teaText.text = newTeaTxt + teaItem;
-
-        int leafItem = ItemsInGame.SharedItems.CheckValueInHand("Leaf");;
-        leafText.text = newLeafTxt + leafItem;
+        if (teaItem > 0)
+        {
+            imgTea.gameObject.SetActive(true);
+        }
     }
 }

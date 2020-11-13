@@ -8,9 +8,9 @@ public class PickupItems : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && ItemsInGame.SharedItems.CheckValueInHand("TeaCup") <= 0)
         {
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

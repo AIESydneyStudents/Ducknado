@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8daa18893a55957449206a8459ce5729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teaText: {fileID: 0}
-  leafText: {fileID: 0}
+  imgTea: {fileID: 0}
 --- !u!114 &8831948864953586536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +60,6 @@ MonoBehaviour:
   itemsAvailable:
   - itemInGame:
     - {fileID: 0}
-  - itemInGame:
     - {fileID: 0}
-  objectsInGame: 0
+    - {fileID: 0}
+  teaPlaced: 0
