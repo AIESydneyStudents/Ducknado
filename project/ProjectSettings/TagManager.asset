@@ -42,7 +42,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - NonObstacle
   - ignore directional light
   - PostProcessing
   - Obstacle
