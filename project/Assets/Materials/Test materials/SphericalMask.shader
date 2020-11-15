@@ -62,8 +62,7 @@
             //Greyscale
             half grayscale = (c.r + c.g + c.b) * 0.333;
             fixed3 c_g = fixed3(grayscale,grayscale,grayscale);
-            //Emission
-            //fixed4 e = tex2D(_EmissionTex, IN.uv_EmissionTex) * _EmissionColor * _EmissionStrength;
+
             o.Albedo = c_g.rgb;
 
             for (int i = 0; i < GLOBALmask_arrLength; i++)
@@ -75,12 +74,7 @@
                 if (d < GLOBALmask_Radius)
                     o.Albedo = lerpColor.rgb;
             }
-
-            //fixed4 lerpEmission = lerp(fixed4(0, 0, 0, 0), e, sum);
-
-            // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
-            //o.Emission = lerpEmission.rgb;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
         }

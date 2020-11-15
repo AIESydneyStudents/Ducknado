@@ -4,16 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-
-[Serializable]
-public class ColorBoundries
-{
-    public Vector3 position;
-    public float radius;
-    public float softness;
-}
-
-
 public class TeaPlacement : MonoBehaviour
 {
     [HideInInspector]
@@ -42,27 +32,14 @@ public class TeaPlacement : MonoBehaviour
     public float _twoStarRating;
     public float _threeStarRating;
 
-    public List<ColorBoundries> colorBoundries = new List<ColorBoundries>();
+    public List<ColorBoundry> colorBoundries = new List<ColorBoundry>();
 
     private void Start()
     {
-
-
         Shader.SetGlobalFloat("GLOBALmask_Radius", 0);
         Shader.SetGlobalFloat("GLOBALmask_Softness", 0);
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
         _locations = new List<Vector4>(_tables.Length);
-
-        //for (int i = 0; i < _tables.Length; i++)
-        //{
-        //    _locations[i] = new Vector4(_tables[i].transform.position.x, _tables[i].transform.position.y, _tables[i].transform.position.z, 0);
-        //}
-
-        //_locations = colorBoundries.Select(z => new Vector4(z.position.x, z.position.y, z.position.z, 0)).ToArray();
-
-
-        //Shader.SetGlobalFloat("GLOBALmask_arrLength", _tables.Length);
-
 
         _victory.gameObject.SetActive(false);
     }
@@ -92,7 +69,6 @@ public class TeaPlacement : MonoBehaviour
                 {
                     _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                     FindObjectOfType<AudioManager>().Play("Pouring");
-                    _firstPlacement = true;
                     gameObject.GetComponent<AudioSource>().clip = midMusic;
                     gameObject.GetComponent<AudioSource>().volume = .7f;
                     gameObject.GetComponent<AudioSource>().Play();
@@ -100,10 +76,9 @@ public class TeaPlacement : MonoBehaviour
 
                     ItemsInGame.SharedItems.teaPlaced += 1;
                 }
-                if (_tables[i].transform.GetChild(0).gameObject.activeSelf == true && AllTeaPlacedCheck() == false)
+                if (_tables[i].transform.GetChild(0).gameObject.activeSelf && i == _locations.Count)
                 {
                     ChangeColor(_tables[i].transform.position, 5); //Chnage the color from this location and expand the radius by a given amount over time
-
                 }
             }
             AllTeaPlacedCheck(); // checks if all objectives have been completed
@@ -146,8 +121,6 @@ public class TeaPlacement : MonoBehaviour
     public void ChangeColor(Vector3 location, float radius) // changes the shaders based off a location that is given and a radius
     {
         Vector4 pos = new Vector4(location.x, location.y, location.z, 0);
-
-        //_smoothPoint = Vector3.MoveTowards(_smoothPoint, location, _smoothSpeed * Time.deltaTime);
         _locations.Add(pos);
 
         Shader.SetGlobalFloat("GLOBALmask_Radius", radius);
