@@ -84,7 +84,7 @@ public class TeaPlacement : MonoBehaviour
                         _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                         FindObjectOfType<AudioManager>().Play("Pouring");
 
-                            if (_tables[i].transform.GetChild(0).gameObject.activeSelf == true)
+                            if (_tables[i].transform.GetChild(0).gameObject.activeSelf == true && i == _locations.Count)
                             {
                                 ChangeColor(_tables[i].transform.position, 5); //Chnage the color from this location and expand the radius by a given amount over time
 
