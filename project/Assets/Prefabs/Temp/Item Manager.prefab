@@ -61,5 +61,4 @@ MonoBehaviour:
   - itemInGame:
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
   teaPlaced: 0
