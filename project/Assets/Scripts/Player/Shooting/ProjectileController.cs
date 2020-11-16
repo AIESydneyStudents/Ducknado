@@ -6,6 +6,7 @@ public class ProjectileController : MonoBehaviour
 {
     [SerializeField] public GameObject m_player;
     [SerializeField] [Range(0.01f, 10.0f)] public float speed = 5.0f;
+    [SerializeField] [Range(1.0f, 10.0f)] public float fairyDisToView = 10.0f;//The range can be changed at any time.
     public static bool keyIsReleased = false;//When the key is released.
     public FairyHolderController gun;//Gun Project.
     public GameObject collisionEffect;
@@ -25,7 +26,7 @@ public class ProjectileController : MonoBehaviour
 
         float dis = Vector3.Distance(locOfPlayer, transform.position);
 
-        if (dis >= RaycastCamShoot.fairyDisToView)//Checks the distance from the player to the end of the raycast.
+        if (dis >= fairyDisToView)//Checks the distance from the player to the end of the raycast.
         {
             gameObject.SetActive(false);
             if (collisionEffect != null)
