@@ -84,8 +84,6 @@ public class TeaPlacement : MonoBehaviour
                         _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                         FindObjectOfType<AudioManager>().Play("Pouring");
 
-                        if (_tables[0] && _firstPlacement == false)
-                        {
                             if (_tables[i].transform.GetChild(0).gameObject.activeSelf == true)
                             {
                                 ChangeColor(_tables[i].transform.position, 5); //Chnage the color from this location and expand the radius by a given amount over time
@@ -95,8 +93,7 @@ public class TeaPlacement : MonoBehaviour
                             gameObject.GetComponent<AudioSource>().clip = midMusic;
                             gameObject.GetComponent<AudioSource>().volume = .7f;
                             gameObject.GetComponent<AudioSource>().Play();
-                            FindObjectOfType<AudioManager>().Play("Whistle1");
-                        }
+                            FindObjectOfType<AudioManager>().Play("Whistle1");                       
                     }
                 }
                 AllTeaPlacedCheck(); // checks if all objectives have been completed
