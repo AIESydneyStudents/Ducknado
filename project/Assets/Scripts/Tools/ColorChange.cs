@@ -13,7 +13,7 @@ public class ColorBoundry
     public float softness;
 
     public float growSpeed = 1.0f;
-    public float growSoftness = 0.1f;
+    public float growSoftness = 0f;
 
     public void Update()
     {
@@ -27,10 +27,15 @@ public class ColorChange : MonoBehaviour
 
     public float darkness = 0.0f;
     public float metallic = 0.0f;
-
+    GameObject[] _tables;
     void Start()
     {
-        
+        _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
+
+        for (int i = 0; i < _tables.Length; i++)
+        {
+            Add(_tables[i].transform.position, 0, 0);
+        }
     }
 
     void Update()
