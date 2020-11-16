@@ -19,6 +19,10 @@ public class ColorBoundry
     {
         radius += growSpeed * Time.deltaTime;
         softness += growSoftness * Time.deltaTime;
+
+
+        //Mathf.Clamp(radius, 0, 100);
+        //Mathf.Clamp(softnesses, 0, 100);
     }
 }
 public class ColorChange : MonoBehaviour
@@ -54,6 +58,7 @@ public class ColorChange : MonoBehaviour
         Shader.SetGlobalVectorArray("GLOBALmask_Position", locations);
         Shader.SetGlobalFloatArray("GLOBALmask_Radius", radi);
         Shader.SetGlobalFloatArray("GLOBALmask_Softness", softnesses);
+
     }
 
     public void Add(Vector3 pos, float radius, float softness)
