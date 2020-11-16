@@ -41,14 +41,14 @@ public class ColorChange : MonoBehaviour
             colorSpot.Update();
         }
 
-        //var locations = colorSpots.Select(colorSpot => new Vector4(colorSpot.position.x, colorSpot.position.y, colorSpot.position.z, 0)).ToArray();
-        //var radi = colorSpots.Add(Select(colorSpot =;
-        //var softnesses = colorSpots.Select(colorSpot => colorSpot.softness)).ToArray();
+        var locations = colorSpots.Select(colorSpot => new Vector4(colorSpot.position.x, colorSpot.position.y, colorSpot.position.z, 0)).ToArray();
+        var radi = colorSpots.Select(colorSpot => colorSpot.radius).ToArray();
+        var softnesses = colorSpots.Select(colorSpot => colorSpot.softness).ToArray();
 
-        //Shader.SetGlobalFloat("GLOBALmask_arrLength", colorSpots.Count);
-        //Shader.SetGlobalVectorArray("GLOBALmask_Position", locations);
-        //Shader.SetGlobalFloatArray("GLOBALmask_Radius", radi);
-        //Shader.SetGlobalFloatArray("GLOBALmask_Softness", softnesses);
+        Shader.SetGlobalFloat("GLOBALmask_arrLength", colorSpots.Count);
+        Shader.SetGlobalVectorArray("GLOBALmask_Position", locations);
+        Shader.SetGlobalFloatArray("GLOBALmask_Radius", radi);
+        Shader.SetGlobalFloatArray("GLOBALmask_Softness", softnesses);
     }
 
     public void Add(Vector3 pos, float radius, float softness)

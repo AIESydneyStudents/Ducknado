@@ -15,7 +15,7 @@ public class PickUpDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int teaItem = ItemsInGame.SharedItems.CheckValueInHand("TeaCup");;
+        int teaItem = ItemsInGame.SharedItems.CheckValueInHand("TeaCup");
         if (teaItem > 0)
         {
             imgTea.gameObject.SetActive(true);
