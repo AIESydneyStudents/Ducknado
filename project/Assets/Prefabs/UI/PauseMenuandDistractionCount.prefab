@@ -1055,7 +1055,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pause Menu
+  m_Text: Paused
 --- !u!1 &2278238070989498685
 GameObject:
   m_ObjectHideFlags: 0
