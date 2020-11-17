@@ -20,5 +20,9 @@ public class PickUpDisplay : MonoBehaviour
         {
             imgTea.gameObject.SetActive(true);
         }
+        else
+        {
+            imgTea.gameObject.SetActive(false);
+        }
     }
 }

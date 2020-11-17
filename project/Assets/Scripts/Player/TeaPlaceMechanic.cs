@@ -56,14 +56,13 @@ public class TeaPlaceMechanic : MonoBehaviour
                         _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                         FindObjectOfType<AudioManager>().Play("Pouring");
 
-                            gameObject.GetComponent<AudioSource>().clip = midMusic;
-                            gameObject.GetComponent<AudioSource>().volume = .7f;
-                            gameObject.GetComponent<AudioSource>().Play();
-                            FindObjectOfType<AudioManager>().Play("Whistle1");
-                        
+                        gameObject.GetComponent<AudioSource>().clip = midMusic;
+                        gameObject.GetComponent<AudioSource>().volume = .7f;
+                        gameObject.GetComponent<AudioSource>().Play();
+                        FindObjectOfType<AudioManager>().Play("Whistle1");
+                        ItemsInGame.SharedItems.teaPlaced += 1;
                     }
-                    ItemsInGame.SharedItems.teaPlaced += 1;
-                    PickUpDisplay.item.imgTea.gameObject.SetActive(false);
+
                 }
                 AllTeaPlacedCheck(); // checks if all objectives have been completed
                 PlayerMovement.interacted = false;
