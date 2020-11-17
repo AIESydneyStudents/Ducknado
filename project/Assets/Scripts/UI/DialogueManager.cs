@@ -64,5 +64,6 @@ public class DialogueManager : MonoBehaviour
         FadeOutScreen fading = GetComponent<FadeOutScreen>();
         fading._fadeIn = true;
         fading._fadeOut = false;
+        Time.timeScale = 1f;//Replace later in another script.
     }
 }

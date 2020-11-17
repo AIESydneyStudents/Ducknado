@@ -8,7 +8,7 @@ public class OnStart : MonoBehaviour
     [SerializeField] public DialogueTrigger dialogue;
     [SerializeField] public GameObject textBoxDialogue;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         Time.timeScale = 0f;
         textBoxDialogue.SetActive(true);
@@ -16,10 +16,10 @@ public class OnStart : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        FadeOutScreen fading = GetComponent<FadeOutScreen>();
-        if (fading._fadeOut == true)
-            Time.timeScale = 1f;
-    }
+    //void Update()
+    //{
+    //    FadeOutScreen fading = GetComponent<FadeOutScreen>();
+    //    //if (fading._fadeOut == true)
+            
+    //}
 }
