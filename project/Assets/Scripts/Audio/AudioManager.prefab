@@ -80,9 +80,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: pouring
+  - name: Pouring
     clip: {fileID: 8300000, guid: 06b12f1ae3259bb42973d9f13a9100c2, type: 3}
-    volume: 1
+    volume: 0.67
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Win Tune
+  - name: End Music
     clip: {fileID: 8300000, guid: e2f9aa0da7a472847a0b165a7a082270, type: 3}
     volume: 0.88
     pitch: 1
@@ -116,51 +116,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: woosh
-    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
-    volume: 1
-    pitch: 0
+  - name: Whistle1
+    clip: {fileID: 8300000, guid: 87e6741067c6d4e41a918a14c22a1c46, type: 3}
+    volume: 0.88
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: woosh
-    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+  - name: Whistle2
+    clip: {fileID: 8300000, guid: 437ab407e301544409cc6c91001572b4, type: 3}
     volume: 1
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: woosh
-    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
-    volume: 1
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: woosh
-    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
-    volume: 1
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: woosh
-    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
-    volume: 1
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: woosh
-    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
-    volume: 1
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: woosh
-    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
-    volume: 1
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: woosh
-    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
-    volume: 1
-    pitch: 0
+    pitch: 1
     loop: 0
     source: {fileID: 0}
