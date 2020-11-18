@@ -11,8 +11,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public float m_timeBetweenWords = 0.1f;
     [SerializeField] public GameObject m_trigger;
     Queue<string> _sentences = new Queue<string>();
-    [HideInInspector]public float timer;
-    [HideInInspector]private int nextword;
+    [HideInInspector] public float timer;
+    [HideInInspector] private int nextword;
 
     // Start is called before the first frame update
     void Start()
@@ -46,26 +46,38 @@ public class DialogueManager : MonoBehaviour
         string sentence = _sentences.Dequeue();
         m_dialogueText.text = sentence;
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence, m_timeBetweenWords));
+        StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence(string sentence, float seconds)
+    IEnumerator TypeSentence(string sentence)
     {
         m_dialogueText.text = "";
-        float startTime = Time.realtimeSinceStartup;
-        while (Time.realtimeSinceStartup - startTime <= seconds)
+        foreach (char letter in sentence.ToCharArray())
         {
-            foreach (char letter in sentence.ToCharArray())
-            {
-                m_dialogueText.text += letter;
-                yield return null;
-            }
+            m_dialogueText.text += letter;
+            yield return StartCoroutine(MyCoroutine(m_timeBetweenWords));
         }
     }
+
+    private IEnumerator MyCoroutine(float timer)
+    {
+        float startTime = Time.realtimeSinceStartup;
+        while (Time.realtimeSinceStartup < timer + startTime)
+        {
+            yield return null;
+        }
+    }
+
+    public void WaitForSeconds()
+    {
+
+
+    }
+
     void EndDialogue()
     {
         m_trigger.SetActive(false);
-        Cursor.visible = false; 
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         //FadeOutScreen fading = GetComponent<FadeOutScreen>();
         //fading._fadeIn = true;
