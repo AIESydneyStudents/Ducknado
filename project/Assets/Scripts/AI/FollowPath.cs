@@ -11,7 +11,8 @@ public class FollowPath : MonoBehaviour
     [SerializeField]
     float _waitTime = 3f; // controls the wait time at each waypoint
 
-    float _chasingSpeed;
+    public float _chasingSpeed = 0f;
+    float currentSpeed;
 
     float _wanderRadius = 3f; // used as a radius in which the Ai will pick from    
 
@@ -158,15 +159,14 @@ public class FollowPath : MonoBehaviour
         }
         else
         {
-            //float _currentSpeed = _navMeshAgent.speed;
-            //_chasingSpeed = _currentSpeed += _chasingSpeed;
-            _navMeshAgent.speed = _navMeshAgent.speed += _chasingSpeed;
+            currentSpeed = _navMeshAgent.speed;
+            _navMeshAgent.speed = _chasingSpeed;
 
            _targetVector = player.transform.position; //target is changed from previous function to player
 
             _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target    
         }
-
+        _navMeshAgent.speed = currentSpeed;
     }
 
     private void Wandering()

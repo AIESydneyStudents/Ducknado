@@ -19,9 +19,9 @@ public class PlayerRestart : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
+
         if (collision.gameObject.tag == "NPC") // if collision found with this tag and player
-        {
-            
+        {           
             _playerPosrestart = true;
             this.transform.position = _startPos; // set the stored position as players new position
         }
