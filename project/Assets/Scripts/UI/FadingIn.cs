@@ -5,13 +5,14 @@ using UnityEngine.UI;
 public class FadingIn : MonoBehaviour
 {
     [SerializeField]public Image fadingPanel;
+    [SerializeField]public GameObject userPrompts;
     private float _alphaIn = 0;
     private float _alpha = 1;
     [HideInInspector]public bool fadingIn = false;
     [HideInInspector]public bool fadingOut = false;
     public static FadingIn SharedInstance;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         SharedInstance = this;
         fadingPanel.gameObject.SetActive(true);
@@ -35,6 +36,8 @@ public class FadingIn : MonoBehaviour
             fadingIn = false;
             if (fadingPanel.color.a <= 0)
             {
+                if(userPrompts != null)
+                    userPrompts.SetActive(true);
                 Time.timeScale = 1f;
                 fadingOut = false;
             }
