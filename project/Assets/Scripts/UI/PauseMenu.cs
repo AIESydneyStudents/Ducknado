@@ -7,11 +7,13 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameMenu;
+    [SerializeField] private GameObject fadingPanel;
     private bool isPaused = false;
     private bool buttonPressed = false;
     // Start is called before the first frame update
     void Start()
     {
+        fadingPanel.gameObject.SetActive(false);
         pauseMenu.SetActive(false);
     }
 
