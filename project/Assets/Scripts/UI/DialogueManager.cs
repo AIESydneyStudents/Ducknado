@@ -13,10 +13,10 @@ public class DialogueManager : MonoBehaviour
     Queue<string> _sentences = new Queue<string>();
     //[SerializeField] public float fadingOutTimer;
     // Start is called before the first frame update
-    void Start()
-    {
-        _sentences = new Queue<string>();
-    }
+    //void Start()
+    //{
+    //    //_sentences = new Queue<string>();
+    //}
 
     public void StartDialogue(Dialogue dialogue)
     {
