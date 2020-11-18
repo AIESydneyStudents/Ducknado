@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _patrolWaiting: 1
   _waitTime: 1
+  _chasingSpeed: 200
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -246,9 +247,7 @@ MonoBehaviour:
     m_Bits: 1
   _targetFound: 0
   _distractionFound: 0
-  _teacupFound: 0
   player: {fileID: 0}
-  _teacupDistraction: {fileID: 0}
   _butterflyDistraction: {fileID: 0}
   viewMeshFilter: {fileID: 6573918942662654194}
   _viewMeshRenderer: {fileID: 980759082019150496}
