@@ -14,7 +14,7 @@ public class FadingIn : MonoBehaviour
     void Start()
     {
         SharedInstance = this;
-        
+        fadingPanel.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
