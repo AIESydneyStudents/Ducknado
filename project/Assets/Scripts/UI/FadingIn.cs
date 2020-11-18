@@ -38,6 +38,7 @@ public class FadingIn : MonoBehaviour
             {
                 if(userPrompts != null)
                     userPrompts.SetActive(true);
+                fadingPanel.gameObject.SetActive(false);
                 Time.timeScale = 1f;
                 fadingOut = false;
             }
