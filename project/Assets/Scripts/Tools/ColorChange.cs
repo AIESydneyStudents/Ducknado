@@ -20,7 +20,7 @@ public class ColorBoundry
 
     public void Update()
     {
-        if (radius <= _maxSize )
+        if (radius <= _maxSize)
         {
             radius += growSpeed * Time.deltaTime;
         }
@@ -30,12 +30,11 @@ public class ColorBoundry
 public class ColorChange : MonoBehaviour
 {
     public static List<ColorBoundry> colorSpots = new List<ColorBoundry>();
-
     GameObject[] _tables;
     void Start()
     {
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
-        
+
         for (int i = 0; i < _tables.Length; i++)
         {
             Add(_tables[i].transform.position, 1, 0);
@@ -62,7 +61,7 @@ public class ColorChange : MonoBehaviour
         var locations = colorSpots.Select(colorSpot => new Vector4(colorSpot.position.x, colorSpot.position.y, colorSpot.position.z, 0)).ToArray();
         var radi = colorSpots.Select(colorSpot => colorSpot.radius).ToList();
         var softnesses = colorSpots.Select(colorSpot => colorSpot.softness).ToList();
-        
+
         //sends all the info to the hlsl script
         Shader.SetGlobalInt("color_arrLength", colorSpots.Count);
         Shader.SetGlobalVectorArray("color_positions", locations);

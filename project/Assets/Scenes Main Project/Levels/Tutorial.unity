@@ -31435,7 +31435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.03057143
+      value: 0.030571476
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33672,6 +33672,10 @@ PrefabInstance:
     - target: {fileID: 575405718, guid: bba5a03d339ef914cba0ad8d39457081, type: 3}
       propertyPath: newdialogue.m_sentences.Array.data[0]
       value: Hi
+      objectReference: {fileID: 0}
+    - target: {fileID: 575405718, guid: bba5a03d339ef914cba0ad8d39457081, type: 3}
+      propertyPath: newdialogue.m_name
+      value: Fairy
       objectReference: {fileID: 0}
     - target: {fileID: 575405723, guid: bba5a03d339ef914cba0ad8d39457081, type: 3}
       propertyPath: userPrompts
@@ -50275,6 +50279,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660910878090824519, guid: 47c9e0d75e15e3e4f92eb11793fb7a55,
+        type: 3}
+      propertyPath: _startRadius
+      value: 58.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47c9e0d75e15e3e4f92eb11793fb7a55, type: 3}
