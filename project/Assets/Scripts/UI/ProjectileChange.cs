@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class ProjectileChange : MonoBehaviour
 {
     [SerializeField] private Text textButterfly;
-    [SerializeField] private GameObject fairy;
+    [SerializeField] private GameObject fairy1;
+    [SerializeField] private GameObject fairy2;
+    [SerializeField] private GameObject fairy3;
     [SerializeField] private Text tooManyProjectiles;
     [SerializeField] private int timeBetweenText = 3;
     [SerializeField] private List<GameObject> teaImgs;
@@ -15,7 +17,7 @@ public class ProjectileChange : MonoBehaviour
     private void Awake()
     {
         newProjectiles = this;
-        fairy.SetActive(true);
+        fairy1.SetActive(true);
     }
     void FixedUpdate()
     {//Visualisation of what is on hand.
@@ -38,10 +40,31 @@ public class ProjectileChange : MonoBehaviour
         {
             teaImgs[i].SetActive(true);
         }
-        if (butterflyInHand > 0)
-            fairy.gameObject.SetActive(true);//displaying the fairy
+        if (butterflyInHand >= 3)
+        {
+            fairy1.gameObject.SetActive(true);//displaying the fairy
+            fairy2.gameObject.SetActive(true);
+            fairy3.gameObject.SetActive(true);
+        }
+        else if (butterflyInHand == 2)
+        {
+            fairy1.gameObject.SetActive(true);//displaying the fairy
+            fairy2.gameObject.SetActive(true);
+            fairy3.gameObject.SetActive(false);
+        }
+        else if (butterflyInHand == 1)
+        {
+            fairy1.gameObject.SetActive(true);//displaying the fairy
+            fairy2.gameObject.SetActive(false);
+            fairy3.gameObject.SetActive(false);
+        }
         else
-            fairy.gameObject.SetActive(false);
+        {
+            fairy1.gameObject.SetActive(false);
+            fairy2.gameObject.SetActive(false);
+            fairy3.gameObject.SetActive(false);
+        }
+
     }
     public void TooMuchAmmo()
     {
