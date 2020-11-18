@@ -24,8 +24,11 @@ public class TeaPlaceMechanic : MonoBehaviour
 
     private void Start()
     {
+        Shader.SetGlobalFloat("GLOBALmask_Radius", 10);
+        Shader.SetGlobalFloat("GLOBALmask_Softness", 0);
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
 
+        //_victory.gameObject.SetActive(false);
     }
     private void Update()
     {
@@ -99,6 +102,23 @@ public class TeaPlaceMechanic : MonoBehaviour
 
     }
 
+    //public void ChangeColor(Vector3 location, float radius) // changes the shaders based off a location that is given and a radius
+    //{
+
+    //    //_smoothPoint = Vector3.MoveTowards(_smoothPoint, location, _smoothSpeed * Time.deltaTime);
+    //    Vector4 pos = new Vector4(location.x, location.y, location.z, 0);
+    //    _locations.Add(pos);
+
+    //    Shader.SetGlobalFloat("GLOBALmask_Radius", radius);
+    //    Shader.SetGlobalFloat("GLOBALmask_Softness", _softness);
+
+    //    Mathf.Clamp(_radius, 0, 100);
+    //    Mathf.Clamp(_softness, 0, 100);
+    //}
+    //private void SetLocation(Vector3 location) // getter for location of table
+    //{
+    //    _location = location;
+    //}
 
     public void DisplayCanvas() // Displays the stars at the end of the level based off the final time of the game
     {
