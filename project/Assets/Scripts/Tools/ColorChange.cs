@@ -5,31 +5,11 @@ using System.Linq;
 using UnityEngine;
 
 
-[Serializable]
-public class ColorBoundry
-{
-    TeaPlaceMechanic teaPlaceMechanic = new TeaPlaceMechanic();
-    public Vector3 position;
-    public float radius;
-    public float softness;
-    public float _maxSize = 10;
 
-    public float growSpeed = 2f;
-    public float growSoftness = 0f;
-    public bool _active = false;
-
-    public void Update()
-    {
-        if (radius <= _maxSize)
-        {
-            radius += growSpeed * Time.deltaTime;
-        }
-
-    }
-}
 public class ColorChange : MonoBehaviour
 {
-    public static List<ColorBoundry> colorSpots = new List<ColorBoundry>();
+    public static List<ColorArea> colorSpots = new List<ColorArea>();
+    public float _GrowthSize;
     GameObject[] _tables;
     void Start()
     {
@@ -37,7 +17,7 @@ public class ColorChange : MonoBehaviour
 
         for (int i = 0; i < _tables.Length; i++)
         {
-            Add(_tables[i].transform.position, 1, 0);
+            Add(_tables[i].transform.position, 1, _GrowthSize, 0);
         }
     }
 
@@ -53,7 +33,6 @@ public class ColorChange : MonoBehaviour
             if (AllTeaPlacedCheck())
             {
                 colorSpot.radius += colorSpot.growSpeed * Time.deltaTime;
-
             }
         }
 
@@ -70,18 +49,19 @@ public class ColorChange : MonoBehaviour
 
     }
 
-    public void Add(Vector3 pos, float radius, float softness)
+    public void Add(Vector3 pos, float radius, float growthradius, float softness)
     {
-        ColorBoundry colorSpot = new ColorBoundry();
+        ColorArea colorSpot = new ColorArea();
         colorSpot.position = pos;
         colorSpot.radius = radius;
+        colorSpot._maxSize = growthradius;
         colorSpot.softness = softness;
         colorSpot._active = false;
 
         colorSpots.Add(colorSpot);
     }
 
-    public void Remove(ColorBoundry colorSpot)
+    public void Remove(ColorArea colorSpot)
     {
         colorSpots.Remove(colorSpot);
     }

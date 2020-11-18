@@ -36,6 +36,7 @@ public class FieldOfView : MonoBehaviour
     public GameObject _butterflyDistraction;
 
     PlayerRestart restart;
+    TeaPlaceMechanic teaPlace;
 
     float _maskCutawayDst = .1f;
 
@@ -57,6 +58,7 @@ public class FieldOfView : MonoBehaviour
         _targetFound = false;
 
         restart = player.GetComponent<PlayerRestart>();
+        //teaPlace= player.GetComponent<TeaPlaceMechanic>();
 
         _targetMask = LayerMask.NameToLayer("Target");
         StartCoroutine("FindTargetsWithDelay", .2f);
@@ -88,11 +90,14 @@ public class FieldOfView : MonoBehaviour
             if (!Physics.Raycast(transform.position, dirToPlayer, dstToTarget, _obstacleMask) && dstToTarget <= viewRadius)
             {
                 _targetFound = true;
+                TeaPlaceMechanic._teaCanBePlaced = false;
             }
             else
             {
                 restart._playerPosrestart = false;
                 _targetFound = false;
+                TeaPlaceMechanic._teaCanBePlaced = true;
+
             }
         }
     }
