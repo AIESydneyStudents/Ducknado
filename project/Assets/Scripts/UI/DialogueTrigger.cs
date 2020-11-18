@@ -21,4 +21,8 @@ public class DialogueTrigger : MonoBehaviour
         }
 
     }
+    public void TriggerDialogue(Dialogue newdialogue)
+    {
+        FindObjectOfType<DialogueManager>().StartDialogue(newdialogue);
+    }
 }

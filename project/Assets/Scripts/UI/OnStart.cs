@@ -5,8 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class OnStart : MonoBehaviour
 {
-    [SerializeField] public DialogueTrigger dialogue;
+    //[SerializeField] public DialogueTrigger dialogue;
     [SerializeField] public GameObject textBoxDialogue;
+    [SerializeField] public Dialogue newdialogue;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,19 +15,8 @@ public class OnStart : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         textBoxDialogue.SetActive(true);
-
+        FindObjectOfType<DialogueManager>().StartDialogue(newdialogue);
     }
 
     //Update is called once per frame
-    void Update()
-    {
-
-        //FadeOutScreen fading = GetComponent<FadeOutScreen>();
-        ////if (fading._fadeOut == true)
-
-    }
-    private void OnEnable()
-    {
-        dialogue.TriggerDialogue();
-    }
 }

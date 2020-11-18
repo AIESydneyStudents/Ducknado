@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PickupDistractions : MonoBehaviour
 {
+    public GameObject butterfly;
+    public GameObject particles;
+
+    private void Start()
+    {
+        particles.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))//If the bullet isnt colliding with the player.
@@ -12,7 +19,8 @@ public class PickupDistractions : MonoBehaviour
             if (obj != null)
             {
                 objPooling.SharedInstance.AddNewObject(obj);
-                gameObject.SetActive(false);
+                butterfly.SetActive(false);
+                particles.SetActive(true);
             }
             else
             {

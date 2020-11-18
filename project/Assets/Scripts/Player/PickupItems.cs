@@ -4,13 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PickupItems : MonoBehaviour
 {
+    public GameObject particles;
+    public GameObject teapot;
     // Start is called before the first frame update
     // Update is called once per frame
+    private void Start()
+    {
+        particles.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && ItemsInGame.SharedItems.CheckValueInHand("TeaCup") <= 0)
         {
-            gameObject.SetActive(false);
+            particles.SetActive(true);
+            teapot.SetActive(false);
         }
     }
 }
