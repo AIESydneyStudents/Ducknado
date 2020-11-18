@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 211361073, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000015660667
+      value: -0.00000117455
       objectReference: {fileID: 0}
     - target: {fileID: 1739774328, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.x
@@ -254,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1739774328, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.23056015
+      value: 0.23056017
       objectReference: {fileID: 0}
     - target: {fileID: 1739774328, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.y
@@ -262,19 +262,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21787953
+      value: 0.21787955
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6821862
+      value: -0.6821861
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.22496016
+      value: 0.22496015
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.66071445
+      value: 0.6607145
       objectReference: {fileID: 0}
     - target: {fileID: 5107676610309586227, guid: 0b9a04d12fa33db45a7f76e08083fe79,
         type: 3}
@@ -593,7 +593,7 @@ MonoBehaviour:
   newdialogue:
     m_name: Ben
     m_sentences:
-    - 'Hi
+    - 'Hi asdfuoipasdfuoipasdfuopasdfuiaosdfuasodiufapsodifusaopdifuaospidfusaopdifupoasdiufpasodiufpoasdifu
 
 '
     - Welcome to the game.
@@ -1406,7 +1406,7 @@ PrefabInstance:
     - target: {fileID: 4031689652615787489, guid: bba5a03d339ef914cba0ad8d39457081,
         type: 3}
       propertyPath: m_timeBetweenWords
-      value: 0.00001
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4031689653008085285, guid: bba5a03d339ef914cba0ad8d39457081,
         type: 3}
