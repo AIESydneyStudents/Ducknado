@@ -15,7 +15,7 @@ public class FadingIn : MonoBehaviour
     void Awake()
     {
         SharedInstance = this;
-        fadingPanel.gameObject.SetActive(true);
+        fadingPanel.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,6 +23,7 @@ public class FadingIn : MonoBehaviour
     {
         if (fadingIn == true)
         {
+            fadingPanel.gameObject.SetActive(true);
             fadingPanel.color = new Color(0, 0, 0, _alphaIn += 0.5f * Time.unscaledDeltaTime);
             fadingOut = false;
             if (fadingPanel.color.a >= 255)
