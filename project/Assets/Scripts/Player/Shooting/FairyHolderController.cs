@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FairyHolderController : MonoBehaviour
 {
-    [SerializeField] public GameObject projectileHolder;
     [SerializeField] public Transform projectilePoint;
     [SerializeField] public bool isFloating;
     [SerializeField] public float timeBetweenShots;

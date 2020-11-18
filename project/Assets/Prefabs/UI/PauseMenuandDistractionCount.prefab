@@ -597,7 +597,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textButterfly: {fileID: 2278238069616698431}
-  fairy: {fileID: 0}
+  fairy1: {fileID: 0}
+  fairy2: {fileID: 0}
+  fairy3: {fileID: 0}
   tooManyProjectiles: {fileID: 2278238070989498687}
   timeBetweenText: 1
   teaImgs:
@@ -1055,7 +1057,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pause Menu
+  m_Text: Paused
 --- !u!1 &2278238070989498685
 GameObject:
   m_ObjectHideFlags: 0

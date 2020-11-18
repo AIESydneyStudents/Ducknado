@@ -11,7 +11,7 @@ public class CamDistanceModifier : MonoBehaviour
     [Tooltip("Adjusting the camera view point.")]
     [SerializeField] [Range(20f, 100f)]private float distanceAdjustment;
     [Tooltip("Adjusts the rotation speed of the camera.")]
-    [SerializeField] [Range(300f, 1000f)] private float camRotationSpeed;
+    [SerializeField] [Range(10f, 500f)] private float camRotationSpeed;
     [Tooltip("Add the cinemachine camera.")]
     [SerializeField] private CinemachineFreeLook cam;
     // Start is called before the first frame update
