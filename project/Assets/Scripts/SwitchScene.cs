@@ -7,10 +7,12 @@ public class SwitchScene : MonoBehaviour
 {
     [SerializeField] private string loadScene;
 
-    void OnTriggerEnter(Collider other)
+    IEnumerator OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            FadingIn.SharedInstance.fadingIn = true;
+            yield return new WaitForSeconds(2);
             SceneManager.LoadScene(loadScene);
         }
     }

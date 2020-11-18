@@ -340,6 +340,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 7197887288959077508}
   - {fileID: 4031689652615787488}
   - {fileID: 4031689651513749076}
   - {fileID: 4031689653008085284}
@@ -443,7 +444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4031689651488399643}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4031689651513749077
 MeshFilter:
@@ -519,10 +520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setActiveText: {fileID: 4031689653008085285}
   dialogue:
-    name: Ben
-    sentences:
-    - "Hello Good Sir\t"
-    - Have a good day!
+    m_name: 
+    m_sentences: []
 --- !u!1 &4031689652402014595
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +779,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4031689651488399643}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4031689652615787489
 MonoBehaviour:
@@ -794,10 +793,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b306f2c95e4de4a8e19322bdff3b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 4031689651214125915}
-  dialogueText: {fileID: 4031689652402014605}
-  timeBetweenWords: 0.1
-  trigger: {fileID: 4031689653008085285}
+  m_nameText: {fileID: 0}
+  m_dialogueText: {fileID: 0}
+  m_timeBetweenWords: 0.1
+  m_trigger: {fileID: 0}
 --- !u!1 &4031689653008085285
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,7 +829,7 @@ Transform:
   - {fileID: 4031689652456351902}
   - {fileID: 4031689653242285646}
   m_Father: {fileID: 4031689651488399643}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4031689653242285647
 GameObject:
@@ -961,3 +960,76 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &8332533987229786848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7197887288959077508}
+  - component: {fileID: 333545588720942052}
+  - component: {fileID: 6879607855488573730}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7197887288959077508
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8332533987229786848}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4031689651488399643}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &333545588720942052
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8332533987229786848}
+  m_CullTransparentMesh: 0
+--- !u!114 &6879607855488573730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8332533987229786848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
