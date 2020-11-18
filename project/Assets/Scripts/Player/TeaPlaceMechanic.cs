@@ -22,15 +22,13 @@ public class TeaPlaceMechanic : MonoBehaviour
     public float _twoStarRating;
     public float _threeStarRating;
 
-    //public List<ColorBoundries> colorBoundries = new List<ColorBoundries>();
-
     private void Start()
     {
         Shader.SetGlobalFloat("GLOBALmask_Radius", 10);
         Shader.SetGlobalFloat("GLOBALmask_Softness", 0);
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
 
-        _victory.gameObject.SetActive(false);
+        //_victory.gameObject.SetActive(false);
     }
     private void Update()
     {
@@ -44,6 +42,7 @@ public class TeaPlaceMechanic : MonoBehaviour
 
     private void OnTriggerStay(Collider other) // used to check if player is near a placement table
     {
+
         if (other.gameObject.tag == "Placement" && PlayerMovement.interacted == true &&
             ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0) // check the placement tag is the collision. If the player has used the interaction buttin within the collider
         {
@@ -55,6 +54,8 @@ public class TeaPlaceMechanic : MonoBehaviour
                     {
                         _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                         FindObjectOfType<AudioManager>().Play("Pouring");
+
+                        ColorChange.colorSpots[i]._active = true;
 
                         gameObject.GetComponent<AudioSource>().clip = midMusic;
                         gameObject.GetComponent<AudioSource>().volume = .7f;

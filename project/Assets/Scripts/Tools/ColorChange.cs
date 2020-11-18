@@ -12,22 +12,22 @@ public class ColorBoundry
     public float radius;
     public float softness;
 
-    public float growSpeed = 1.0f;
+    public float growSpeed = 2f;
     public float growSoftness = 0f;
+    public bool _active = false;
 
     public void Update()
     {
+        Mathf.Clamp(radius, 0, 20);
+        Mathf.Clamp(softness, 0, 100);
+
         radius += growSpeed * Time.deltaTime;
         softness += growSoftness * Time.deltaTime;
-
-
-        //Mathf.Clamp(radius, 0, 100);
-        //Mathf.Clamp(softnesses, 0, 100);
     }
 }
 public class ColorChange : MonoBehaviour
 {
-    List<ColorBoundry> colorSpots = new List<ColorBoundry>();
+    public static List<ColorBoundry> colorSpots = new List<ColorBoundry>();
 
     public float darkness = 0.0f;
     public float metallic = 0.0f;
@@ -36,9 +36,13 @@ public class ColorChange : MonoBehaviour
     {
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
 
+        var rand = new System.Random();
+        
+
+
         for (int i = 0; i < _tables.Length; i++)
         {
-            Add(_tables[i].transform.position, 0, 0);
+            Add(_tables[i].transform.position, rand.Next(1, 5), 0);
         }
     }
 
@@ -47,17 +51,26 @@ public class ColorChange : MonoBehaviour
 
         foreach (var colorSpot in colorSpots)
         {
-            colorSpot.Update();
+            if (colorSpot._active)
+            {
+                colorSpot.Update();
+            }
         }
 
         var locations = colorSpots.Select(colorSpot => new Vector4(colorSpot.position.x, colorSpot.position.y, colorSpot.position.z, 0)).ToArray();
-        var radi = colorSpots.Select(colorSpot => colorSpot.radius).ToArray();
-        var softnesses = colorSpots.Select(colorSpot => colorSpot.softness).ToArray();
+        var radi = colorSpots.Select(colorSpot => colorSpot.radius).ToList();
+        var softnesses = colorSpots.Select(colorSpot => colorSpot.softness).ToList();
 
-        Shader.SetGlobalFloat("GLOBALmask_arrLength", colorSpots.Count);
-        Shader.SetGlobalVectorArray("GLOBALmask_Position", locations);
-        Shader.SetGlobalFloatArray("GLOBALmask_Radius", radi);
-        Shader.SetGlobalFloatArray("GLOBALmask_Softness", softnesses);
+        
+
+        Shader.SetGlobalInt("color_arrLength", colorSpots.Count);
+        Shader.SetGlobalVectorArray("color_positions", locations);
+        Shader.SetGlobalFloatArray("color_radius", radi);
+        Shader.SetGlobalFloatArray("color_softness", softnesses);
+
+
+        var radisus = Shader.GetGlobalFloatArray("color_radius");
+        Debug.Log(radisus.ToString());
 
     }
 
@@ -67,6 +80,7 @@ public class ColorChange : MonoBehaviour
         colorSpot.position = pos;
         colorSpot.radius = radius;
         colorSpot.softness = softness;
+        colorSpot._active = false;
 
         colorSpots.Add(colorSpot);
     }
