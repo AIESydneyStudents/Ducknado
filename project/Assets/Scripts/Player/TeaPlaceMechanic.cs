@@ -34,7 +34,7 @@ public class TeaPlaceMechanic : MonoBehaviour
     {
         if (AllTeaPlacedCheck()) // if all tea has been placed run this code
         {
-            
+
             DisplayCanvas();
         }
     }
@@ -50,8 +50,9 @@ public class TeaPlaceMechanic : MonoBehaviour
             {
                 for (int i = 0; i < _tables.Length; i++) // check the tables in the level
                 {
-                    if (_tables[i] == other.gameObject )
+                    if (_tables[i] == other.gameObject && _tables[i].transform.GetChild(0).gameObject.activeSelf == false)
                     {
+
                         _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                         FindObjectOfType<AudioManager>().Play("Pouring");
                         ColorChange.colorSpots[i]._active = true;
@@ -60,6 +61,8 @@ public class TeaPlaceMechanic : MonoBehaviour
                         gameObject.GetComponent<AudioSource>().Play();
                         FindObjectOfType<AudioManager>().Play("Whistle1");
                         ItemsInGame.SharedItems.teaPlaced += 1;
+
+
                     }
 
                 }
