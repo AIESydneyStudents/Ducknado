@@ -13,7 +13,8 @@ public class objPooling : MonoBehaviour
     public static objPooling SharedInstance;
     private List<GameObject> pooledObjects;
     public List<ObjectPoolItem> itemsToPool;
-    [HideInInspector]public List<GameObject> itemsToStore;//In this, you can have extra ammo to pickup.
+    public int amountToStart;
+    [HideInInspector] public List<GameObject> itemsToStore;//In this, you can have extra ammo to pickup.
     [HideInInspector] public bool recharge = false;
     private int bulletsInHand;
     private void Awake()
@@ -62,7 +63,7 @@ public class objPooling : MonoBehaviour
         bulletsInHand = 0;
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if(pooledObjects[i].tag == tag)
+            if (pooledObjects[i].tag == tag)
                 bulletsInHand += 1;
             if (pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag && recharge == false)
                 bulletsInHand -= 1;
@@ -74,7 +75,7 @@ public class objPooling : MonoBehaviour
     {
         pooledObjects.Add(bullet);
 
-        for (int i = 0; i < itemsToStore.Count; i++) 
+        for (int i = 0; i < itemsToStore.Count; i++)
         {
             if (itemsToStore[i] == bullet)
             {
@@ -83,7 +84,7 @@ public class objPooling : MonoBehaviour
             }
         }
     }
-    public void RemoveObjects(GameObject bullet) 
+    public void RemoveObjects(GameObject bullet)
     {
         itemsToStore.Add(bullet);
         for (int i = 0; i < pooledObjects.Count; i++)
@@ -92,7 +93,17 @@ public class objPooling : MonoBehaviour
                 pooledObjects.RemoveAt(i);
         }
     }
-    public GameObject GetOneStoredObject() 
+    public void SaveObjects()
+    {
+
+        for (int i = 0; i < pooledObjects.Count - amountToStart; i++)
+        {
+            itemsToStore.Add(pooledObjects[i]);
+            pooledObjects.RemoveAt(i);
+        }
+
+    }
+    public GameObject GetOneStoredObject()
     {
         GameObject obj;
         if (itemsToStore != null)

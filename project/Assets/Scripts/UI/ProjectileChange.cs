@@ -20,6 +20,11 @@ public class ProjectileChange : MonoBehaviour
         fairy1.SetActive(false);
         fairy2.SetActive(false);
         fairy3.SetActive(false);
+
+    }
+    void Start()
+    {
+        objPooling.SharedInstance.SaveObjects();
     }
     void FixedUpdate()
     {//Visualisation of what is on hand.
