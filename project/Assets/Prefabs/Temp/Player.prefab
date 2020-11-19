@@ -1347,7 +1347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2091670963}
   m_Layer: 0
-  m_Name: InHandObject
+  m_Name: FairyDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1681,14 +1681,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1589f0d9ce88d41a4cfaf36c97c9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 895476680481725745}
+  disControl: {fileID: 0}
   m_playerRB: {fileID: 5107676610309586226}
   m_playerMovementSpeed: 4
   m_acceleration: 2.77
   m_gravity: 2
   m_cam: {fileID: 1739774326}
   m_smoothTurnSpeed: 0.1
-  animator: {fileID: 6934412662345740940}
+  m_animator: {fileID: 0}
 --- !u!114 &307821363
 MonoBehaviour:
   m_ObjectHideFlags: 0

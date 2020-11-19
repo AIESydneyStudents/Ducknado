@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Range(1.0f, 10.0f)] private float m_gravity = 2;
     [SerializeField] private Camera m_cam;
     [SerializeField] private float m_smoothTurnSpeed = 1f;
-    [SerializeField] public Animator animator;
+    [SerializeField] public Animator m_animator;
     [HideInInspector] public static bool interacted = false;
 
     private Controls m_controls;
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         m_playerRB = GetComponent<Rigidbody>();
         m_controls = new Controls();
         m_controls.Player.Enable();
-        animator.SetTrigger("isIDLE");
+        m_animator.SetTrigger("isIDLE");
     }
 
     void FixedUpdate()
@@ -70,14 +70,14 @@ public class PlayerMovement : MonoBehaviour
 
                 Vector3 moveNewDir = Quaternion.Euler(0f, tarAngle, 0f) * Vector3.forward;//Moves in the direction dependant of the targent angle.
                 m_playerRB.AddForce(moveNewDir.normalized * m_acceleration * 10);//Adds velocity to the direction for the player
-                animator.ResetTrigger("isIDLE");
-                animator.SetTrigger("isWalking");
+                m_animator.ResetTrigger("isIDLE");
+                m_animator.SetTrigger("isWalking");
             }
         }
         else
         {
-            animator.ResetTrigger("isWalking");
-            animator.SetTrigger("isIDLE");
+            m_animator.ResetTrigger("isWalking");
+            m_animator.SetTrigger("isIDLE");
         }
     }
 
