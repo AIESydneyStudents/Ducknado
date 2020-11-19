@@ -9,6 +9,12 @@ public class DistractionController : MonoBehaviour
     [SerializeField] public float timeBetweenShots;
     public static int inHandProjectile = 0;
     private float projectileCounter;
+    public static DistractionController sharedInstance;
+    private void Start()
+    {
+        sharedInstance = this;
+    }
+
     void Update()
     {
         if (isFloating)//If the bullet is firing.
