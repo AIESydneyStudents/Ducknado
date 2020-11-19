@@ -25,7 +25,7 @@ public class FadingIn : MonoBehaviour
         {
             fadingPanel.color = new Color(0, 0, 0, _alphaIn += 0.5f * Time.unscaledDeltaTime);
             fadingOut = false;
-            if (fadingPanel.color.a >= 255)
+            if (fadingPanel.color.a >= 1)
             {
                 fadingIn = false;
             }
