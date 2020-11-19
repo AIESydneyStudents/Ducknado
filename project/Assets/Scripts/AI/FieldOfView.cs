@@ -41,7 +41,6 @@ public class FieldOfView : MonoBehaviour
     public GameObject _butterflyDistraction;
 
     PlayerRestart restart;
-    TeaPlaceMechanic teaPlace;
 
     float _maskCutawayDst = .1f;
 
@@ -115,6 +114,7 @@ public class FieldOfView : MonoBehaviour
 
         if (Vector3.Distance(transform.forward, dirToButterfly) <= viewRadius && _butterflyDistraction.activeSelf)
         {
+            _targetFound = false;
             _distractionFound = true;
         }
         else
