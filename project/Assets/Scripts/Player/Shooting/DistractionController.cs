@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FairyHolderController : MonoBehaviour
+public class DistractionController : MonoBehaviour
 {
     [SerializeField] public Transform projectilePoint;
     [SerializeField] public bool isFloating;

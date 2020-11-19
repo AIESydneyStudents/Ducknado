@@ -12,7 +12,7 @@ public class RaycastCamShoot : MonoBehaviour
     void FixedUpdate()
     {
         //Determines what gun is accessed.
-        switch (FairyHolderController.inHandProjectile)
+        switch (DistractionController.inHandProjectile)
         {
             case 0:
                 fairyCam.gameObject.SetActive(true);

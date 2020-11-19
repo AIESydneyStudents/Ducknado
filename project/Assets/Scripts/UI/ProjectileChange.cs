@@ -28,7 +28,7 @@ public class ProjectileChange : MonoBehaviour
     }
     void FixedUpdate()
     {//Visualisation of what is on hand.
-        switch (FairyHolderController.inHandProjectile)
+        switch (DistractionController.inHandProjectile)
         {
             case 0:
                 textButterfly.gameObject.SetActive(true);//Text Fairy
