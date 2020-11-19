@@ -27,8 +27,6 @@ public class TeaPlaceMechanic : MonoBehaviour
 
     private void Start()
     {
-        Shader.SetGlobalFloat("GLOBALmask_Radius", 0);
-        Shader.SetGlobalFloat("GLOBALmask_Softness", 0);
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
 
     }
@@ -36,6 +34,7 @@ public class TeaPlaceMechanic : MonoBehaviour
     {
         if (AllTeaPlacedCheck()) // if all tea has been placed run this code
         {
+            FadingIn.SharedInstance.fadingIn = true;
             DisplayCanvas();
         }
     }
