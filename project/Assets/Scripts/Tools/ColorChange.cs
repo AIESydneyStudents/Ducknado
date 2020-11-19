@@ -13,6 +13,7 @@ public class ColorChange : MonoBehaviour
     GameObject[] _tables;
     void Start()
     {
+
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
 
         for (int i = 0; i < _tables.Length; i++)

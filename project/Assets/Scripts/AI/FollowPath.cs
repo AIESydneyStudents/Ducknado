@@ -39,6 +39,8 @@ public class FollowPath : MonoBehaviour
         restart = player.GetComponent<PlayerRestart>();
         _navMeshAgent = this.GetComponent<NavMeshAgent>(); // gets the navmesh component of the gameobject this script is attached to
 
+        currentSpeed = _navMeshAgent.speed;
+
         if (_navMeshAgent == null) // if it returns null display message
         {
             Debug.LogError("The nav mesh agent component is not attached to " + gameObject.name);
@@ -121,6 +123,8 @@ public class FollowPath : MonoBehaviour
 
     private void PathFinding()
     {
+        _navMeshAgent.speed = currentSpeed;
+
         fov._targetFound = false;
 
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f) // if the object is travelling and checks the distance is less than 1 unit
@@ -166,7 +170,6 @@ public class FollowPath : MonoBehaviour
 
             _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target    
         }
-        _navMeshAgent.speed = currentSpeed;
     }
 
     private void Wandering()

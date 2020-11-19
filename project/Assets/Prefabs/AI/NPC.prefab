@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _patrolWaiting: 1
   _waitTime: 1
-  _chasingSpeed: 200
+  _chasingSpeed: 4.5
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
