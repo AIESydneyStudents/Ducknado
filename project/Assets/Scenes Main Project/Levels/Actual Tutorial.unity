@@ -3603,7 +3603,7 @@ PrefabInstance:
       objectReference: {fileID: 1940857101}
     - target: {fileID: 1739774328, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.25113556
+      value: 0.25113553
       objectReference: {fileID: 0}
     - target: {fileID: 1739774328, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3611,7 +3611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1739774328, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.19969536
+      value: -0.19969535
       objectReference: {fileID: 0}
     - target: {fileID: 1739774328, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3635,11 +3635,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.19499852
+      value: -0.19499855
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2450595
+      value: 0.24505955
       objectReference: {fileID: 0}
     - target: {fileID: 1761291766, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3860,15 +3860,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 575405718, guid: bba5a03d339ef914cba0ad8d39457081, type: 3}
       propertyPath: newdialogue.m_sentences.Array.size
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 575405718, guid: bba5a03d339ef914cba0ad8d39457081, type: 3}
       propertyPath: newdialogue.m_sentences.Array.data[0]
-      value: Hello Tea Fairies, welcome to your first mission brief.
+      value: Get to the teapot, then deliver the teapot.
       objectReference: {fileID: 0}
     - target: {fileID: 575405718, guid: bba5a03d339ef914cba0ad8d39457081, type: 3}
       propertyPath: newdialogue.m_name
-      value: 'Fairynuff:'
+      value: This is a tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 575405718, guid: bba5a03d339ef914cba0ad8d39457081, type: 3}
       propertyPath: newdialogue.m_sentences.Array.data[2]
@@ -3881,7 +3881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 575405718, guid: bba5a03d339ef914cba0ad8d39457081, type: 3}
       propertyPath: newdialogue.m_sentences.Array.data[1]
-      value: There's a gloomy street downtown that needs 50CCs of tea, STAT!
+      value: Utilise hiding areas and distractions to achieve your goal.
       objectReference: {fileID: 0}
     - target: {fileID: 575405718, guid: bba5a03d339ef914cba0ad8d39457081, type: 3}
       propertyPath: newdialogue.m_sentences.Array.data[4]
