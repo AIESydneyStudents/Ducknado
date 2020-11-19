@@ -96,10 +96,10 @@ public class objPooling : MonoBehaviour
     public void SaveObjects()
     {
 
-        for (int i = 0; i < pooledObjects.Count - amountToStart; i++)
+        for (int i = pooledObjects.Count; i > amountToStart; i--)
         {
-            itemsToStore.Add(pooledObjects[i]);
-            pooledObjects.RemoveAt(i);
+            itemsToStore.Add(pooledObjects[i - 1]);
+            pooledObjects.RemoveAt(i - 1);
         }
 
     }
