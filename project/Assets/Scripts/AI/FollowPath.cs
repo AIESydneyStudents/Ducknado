@@ -29,12 +29,14 @@ public class FollowPath : MonoBehaviour
     bool _waiting;
     bool _patrolForward;
     Vector3 _targetVector;
+    Animator animator;
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         restart = player.GetComponent<PlayerRestart>();
         _navMeshAgent = this.GetComponent<NavMeshAgent>(); // gets the navmesh component of the gameobject this script is attached to
-
+        animator.SetTrigger("walking");
         currentSpeed = _navMeshAgent.speed;
 
         if (_navMeshAgent == null) // if it returns null display message
@@ -118,6 +120,8 @@ public class FollowPath : MonoBehaviour
 
     private void PathFinding()
     {
+        animator.ResetTrigger("running");
+        animator.SetTrigger("walking");
         _navMeshAgent.speed = currentSpeed;
 
         fov._targetFound = false;
@@ -163,6 +167,8 @@ public class FollowPath : MonoBehaviour
         }
         else
         {
+            animator.ResetTrigger("walking");
+            animator.SetTrigger("running");
             _navMeshAgent.speed = _chasingSpeed;
 
            _targetVector = player.transform.position; //target is changed from previous function to player
