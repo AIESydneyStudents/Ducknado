@@ -11,13 +11,15 @@ public class FieldOfView : MonoBehaviour
     [SerializeField]
     public float viewAngle;
 
+    float oldViewRadius = 0f;
+    float oldViewAngle = 0f;
+
+    public float detectedViewAngle = 4f;
+
+
     [SerializeField]
     private Color32 _undetectedColor; // color of the fov cone when player is not in sight
 
-    [SerializeField]     
-    private Color32 _detectedColor; // color of the fov cone when player is in sight
-
-    LayerMask _targetMask;
     public LayerMask _obstacleMask;
 
     float _meshResolution = 10;
@@ -57,10 +59,12 @@ public class FieldOfView : MonoBehaviour
 
         _targetFound = false;
 
+        oldViewRadius = viewRadius;  //stores the initialised value
+        oldViewAngle = viewAngle; //stores the initialised value
+
         restart = player.GetComponent<PlayerRestart>();
         //teaPlace= player.GetComponent<TeaPlaceMechanic>();
 
-        _targetMask = LayerMask.NameToLayer("Target");
         StartCoroutine("FindTargetsWithDelay", .2f);
     }
 
@@ -121,6 +125,8 @@ public class FieldOfView : MonoBehaviour
         float stepAngleSize = viewAngle / stepCount;
         List<Vector3> viewPoints = new List<Vector3>();
         ViewCastInfo oldViewCast = new ViewCastInfo();
+
+
         for (int i = 0; i <= stepCount; i++)
         {
             float angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
@@ -166,15 +172,20 @@ public class FieldOfView : MonoBehaviour
 
         if (_targetFound) //if the target is found inside fov chnage the color to detected
         {
-            _viewMeshRenderer.material.color = _detectedColor;
+            _viewMeshRenderer.enabled = false;
+            viewAngle = 360;
+            viewRadius = detectedViewAngle;
         }
         else
         {
-            _viewMeshRenderer.material.color = _undetectedColor ;
+            _viewMeshRenderer.enabled = true;
+            viewAngle = oldViewAngle;
+            viewRadius = oldViewRadius;
+            _viewMeshRenderer.material.color = _undetectedColor;
         }
         viewMesh.Clear();
 
-      
+
         viewMesh.vertices = vertices;
         viewMesh.triangles = triangles;
         viewMesh.RecalculateNormals();

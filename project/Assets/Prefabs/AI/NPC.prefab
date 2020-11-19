@@ -191,7 +191,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 360
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -236,12 +236,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 7
   viewAngle: 68
+  detectedViewAngle: 4
   _undetectedColor:
     serializedVersion: 2
-    rgba: 1174369536
-  _detectedColor:
-    serializedVersion: 2
-    rgba: 1157628159
+    rgba: 1157955839
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 1

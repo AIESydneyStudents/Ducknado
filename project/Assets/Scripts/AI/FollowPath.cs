@@ -79,7 +79,6 @@ public class FollowPath : MonoBehaviour
         }
         if (fov._distractionFound)
         {
-            fov._targetFound = false;
             DistractionDetected();
         }
 
@@ -195,7 +194,7 @@ public class FollowPath : MonoBehaviour
 
     private void DistractionDetected()
     {
-        if (fov._butterflyDistraction.activeSelf && fov._distractionFound)
+        if (fov._butterflyDistraction.activeSelf && fov._distractionFound && fov._targetFound == false)
         {
             _targetVector = fov._butterflyDistraction.transform.position;
 
