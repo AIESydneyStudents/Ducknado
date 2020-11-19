@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Range(1.0f, 10.0f)] private float m_gravity = 2;
     [SerializeField] private Camera m_cam;
     [SerializeField] private float m_smoothTurnSpeed = 1f;
+    [SerializeField] public Animator animator;
     [HideInInspector] public static bool interacted = false;
 
     private Controls m_controls;
@@ -67,10 +68,12 @@ public class PlayerMovement : MonoBehaviour
                 m_playerRB.transform.rotation = Quaternion.Euler(0f, angle, 0f);//Rotates to the directuon of the angle.
 
                 Vector3 moveNewDir = Quaternion.Euler(0f, tarAngle, 0f) * Vector3.forward;//Moves in the direction dependant of the targent angle.
-
                 m_playerRB.AddForce(moveNewDir.normalized * m_acceleration * 10);//Adds velocity to the direction for the player
+                animator.SetFloat("forwardSpeed", m_playerMovementSpeed);
             }
         }
+        else
+            animator.SetFloat("forwardSpeed", 0);
 
     }
     
