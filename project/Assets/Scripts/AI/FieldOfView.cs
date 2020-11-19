@@ -20,6 +20,9 @@ public class FieldOfView : MonoBehaviour
     [SerializeField]
     private Color32 _undetectedColor; // color of the fov cone when player is not in sight
 
+    [SerializeField]
+    private Color32 _detectedColor; // color of the fov cone when player is in sight
+
     public LayerMask _obstacleMask;
 
     float _meshResolution = 10;
@@ -172,7 +175,7 @@ public class FieldOfView : MonoBehaviour
 
         if (_targetFound) //if the target is found inside fov chnage the color to detected
         {
-            _viewMeshRenderer.enabled = false;
+            _viewMeshRenderer.material.color = _detectedColor;
             viewAngle = 360;
             viewRadius = detectedViewAngle;
         }

@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _patrolWaiting: 1
   _waitTime: 1
-  _chasingSpeed: 4.5
+  _chasingSpeed: 6
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -236,10 +236,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 7
   viewAngle: 68
-  detectedViewAngle: 4
+  detectedViewAngle: 5.5
   _undetectedColor:
     serializedVersion: 2
-    rgba: 1157955839
+    rgba: 1170757676
+  _detectedColor:
+    serializedVersion: 2
+    rgba: 1191182591
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 1
