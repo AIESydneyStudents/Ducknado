@@ -70,15 +70,6 @@ public class PlayerMovement : MonoBehaviour
 
                 Vector3 moveNewDir = Quaternion.Euler(0f, tarAngle, 0f) * Vector3.forward;//Moves in the direction dependant of the targent angle.
                 m_playerRB.AddForce(moveNewDir.normalized * m_acceleration * 10);//Adds velocity to the direction for the player
-
-                Vector3 localVelocity = transform.InverseTransformDirection(moveNewDir);
-                float speed = localVelocity.z;
-
-
-
-                //animator.SetFloat("forwardSpeed", speed * m_playerMovementSpeed);
-
-
                 animator.ResetTrigger("isIDLE");
                 animator.SetTrigger("isWalking");
             }
@@ -87,15 +78,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.ResetTrigger("isWalking");
             animator.SetTrigger("isIDLE");
-            //animator.SetFloat("forwardSpeed", 0);
         }
-
-        //if (m_playerRB.velocity == Vector3.zero)
-        //{
-        //    ;
-
-        //}
-
     }
 
 

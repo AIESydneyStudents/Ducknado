@@ -17,7 +17,9 @@ public class ProjectileChange : MonoBehaviour
     private void Awake()
     {
         newProjectiles = this;
-        fairy1.SetActive(true);
+        fairy1.SetActive(false);
+        fairy2.SetActive(false);
+        fairy3.SetActive(false);
     }
     void FixedUpdate()
     {//Visualisation of what is on hand.
