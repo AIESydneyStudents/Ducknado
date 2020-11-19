@@ -34,7 +34,7 @@ public class TeaPlaceMechanic : MonoBehaviour
     {
         if (AllTeaPlacedCheck()) // if all tea has been placed run this code
         {
-            FadingIn.SharedInstance.fadingIn = true;
+            
             DisplayCanvas();
         }
     }

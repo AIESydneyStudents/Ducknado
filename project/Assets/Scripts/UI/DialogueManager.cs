@@ -69,6 +69,7 @@ public class DialogueManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         FadingIn.SharedInstance.fadingOut = true;
+        FadingIn.SharedInstance.fadingIn = false;
 
     }
 }

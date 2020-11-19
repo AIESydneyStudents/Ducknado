@@ -41,7 +41,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - ExcludeSceneLight
   - NonObstacle
   - ignore directional light
   - PostProcessing
