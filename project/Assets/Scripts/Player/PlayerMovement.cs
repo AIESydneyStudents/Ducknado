@@ -45,10 +45,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             interacted = false;
-        if (shooting == 0)//If the player has shot.
-            DistractionController.sharedInstance.isFloating = false;
-        else
-            DistractionController.sharedInstance.isFloating = true;
+
 
 
         if (dir.y != 0 || dir.x != 0)
@@ -79,6 +76,14 @@ public class PlayerMovement : MonoBehaviour
             m_animator.ResetTrigger("isWalking");
             m_animator.SetTrigger("isIDLE");
         }
+        if (DistractionController.sharedInstance != null)
+        {
+            if (shooting == 0)//If the player has shot.
+                DistractionController.sharedInstance.isFloating = false;
+            else
+                DistractionController.sharedInstance.isFloating = true;
+        }
+
     }
 
 
