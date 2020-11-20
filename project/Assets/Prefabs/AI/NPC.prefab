@@ -109,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2342298832477263773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.82}
-  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_LocalPosition: {x: 0, y: -0.111, z: 2.82}
+  m_LocalScale: {x: 1.405475, y: 1.405475, z: 1.405475}
   m_Children:
   - {fileID: 303481768239733670}
   - {fileID: 8524112340333956624}
@@ -250,7 +250,7 @@ MonoBehaviour:
   _targetFound: 0
   _distractionFound: 0
   player: {fileID: 0}
-  _butterflyDistraction: {fileID: 0}
+  _butterfly: {fileID: 0}
   viewMeshFilter: {fileID: 6573918942662654194}
   _viewMeshRenderer: {fileID: 980759082019150496}
 --- !u!95 &6755036674651275297
