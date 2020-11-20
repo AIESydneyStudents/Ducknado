@@ -107,8 +107,7 @@ public class TeaPlaceMechanic : MonoBehaviour
 
     public void DisplayCanvas() // Displays the stars at the end of the level based off the final time of the game
     {
-        gameObject.GetComponent<AudioSource>().clip = endMusic;
-        gameObject.GetComponent<AudioSource>().Play();
+
         _victory.gameObject.tag = "Finish";
         _victory.gameObject.SetActive(true);
 

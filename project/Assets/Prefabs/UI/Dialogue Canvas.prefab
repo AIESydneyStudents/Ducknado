@@ -107,7 +107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.67, y: 51.82}
+  m_AnchoredPosition: {x: -119.20001, y: -27.23999}
   m_SizeDelta: {x: 382.34, y: 65.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4031689651214125914
@@ -138,8 +138,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Name:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4c3cc708f3da79840ac12eadb02b530e, type: 2}
+  m_sharedMaterial: {fileID: 4069665875337429829, guid: 4c3cc708f3da79840ac12eadb02b530e,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -164,8 +165,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -347,12 +348,16 @@ MonoBehaviour:
   panelImage: {fileID: 6879607855488573730}
   textBoxDialogue: {fileID: 4031689653008085285}
   newdialogue:
-    m_name: Ben
+    m_name: 'Fairynuff:'
     m_sentences:
-    - 'Hi asdfuoipasdfuoipasdfuopasdfuiaosdfuasodiufapsodifusaopdifuaospidfusaopdifupoasdiufpasodiufpoasdifu
-
-'
-    - Welcome to the game.
+    - Hello Tea Fairies, welcome to your first mission brief.
+    - There's a gloomy street downtown that needs 50CCs of tea, STAT!
+    - You have TWO sad targets waiting for happiness (Tea).
+    - Find and collect your teapots around the environment so you can deliver the
+      tea.
+    - And be sure to make good use of your butterflies, the locals seem to be easily
+      distracted by them.
+    - "AutoFairies...                   \nROLLOUT!"
 --- !u!114 &575405723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,8 +408,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.605, y: -54.18}
-  m_SizeDelta: {x: 342.21, y: 146.04}
+  m_AnchoredPosition: {x: -36, y: -93}
+  m_SizeDelta: {x: 553.47, y: 105.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4031689652402014604
 CanvasRenderer:
@@ -434,8 +439,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Dialogue:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4c3cc708f3da79840ac12eadb02b530e, type: 2}
+  m_sharedMaterial: {fileID: 4069665875337429829, guid: 4c3cc708f3da79840ac12eadb02b530e,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -460,8 +466,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -498,7 +504,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.076538086, w: -0.41775513}
+  m_margin: {x: 0, y: 0, z: 0.076538086, w: 0}
   m_textInfo:
     textComponent: {fileID: 4031689652402014605}
     characterCount: 9
@@ -642,7 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nameText: {fileID: 4031689651214125915}
   m_dialogueText: {fileID: 4031689652402014605}
-  m_timeBetweenWords: 0.1
+  m_timeBetweenWords: 0.025
   m_trigger: {fileID: 4031689653008085285}
 --- !u!1 &4031689653008085285
 GameObject:
@@ -668,7 +674,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031689653008085285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -63.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4031689651214125912}
@@ -836,12 +842,12 @@ PrefabInstance:
     - target: {fileID: 5747130844695835135, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 339
+      value: 278
       objectReference: {fileID: 0}
     - target: {fileID: 5747130844695835135, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -119
+      value: -143
       objectReference: {fileID: 0}
     - target: {fileID: 5747130844695835135, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
