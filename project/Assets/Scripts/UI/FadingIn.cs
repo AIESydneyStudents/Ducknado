@@ -11,6 +11,7 @@ public class FadingIn : MonoBehaviour
     [HideInInspector]public bool fadingIn = false;
     [HideInInspector]public bool fadingOut = false;
     public static FadingIn SharedInstance;
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,6 +42,7 @@ public class FadingIn : MonoBehaviour
                 fadingPanel.gameObject.SetActive(false);
                 Time.timeScale = 1f;
                 fadingOut = false;
+                gameObject.SetActive(false);
             }
         }
     }
