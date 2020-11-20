@@ -14,9 +14,13 @@ public class CameraPan : MonoBehaviour
     public float lerpTime = 5;
     float currentLerpTime = 0;
 
+    [SerializeField] private GameObject uiDisable;
     // Start is called before the first frame update
     void Start()
     {
+        uiDisable.gameObject.SetActive(false);
+        PauseMenu.isFinished = true;
+        Cursor.lockState = CursorLockMode.None;
         startPos = waypoint1.transform.position;
         endPos = waypoint2.transform.position;
     }

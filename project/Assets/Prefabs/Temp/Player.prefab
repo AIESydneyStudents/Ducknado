@@ -1583,6 +1583,7 @@ MonoBehaviour:
   - amountToPool: 3
     objectToPool: {fileID: 4061512974801603654, guid: d734237a676be7447a19029c11c65c5d,
       type: 3}
+  amountToStart: 0
   itemsToStore: []
   recharge: 0
 --- !u!1 &5107676610309586227
@@ -1681,14 +1682,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1589f0d9ce88d41a4cfaf36c97c9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disControl: {fileID: 0}
   m_playerRB: {fileID: 5107676610309586226}
   m_playerMovementSpeed: 4
   m_acceleration: 2.77
   m_gravity: 2
   m_cam: {fileID: 1739774326}
   m_smoothTurnSpeed: 0.1
-  m_animator: {fileID: 0}
+  m_animator: {fileID: 6934412662345740940}
 --- !u!114 &307821363
 MonoBehaviour:
   m_ObjectHideFlags: 0

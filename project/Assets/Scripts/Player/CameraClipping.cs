@@ -29,12 +29,8 @@ public class CameraClipping : MonoBehaviour
                 }
             }
         }
-        else if (Physics.Raycast(Camera.main.gameObject.transform.position,
-            Camera.main.gameObject.transform.forward, out hit) &&
-            hit.collider.gameObject.CompareTag("Player"))
-        {
+        else
             SetBack();
-        }
 
     }
     void SetBack()//Setting the meshRenderer back to active

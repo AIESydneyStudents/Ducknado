@@ -48,11 +48,12 @@ public class FieldOfView : MonoBehaviour
     public MeshRenderer _viewMeshRenderer;
 
     Mesh viewMesh; //The mesh that is created for th npc
-
+    
+    GameObject teaImage;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
+        teaImage = GameObject.FindGameObjectWithTag("TeaPotImg");
         viewMesh = new Mesh(); //Creates Mesh on start
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
@@ -94,6 +95,8 @@ public class FieldOfView : MonoBehaviour
             {
                 _targetFound = true;
                 TeaPlaceMechanic._teaCanBePlaced = false;
+                if(teaImage.activeSelf == true)
+                    ProjectileChange.newProjectiles.CantPlaceTeaSeenVoid();
             }
             else
             {
