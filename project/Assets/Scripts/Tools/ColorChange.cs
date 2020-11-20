@@ -8,18 +8,33 @@ using UnityEngine;
 
 public class ColorChange : MonoBehaviour
 {
+    List<Vector4> _defaultLocations = new List<Vector4>();
+    List<float> _defaultRadius = new List<float>();
+    List<float> _defaultSoftness = new List<float>();
+
     public static List<ColorArea> colorSpots = new List<ColorArea>();
     public float _GrowthSize;
     GameObject[] _tables;
     void Start()
     {
-
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
 
         for (int i = 0; i < _tables.Length; i++)
         {
             Add(_tables[i].transform.position, 1, _GrowthSize, 0);
         }
+
+        foreach (var item in colorSpots)
+        {
+            _defaultLocations.Add(new Vector4(0, 0, 0));
+            _defaultRadius.Add(0);
+            _defaultSoftness.Add(0);
+        }
+
+        Shader.SetGlobalInt("color_arrLength", colorSpots.Count);
+        Shader.SetGlobalVectorArray("color_positions", _defaultLocations);
+        Shader.SetGlobalFloatArray("color_radius", _defaultRadius);
+        Shader.SetGlobalFloatArray("color_softness", _defaultSoftness);
     }
 
     void Update()
