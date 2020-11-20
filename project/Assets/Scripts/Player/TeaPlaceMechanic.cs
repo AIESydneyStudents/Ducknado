@@ -46,31 +46,30 @@ public class TeaPlaceMechanic : MonoBehaviour
         if (other.gameObject.tag == "Placement" && PlayerMovement.interacted == true &&
             ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0 && _teaCanBePlaced) // check the placement tag is the collision. If the player has used the interaction buttin within the collider
         {
-            for (int i = 0; i < _tables.Length; i++) // check the tables in the level
+            if (PlayerMovement.interacted == true) // if the player has used the interaction buttin within the collider
             {
-                if (_tables[i] == other.gameObject && _tables[i].transform.GetChild(0).gameObject.activeSelf == false)
+                for (int i = 0; i < _tables.Length; i++) // check the tables in the level
                 {
-                    _tables[i].transform.GetChild(0).gameObject.SetActive(true);
-                    FindObjectOfType<AudioManager>().Play("Pouring");
-                    ColorChange.colorSpots[i]._active = true;
-                    gameObject.GetComponent<AudioSource>().clip = midMusic;
-                    gameObject.GetComponent<AudioSource>().volume = .7f;
-                    gameObject.GetComponent<AudioSource>().Play();
-                    FindObjectOfType<AudioManager>().Play("Whistle1");
-                    ItemsInGame.SharedItems.teaPlaced += 1;
+                    if (_tables[i] == other.gameObject && _tables[i].transform.GetChild(0).gameObject.activeSelf == false)
+                    {
 
+                        _tables[i].transform.GetChild(0).gameObject.SetActive(true);
+                        FindObjectOfType<AudioManager>().Play("Pouring");
+                        ColorChange.colorSpots[i]._active = true;
+                        gameObject.GetComponent<AudioSource>().clip = midMusic;
+                        gameObject.GetComponent<AudioSource>().volume = .7f;
+                        gameObject.GetComponent<AudioSource>().Play();
+                        FindObjectOfType<AudioManager>().Play("Whistle1");
+                        ItemsInGame.SharedItems.teaPlaced += 1;
+
+
+                    }
 
                 }
-                else if (_tables[i].transform.GetChild(0).gameObject.activeSelf == true && _tables[i] == other.gameObject)
-                {
-                    ProjectileChange.newProjectiles.CantPlaceTea();
-                }
-
+                AllTeaPlacedCheck(); // checks if all objectives have been completed
+                PlayerMovement.interacted = false;
             }
-            AllTeaPlacedCheck(); // checks if all objectives have been completed
-            PlayerMovement.interacted = false;
         }
-
     }
     private void OnTriggerEnter(Collider other)
     {

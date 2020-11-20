@@ -18,7 +18,6 @@ public class PickupItems : MonoBehaviour
         {
             particles.SetActive(true);
             teapot.SetActive(false);
-            ProjectileChange.newProjectiles.DontBeSpottedVoid();
         }
         else if (ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0)
             ProjectileChange.newProjectiles.TeaPotAlreadyInHand();
