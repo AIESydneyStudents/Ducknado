@@ -31,6 +31,7 @@ public class LeavingGameUI : MonoBehaviour
     public void ReturnToLevelSelect()
     {
         FadingIn.SharedInstance.fadingIn = true;
+        Time.timeScale = 1;
         SceneManager.LoadScene(loadScene);
     }
 }
