@@ -19,5 +19,8 @@ public class PickupItems : MonoBehaviour
             particles.SetActive(true);
             teapot.SetActive(false);
         }
+        else if (ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0)
+            ProjectileChange.newProjectiles.TeaPotAlreadyInHand();
+
     }
 }

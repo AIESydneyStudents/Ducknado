@@ -10,6 +10,7 @@ public class ProjectileChange : MonoBehaviour
     [SerializeField] private GameObject fairy2;
     [SerializeField] private GameObject fairy3;
     [SerializeField] private Text tooManyProjectiles;
+    [SerializeField] private Text tooManyTeaPots;
     [SerializeField] private int timeBetweenText = 3;
     [SerializeField] private List<GameObject> teaImgs;
     public static ProjectileChange newProjectiles;
@@ -75,12 +76,23 @@ public class ProjectileChange : MonoBehaviour
     }
     public void TooMuchAmmo()
     {
-        StartCoroutine(Timer());
+        StartCoroutine(TimerProjectiles());
     }
-    IEnumerator Timer()
+    public void TeaPotAlreadyInHand()
+    {
+        StartCoroutine(TimerTeaPot());
+    }
+    IEnumerator TimerProjectiles()
     {
         tooManyProjectiles.gameObject.SetActive(true);
         yield return new WaitForSeconds(timeBetweenText);
         tooManyProjectiles.gameObject.SetActive(false);
     }
+    IEnumerator TimerTeaPot() 
+    {
+        tooManyTeaPots.gameObject.SetActive(true);
+        yield return new WaitForSeconds(timeBetweenText);
+        tooManyTeaPots.gameObject.SetActive(false);
+    }
+
 }

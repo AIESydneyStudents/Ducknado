@@ -602,6 +602,7 @@ MonoBehaviour:
   fairy2: {fileID: 0}
   fairy3: {fileID: 0}
   tooManyProjectiles: {fileID: 2278238070989498687}
+  tooManyTeaPots: {fileID: 3028745713578409781}
   timeBetweenText: 1
   teaImgs:
   - {fileID: 1658639862}
@@ -638,6 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 566752904063650861}
   gameMenu: {fileID: 5926360810667532512}
+  fadingPanel: {fileID: 3375645631973748436}
 --- !u!1 &566752904063650861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1138,83 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: You can't carry more of this
+--- !u!1 &2363927159039724002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7696254795109022578}
+  - component: {fileID: 8726615654275159403}
+  - component: {fileID: 3028745713578409781}
+  m_Layer: 0
+  m_Name: TooManyTeaPots.txt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &7696254795109022578
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363927159039724002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5063249263816243954}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 454, y: -635}
+  m_SizeDelta: {x: 764.2, y: 94.9}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8726615654275159403
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363927159039724002}
+  m_CullTransparentMesh: 0
+--- !u!114 &3028745713578409781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363927159039724002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: a4a3dbed653cb004da8d7cbef03d62ca, type: 3}
+    m_FontSize: 70
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 7
+    m_MaxSize: 70
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Can not carry any more Teapots!
 --- !u!1 &2586072340169376640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,6 +1764,7 @@ Transform:
   - {fileID: 2278238069925271144}
   - {fileID: 1244233807}
   - {fileID: 1072014055}
+  - {fileID: 7696254795109022578}
   m_Father: {fileID: 532218222444237853}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
