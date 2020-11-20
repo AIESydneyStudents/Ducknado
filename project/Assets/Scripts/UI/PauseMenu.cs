@@ -44,7 +44,9 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pauseMenu.SetActive(false);
-        gameMenu.SetActive(true);
+        Scene currentScene = SceneManager.GetActiveScene();
+        if(currentScene.name != "level selector")
+            gameMenu.SetActive(true);
         Time.timeScale = 1.0f;
         isPaused = false;
     } 
