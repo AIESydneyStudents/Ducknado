@@ -18,7 +18,7 @@ public class OnStart : MonoBehaviour
         Cursor.visible = true;
         textBoxDialogue.SetActive(true);
         FindObjectOfType<DialogueManager>().StartDialogue(newdialogue);
-        panelImage.color = new Color(0, 0, 0, 255);
+        panelImage.color = new Color(panelImage.color.r, panelImage.color.g, panelImage.color.b, 255);
     }
 
     //Update is called once per frame

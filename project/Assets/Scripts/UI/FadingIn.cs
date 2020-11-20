@@ -23,7 +23,7 @@ public class FadingIn : MonoBehaviour
     {
         if (fadingIn == true)
         {
-            fadingPanel.color = new Color(0, 0, 0, _alphaIn += 0.5f * Time.unscaledDeltaTime);
+            fadingPanel.color = new Color(fadingPanel.color.r, fadingPanel.color.g, fadingPanel.color.b, _alphaIn += 0.5f * Time.unscaledDeltaTime);
             fadingOut = false;
             if (fadingPanel.color.a >= 1)
             {
@@ -32,7 +32,7 @@ public class FadingIn : MonoBehaviour
         }
         if(fadingOut == true)
         {
-            fadingPanel.color = new Color(0, 0, 0, _alpha -= 0.5f * Time.unscaledDeltaTime);
+            fadingPanel.color = new Color(fadingPanel.color.r, fadingPanel.color.g, fadingPanel.color.b, _alpha -= 0.5f * Time.unscaledDeltaTime);
             fadingIn = false;
             if (fadingPanel.color.a <= 0)
             {
