@@ -20,6 +20,7 @@ public class CameraPan : MonoBehaviour
     void Start()
     {
         uiDisable.gameObject.SetActive(false);
+        uiDisable2.gameObject.SetActive(false);
         PauseMenu.isFinished = true;
         Cursor.lockState = CursorLockMode.None;
         startPos = waypoint1.transform.position;
