@@ -549,17 +549,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031689652456351903}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4031689653008085284}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 36.84, y: -23.480011}
-  m_SizeDelta: {x: 386.65997, y: 216.54999}
+  m_AnchoredPosition: {x: 2.5, y: -72.7}
+  m_SizeDelta: {x: 328.6, y: 870.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4031689652456351896
 CanvasRenderer:
@@ -582,12 +582,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: e33cb5826ed69084f86891d8d247092e, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 3.89
 --- !u!1 &4031689652615787494
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,12 +836,12 @@ PrefabInstance:
     - target: {fileID: 5747130844695835135, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 159.54
+      value: 339
       objectReference: {fileID: 0}
     - target: {fileID: 5747130844695835135, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -107.5
+      value: -119
       objectReference: {fileID: 0}
     - target: {fileID: 5747130844695835135, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
