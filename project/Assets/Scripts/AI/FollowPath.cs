@@ -178,12 +178,16 @@ public class FollowPath : MonoBehaviour
     }
     private void DistractionDetected()
     {
-        if (fov._butterflyDistraction.activeSelf && fov._distractionFound)
+        if (fov._distractionFound)
         {
             fov._targetFound = false;
-            _targetVector = fov._butterflyDistraction.transform.position;
+            if (fov._butterfly != null)
+            {
+                _targetVector = fov._butterfly.transform.position;
 
-            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
+                _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
+            }
+
         }
     }
 }

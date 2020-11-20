@@ -38,7 +38,7 @@ public class FieldOfView : MonoBehaviour
     public GameObject player;
 
     [HideInInspector]
-    public GameObject _butterflyDistraction;
+    public GameObject _butterfly;
 
     PlayerRestart restart;
 
@@ -51,8 +51,6 @@ public class FieldOfView : MonoBehaviour
 
     void Start()
     {
-        _butterflyDistraction = objPooling.SharedInstance.GetPooledObject("FairyBull"); //Stores the info on the butterfly distraction game object
-
         player = GameObject.FindGameObjectWithTag("Player");
 
         viewMesh = new Mesh(); //Creates Mesh on start
@@ -65,7 +63,6 @@ public class FieldOfView : MonoBehaviour
         oldViewAngle = viewAngle; //stores the initialised value
 
         restart = player.GetComponent<PlayerRestart>();
-        //teaPlace= player.GetComponent<TeaPlaceMechanic>();
 
         StartCoroutine("FindTargetsWithDelay", .2f);
     }
@@ -103,24 +100,29 @@ public class FieldOfView : MonoBehaviour
                 restart._playerPosrestart = false;
                 _targetFound = false;
                 TeaPlaceMechanic._teaCanBePlaced = true;
-
             }
         }
     }
 
     public void DistractionInRange() //Checks if there is any distractions in the fov and will set bools for each distraction that is found to true
     {
-        Vector3 dirToButterfly = (_butterflyDistraction.transform.position - transform.position);
+        _butterfly = GameObject.FindGameObjectWithTag("FairyBull");
+        if (_butterfly != null)
+        {
 
-        if (Vector3.Distance(transform.forward, dirToButterfly) <= viewRadius && _butterflyDistraction.activeSelf)
-        {
-            _targetFound = false;
-            _distractionFound = true;
+            Vector3 dirToButterfly = (_butterfly.transform.position - transform.position);
+            if (Vector3.Distance(transform.forward, dirToButterfly) <= viewRadius)
+            {
+                _targetFound = false;
+                _distractionFound = true;
+            }
+            else
+            {
+                _distractionFound = false;
+            }
         }
-        else
-        {
-            _distractionFound = false;
-        }
+
+        
     }
     void DrawFieldOfView()
     {
