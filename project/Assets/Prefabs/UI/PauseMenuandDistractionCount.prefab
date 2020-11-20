@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 331251610}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5984, y: 2.5984, z: 2.5984}
   m_Children: []
   m_Father: {fileID: 1072014055}
   m_RootOrder: 2
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 356fb6aaf87ba7642924de196c8b0f30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3525c855edefbed418df015751a409bb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -133,15 +133,15 @@ RectTransform:
   m_GameObject: {fileID: 1244233804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.1721127}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.6496, y: 2.6496, z: 2.6496}
   m_Children: []
   m_Father: {fileID: 5063249263816243954}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -279.7, y: 146}
-  m_SizeDelta: {x: 84.8, y: 56.1}
+  m_AnchoredPosition: {x: -269, y: 146}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1244233806
 CanvasRenderer:
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 943afc8c0392c754b821ef32ab15884f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76a4245cdf523f743944a312126d9e95, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -206,7 +206,7 @@ RectTransform:
   m_GameObject: {fileID: 1658639862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5984, y: 2.5984, z: 2.5984}
   m_Children: []
   m_Father: {fileID: 1072014055}
   m_RootOrder: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 356fb6aaf87ba7642924de196c8b0f30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3525c855edefbed418df015751a409bb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -279,7 +279,7 @@ RectTransform:
   m_GameObject: {fileID: 1907458507}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5984, y: 2.5984, z: 2.5984}
   m_Children: []
   m_Father: {fileID: 1072014055}
   m_RootOrder: 1
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 356fb6aaf87ba7642924de196c8b0f30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3525c855edefbed418df015751a409bb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -403,10 +403,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -829,7 +829,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Teapots: '
+  m_Text: 'Teapot: '
 --- !u!1 &2278238070204303374
 GameObject:
   m_ObjectHideFlags: 0
