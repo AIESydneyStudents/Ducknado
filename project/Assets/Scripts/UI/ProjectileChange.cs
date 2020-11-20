@@ -111,15 +111,15 @@ public class ProjectileChange : MonoBehaviour
     }
     private IEnumerator DontBeSpotted()
     {
-        tooManyTeaPots.gameObject.SetActive(true);
+        dontBeSpottedTxt.gameObject.SetActive(true);
         yield return new WaitForSeconds(timeBetweenText);
-        tooManyTeaPots.gameObject.SetActive(false);
+        dontBeSpottedTxt.gameObject.SetActive(false);
     }
     private IEnumerator CantPlaceTeaSeen()
     {
-        tooManyTeaPots.gameObject.SetActive(true);
+        cantPlaceTeaTxt.gameObject.SetActive(true);
         yield return new WaitForSeconds(timeBetweenText);
-        tooManyTeaPots.gameObject.SetActive(false);
+        cantPlaceTeaTxt.gameObject.SetActive(false);
     }
     private IEnumerator DisablingTeaPlace()
     {

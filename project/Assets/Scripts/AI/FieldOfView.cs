@@ -48,11 +48,11 @@ public class FieldOfView : MonoBehaviour
     public MeshRenderer _viewMeshRenderer;
 
     Mesh viewMesh; //The mesh that is created for th npc
-    GameObject teaImage;
+    [HideInInspector] public GameObject teaImage;
+    bool activeOnce = false;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        teaImage = GameObject.FindGameObjectWithTag("TeaPotImg");
         viewMesh = new Mesh(); //Creates Mesh on start
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
@@ -90,18 +90,26 @@ public class FieldOfView : MonoBehaviour
         if (Vector3.Angle(transform.forward, dirToPlayer) < viewAngle / 2)
         {
             float dstToTarget = Vector3.Distance(transform.position, player.transform.position);
+
             if (!Physics.Raycast(transform.position, dirToPlayer, dstToTarget, _obstacleMask) && dstToTarget <= viewRadius)
             {
                 _targetFound = true;
                 TeaPlaceMechanic._teaCanBePlaced = false;
-                if (teaImage.activeSelf == true)
-                    ProjectileChange.newProjectiles.CantPlaceTeaSeenVoid();
+                //teaImage = GameObject.FindGameObjectWithTag("TeaPotImg");
+                //if (teaImage.activeSelf == true && activeOnce == false)
+                //{
+                //    activeOnce = true;
+                //    ProjectileChange.newProjectiles.CantPlaceTeaSeenVoid();
+                //}
             }
             else
             {
+                //teaImage = GameObject.FindGameObjectWithTag("TeaPotImg");
                 restart._playerPosrestart = false;
                 _targetFound = false;
                 TeaPlaceMechanic._teaCanBePlaced = true;
+                //if (teaImage.activeSelf == true && activeOnce == true)
+                //    activeOnce = false;
             }
         }
     }
@@ -124,7 +132,7 @@ public class FieldOfView : MonoBehaviour
             }
         }
 
-        
+
     }
     void DrawFieldOfView()
     {
