@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6781801844317022038}
   - component: {fileID: 2653638822485902508}
   - component: {fileID: -7622545979007698733}
+  - component: {fileID: 3933666105227252971}
   m_Layer: 5
   m_Name: UI Button
   m_TagString: Untagged
@@ -39,8 +40,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 17.3}
-  m_SizeDelta: {x: 233.7, y: 40.93}
+  m_AnchoredPosition: {x: 20, y: 18.964}
+  m_SizeDelta: {x: 220.06, y: 101.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5863645371108403159
 CanvasRenderer:
@@ -68,8 +69,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ea9c5d42fcbc615419beb5db83b9fd56, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -96,7 +97,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 0.363858, g: 0.814, b: 0.4780158, a: 1}
     m_HighlightedColor: {r: 0.8185614, g: 0.8773585, b: 0.31038627, a: 1}
@@ -287,6 +288,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!95 &3933666105227252971
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639196341582047182}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e83ca5f442c7f446af0aa4dcd85779b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8968098495089535202
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +334,7 @@ RectTransform:
   m_GameObject: {fileID: 8968098495089535202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.468, y: 0.468, z: 0.468}
+  m_LocalScale: {x: 0.47036573, y: 0.49029222, z: 0.7716852}
   m_Children: []
   m_Father: {fileID: 5747130844695835135}
   m_RootOrder: 0
