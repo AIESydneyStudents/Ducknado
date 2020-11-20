@@ -29404,6 +29404,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1277533226}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1281607661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7634214012050965481, guid: 3ed24b2957541bd4c94d4b60c81b25be,
+    type: 3}
+  m_PrefabInstance: {fileID: 3152697425254084870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1282836253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29872,6 +29878,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1288476223}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1292034483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5535635380658386493, guid: 4af5d11b6c3d21e49aed7e0891efddc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1472587763}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1292034484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292034483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d35f9e84a36a64abec4372030c75db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadScene: level selector
+  changeLevel: {fileID: 1281607661}
+  uiDisable: {fileID: 994624005}
 --- !u!1001 &1295779905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31622,7 +31649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2131957081, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.032189127
+      value: 0.032189142
       objectReference: {fileID: 0}
     - target: {fileID: 2131957081, guid: 0b9a04d12fa33db45a7f76e08083fe79, type: 3}
       propertyPath: m_LocalRotation.x
@@ -35560,6 +35587,26 @@ PrefabInstance:
         type: 3}
       propertyPath: loadScene
       value: level selector
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535635380658386494, guid: 4af5d11b6c3d21e49aed7e0891efddc0,
+        type: 3}
+      propertyPath: leavingLevel
+      value: 
+      objectReference: {fileID: 1281607661}
+    - target: {fileID: 5535635380658386494, guid: 4af5d11b6c3d21e49aed7e0891efddc0,
+        type: 3}
+      propertyPath: changeLevel
+      value: 
+      objectReference: {fileID: 1281607661}
+    - target: {fileID: 5535635380658386494, guid: 4af5d11b6c3d21e49aed7e0891efddc0,
+        type: 3}
+      propertyPath: uiDisable
+      value: 
+      objectReference: {fileID: 994624005}
+    - target: {fileID: 5535635380658386494, guid: 4af5d11b6c3d21e49aed7e0891efddc0,
+        type: 3}
+      propertyPath: switchSceneNotLevelSelect
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4af5d11b6c3d21e49aed7e0891efddc0, type: 3}
@@ -52607,6 +52654,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1067185164390624077, guid: 3ed24b2957541bd4c94d4b60c81b25be,
+        type: 3}
+      propertyPath: m_Text
+      value: Are you sure you want to exit?
+      objectReference: {fileID: 0}
     - target: {fileID: 2278238070766507004, guid: 3ed24b2957541bd4c94d4b60c81b25be,
         type: 3}
       propertyPath: fadingPanel
@@ -52631,6 +52683,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 186
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221168900329461375, guid: 3ed24b2957541bd4c94d4b60c81b25be,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1292034484}
+    - target: {fileID: 6221168900329461375, guid: 3ed24b2957541bd4c94d4b60c81b25be,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToLevelSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483000897256073646, guid: 3ed24b2957541bd4c94d4b60c81b25be,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1292034484}
+    - target: {fileID: 7483000897256073646, guid: 3ed24b2957541bd4c94d4b60c81b25be,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634214012050965481, guid: 3ed24b2957541bd4c94d4b60c81b25be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed24b2957541bd4c94d4b60c81b25be, type: 3}

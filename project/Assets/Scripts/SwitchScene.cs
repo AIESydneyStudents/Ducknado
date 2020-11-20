@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class SwitchScene : MonoBehaviour
 {
     [SerializeField] private string loadScene;
-
+    [SerializeField] private bool switchSceneNotLevelSelect = true;
     IEnumerator OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && switchSceneNotLevelSelect == true)
         {
             FadingIn.SharedInstance.fadingIn = true;
             yield return new WaitForSeconds(2);

@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1244233805}
   m_Layer: 5
   m_Name: TeaCup.Img
-  m_TagString: Untagged
+  m_TagString: TeaPotImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
   fairy2: {fileID: 0}
   fairy3: {fileID: 0}
   tooManyProjectiles: {fileID: 2278238070989498687}
-  tooManyTeaPots: {fileID: 0}
+  tooManyTeaPots: {fileID: 3028745713578409781}
   noTeaPlacement: {fileID: 3137230973502718524}
   dontBeSpottedTxt: {fileID: 2581917398643664507}
   cantPlaceTeaTxt: {fileID: 4488672549849290789}
@@ -522,8 +522,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: 116.89996}
-  m_SizeDelta: {x: 769.1, y: 123.1}
+  m_AnchoredPosition: {x: -19, y: 115}
+  m_SizeDelta: {x: 913.1, y: 123.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8004322266815400290
 CanvasRenderer:
@@ -564,7 +564,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Are you sure you want to exit?
+  m_Text: Are you sure you want to continue?
 --- !u!1 &566752904063650861
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9139022038005039849
 Transform:
   m_ObjectHideFlags: 0
@@ -1074,11 +1074,11 @@ GameObject:
   - component: {fileID: 7783500804405193763}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: Fade Out
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &403214529186719530
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1235,7 +1235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5926360810667532512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -471, y: 224, z: -1.1721127}
+  m_LocalPosition: {x: -471, y: 186, z: -1.1721127}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2278238069616698433}
@@ -1490,7 +1490,7 @@ PrefabInstance:
     - target: {fileID: 8365820675741758943, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
+      value: ResumeScene
       objectReference: {fileID: 0}
     - target: {fileID: 8365820675741758943, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
@@ -2003,7 +2003,7 @@ PrefabInstance:
     - target: {fileID: 8365820675741758943, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
+      value: ReturnToLevelSelect
       objectReference: {fileID: 0}
     - target: {fileID: 9213030834235484464, guid: ac8ffff40fb087c41b30506b089faac9,
         type: 3}
