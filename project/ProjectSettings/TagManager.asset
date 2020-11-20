@@ -15,6 +15,7 @@ TagManager:
   - Wall
   - TeaCup
   - Leaf
+  - TeaPotImg
   layers:
   - Default
   - TransparentFX
