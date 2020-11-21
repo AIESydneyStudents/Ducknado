@@ -60,24 +60,21 @@ public class FollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fov._targetFound && !restart._playerPosrestart && fov._distractionFound == false) //if the player has been caught in NPC LOS
+        if (fov._targetFound && !restart._playerPosrestart) //if the player has been caught in NPC LOS
         {
             SeekingPlayer();
 
             if (restart._playerPosrestart)
             {
-                fov._targetFound = false;
                 PathFinding();
             }
         }
         if (!fov._targetFound || restart._playerPosrestart)
         {
-            fov._targetFound = false;
             PathFinding();
         }
         if (fov._distractionFound)
         {
-            fov._targetFound = false;
             DistractionDetected();
         }
 
@@ -156,11 +153,11 @@ public class FollowPath : MonoBehaviour
 
     private void SeekingPlayer()
     {
-        if (fov._distractionFound)
-        {
-            fov._targetFound = false;
-            DistractionDetected();
-        }
+        //if (fov._distractionFound)
+        //{
+        //    fov._targetFound = false;
+        //    DistractionDetected();
+        //}
         if (restart._playerPosrestart)
         {
             PathFinding();
@@ -178,16 +175,12 @@ public class FollowPath : MonoBehaviour
     }
     private void DistractionDetected()
     {
-        if (fov._distractionFound)
+        if (fov._butterfly != null)
         {
-            fov._targetFound = false;
-            if (fov._butterfly != null)
-            {
                 _targetVector = fov._butterfly.transform.position;
 
                 _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
-            }
-
+            
         }
     }
 }
