@@ -8,8 +8,14 @@ public class FollowPath : MonoBehaviour
     [SerializeField]
     bool _patrolWaiting; //used to change the object between waiting at points for set time or no waiting if false
 
+
     [SerializeField]
     float _waitTime = 3f; // controls the wait time at each waypoint
+
+    bool _playerSearching = false;
+
+    [SerializeField]
+    float _searchTime = 2f;
 
     public float _chasingSpeed = 0f;
     float currentSpeed;
@@ -71,7 +77,14 @@ public class FollowPath : MonoBehaviour
         }
         if (!fov._targetFound || restart._playerPosrestart)
         {
-            PathFinding();
+            if (_playerSearching)
+            {
+                SearchingForPlayer();
+            }
+            else
+            {
+                PathFinding();
+            }
         }
         if (fov._distractionFound)
         {
@@ -122,6 +135,7 @@ public class FollowPath : MonoBehaviour
         _navMeshAgent.speed = currentSpeed;
 
         fov._targetFound = false;
+        _playerSearching = false;
 
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f) // if the object is travelling and checks the distance is less than 1 unit
         {
@@ -151,13 +165,18 @@ public class FollowPath : MonoBehaviour
         }
     }
 
+    private void SearchingForPlayer()
+    {
+        _waitTimer += Time.deltaTime;
+
+        if (_waitTimer >= _searchTime) // if the timer greater than the requested wait time, object is no longer waiting and new position is set
+        {
+            _playerSearching = false;
+            _waitTimer = 0f;
+        }
+    }
     private void SeekingPlayer()
     {
-        //if (fov._distractionFound)
-        //{
-        //    fov._targetFound = false;
-        //    DistractionDetected();
-        //}
         if (restart._playerPosrestart)
         {
             PathFinding();
@@ -168,19 +187,21 @@ public class FollowPath : MonoBehaviour
             animator.SetTrigger("running");
             _navMeshAgent.speed = _chasingSpeed;
 
-           _targetVector = player.transform.position; //target is changed from previous function to player
+            _targetVector = player.transform.position; //target is changed from previous function to player
 
             _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target    
         }
+        _playerSearching = true;
+
     }
     private void DistractionDetected()
     {
         if (fov._butterfly != null)
         {
-                _targetVector = fov._butterfly.transform.position;
+            _targetVector = fov._butterfly.transform.position;
 
-                _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
-            
+            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
+
         }
     }
 }
