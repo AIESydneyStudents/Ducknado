@@ -40,10 +40,10 @@
 
             //Spherical Mask
             int color_arrLength;
-            float color_radius[10];
-            float color_softness[10];
+            float color_radius[15];
+            float color_softness[15];
 
-            fixed4 color_positions[10];
+            fixed4 color_positions[15];
 
 
             // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
