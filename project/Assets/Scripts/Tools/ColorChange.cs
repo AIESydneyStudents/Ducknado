@@ -17,6 +17,19 @@ public class ColorChange : MonoBehaviour
     GameObject[] _tables;
     void Start()
     {
+        colorSpots.Clear();
+        //foreach (var item in colorSpots)
+        //{
+        //    _defaultLocations.Add(new Vector4(0, 0, 0));
+        //    _defaultRadius.Add(0);
+        //    _defaultSoftness.Add(0);
+        //}
+        //Shader.SetGlobalInt("color_arrLength", colorSpots.Count);
+        //Shader.SetGlobalVectorArray("color_positions", _defaultLocations);
+        //Shader.SetGlobalFloatArray("color_radius", _defaultRadius);
+        //Shader.SetGlobalFloatArray("color_softness", _defaultSoftness);
+
+
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
 
         for (int i = 0; i < _tables.Length; i++)
@@ -24,17 +37,9 @@ public class ColorChange : MonoBehaviour
             Add(_tables[i].transform.position, 1, _GrowthSize, 0);
         }
 
-        foreach (var item in colorSpots)
-        {
-            _defaultLocations.Add(new Vector4(0, 0, 0));
-            _defaultRadius.Add(0);
-            _defaultSoftness.Add(0);
-        }
 
-        Shader.SetGlobalInt("color_arrLength", colorSpots.Count);
-        Shader.SetGlobalVectorArray("color_positions", _defaultLocations);
-        Shader.SetGlobalFloatArray("color_radius", _defaultRadius);
-        Shader.SetGlobalFloatArray("color_softness", _defaultSoftness);
+
+
     }
 
     void Update()
