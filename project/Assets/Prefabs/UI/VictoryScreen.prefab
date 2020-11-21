@@ -115,6 +115,7 @@ MonoBehaviour:
   waypoint2: {fileID: 6040218440012087205}
   speed: 1.03
   lerpTime: 30
+  uiDisable: {fileID: 0}
 --- !u!1 &6040218440224570157
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +559,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 122.29999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637463357301346552, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637463357301346552, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637463357301346552, guid: 8b25fa60000d44841896985b42ce19b4,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 4637463357301346554, guid: 8b25fa60000d44841896985b42ce19b4,
         type: 3}

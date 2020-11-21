@@ -32,7 +32,7 @@ GameObject:
   - component: {fileID: 7620363164162509618}
   - component: {fileID: 7620363164162509621}
   - component: {fileID: 2025205438}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: ButterflyPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,6 +211,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow
       objectReference: {fileID: 0}
+    - target: {fileID: 8279117807505114518, guid: 36972cc1ac6da5549ac3bdc0ed8b80de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36972cc1ac6da5549ac3bdc0ed8b80de, type: 3}
 --- !u!1001 &1123196062541214847
@@ -224,6 +229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButterflyExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005391871035784354, guid: bc9a398ac3f72cf4ea4dd78dedf8804b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 7567222212263697330, guid: bc9a398ac3f72cf4ea4dd78dedf8804b,
         type: 3}
@@ -326,6 +336,16 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8935908684282016428, guid: 419c5116bab34f343b6eced43b5ba4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: -5348287316967240767, guid: 419c5116bab34f343b6eced43b5ba4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 419c5116bab34f343b6eced43b5ba4ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -396,10 +416,45 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.1586733
       objectReference: {fileID: 0}
+    - target: {fileID: -3549675329253335345, guid: 419c5116bab34f343b6eced43b5ba4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: -1179992925516525118, guid: 419c5116bab34f343b6eced43b5ba4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 419c5116bab34f343b6eced43b5ba4ec,
         type: 3}
       propertyPath: m_Name
       value: Obj_Butterfly_Anim
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 419c5116bab34f343b6eced43b5ba4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 973372770314338416, guid: 419c5116bab34f343b6eced43b5ba4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728896739213492504, guid: 419c5116bab34f343b6eced43b5ba4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5133913965574556032, guid: 419c5116bab34f343b6eced43b5ba4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392069088223654447, guid: 419c5116bab34f343b6eced43b5ba4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 419c5116bab34f343b6eced43b5ba4ec, type: 3}

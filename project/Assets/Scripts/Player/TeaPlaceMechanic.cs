@@ -50,6 +50,7 @@ public class TeaPlaceMechanic : MonoBehaviour
             {
                 if (_tables[i] == other.gameObject && _tables[i].transform.GetChild(0).gameObject.activeSelf == false)
                 {
+
                     _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                     FindObjectOfType<AudioManager>().Play("Pouring");
                     ColorChange.colorSpots[i]._active = true;
@@ -69,8 +70,8 @@ public class TeaPlaceMechanic : MonoBehaviour
             }
             AllTeaPlacedCheck(); // checks if all objectives have been completed
             PlayerMovement.interacted = false;
-        }
 
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -106,8 +107,7 @@ public class TeaPlaceMechanic : MonoBehaviour
 
     public void DisplayCanvas() // Displays the stars at the end of the level based off the final time of the game
     {
-        gameObject.GetComponent<AudioSource>().clip = endMusic;
-        gameObject.GetComponent<AudioSource>().Play();
+
         _victory.gameObject.tag = "Finish";
         _victory.gameObject.SetActive(true);
 

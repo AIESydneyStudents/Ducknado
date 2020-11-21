@@ -85,23 +85,17 @@ public class ProjectileChange : MonoBehaviour
     {
         StartCoroutine(TimerTeaPot());
     }
-    public void CantPlaceTea() 
+    public void CantPlaceTea()
     {
         StartCoroutine(DisablingTeaPlace());
     }
-    public void DontBeSpottedVoid() 
+    public void DontBeSpottedVoid()
     {
         StartCoroutine(DontBeSpotted());
     }
-    public void CantPlaceTeaSeenVoid() 
+    public void CantPlaceTeaSeenVoid()
     {
         StartCoroutine(CantPlaceTeaSeen());
-    }
-    private IEnumerator DisablingTeaPlace() 
-    {
-        noTeaPlacement.gameObject.SetActive(true);
-        yield return new WaitForSeconds(timeBetweenText);
-        noTeaPlacement.gameObject.SetActive(false);
     }
     private IEnumerator TimerProjectiles()
     {
@@ -115,17 +109,23 @@ public class ProjectileChange : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenText);
         tooManyTeaPots.gameObject.SetActive(false);
     }
-    private IEnumerator DontBeSpotted() 
+    private IEnumerator DontBeSpotted()
     {
         dontBeSpottedTxt.gameObject.SetActive(true);
         yield return new WaitForSeconds(timeBetweenText);
         dontBeSpottedTxt.gameObject.SetActive(false);
     }
-    private IEnumerator CantPlaceTeaSeen() 
+    private IEnumerator CantPlaceTeaSeen()
     {
         cantPlaceTeaTxt.gameObject.SetActive(true);
         yield return new WaitForSeconds(timeBetweenText);
         cantPlaceTeaTxt.gameObject.SetActive(false);
+    }
+    private IEnumerator DisablingTeaPlace()
+    {
+        noTeaPlacement.gameObject.SetActive(true);
+        yield return new WaitForSeconds(timeBetweenText);
+        noTeaPlacement.gameObject.SetActive(false);
     }
 
 }
