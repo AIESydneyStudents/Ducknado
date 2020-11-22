@@ -47,10 +47,16 @@ public class PlayerMovement : MonoBehaviour
             interacted = false;
         if (DistractionController.sharedInstance != null)
         {
-            if (shooting == 0)//If the player has shot.
+            if (!Input.GetKeyDown(KeyCode.Space))//If the player has shot.
                 DistractionController.sharedInstance.isFloating = false;
-            else
+            else if(Input.GetKeyDown(KeyCode.Space))
                 DistractionController.sharedInstance.isFloating = true;
+
+
+            //if (shooting == 0)//If the player has shot.
+            //    DistractionController.sharedInstance.isFloating = false;
+            //else
+            //    DistractionController.sharedInstance.isFloating = true;
         }
 
 
