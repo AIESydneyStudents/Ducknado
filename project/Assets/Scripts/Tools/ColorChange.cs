@@ -21,7 +21,12 @@ public class ColorChange : MonoBehaviour
     GameObject[] _tables;
     void Start()
     {
-        colorSpots.Clear();
+        if (colorSpots != null)
+        {
+            colorSpots.Clear();
+
+        }
+
 
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
 
