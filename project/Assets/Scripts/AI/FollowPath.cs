@@ -40,7 +40,7 @@ public class FollowPath : MonoBehaviour
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        //animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         restart = player.GetComponent<PlayerRestart>();
         _navMeshAgent = this.GetComponent<NavMeshAgent>(); // gets the navmesh component of the gameobject this script is attached to
         animator.SetTrigger("walking");

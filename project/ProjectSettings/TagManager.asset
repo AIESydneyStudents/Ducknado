@@ -16,6 +16,7 @@ TagManager:
   - TeaCup
   - Leaf
   - TeaPotImg
+  - GameView
   layers:
   - Default
   - TransparentFX
