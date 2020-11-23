@@ -12,8 +12,9 @@ public class LeavingGameUI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
-            if(uiDisable != null)
+            if(SceneManager.GetSceneByName("level selector") != SceneManager.GetActiveScene())
+                Time.timeScale = 0;
+            if (uiDisable != null)
                 uiDisable.SetActive(false);
             if(changeLevel != null)
                 changeLevel.SetActive(true);

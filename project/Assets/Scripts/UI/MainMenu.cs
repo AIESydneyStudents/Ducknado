@@ -15,7 +15,6 @@ public class MainMenu : MonoBehaviour
     public void ChangeScenes(string level)
     {
         Time.timeScale = 1f;
-        //FadeOutScreen.SharedInstance.wasMainMenu = true;
         SceneManager.LoadScene(level);
         if (level == "Menu")
         {
