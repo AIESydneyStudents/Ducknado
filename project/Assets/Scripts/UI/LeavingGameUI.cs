@@ -13,8 +13,10 @@ public class LeavingGameUI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Time.timeScale = 0;
-            uiDisable.SetActive(false);
-            changeLevel.SetActive(true);
+            if(uiDisable != null)
+                uiDisable.SetActive(false);
+            if(changeLevel != null)
+                changeLevel.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
