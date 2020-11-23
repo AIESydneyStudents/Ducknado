@@ -12,7 +12,7 @@ public class LeavingGameUI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Time.timeScale = 0;
+            
             if(uiDisable != null)
                 uiDisable.SetActive(false);
             if(changeLevel != null)
