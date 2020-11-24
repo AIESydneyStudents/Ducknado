@@ -17,6 +17,8 @@ TagManager:
   - Leaf
   - TeaPotImg
   - GameView
+  - PauseMenu
+  - LeavingLevel
   layers:
   - Default
   - TransparentFX

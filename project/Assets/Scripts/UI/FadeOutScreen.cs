@@ -30,6 +30,7 @@ public class FadeOutScreen : MonoBehaviour
             _fadeOutScreen = GameObject.FindGameObjectWithTag("Fade Out");
             _black = _fadeOutScreen.GetComponent<Image>();
             child = GameObject.FindGameObjectWithTag("GameView");
+            GameObject.FindGameObjectWithTag("Fade Out").SetActive(true);
         }
     }
 
@@ -40,6 +41,8 @@ public class FadeOutScreen : MonoBehaviour
         {
             child.SetActive(false);
             _fadeOutScreen.SetActive(true);
+            if (_black == null)
+                _black = _fadeOutScreen.GetComponent<Image>();
             _black.color = new Color(_black.color.r, _black.color.g, _black.color.b, _alphaIn += 0.5f * Time.unscaledDeltaTime);
             fadeOut = false;
             if (_black.color.a >= 1)
@@ -50,6 +53,8 @@ public class FadeOutScreen : MonoBehaviour
         }
         if (fadeOut == true)
         {
+            if (_black == null)
+                _black = _fadeOutScreen.GetComponent<Image>();
             _black.color = new Color(_black.color.r, _black.color.g, _black.color.b, _alpha -= 0.5f * Time.unscaledDeltaTime);
             fadeIn = false;
             if (_black.color.a <= 0)
