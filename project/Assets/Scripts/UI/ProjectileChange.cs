@@ -35,7 +35,6 @@ public class ProjectileChange : MonoBehaviour
         switch (DistractionController.inHandProjectile)
         {
             case 0:
-                textButterfly.gameObject.SetActive(true);//Text Fairy
                 ButterflyInHand();
                 break;
         }

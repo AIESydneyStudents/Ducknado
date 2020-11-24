@@ -25,6 +25,7 @@ public class TeaPlaceMechanic : MonoBehaviour
     public float _twoStarRating;
     public float _threeStarRating;
 
+    private bool transitionDone = false;
     private void Start()
     {
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
@@ -32,13 +33,37 @@ public class TeaPlaceMechanic : MonoBehaviour
     }
     private void Update()
     {
-        if (AllTeaPlacedCheck()) // if all tea has been placed run this code
+        if (AllTeaPlacedCheck() && transitionDone == false) // if all tea has been placed run this code
         {
-
-            DisplayCanvas();
+            StartCoroutine(StopTimer());
         }
     }
+    IEnumerator StopTimer()
+    {
+        Time.timeScale = 0;
+        GameObject.FindGameObjectWithTag("Fade Out").SetActive(true);
+        FadeOutScreen.SharedInstance.fadeIn = true;
+        yield return StartCoroutine(MyCoroutine(2));
+        FadeOutScreen.SharedInstance.fadeIn = false;
+        FadeOutScreen.SharedInstance.fadeOut = true;
+        DisplayCanvas();
+        transitionDone = true;
+        yield return StartCoroutine(MyCoroutine(2));
+        FadeOutScreen.SharedInstance.fadeIn = false;
+        FadeOutScreen.SharedInstance.fadeOut = false;
+        transitionDone = true;
+        Time.timeScale = 1;
+    }
 
+
+    private IEnumerator MyCoroutine(float timer)
+    {
+        float startTime = Time.realtimeSinceStartup;
+        while (Time.realtimeSinceStartup < timer + startTime)
+        {
+            yield return null;
+        }
+    }
 
     private void OnTriggerStay(Collider other) // used to check if player is near a placement table
     {

@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 532218222444237825}
   - component: {fileID: 2278238070766507003}
   - component: {fileID: 2278238070766507004}
+  - component: {fileID: 9181758902910500083}
   m_Layer: 5
   m_Name: PauseMenuandDistractionCount
   m_TagString: Untagged
@@ -488,6 +489,22 @@ MonoBehaviour:
   pauseMenu: {fileID: 566752904063650861}
   gameMenu: {fileID: 5926360810667532512}
   fadingPanel: {fileID: 3375645631973748436}
+--- !u!114 &9181758902910500083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532218222444237852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb0421abc1c97942b5902dbeebdd8b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userPrompts: {fileID: 0}
+  fadeIn: 0
+  fadeOut: 0
+  wasMainMenu: 0
 --- !u!1 &550438217297220466
 GameObject:
   m_ObjectHideFlags: 0

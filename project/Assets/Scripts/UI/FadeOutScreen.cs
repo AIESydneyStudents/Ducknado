@@ -2,35 +2,82 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FadeOutScreen : MonoBehaviour
 {
     GameObject _fadeOutScreen;
     Image _black;
+    GameObject child;
+    // Start is called before the first frame update
+    // Update is called once per frame
+    [SerializeField] public GameObject userPrompts;
+    private float _alphaIn = 0;
+    private float _alpha = 1;
+    [HideInInspector] public bool fadeIn = false;
+    [HideInInspector] public bool fadeOut = false;
+    [HideInInspector] public bool wasMainMenu = false;
+    public static FadeOutScreen SharedInstance;
 
-
-    public static bool _fadeIn = false; //allows to check whether to fade in
-    public static bool _fadeOut = false; //allows to check whether to fade in
-    float _alpha;
     // Start is called before the first frame update
     void Awake()
     {
-        _fadeOutScreen = GameObject.FindGameObjectWithTag("Fade Out");
-        _black = _fadeOutScreen.GetComponentInChildren<Image>();
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        SharedInstance = this;
+        if (sceneName != "Menu")
+        {
+            _fadeOutScreen = GameObject.FindGameObjectWithTag("Fade Out");
+            _black = _fadeOutScreen.GetComponent<Image>();
+            child = GameObject.FindGameObjectWithTag("GameView");
+            GameObject.FindGameObjectWithTag("Fade Out").SetActive(true);
+        }
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    public void Update()
     {
-        if (_fadeOut == true) //fade in the screen
+        if (fadeIn == true)
         {
+            child.SetActive(false);
             _fadeOutScreen.SetActive(true);
-            _black.color = new Color(0, 0, 0, _alpha += 0.5f * Time.deltaTime);
+            if (_black == null)
+                _black = _fadeOutScreen.GetComponent<Image>();
+            _black.color = new Color(_black.color.r, _black.color.g, _black.color.b, _alphaIn += 0.5f * Time.unscaledDeltaTime);
+            fadeOut = false;
+            if (_black.color.a >= 1)
+            {
+                fadeIn = false;
+                _alphaIn = 0;
+            }
         }
-        if (_fadeIn == true) //fade in the screen
+        if (fadeOut == true)
         {
-            _black.color = new Color(0, 0, 0, _alpha -= 0.5f * Time.deltaTime);
+            if (_black == null)
+                _black = _fadeOutScreen.GetComponent<Image>();
+            _black.color = new Color(_black.color.r, _black.color.g, _black.color.b, _alpha -= 0.5f * Time.unscaledDeltaTime);
+            fadeIn = false;
+            if (_black.color.a <= 0)
+            {
+                if (userPrompts != null)
+                    userPrompts.SetActive(true);
+                Time.timeScale = 1f;
+                fadeOut = false;
+                _fadeOutScreen.SetActive(false);
+                _alpha = 1;
+                child.SetActive(true);
+            }
         }
+        if (SceneManager.GetSceneByName("level selector") == SceneManager.GetActiveScene() && wasMainMenu == true)
+        {
+            InstantlyDark();
+            wasMainMenu = false;
+        }
+    }
+
+    public void InstantlyDark() 
+    {
+        _black.color = new Color(_black.color.r, _black.color.g, _black.color.b, 1);
     }
 
 }
