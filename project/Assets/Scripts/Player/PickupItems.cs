@@ -14,13 +14,13 @@ public class PickupItems : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && ItemsInGame.SharedItems.CheckValueInHand("TeaCup") <= 0)
+        if (other.gameObject.CompareTag("Player") && ItemsInGame.SharedItems.CheckValueInHand("TeaCup") <= 0 && teapot.activeSelf == true)
         {
             particles.SetActive(true);
             teapot.SetActive(false);
             ProjectileChange.newProjectiles.DontBeSpottedVoid();
         }
-        else if (ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0)
+        else if (ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0 && teapot.activeSelf == true)
             ProjectileChange.newProjectiles.TeaPotAlreadyInHand();
 
     }
