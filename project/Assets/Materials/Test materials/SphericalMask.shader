@@ -7,7 +7,7 @@
         _ColorStrength("Color Strength", Range(1,4)) = 1
         _Glossiness("Smoothness", Range(0,1)) = 0.5
         _Metallic("Metallic", Range(0,1)) = 0.0
-        _Position("World Position", Vector) = (0,0,0,0)
+        //_Position("World Position", Vector) = (0,0,0,0)
             //_Radius ("Sphere Radius", Range(0,100)) = 0
             //_Softness("Sphere Softness", Range(0,100)) = 0
 
@@ -40,10 +40,10 @@
 
             //Spherical Mask
             int color_arrLength;
-            float color_radius[15];
-            float color_softness[15];
+            float color_radius[25];
+            float color_softness[25];
 
-            fixed4 color_positions[15];
+            fixed4 color_positions[25];
 
 
             // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
