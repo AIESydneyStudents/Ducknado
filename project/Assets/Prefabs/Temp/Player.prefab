@@ -408,7 +408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211361071}
-  m_LocalRotation: {x: 0.21937455, y: -0.6822233, z: 0.22693099, w: 0.65950626}
+  m_LocalRotation: {x: 0.21937454, y: -0.6822234, z: 0.22693105, w: 0.65950626}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1078,7 +1078,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739774325}
-  m_LocalRotation: {x: 0.22313295, y: -0.6805965, z: 0.23056215, w: 0.65866625}
+  m_LocalRotation: {x: 0.22313297, y: -0.6805965, z: 0.23056217, w: 0.65866625}
   m_LocalPosition: {x: 5.433344, y: 4.700737, z: 0.1840388}
   m_LocalScale: {x: 1.2179229, y: 1.2179228, z: 1.2179228}
   m_Children: []
@@ -1287,7 +1287,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761291764}
-  m_LocalRotation: {x: 0.2178762, y: -0.68219596, z: 0.22496337, w: 0.66070426}
+  m_LocalRotation: {x: 0.21787621, y: -0.68219596, z: 0.22496338, w: 0.66070426}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1760,7 +1760,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 87d83e37ed1049e4c9dde874c78530cc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f350264d21c98364ea4cb02a89499b1a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1913,12 +1913,12 @@ MonoBehaviour:
   _victory: {fileID: 0}
   _audioManager: {fileID: 0}
   _inputPrompt: {fileID: 0}
-  startMusic: {fileID: 8300000, guid: 87d83e37ed1049e4c9dde874c78530cc, type: 3}
-  midMusic: {fileID: 8300000, guid: 1f4154fe94782524db719606aa80f30f, type: 3}
+  startMusic: {fileID: 8300000, guid: f350264d21c98364ea4cb02a89499b1a, type: 3}
+  midMusic: {fileID: 8300000, guid: a094ea0de522bd048bc0c01e212b8759, type: 3}
   endMusic: {fileID: 8300000, guid: e2f9aa0da7a472847a0b165a7a082270, type: 3}
-  _oneStarRating: 300
-  _twoStarRating: 200
-  _threeStarRating: 20
+  _oneStarRating: 1000
+  _twoStarRating: 500
+  _threeStarRating: 10
 --- !u!1 &5107676610701441126
 GameObject:
   m_ObjectHideFlags: 0

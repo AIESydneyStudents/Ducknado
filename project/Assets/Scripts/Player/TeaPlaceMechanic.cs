@@ -140,21 +140,21 @@ public class TeaPlaceMechanic : MonoBehaviour
 
         if (GameTimer._finalTime <= _threeStarRating) //finish time was less than the given three star rating.
         {
-            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);// sets the image of the star which is a child of the canvas, position is hard coded based off prefab
-            _victory.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
-            _victory.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);// sets the image of the star which is a child of the canvas, position is hard coded based off prefab
+            _victory.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
 
         }
 
         else if (GameTimer._finalTime <= _twoStarRating && GameTimer._finalTime > _threeStarRating) //finish time was greater than the given three star rating and less than the second star rating.
         {
-            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
-            _victory.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            _victory.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         }
 
         else
         {
-            _victory.transform.GetChild(0).GetChild(2).gameObject.SetActive(true); //finish time was greater than the given one star rating.
+            _victory.transform.GetChild(0).GetChild(0).gameObject.SetActive(true); //finish time was greater than the given one star rating.
         }
     }
 

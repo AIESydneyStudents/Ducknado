@@ -118,13 +118,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Whistle1
     clip: {fileID: 8300000, guid: 87e6741067c6d4e41a918a14c22a1c46, type: 3}
-    volume: 0.88
+    volume: 0.17
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Whistle2
     clip: {fileID: 8300000, guid: 437ab407e301544409cc6c91001572b4, type: 3}
-    volume: 1
+    volume: 0.15
     pitch: 1
     loop: 0
     source: {fileID: 0}
