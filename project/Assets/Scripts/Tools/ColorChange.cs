@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class ColorChange : MonoBehaviour
 {
-    public static List<ColorArea> colorSpots; 
+    public static List<ColorArea> colorSpots;
     [SerializeField]
     float _growthSize;
 
@@ -18,33 +18,30 @@ public class ColorChange : MonoBehaviour
     [SerializeField]
     float _startRadius = 1f;
 
-    float _hlslArraySize = 15;
+    float _hlslArraySize = 10;
 
     GameObject[] _tablePlacements;
     void Start()
     {
-        
+
         colorSpots = new List<ColorArea>();
 
-        if (colorSpots.Count != null)
-        {
-            colorSpots.Clear();
+        colorSpots.Clear();
 
-        }
         _tablePlacements = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
 
-        for (int i = 0; i < _hlslArraySize; i++)
+        for (int i = 0; i < _tablePlacements.Length; i++)
         {
-            if (i <= _tablePlacements.Length)
-            {
-                Add(_tablePlacements[i].transform.position, _startRadius, _growthSize, _softness);
 
-            }
-            else
-            {
-                Add(Vector3.zero,0, 0,0);
-            }
+            Add(_tablePlacements[i].transform.position, _startRadius, _growthSize, _softness);
+
         }
+        while (colorSpots.Count != _hlslArraySize)
+        {
+            Add(Vector3.zero, 0, 0, 0);
+
+        }
+
     }
 
     void Update()
