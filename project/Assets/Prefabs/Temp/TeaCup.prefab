@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9029023429976667459}
   - component: {fileID: 2787426552850473223}
   - component: {fileID: 7043539329295075050}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: TeaCup
   m_TagString: TeaCup
   m_Icon: {fileID: 0}
@@ -211,6 +211,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279117807505114518, guid: 36972cc1ac6da5549ac3bdc0ed8b80de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36972cc1ac6da5549ac3bdc0ed8b80de, type: 3}
 --- !u!1001 &458141170539136750
@@ -310,6 +315,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TeaCup
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: af8d8225abcd4a34fb0b1b7552cf290a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af8d8225abcd4a34fb0b1b7552cf290a, type: 3}
 --- !u!1 &8465159684355579879 stripped
@@ -340,6 +350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005391871035784354, guid: 7803e39e6ef50ed468af1f32fd9dd0db,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 7508743809968576633, guid: 7803e39e6ef50ed468af1f32fd9dd0db,
         type: 3}

@@ -8,8 +8,14 @@ public class FollowPath : MonoBehaviour
     [SerializeField]
     bool _patrolWaiting; //used to change the object between waiting at points for set time or no waiting if false
 
+
     [SerializeField]
     float _waitTime = 3f; // controls the wait time at each waypoint
+
+    bool _playerSearching = false;
+
+    [SerializeField]
+    float _searchTime = 2f;
 
     public float _chasingSpeed = 0f;
     float currentSpeed;
@@ -34,6 +40,7 @@ public class FollowPath : MonoBehaviour
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        //animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         restart = player.GetComponent<PlayerRestart>();
         _navMeshAgent = this.GetComponent<NavMeshAgent>(); // gets the navmesh component of the gameobject this script is attached to
         animator.SetTrigger("walking");
@@ -60,24 +67,32 @@ public class FollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fov._targetFound && !restart._playerPosrestart && fov._distractionFound == false) //if the player has been caught in NPC LOS
+        if (fov._targetFound && !restart._playerPosrestart) //if the player has been caught in NPC LOS
         {
+            animator.ResetTrigger("running");
+            animator.ResetTrigger("walking");
+            animator.ResetTrigger("looking");
+            animator.SetTrigger("alerted");
             SeekingPlayer();
 
             if (restart._playerPosrestart)
             {
-                fov._targetFound = false;
                 PathFinding();
             }
         }
         if (!fov._targetFound || restart._playerPosrestart)
         {
-            fov._targetFound = false;
-            PathFinding();
+            if (_playerSearching)
+            {
+                SearchingForPlayer();
+            }
+            else
+            {
+                PathFinding();
+            }
         }
         if (fov._distractionFound)
         {
-            fov._targetFound = false;
             DistractionDetected();
         }
 
@@ -120,11 +135,15 @@ public class FollowPath : MonoBehaviour
 
     private void PathFinding()
     {
+        animator.ResetTrigger("looking");
+        animator.ResetTrigger("alerted");
         animator.ResetTrigger("running");
         animator.SetTrigger("walking");
+
         _navMeshAgent.speed = currentSpeed;
 
         fov._targetFound = false;
+        _playerSearching = false;
 
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f) // if the object is travelling and checks the distance is less than 1 unit
         {
@@ -154,13 +173,21 @@ public class FollowPath : MonoBehaviour
         }
     }
 
+    private void SearchingForPlayer()
+    {
+        _waitTimer += Time.deltaTime;
+        animator.ResetTrigger("running");
+        animator.ResetTrigger("walking");
+        animator.ResetTrigger("alerted");
+        animator.SetTrigger("looking");
+        if (_waitTimer >= _searchTime) // if the timer greater than the requested wait time, object is no longer waiting and new position is set
+        {
+            _playerSearching = false;
+            _waitTimer = 0f;
+        }
+    }
     private void SeekingPlayer()
     {
-        if (fov._distractionFound)
-        {
-            fov._targetFound = false;
-            DistractionDetected();
-        }
         if (restart._playerPosrestart)
         {
             PathFinding();
@@ -168,25 +195,25 @@ public class FollowPath : MonoBehaviour
         else
         {
             animator.ResetTrigger("walking");
+            animator.ResetTrigger("looking");
+            animator.ResetTrigger("alerted");
             animator.SetTrigger("running");
             _navMeshAgent.speed = _chasingSpeed;
 
-           _targetVector = player.transform.position; //target is changed from previous function to player
+            _targetVector = player.transform.position; //target is changed from previous function to player
 
             _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target    
         }
+        _playerSearching = true;
+
     }
     private void DistractionDetected()
     {
-        if (fov._distractionFound)
+        if (fov._butterfly != null)
         {
-            fov._targetFound = false;
-            if (fov._butterfly != null)
-            {
-                _targetVector = fov._butterfly.transform.position;
+            _targetVector = fov._butterfly.transform.position;
 
-                _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
-            }
+            _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
 
         }
     }

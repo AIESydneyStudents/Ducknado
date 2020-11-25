@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class ColorArea : MonoBehaviour
+public class ColorArea
 {
         public Vector3 position;
         public float radius;

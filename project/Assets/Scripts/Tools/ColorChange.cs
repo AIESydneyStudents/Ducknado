@@ -8,38 +8,44 @@ using UnityEngine;
 
 public class ColorChange : MonoBehaviour
 {
-    List<Vector4> _defaultLocations = new List<Vector4>();
-    List<float> _defaultRadius = new List<float>();
-    List<float> _defaultSoftness = new List<float>();
+    public static List<ColorArea> colorSpots;
+    [SerializeField]
+    float _growthSize;
 
-    public static List<ColorArea> colorSpots = new List<ColorArea>();
-    public float _GrowthSize;
-    GameObject[] _tables;
+    [SerializeField]
+    float _softness;
+
+    [SerializeField]
+    float _startRadius = 1f;
+
+    float _hlslArraySize = 10;
+
+    GameObject[] _tablePlacements;
     void Start()
     {
-        _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
 
-        for (int i = 0; i < _tables.Length; i++)
+        colorSpots = new List<ColorArea>();
+
+        colorSpots.Clear();
+
+        _tablePlacements = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
+
+        for (int i = 0; i < _tablePlacements.Length; i++)
         {
-            Add(_tables[i].transform.position, 1, _GrowthSize, 0);
+
+            Add(_tablePlacements[i].transform.position, _startRadius, _growthSize, _softness);
+
+        }
+        while (colorSpots.Count != _hlslArraySize)
+        {
+            Add(Vector3.zero, 0, 0, 0);
+
         }
 
-        foreach (var item in colorSpots)
-        {
-            _defaultLocations.Add(new Vector4(0, 0, 0));
-            _defaultRadius.Add(0);
-            _defaultSoftness.Add(0);
-        }
-
-        Shader.SetGlobalInt("color_arrLength", colorSpots.Count);
-        Shader.SetGlobalVectorArray("color_positions", _defaultLocations);
-        Shader.SetGlobalFloatArray("color_radius", _defaultRadius);
-        Shader.SetGlobalFloatArray("color_softness", _defaultSoftness);
     }
 
     void Update()
     {
-
         foreach (var colorSpot in colorSpots)
         {
             if (colorSpot._active)
@@ -53,7 +59,7 @@ public class ColorChange : MonoBehaviour
         }
 
         //stores the info from colorspots and adds them to array
-        var locations = colorSpots.Select(colorSpot => new Vector4(colorSpot.position.x, colorSpot.position.y, colorSpot.position.z, 0)).ToArray();
+        var locations = colorSpots.Select(colorSpot => new Vector4(colorSpot.position.x, colorSpot.position.y, colorSpot.position.z, 0)).ToList();
         var radi = colorSpots.Select(colorSpot => colorSpot.radius).ToList();
         var softnesses = colorSpots.Select(colorSpot => colorSpot.softness).ToList();
 
@@ -84,9 +90,9 @@ public class ColorChange : MonoBehaviour
 
     public bool AllTeaPlacedCheck() // checks if all tea has been placed in the level and returns then true
     {
-        for (int i = 0; i < _tables.Length; i++)
+        for (int i = 0; i < _tablePlacements.Length; i++)
         {
-            if (_tables[i].transform.GetChild(0).gameObject.activeSelf) //if the item has been set to true, continue and check next one
+            if (_tablePlacements[i].transform.GetChild(0).gameObject.activeSelf) //if the item has been set to true, continue and check next one
             {
                 continue;
             }

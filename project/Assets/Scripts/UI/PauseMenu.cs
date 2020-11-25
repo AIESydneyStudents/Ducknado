@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isFinished = false;
         fadingPanel.gameObject.SetActive(false);
         pauseMenu.SetActive(false);
     }
@@ -27,6 +28,10 @@ public class PauseMenu : MonoBehaviour
             {
                 Cursor.visible = true;
                 PauseGame();
+            }
+            else
+            {
+                ResumeGame();
             }
         }
     }

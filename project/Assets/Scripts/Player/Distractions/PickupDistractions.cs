@@ -16,13 +16,13 @@ public class PickupDistractions : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))//If the bullet isnt colliding with the player.
         {
             GameObject obj = objPooling.SharedInstance.GetOneStoredObject();
-            if (obj != null)
+            if (obj != null && butterfly.activeSelf == true)
             {
                 objPooling.SharedInstance.AddNewObject(obj);
                 butterfly.SetActive(false);
                 particles.SetActive(true);
             }
-            else
+            else if(obj == null && butterfly.activeSelf == true)
             {
                 ProjectileChange.newProjectiles.TooMuchAmmo();
                 //Use this to say that you are full on ammo. Or that you cant collect anymore ammo.
