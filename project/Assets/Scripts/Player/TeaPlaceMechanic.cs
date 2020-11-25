@@ -82,9 +82,13 @@ public class TeaPlaceMechanic : MonoBehaviour
                     _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                     FindObjectOfType<AudioManager>().Play("Pouring");
                     ColorChange.colorSpots[i]._active = true;
-                    gameObject.GetComponent<AudioSource>().clip = midMusic;
-                    gameObject.GetComponent<AudioSource>().volume = .7f;
-                    gameObject.GetComponent<AudioSource>().Play();
+                    if (_tables[0])
+                    {
+                        gameObject.GetComponent<AudioSource>().clip = midMusic;
+                        gameObject.GetComponent<AudioSource>().volume = .7f;
+                        gameObject.GetComponent<AudioSource>().Play();
+                    }
+
                     FindObjectOfType<AudioManager>().Play("Whistle1");
                     ItemsInGame.SharedItems.teaPlaced += 1;
 
