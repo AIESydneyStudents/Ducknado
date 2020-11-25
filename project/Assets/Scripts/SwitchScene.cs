@@ -26,8 +26,10 @@ public class SwitchScene : MonoBehaviour
     {
         if (other.CompareTag("Player") && switchSceneNotLevelSelect == true)
         {
+            Time.timeScale = 0;
             FadeOutScreen.SharedInstance.fadeIn = true;
             yield return StartCoroutine(MyCoroutine(2));
+            Time.timeScale = 1;
             SceneManager.LoadScene(loadScene);
         }
     }
