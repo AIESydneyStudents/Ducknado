@@ -1702,6 +1702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerPosrestart: 0
+  toFade: 0
 --- !u!114 &1647448150
 MonoBehaviour:
   m_ObjectHideFlags: 0

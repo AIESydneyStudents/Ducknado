@@ -12,7 +12,7 @@ public class PlayerRestart : MonoBehaviour
 
     [HideInInspector]
     public bool _playerPosrestart = false;
-    [SerializeField] bool toFade = true;
+    [SerializeField] bool toFade = false;
 
     private void Start()
     {
