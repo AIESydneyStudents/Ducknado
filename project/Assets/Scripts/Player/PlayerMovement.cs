@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float m_smoothTurnSpeed = 1f;
     [SerializeField] public Animator m_animator;
     [HideInInspector] public static bool interacted = false;
+    [HideInInspector] public static bool gameOver = false;
 
     private Controls m_controls;
     private float m_smoothVel;
@@ -35,58 +36,61 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        m_playerRB.AddForce(Vector3.down * m_gravity);
-        var dir = m_controls.Player.Movement.ReadValue<Vector2>();
-        var inter = m_controls.Player.Interaction.ReadValue<float>();
-        var shooting = m_controls.Player.Projectile_Shoot.ReadValue<float>();
-        if (inter != 0)//If the player has interacted.
+        if (gameOver == false)
         {
-            interacted = true;
-        }
-        else
-            interacted = false;
-        if (DistractionController.sharedInstance != null)
-        {
-            if (!Input.GetKeyDown(KeyCode.Space))//If the player has shot.
-                DistractionController.sharedInstance.isFloating = false;
-            else if(Input.GetKeyDown(KeyCode.Space))
-                DistractionController.sharedInstance.isFloating = true;
-
-
-            //if (shooting == 0)//If the player has shot.
-            //    DistractionController.sharedInstance.isFloating = false;
-            //else
-            //    DistractionController.sharedInstance.isFloating = true;
-        }
-
-
-        if (dir.y != 0 || dir.x != 0)
-        {
-            //If the velocity is beyond the acceleration, clamp it to the acceleration.
-            if (m_playerRB.velocity.magnitude > m_playerMovementSpeed)
+            m_playerRB.AddForce(Vector3.down * m_gravity);
+            var dir = m_controls.Player.Movement.ReadValue<Vector2>();
+            var inter = m_controls.Player.Interaction.ReadValue<float>();
+            var shooting = m_controls.Player.Projectile_Shoot.ReadValue<float>();
+            if (inter != 0)//If the player has interacted.
             {
-                m_playerRB.velocity = Vector3.ClampMagnitude(m_playerRB.velocity, m_playerMovementSpeed);
+                interacted = true;
             }
-            //This is for the movement of the player in the certain direction.
-            Vector3 input = new Vector3(dir.x, 0f, dir.y).normalized;
-
-
-            if (input.magnitude >= 0.1f)
+            else
+                interacted = false;
+            if (DistractionController.sharedInstance != null)
             {
-                float tarAngle = (float)Math.Atan2(input.x, input.z) * Mathf.Rad2Deg + m_cam.transform.eulerAngles.y;//Finds the targtet angle thats neede for the movement in reltation to the cameras direction.
-                float angle = Mathf.SmoothDampAngle(m_playerRB.transform.eulerAngles.y, tarAngle, ref m_smoothVel, m_smoothTurnSpeed);//Rotates at a certain rate.
-                m_playerRB.transform.rotation = Quaternion.Euler(0f, angle, 0f);//Rotates to the directuon of the angle.
+                if (!Input.GetKeyDown(KeyCode.Space))//If the player has shot.
+                    DistractionController.sharedInstance.isFloating = false;
+                else if (Input.GetKeyDown(KeyCode.Space))
+                    DistractionController.sharedInstance.isFloating = true;
 
-                Vector3 moveNewDir = Quaternion.Euler(0f, tarAngle, 0f) * Vector3.forward;//Moves in the direction dependant of the targent angle.
-                m_playerRB.AddForce(moveNewDir.normalized * m_acceleration * 10);//Adds velocity to the direction for the player
-                m_animator.ResetTrigger("isIDLE");
-                m_animator.SetTrigger("isWalking");
+
+                //if (shooting == 0)//If the player has shot.
+                //    DistractionController.sharedInstance.isFloating = false;
+                //else
+                //    DistractionController.sharedInstance.isFloating = true;
             }
-        }
-        else
-        {
-            m_animator.ResetTrigger("isWalking");
-            m_animator.SetTrigger("isIDLE");
+
+
+            if (dir.y != 0 || dir.x != 0)
+            {
+                //If the velocity is beyond the acceleration, clamp it to the acceleration.
+                if (m_playerRB.velocity.magnitude > m_playerMovementSpeed)
+                {
+                    m_playerRB.velocity = Vector3.ClampMagnitude(m_playerRB.velocity, m_playerMovementSpeed);
+                }
+                //This is for the movement of the player in the certain direction.
+                Vector3 input = new Vector3(dir.x, 0f, dir.y).normalized;
+
+
+                if (input.magnitude >= 0.1f)
+                {
+                    float tarAngle = (float)Math.Atan2(input.x, input.z) * Mathf.Rad2Deg + m_cam.transform.eulerAngles.y;//Finds the targtet angle thats neede for the movement in reltation to the cameras direction.
+                    float angle = Mathf.SmoothDampAngle(m_playerRB.transform.eulerAngles.y, tarAngle, ref m_smoothVel, m_smoothTurnSpeed);//Rotates at a certain rate.
+                    m_playerRB.transform.rotation = Quaternion.Euler(0f, angle, 0f);//Rotates to the directuon of the angle.
+
+                    Vector3 moveNewDir = Quaternion.Euler(0f, tarAngle, 0f) * Vector3.forward;//Moves in the direction dependant of the targent angle.
+                    m_playerRB.AddForce(moveNewDir.normalized * m_acceleration * 10);//Adds velocity to the direction for the player
+                    m_animator.ResetTrigger("isIDLE");
+                    m_animator.SetTrigger("isWalking");
+                }
+            }
+            else
+            {
+                m_animator.ResetTrigger("isWalking");
+                m_animator.SetTrigger("isIDLE");
+            }
         }
 
 
