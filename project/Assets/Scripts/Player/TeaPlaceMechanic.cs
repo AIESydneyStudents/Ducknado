@@ -52,11 +52,12 @@ public class TeaPlaceMechanic : MonoBehaviour
         FadeOutScreen.SharedInstance.fadeOut = true;//Fades out
         DisplayCanvas();//Displays the stars that the player achieved.
         transitionDone = true;//Prevents the update to access this function.
+        Time.timeScale = 1;
         yield return StartCoroutine(MyCoroutine(2));//Waits for a bit
         FadeOutScreen.SharedInstance.fadeIn = false;//Stops the fading in
         FadeOutScreen.SharedInstance.fadeOut = false;//Stops the fading out
         transitionDone = true;
-        Time.timeScale = 1;
+
     }
 
 
