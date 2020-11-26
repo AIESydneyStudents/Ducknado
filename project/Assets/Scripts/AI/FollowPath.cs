@@ -69,10 +69,6 @@ public class FollowPath : MonoBehaviour
     {
         if (fov._targetFound && !restart._playerPosrestart) //if the player has been caught in NPC LOS
         {
-            animator.ResetTrigger("running");
-            animator.ResetTrigger("walking");
-            animator.ResetTrigger("looking");
-            animator.SetTrigger("alerted");
             SeekingPlayer();
 
             if (restart._playerPosrestart)
@@ -86,6 +82,7 @@ public class FollowPath : MonoBehaviour
             {
                 SearchingForPlayer();
             }
+
             else
             {
                 PathFinding();
@@ -135,6 +132,7 @@ public class FollowPath : MonoBehaviour
 
     private void PathFinding()
     {
+        animator.ResetTrigger("ReSeen");
         animator.ResetTrigger("looking");
         animator.ResetTrigger("alerted");
         animator.ResetTrigger("running");
@@ -179,11 +177,24 @@ public class FollowPath : MonoBehaviour
         animator.ResetTrigger("running");
         animator.ResetTrigger("walking");
         animator.ResetTrigger("alerted");
+        animator.ResetTrigger("ReSeen");
         animator.SetTrigger("looking");
         if (_waitTimer >= _searchTime) // if the timer greater than the requested wait time, object is no longer waiting and new position is set
         {
+
             _playerSearching = false;
             _waitTimer = 0f;
+        }
+
+        if (fov._targetFound)
+        {
+            _playerSearching = false;
+            //animator.ResetTrigger("walking");
+            //animator.ResetTrigger("looking");
+            //animator.ResetTrigger("alerted");
+            //animator.ResetTrigger("running");
+            //animator.SetTrigger("ReSeen");
+            SeekingPlayer();
         }
     }
     private void SeekingPlayer()
@@ -194,6 +205,7 @@ public class FollowPath : MonoBehaviour
         }
         else
         {
+            animator.ResetTrigger("ReSeen");
             animator.ResetTrigger("walking");
             animator.ResetTrigger("looking");
             animator.ResetTrigger("alerted");

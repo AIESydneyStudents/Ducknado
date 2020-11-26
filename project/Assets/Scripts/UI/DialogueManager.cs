@@ -11,22 +11,28 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public float m_timeBetweenWords = 0.1f;
     [SerializeField] public GameObject m_trigger;
     Queue<string> _sentences = new Queue<string>();
+
+    AudioSource m_chatterAudio;
     //[SerializeField] public float fadingOutTimer;
     // Start is called before the first frame update
-    //void Start()
-    //{
-    //    //_sentences = new Queue<string>();
-    //}
+    void Start()
+    {
+        //_sentences = new Queue<string>();
+        m_chatterAudio = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<AudioSource>();
+        m_chatterAudio.loop = false;
+    }
 
     public void StartDialogue(Dialogue dialogue)
     {
         Cursor.visible = true;
         m_nameText.text = dialogue.m_name;
+        m_chatterAudio.Play();
 
         _sentences.Clear();
 
         foreach (string sentence in dialogue.m_sentences)
         {
+            m_chatterAudio.UnPause();
             _sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
@@ -36,6 +42,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (_sentences.Count == 0)
         {
+            m_chatterAudio.Pause();
             EndDialogue();
             return;
         }
