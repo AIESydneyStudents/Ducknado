@@ -19,22 +19,23 @@ public class DialogueManager : MonoBehaviour
     {
         //_sentences = new Queue<string>();
         m_chatterAudio = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<AudioSource>();
-        m_chatterAudio.loop = false;
+        m_chatterAudio.loop = true;
+        m_chatterAudio.Play();
+
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
         Cursor.visible = true;
         m_nameText.text = dialogue.m_name;
-        m_chatterAudio.Play();
 
         _sentences.Clear();
 
         foreach (string sentence in dialogue.m_sentences)
         {
-            m_chatterAudio.UnPause();
             _sentences.Enqueue(sentence);
         }
+
         DisplayNextSentence();
     }
 
@@ -42,14 +43,17 @@ public class DialogueManager : MonoBehaviour
     {
         if (_sentences.Count == 0)
         {
-            m_chatterAudio.Pause();
             EndDialogue();
             return;
         }
+        m_chatterAudio.UnPause();
+
         string sentence = _sentences.Dequeue();
         m_dialogueText.text = sentence;
+
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -60,6 +64,8 @@ public class DialogueManager : MonoBehaviour
             m_dialogueText.text += letter;
             yield return StartCoroutine(MyCoroutine(m_timeBetweenWords));
         }
+        m_chatterAudio.Pause();
+
     }
 
     private IEnumerator MyCoroutine(float timer)

@@ -69,6 +69,15 @@ public class FollowPath : MonoBehaviour
     {
         if (fov._targetFound && !restart._playerPosrestart) //if the player has been caught in NPC LOS
         {
+
+            if (_playerSearching == false)
+            {
+                animator.ResetTrigger("walking");
+                animator.ResetTrigger("looking");
+                animator.ResetTrigger("alerted");
+                animator.ResetTrigger("running");
+                animator.SetTrigger("ReSeen");
+            }
             SeekingPlayer();
 
             if (restart._playerPosrestart)
@@ -141,7 +150,7 @@ public class FollowPath : MonoBehaviour
         _navMeshAgent.speed = currentSpeed;
 
         fov._targetFound = false;
-        _playerSearching = false;
+        //_playerSearching = false;
 
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f) // if the object is travelling and checks the distance is less than 1 unit
         {
@@ -184,17 +193,6 @@ public class FollowPath : MonoBehaviour
 
             _playerSearching = false;
             _waitTimer = 0f;
-        }
-
-        if (fov._targetFound)
-        {
-            _playerSearching = false;
-            //animator.ResetTrigger("walking");
-            //animator.ResetTrigger("looking");
-            //animator.ResetTrigger("alerted");
-            //animator.ResetTrigger("running");
-            //animator.SetTrigger("ReSeen");
-            SeekingPlayer();
         }
     }
     private void SeekingPlayer()

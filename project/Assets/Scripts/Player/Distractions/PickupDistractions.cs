@@ -21,6 +21,7 @@ public class PickupDistractions : MonoBehaviour
                 objPooling.SharedInstance.AddNewObject(obj);
                 butterfly.SetActive(false);
                 particles.SetActive(true);
+                FindObjectOfType<AudioManager>().Play("sparkle2");
             }
             else if(obj == null && butterfly.activeSelf == true)
             {
