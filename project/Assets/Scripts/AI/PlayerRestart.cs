@@ -40,6 +40,8 @@ public class PlayerRestart : MonoBehaviour
                 FadeOutScreen.SharedInstance.fadeIn = true;
                 StartCoroutine(StopTimer());
             }
+            else
+                this.transform.position = _startPos;//Setting original position.
         }
     }
     IEnumerator StopTimer() 
