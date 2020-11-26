@@ -19,11 +19,6 @@ public class HidingCheck : MonoBehaviour
 
         }
     }
-    
-    void Update()
-    {
-
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Hiding Area")
