@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (gameOver == false)
+        if (gameOver == false)//PLayer can not move when the game is over.
         {
             m_playerRB.AddForce(Vector3.down * m_gravity);
             var dir = m_controls.Player.Movement.ReadValue<Vector2>();
@@ -55,12 +55,6 @@ public class PlayerMovement : MonoBehaviour
                     DistractionController.sharedInstance.isFloating = false;
                 else if (Input.GetKeyDown(KeyCode.Space))
                     DistractionController.sharedInstance.isFloating = true;
-
-
-                //if (shooting == 0)//If the player has shot.
-                //    DistractionController.sharedInstance.isFloating = false;
-                //else
-                //    DistractionController.sharedInstance.isFloating = true;
             }
 
 

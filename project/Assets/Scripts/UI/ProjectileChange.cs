@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ProjectileChange : MonoBehaviour
 {
-    [SerializeField] private Text textButterfly;
     [SerializeField] private GameObject fairy1;
     [SerializeField] private GameObject fairy2;
     [SerializeField] private GameObject fairy3;
@@ -32,9 +31,7 @@ public class ProjectileChange : MonoBehaviour
     }
     void FixedUpdate()
     {//Visualisation of what is on hand.
-
         ButterflyInHand();
-
     }
     void ButterflyInHand()
     {

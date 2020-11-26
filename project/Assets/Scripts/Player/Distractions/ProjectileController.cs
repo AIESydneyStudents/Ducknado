@@ -15,8 +15,6 @@ public class ProjectileController : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);//Do some adjusting with making the same variable as the velocity in raycastcamshoot.
-
-
     }
     void FixedUpdate()
     {

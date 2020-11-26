@@ -6,7 +6,6 @@ public class PlayerRestart : MonoBehaviour
 {
     [SerializeField] private CinemachineFreeLook _mainCamera;
     GameObject player;
-    //FadeOutScreen _fadeOut;
     static Vector3 _startPos;
     static Vector3 _camStartPos;
     static Quaternion _playerRot;
