@@ -32,12 +32,9 @@ public class ProjectileChange : MonoBehaviour
     }
     void FixedUpdate()
     {//Visualisation of what is on hand.
-        switch (DistractionController.inHandProjectile)
-        {
-            case 0:
-                ButterflyInHand();
-                break;
-        }
+
+        ButterflyInHand();
+
     }
     void ButterflyInHand()
     {
@@ -102,7 +99,7 @@ public class ProjectileChange : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenText);
         tooManyProjectiles.gameObject.SetActive(false);
     }
-    private IEnumerator TimerTeaPot() 
+    private IEnumerator TimerTeaPot()
     {
         tooManyTeaPots.gameObject.SetActive(true);
         yield return new WaitForSeconds(timeBetweenText);
