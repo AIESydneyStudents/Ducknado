@@ -7,8 +7,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //public DistractionController disControl;
-
     [SerializeField] private Rigidbody m_playerRB;
     [SerializeField] [Range(1.0f, 10.0f)] private float m_playerMovementSpeed = 1.0f;//The players movespeed is the addition of the global movespeed and the players movespeed.
     [SerializeField] [Range(1.0f, 10.0f)] private float m_acceleration = 1.0f;//Acceleration of the player over time.
