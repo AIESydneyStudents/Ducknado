@@ -28,6 +28,7 @@ public class TeaPlaceMechanic : MonoBehaviour
     public float _threeStarRating;
 
     private bool transitionDone = false;
+    private bool firstPlacement;
     private void Start()
     {
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
@@ -43,20 +44,19 @@ public class TeaPlaceMechanic : MonoBehaviour
     }
     IEnumerator StopTimer()
     {
-        PlayerMovement.gameOver = true;
+        Time.timeScale = 0;
         GameObject.FindGameObjectWithTag("Fade Out").SetActive(true);
         FadeOutScreen.SharedInstance.fadeIn = true;
-        yield return new WaitForSeconds(2);
+        yield return StartCoroutine(MyCoroutine(2));
         FadeOutScreen.SharedInstance.fadeIn = false;
         FadeOutScreen.SharedInstance.fadeOut = true;
         DisplayCanvas();
-        PlayerMovement.gameOver = false;
         transitionDone = true;
-        transitionDone = true; yield return new WaitForSeconds(2);
+        yield return StartCoroutine(MyCoroutine(2));
         FadeOutScreen.SharedInstance.fadeIn = false;
         FadeOutScreen.SharedInstance.fadeOut = false;
-
-
+        transitionDone = true;
+        Time.timeScale = 1;
     }
 
 
@@ -83,13 +83,13 @@ public class TeaPlaceMechanic : MonoBehaviour
                     _tables[i].transform.GetChild(0).gameObject.SetActive(true);
                     FindObjectOfType<AudioManager>().Play("Pouring");
                     ColorChange.colorSpots[i]._active = true;
-                    if (_tables[0])
+                    if (firstPlacement)
                     {
                         gameObject.GetComponent<AudioSource>().clip = midMusic;
                         gameObject.GetComponent<AudioSource>().volume = .7f;
                         gameObject.GetComponent<AudioSource>().Play();
                     }
-
+                    firstPlacement = false;
                     FindObjectOfType<AudioManager>().Play("Whistle1");
                     ItemsInGame.SharedItems.teaPlaced += 1;
 
