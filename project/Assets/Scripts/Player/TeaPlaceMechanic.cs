@@ -45,18 +45,19 @@ public class TeaPlaceMechanic : MonoBehaviour
     IEnumerator StopTimer()
     {
         Time.timeScale = 0;//Set time scale to 0;
-        GameObject.FindGameObjectWithTag("Fade Out").SetActive(true);//CHecks for the variable in game called fadeout.
+        FadeOutScreen.SharedInstance._fadeOutScreen.SetActive(true);
         FadeOutScreen.SharedInstance.fadeIn = true;//Fades in
         yield return StartCoroutine(MyCoroutine(2));//Timer
         FadeOutScreen.SharedInstance.fadeIn = false;//Fades out
         FadeOutScreen.SharedInstance.fadeOut = true;//Fades out
         DisplayCanvas();//Displays the stars that the player achieved.
         transitionDone = true;//Prevents the update to access this function.
+        Time.timeScale = 1;
         yield return StartCoroutine(MyCoroutine(2));//Waits for a bit
         FadeOutScreen.SharedInstance.fadeIn = false;//Stops the fading in
         FadeOutScreen.SharedInstance.fadeOut = false;//Stops the fading out
         transitionDone = true;
-        Time.timeScale = 1;
+
     }
 
 

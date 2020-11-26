@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class FadeOutScreen : MonoBehaviour
 {
-    GameObject _fadeOutScreen;
+    [HideInInspector]
+    public GameObject _fadeOutScreen;
     Image _black;
     GameObject child;
     // Start is called before the first frame update
