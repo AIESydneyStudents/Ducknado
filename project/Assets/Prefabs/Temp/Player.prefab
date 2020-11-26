@@ -1701,8 +1701,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce4173bc73189e40809c63db65bc731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 30341310}
   _playerPosrestart: 0
-  toFade: 0
+  toFade: 1
 --- !u!114 &1647448150
 MonoBehaviour:
   m_ObjectHideFlags: 0
