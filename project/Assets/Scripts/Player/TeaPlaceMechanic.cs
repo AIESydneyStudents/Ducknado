@@ -28,7 +28,7 @@ public class TeaPlaceMechanic : MonoBehaviour
     public float _threeStarRating;
 
     private bool transitionDone = false;
-    private bool firstPlacement;
+    private bool firstPlacement = true;
     private void Start()
     {
         _tables = GameObject.FindGameObjectsWithTag("Placement"); // get all the placement tables and add to this list
@@ -89,7 +89,7 @@ public class TeaPlaceMechanic : MonoBehaviour
                         gameObject.GetComponent<AudioSource>().volume = .7f;
                         gameObject.GetComponent<AudioSource>().Play();
                     }
-                    firstPlacement = false;
+                    
                     FindObjectOfType<AudioManager>().Play("Whistle1");
                     ItemsInGame.SharedItems.teaPlaced += 1;
 
@@ -103,6 +103,7 @@ public class TeaPlaceMechanic : MonoBehaviour
             }
             AllTeaPlacedCheck(); // checks if all objectives have been completed
             PlayerMovement.interacted = false;
+            firstPlacement = false;
 
         }
     }
