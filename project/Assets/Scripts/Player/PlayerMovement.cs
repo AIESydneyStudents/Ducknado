@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float m_smoothTurnSpeed = 1f;
     [SerializeField] public Animator m_animator;
     [HideInInspector] public static bool interacted = false;
-    [HideInInspector] public static bool gameOver = false;
+    [HideInInspector] public static bool gameOver;
 
     private Controls m_controls;
     private float m_smoothVel;
@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         m_controls = new Controls();
         m_controls.Player.Enable();
         m_animator.SetTrigger("isIDLE");
+        gameOver = false;
     }
 
     void FixedUpdate()
