@@ -7,7 +7,6 @@ public class ProjectileController : MonoBehaviour
     [SerializeField] public GameObject m_player;
     [SerializeField] [Range(0.01f, 10.0f)] public float speed = 5.0f;
     [SerializeField] [Range(1.0f, 10.0f)] public float fairyDisToView = 10.0f;//The range can be changed at any time.
-    public static bool keyIsReleased = false;//When the key is released.
     public GameObject collisionEffect;
     private Vector3 locOfPlayer;//Gets the position of the player when it fires the bullet.
 
