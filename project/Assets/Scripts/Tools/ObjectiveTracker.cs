@@ -14,24 +14,13 @@ public class ObjectiveTracker : MonoBehaviour
     {
         gameObjects = GameObject.FindGameObjectsWithTag("Placement"); //finds the objectives with the tag
         _objectiveCount = gameObjects.Length;
+        _completedObjectives = 0;
 
     }
     // Update is called once per frame
     void Update()
     {
-        //for (int i = 0; i < gameObjects.Length; i++)
-        //{
-        //    if (gameObjects[i].transform.GetChild(0).gameObject.activeSelf == false)
-        //    {
-        //        if (gameObjects[i].transform.GetChild(0).gameObject.activeSelf  )
-        //        {
-        //            _completedObjectives++;
 
-        //        }
-        //    }
-
-
-        //}
         counterText.text = string.Format("{0:0}/{1:0}", _completedObjectives ,_objectiveCount);
     }
 }
