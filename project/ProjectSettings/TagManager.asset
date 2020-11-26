@@ -20,6 +20,7 @@ TagManager:
   - PauseMenu
   - LeavingLevel
   - FPS
+  - Dialogue
   layers:
   - Default
   - TransparentFX
