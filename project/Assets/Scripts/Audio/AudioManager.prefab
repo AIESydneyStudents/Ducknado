@@ -104,14 +104,14 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: woosh
-    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+  - name: sparkle1
+    clip: {fileID: 8300000, guid: 681e8297828a09948b5f506e311852dd, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: woosh
-    clip: {fileID: 8300000, guid: b15b7869e5de6404bbb5039f4d8badba, type: 3}
+  - name: sparkle2
+    clip: {fileID: 8300000, guid: bf50eade0d1f8b54f920f2de679b71c1, type: 3}
     volume: 1
     pitch: 1
     loop: 0

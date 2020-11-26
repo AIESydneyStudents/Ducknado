@@ -19,6 +19,7 @@ public class PickupItems : MonoBehaviour
             particles.SetActive(true);
             teapot.SetActive(false);
             ProjectileChange.newProjectiles.DontBeSpottedVoid();
+            FindObjectOfType<AudioManager>().Play("sparkle2");
         }
         else if (ItemsInGame.SharedItems.CheckValueInHand("TeaCup") > 0 && teapot.activeSelf == true)
             ProjectileChange.newProjectiles.TeaPotAlreadyInHand();
