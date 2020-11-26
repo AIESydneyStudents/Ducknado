@@ -89,7 +89,7 @@ public class TeaPlaceMechanic : MonoBehaviour
                         gameObject.GetComponent<AudioSource>().volume = .7f;
                         gameObject.GetComponent<AudioSource>().Play();
                     }
-                    
+                    ObjectiveTracker._completedObjectives++;
                     FindObjectOfType<AudioManager>().Play("Whistle1");
                     ItemsInGame.SharedItems.teaPlaced += 1;
 

@@ -7,7 +7,7 @@ public class ObjectiveTracker : MonoBehaviour
 {
     GameObject[] gameObjects;
     int _objectiveCount;
-    int _completedObjectives;
+    public static int _completedObjectives;
     [SerializeField] TextMeshProUGUI counterText;
 
     private void Start()
@@ -19,15 +19,19 @@ public class ObjectiveTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < gameObjects.Length; i++)
-        {
-            if (gameObjects[i].transform.GetChild(0).gameObject.activeSelf)
-            {
+        //for (int i = 0; i < gameObjects.Length; i++)
+        //{
+        //    if (gameObjects[i].transform.GetChild(0).gameObject.activeSelf == false)
+        //    {
+        //        if (gameObjects[i].transform.GetChild(0).gameObject.activeSelf  )
+        //        {
+        //            _completedObjectives++;
 
-                _completedObjectives += 1;
-            }
+        //        }
+        //    }
 
-        }
+
+        //}
         counterText.text = string.Format("{0:0}/{1:0}", _completedObjectives ,_objectiveCount);
     }
 }
