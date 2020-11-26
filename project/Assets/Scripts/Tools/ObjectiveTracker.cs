@@ -5,14 +5,29 @@ using TMPro;
 
 public class ObjectiveTracker : MonoBehaviour
 {
+    GameObject[] gameObjects;
     int _objectiveCount;
+    int _completedObjectives;
     [SerializeField] TextMeshProUGUI counterText;
 
+    private void Start()
+    {
+        gameObjects = GameObject.FindGameObjectsWithTag("Placement"); //finds the objectives with the tag
+        _objectiveCount = gameObjects.Length;
 
+    }
     // Update is called once per frame
     void Update()
     {
-        _objectiveCount = GameObject.FindGameObjectsWithTag("Placement").Length; //finds the objectives with the tag
-        counterText.text = _objectiveCount.ToString(); // converts the int into a string 
+        for (int i = 0; i < gameObjects.Length; i++)
+        {
+            if (gameObjects[i].transform.GetChild(0).gameObject.activeSelf)
+            {
+
+                _completedObjectives += 1;
+            }
+
+        }
+        counterText.text = string.Format("{0:0}/{1:0}", _completedObjectives ,_objectiveCount);
     }
 }
