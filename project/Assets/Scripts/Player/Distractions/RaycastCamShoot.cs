@@ -11,13 +11,7 @@ public class RaycastCamShoot : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Determines what gun is accessed.
-        switch (DistractionController.inHandProjectile)
-        {
-            case 0:
-                fairyCam.gameObject.SetActive(true);
-                break;
-        }
+        fairyCam.gameObject.SetActive(true);
     }
 }
 
