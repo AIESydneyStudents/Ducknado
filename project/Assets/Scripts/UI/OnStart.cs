@@ -17,8 +17,9 @@ public class OnStart : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         textBoxDialogue.SetActive(true);
-        FindObjectOfType<DialogueManager>().StartDialogue(newdialogue);
+        panelImage.gameObject.SetActive(true);
         panelImage.color = new Color(panelImage.color.r, panelImage.color.g, panelImage.color.b, 255);
+        FindObjectOfType<DialogueManager>().StartDialogue(newdialogue);
     }
 
     //Update is called once per frame

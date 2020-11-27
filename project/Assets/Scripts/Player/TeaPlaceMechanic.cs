@@ -44,7 +44,8 @@ public class TeaPlaceMechanic : MonoBehaviour
     }
     IEnumerator StopTimer()
     {
-        Time.timeScale = 0;//Set time scale to 0;
+        //Time.timeScale = 0;//Set time scale to 0;
+        PlayerMovement.gameOver = true;
         FadeOutScreen.SharedInstance._fadeOutScreen.SetActive(true);
         FadeOutScreen.SharedInstance.fadeIn = true;//Fades in
         yield return StartCoroutine(MyCoroutine(2));//Timer
@@ -57,6 +58,7 @@ public class TeaPlaceMechanic : MonoBehaviour
         FadeOutScreen.SharedInstance.fadeIn = false;//Stops the fading in
         FadeOutScreen.SharedInstance.fadeOut = false;//Stops the fading out
         transitionDone = true;
+        PlayerMovement.gameOver = true;
 
     }
 

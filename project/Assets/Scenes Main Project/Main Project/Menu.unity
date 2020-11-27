@@ -4795,12 +4795,32 @@ PrefabInstance:
     - target: {fileID: 759607038732543902, guid: 849960bd595622c4f9e3abc4634ec543,
         type: 3}
       propertyPath: m_fontSize
-      value: 64
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 759607038732543902, guid: 849960bd595622c4f9e3abc4634ec543,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 64
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 759607038732543902, guid: 849960bd595622c4f9e3abc4634ec543,
+        type: 3}
+      propertyPath: m_text
+      value: PositiviTea
+      objectReference: {fileID: 0}
+    - target: {fileID: 759607038732543902, guid: 849960bd595622c4f9e3abc4634ec543,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 759607038732543902, guid: 849960bd595622c4f9e3abc4634ec543,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 759607038732543902, guid: 849960bd595622c4f9e3abc4634ec543,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 759607038732543903, guid: 849960bd595622c4f9e3abc4634ec543,
         type: 3}
@@ -5249,6 +5269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb0421abc1c97942b5902dbeebdd8b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fadeOutScreen: {fileID: 0}
   userPrompts: {fileID: 0}
   fadeIn: 0
   fadeOut: 0
