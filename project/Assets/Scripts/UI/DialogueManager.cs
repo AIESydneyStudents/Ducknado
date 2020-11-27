@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
         m_chatterAudio = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<AudioSource>();
         m_chatterAudio.loop = true;
         m_chatterAudio.Play();
-
+        m_chatterAudio.Pause();
     }
 
     public void StartDialogue(Dialogue dialogue)
