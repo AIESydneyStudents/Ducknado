@@ -13,6 +13,8 @@ public class FollowPath : MonoBehaviour
     float _waitTime = 3f; // controls the wait time at each waypoint
 
     bool _playerSearching = false;
+    bool _followingPlayer = false;
+    bool _foundDuringSearch = false;
 
     [SerializeField]
     float _searchTime = 2f;
@@ -70,16 +72,15 @@ public class FollowPath : MonoBehaviour
         if (fov._targetFound && !restart._playerPosrestart) //if the player has been caught in NPC LOS
         {
 
-            if (_playerSearching == false)
-            {
-                animator.ResetTrigger("walking");
-                animator.ResetTrigger("looking");
-                animator.ResetTrigger("alerted");
-                animator.ResetTrigger("running");
-                animator.SetTrigger("ReSeen");
-            }
-            SeekingPlayer();
 
+            if (!_followingPlayer && _playerSearching)
+            {
+                PlayerFoundDuringSearch();
+            }
+
+                SeekingPlayer();
+
+            
             if (restart._playerPosrestart)
             {
                 PathFinding();
@@ -87,6 +88,12 @@ public class FollowPath : MonoBehaviour
         }
         if (!fov._targetFound || restart._playerPosrestart)
         {
+            if (_followingPlayer)
+            {
+                _playerSearching = true;
+                
+            }
+
             if (_playerSearching)
             {
                 SearchingForPlayer();
@@ -148,9 +155,9 @@ public class FollowPath : MonoBehaviour
         animator.SetTrigger("walking");
 
         _navMeshAgent.speed = currentSpeed;
-
+        _followingPlayer = false;
         fov._targetFound = false;
-        //_playerSearching = false;
+        _playerSearching = false;
 
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f) // if the object is travelling and checks the distance is less than 1 unit
         {
@@ -183,14 +190,19 @@ public class FollowPath : MonoBehaviour
     private void SearchingForPlayer()
     {
         _waitTimer += Time.deltaTime;
-        animator.ResetTrigger("running");
-        animator.ResetTrigger("walking");
-        animator.ResetTrigger("alerted");
-        animator.ResetTrigger("ReSeen");
-        animator.SetTrigger("looking");
-        if (_waitTimer >= _searchTime) // if the timer greater than the requested wait time, object is no longer waiting and new position is set
+        if (_playerSearching && _followingPlayer)
         {
+            animator.ResetTrigger("running");
+            animator.ResetTrigger("walking");
+            animator.ResetTrigger("alerted");
+            animator.ResetTrigger("ReSeen");
+            animator.SetTrigger("looking");
+            _followingPlayer = false;
 
+        }
+
+        if (_waitTimer >= _searchTime || fov._targetFound) // if the timer greater than the requested wait time, object is no longer waiting and new position is set
+        {
             _playerSearching = false;
             _waitTimer = 0f;
         }
@@ -203,18 +215,25 @@ public class FollowPath : MonoBehaviour
         }
         else
         {
-            animator.ResetTrigger("ReSeen");
-            animator.ResetTrigger("walking");
-            animator.ResetTrigger("looking");
-            animator.ResetTrigger("alerted");
-            animator.SetTrigger("running");
+            if (!_foundDuringSearch)
+            {
+                animator.ResetTrigger("ReSeen");
+                animator.ResetTrigger("walking");
+                animator.ResetTrigger("looking");
+                animator.ResetTrigger("alerted");
+                animator.SetTrigger("running");
+            }
+          
             _navMeshAgent.speed = _chasingSpeed;
+            _followingPlayer = true;
+            _playerSearching = false;
+            _foundDuringSearch = false;
+
 
             _targetVector = player.transform.position; //target is changed from previous function to player
 
             _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target    
         }
-        _playerSearching = true;
 
     }
     private void DistractionDetected()
@@ -226,5 +245,23 @@ public class FollowPath : MonoBehaviour
             _navMeshAgent.SetDestination(_targetVector); // player set as vector set as agents target
 
         }
+    }
+    private void PlayerFoundDuringSearch()
+    {
+        _waitTimer = 0f;
+        _playerSearching = false;
+        _followingPlayer = true;
+        _foundDuringSearch = true;
+        //animator.ResetTrigger("ReSeen");
+        //animator.ResetTrigger("walking");
+        //animator.ResetTrigger("looking");
+        //animator.ResetTrigger("alerted");
+        //animator.SetTrigger("running");
+        animator.ResetTrigger("walking");
+        animator.ResetTrigger("looking");
+        animator.ResetTrigger("alerted");
+        animator.ResetTrigger("running");
+        animator.SetTrigger("ReSeen");
+
     }
 }
