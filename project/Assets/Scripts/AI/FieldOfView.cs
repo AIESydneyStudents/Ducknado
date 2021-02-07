@@ -34,6 +34,9 @@ public class FieldOfView : MonoBehaviour
     [HideInInspector]
     public bool _distractionFound; // Has butterfly been detected
 
+    [HideInInspector] 
+    bool _drawCone;
+
     [HideInInspector]
     public GameObject player;
 
@@ -80,7 +83,17 @@ public class FieldOfView : MonoBehaviour
 
     void LateUpdate()
     {
-        DrawFieldOfView();
+        _drawCone = false;
+        float dstToTarget = Vector3.Distance(transform.position, player.transform.position);
+
+        if (dstToTarget < 20)
+        {
+            _drawCone = true;
+        }
+        if (_drawCone == true)
+        {
+            DrawFieldOfView();
+        }
     }
 
     public void FindVisibleTargets()
@@ -95,21 +108,13 @@ public class FieldOfView : MonoBehaviour
             {
                 _targetFound = true;
                 TeaPlaceMechanic._teaCanBePlaced = false;
-                //teaImage = GameObject.FindGameObjectWithTag("TeaPotImg");
-                //if (teaImage.activeSelf == true && activeOnce == false)
-                //{
-                //    activeOnce = true;
-                //    ProjectileChange.newProjectiles.CantPlaceTeaSeenVoid();
-                //}
             }
             else
             {
-                //teaImage = GameObject.FindGameObjectWithTag("TeaPotImg");
                 restart._playerPosrestart = false;
                 _targetFound = false;
                 TeaPlaceMechanic._teaCanBePlaced = true;
-                //if (teaImage.activeSelf == true && activeOnce == true)
-                //    activeOnce = false;
+
             }
         }
     }
@@ -141,69 +146,78 @@ public class FieldOfView : MonoBehaviour
         List<Vector3> viewPoints = new List<Vector3>();
         ViewCastInfo oldViewCast = new ViewCastInfo();
 
+        float dstToTarget = Vector3.Distance(transform.position, player.transform.position);
 
-        for (int i = 0; i <= stepCount; i++)
+        if (dstToTarget < 40)
         {
-            float angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
-            ViewCastInfo newViewCast = ViewCast(angle);
+            _drawCone = true;
+        }
 
-            if (i > 0)
+        if (_drawCone == true)
+        {
+            for (int i = 0; i <= stepCount; i++)
             {
-                bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > _edgeDstThreshold;
-                if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded))
+                float angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
+                ViewCastInfo newViewCast = ViewCast(angle);
+
+                if (i > 0)
                 {
-                    EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
-                    if (edge.pointA != Vector3.zero)
+                    bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > _edgeDstThreshold;
+                    if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded))
                     {
-                        viewPoints.Add(edge.pointA);
+                        EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
+                        if (edge.pointA != Vector3.zero)
+                        {
+                            viewPoints.Add(edge.pointA);
+                        }
+                        if (edge.pointB != Vector3.zero)
+                        {
+                            viewPoints.Add(edge.pointB);
+                        }
                     }
-                    if (edge.pointB != Vector3.zero)
-                    {
-                        viewPoints.Add(edge.pointB);
-                    }
+
                 }
-
+                viewPoints.Add(newViewCast.point);
+                oldViewCast = newViewCast;
             }
-            viewPoints.Add(newViewCast.point);
-            oldViewCast = newViewCast;
-        }
 
-        int vertexCount = viewPoints.Count + 1;
-        Vector3[] vertices = new Vector3[vertexCount];
-        int[] triangles = new int[(vertexCount - 2) * 3];
+            int vertexCount = viewPoints.Count + 1;
+            Vector3[] vertices = new Vector3[vertexCount];
+            int[] triangles = new int[(vertexCount - 2) * 3];
 
-        vertices[0] = Vector3.zero;
-        for (int i = 0; i < vertexCount - 1; i++)
-        {
-            vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]) + Vector3.forward * _maskCutawayDst;
-
-            if (i < vertexCount - 2)
+            vertices[0] = Vector3.zero;
+            for (int i = 0; i < vertexCount - 1; i++)
             {
-                triangles[i * 3] = 0;
-                triangles[i * 3 + 1] = i + 1;
-                triangles[i * 3 + 2] = i + 2;
+                vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]) + Vector3.forward * _maskCutawayDst;
+
+                if (i < vertexCount - 2)
+                {
+                    triangles[i * 3] = 0;
+                    triangles[i * 3 + 1] = i + 1;
+                    triangles[i * 3 + 2] = i + 2;
+                }
             }
-        }
 
-        if (_targetFound) //if the target is found inside fov chnage the color to detected
-        {
-            _viewMeshRenderer.material.color = _detectedColor;
-            viewAngle = 360;
-            viewRadius = detectedViewAngle;
-        }
-        else
-        {
-            _viewMeshRenderer.enabled = true;
-            viewAngle = oldViewAngle;
-            viewRadius = oldViewRadius;
-            _viewMeshRenderer.material.color = _undetectedColor;
-        }
-        viewMesh.Clear();
+            if (_targetFound) //if the target is found inside fov chnage the color to detected
+            {
+                _viewMeshRenderer.material.color = _detectedColor;
+                viewAngle = 360;
+                viewRadius = detectedViewAngle;
+            }
+            else
+            {
+                _viewMeshRenderer.enabled = true;
+                viewAngle = oldViewAngle;
+                viewRadius = oldViewRadius;
+                _viewMeshRenderer.material.color = _undetectedColor;
+            }
+            viewMesh.Clear();
 
 
-        viewMesh.vertices = vertices;
-        viewMesh.triangles = triangles;
-        viewMesh.RecalculateNormals();
+            viewMesh.vertices = vertices;
+            viewMesh.triangles = triangles;
+            viewMesh.RecalculateNormals();
+        }
     }
 
 
