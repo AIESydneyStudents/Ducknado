@@ -35,7 +35,7 @@ public class FieldOfView : MonoBehaviour
     public bool _distractionFound; // Has butterfly been detected
 
     [HideInInspector] 
-    bool _drawCone;
+    bool _drawCone = true;
 
     [HideInInspector]
     public GameObject player;
@@ -66,8 +66,8 @@ public class FieldOfView : MonoBehaviour
         oldViewAngle = viewAngle; //stores the initialised value
 
         restart = player.GetComponent<PlayerRestart>();
-
         StartCoroutine("FindTargetsWithDelay", .2f);
+        DrawFieldOfView();
     }
 
 

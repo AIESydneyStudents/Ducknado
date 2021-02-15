@@ -42,7 +42,6 @@ public class FollowPath : MonoBehaviour
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        //animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         restart = player.GetComponent<PlayerRestart>();
         _navMeshAgent = this.GetComponent<NavMeshAgent>(); // gets the navmesh component of the gameobject this script is attached to
         animator.SetTrigger("walking");
@@ -72,14 +71,11 @@ public class FollowPath : MonoBehaviour
         if (fov._targetFound && !restart._playerPosrestart) //if the player has been caught in NPC LOS
         {
 
-
             if (!_followingPlayer && _playerSearching)
             {
                 PlayerFoundDuringSearch();
             }
-
                 SeekingPlayer();
-
             
             if (restart._playerPosrestart)
             {
@@ -252,11 +248,6 @@ public class FollowPath : MonoBehaviour
         _playerSearching = false;
         _followingPlayer = true;
         _foundDuringSearch = true;
-        //animator.ResetTrigger("ReSeen");
-        //animator.ResetTrigger("walking");
-        //animator.ResetTrigger("looking");
-        //animator.ResetTrigger("alerted");
-        //animator.SetTrigger("running");
         animator.ResetTrigger("walking");
         animator.ResetTrigger("looking");
         animator.ResetTrigger("alerted");
